@@ -1,0 +1,309 @@
+% -*- coding: utf-8 -*-
+\documentclass[a4j]{jbook}
+%\documentclass[a4j]{ltjsbook}
+\iffalse\else
+\usepackage{atbegshi}
+\ifnum 42146=\euc"A4A2 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}\else%"
+\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}\fi
+\fi
+%\usepackage[T1]{fontenc}
+\usepackage
+%[dvips]
+[dvipdfm]
+{graphicx,color}
+
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usepackage{array,longtable}
+%\usepackage{moreverb}
+\usepackage{fancyvrb}
+\newcommand{\YEAR}{2016}
+\newif\ifHyperref
+\newif\ifProblemfirst
+\Hyperreftrue
+%\Hyperreffalse
+\ifHyperref
+\usepackage[
+%pdfencoding=auto,
+%dvips,
+dvipdfm,
+bookmarks=true,bookmarksnumbered=true,%
+bookmarkstype=toc]{hyperref}
+\fi
+%
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\bottomfraction}{0.95}
+\newwrite\listout
+\openout\listout \jobname000.tex
+\newwrite\lll
+\openout\lll \jobname.lll
+\newtheorem{Example}{例}[chapter]
+\renewcommand{\theExample}{\thechapter.\arabic{Example}}
+\newtheorem{Problem}{問題}[chapter]
+\renewcommand{\theProblem}{\thechapter.\arabic{Problem}}
+\newtheorem{PreLearn}{予習問題}[chapter]
+\renewcommand{\thePreLearn}{\thechapter.\arabic{PreLearn}}
+%
+% \ShowFig
+% Show graphics 
+%  #1 graphics width with respcet to \textwidth
+%  #2 figure position
+%  #3 eps file name 
+%  #4 the caption of the figure
+%  #5 the label of the figure
+%
+\newcommand{\ShowFig}[5]{%
+\begin{figure}[#2]
+ \begin{center}
+    \includegraphics[width=#1\textwidth]{./\CH#3.eps}\\
+  \caption{#4}\label{#5}
+ \end{center}
+\end{figure}}
+%
+\def\RELAX{\relax}
+\newcommand{\SetHead}{\large\bfseries}
+\newcommand{\WriteHead}[3]{%
+   \IMM\write\answer{##{#1}{#2}{#3}}
+}
+\newcommand{\ListFile}[5]{\noindent {\SetHead #1 #4(#5ページ) #3}}
+%\fi
+\newcommand{\SetTT}{\texttt}
+%
+\input Macro/mkindex.tex
+\Bodytrue
+%
+\newcommand{\ShowFigs}[5]{\begin{figure}[#2]
+\def\SB{#1}%
+\hspace*{\fill}\showPsDo#3\relax%\hspace*{\fill}%
+\caption{#4}\label{#5}%
+\end{figure}}
+
+\newcommand{\showPsDo}[1]{%
+%\def\TTT{#1}
+%\ifx\TTT\RELAX\else%
+\ifx#1\relax\else%
+\includegraphics[width=\SB\textwidth]{./\CH#1.eps}\hspace*{\fill}%
+\expandafter\showPsDo\fi%
+}
+\newcommand{\ShowG}[5]{%
+\parbox{#1\textwidth}
+ {\hspace*{\fill}%
+   \scalebox{#1}{\includegraphics{./\CH#3.eps}}\hspace*{\fill}\\
+   \refstepcounter{figure}
+   \hspace*{\fill}{\figurename} \thefigure\ : {#4}\hspace*{\fill}\label{#5}
+\addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{#4}}}
+}
+\newcommand{\ShowGraphicP}{\ShowG}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+%
+\newcounter{svglist}[chapter]
+\renewcommand{\thesvglist}{\thechapter.\arabic{svglist}}
+%
+\newcommand{\SVGDir}{\CH}
+\newcommand{\PHPDir}{\CH}
+\newcommand{\HTMLDir}{\CH}
+\newcommand{\PHPList}[3]{%
+   \PListN{#1}{\PHPDir#2.php}{#3}{svglist}{PHP}}
+\newcommand{\Href}[2]{\ifHyperref\href{#1}{#2}\else\ref{#2}\fi%
+     \footnote{\texttt{#1}}}
+\newcommand{\Aref}[2]{\ifHyperref\hyperref[#2]{#1\ref*{#2}}\else#1\ref*{#2}{}\fi}
+\newcommand{\INPUT}[2]{%
+\Problemfirsttrue%
+  \gdef\CHn{#1}\xdef\CH{\CHn/}\input \CH#2
+           \clearpage%\ifodd\value{page}\else\ \clearpage\fi
+}
+\newcommand{\ListAttribsF}[4]{%
+  \begin{table}[ht]
+     \caption{#2}\label{#1}%
+   \hfill%\begin{center}
+    \begin{tabular}[t]{#3}
+       \hline
+       \ShowExpF#4\relax\relax\relax
+    \end{tabular}
+    \hspace*{\fill}%\end{center}
+  \end{table}
+}
+%
+\newcommand{\ListAttribs}[3]{%
+  \begin{table}[ht]
+     \label{#1}\caption{#2}%
+    \begin{center}
+      \begin{tabular}[t]{|c|c|c|}
+        \hline
+        属性名& 意味& 属性値\\\hline
+       \ShowExp#3\relax\relax\relax
+      \end{tabular}
+    \end{center}
+  \end{table}
+}
+%
+\newcommand{\ShowExpF}[3]{%
+%  \def\TTT{#1}
+%  \ifx\TTT\RELAX\else
+  \ifx#1\relax\else
+    {#1}&#2&#3\\\hline
+    \expandafter\ShowExpF%
+  \fi}
+%
+\newcommand{\ShowExp}[3]{%
+%   \def\TTT{#1}
+%   \ifx\TTT\RELAX\else
+   \ifx#1\relax\else
+     \Attrib{#1}&#2&#3\\\hline
+     \expandafter\ShowExp%
+   \fi}
+%
+\newcommand{\SetAttribExp}[1]{%
+  \begin{tabular}{@{}cc@{}}
+    \SetAttribExpDo#1\relax\relax
+  \end{tabular}}
+\newcommand{\SetAttribExpDo}[2]{%
+%  \def\TTT{#1}
+%\ifx\TTT\RELAX\else
+   \ifx#1\relax\else
+    \AttribOVal{#1}{} &#2\\\expandafter\SetAttribExpDo\fi}
+%
+\input Macro/Browser.tex
+\newcommand{\Bezier}{B\'{e}zier}
+\newcommand{\JS}{JavaScript}
+%
+
+\newcounter{fileNo}
+\newcommand{\DefLabel}[2]{%
+%  \setcounter{fileNo}{#1}\refstepcounter{fileNo}\label{#2}
+\expandafter\xdef\csname #2\endcsname{#1}%
+}
+%
+\newcommand{\SVGListN}[3]{
+   \PListN{#1}{\SVGDir#2.svg}{#3}{svglist}{SVG}}
+\newcommand{\JSListN}[3]{
+   \PListN{#1(#2.js)}{\SVGDir#2.js}{#3}{svglist}{\JS}}
+\newcommand{\XMLListN}[3]{
+   \PListN{#1}{\SVGDir#2.xml}{#3}{svglist}{XML}}
+\newcommand{\HTMLListN}[3]{%
+   \PListN{#1 (#2.html)}{\SVGDir#2.html}{#3}{svglist}{HTML}}
+\newcommand{\HTMLListMN}[3]{%
+   \PListN{#1}{\SVGDir#2.html}{#3}{svglist}{HTML}}
+\newcommand{\CSSListN}[3]{%
+   \PListN{#1}{\SVGDir#2.css}{#3}{svglist}{CSS}}
+\newcommand{\ProgramListN}[3]{%
+\PListN{#1 (#2.css)}{program/#2}{#3}{programlst}{プログラムリスト}}
+\newcommand{\PHPListN}[3]{%
+   \PListN{#1 (#2.php)}{\PHPDir#2.php}{#3}{svglist}{PHP}}
+\newcommand{\PHPListNN}[3]{%
+   \PListN{#1}{\PHPDir#2.php}{#3}{svglist}{PHP}}
+%
+\newread\ttttt
+\def\RemoveSep#1/#2.#3\relax{#1-#2-#3}
+\renewcommand{\theFancyVerbLine}{\small\arabic{FancyVerbLine}}
+\newcommand{\PListN}[5]{%
+   \refstepcounter{#4}\label{#3}%
+   \vspace{\baselineskip}
+\VerbatimInput[
+  label={\large{\bfseries #5 リスト}\csname the#4\endcsname: #1},
+  frame=single, framerule=0mm, framesep=0.8em, fontsize=\small,
+  labelposition=topline,
+  numbers=left,firstnumber=1, numbersep=6pt]{#2.ref}
+  \gdef\CurrentFile{#2}
+  \xdef\Tmp{\CurrentFile}
+  \xdef\CurrentFileN{\expandafter\RemoveSep\Tmp\relax}
+\typeout \CurrentFileN
+  \openin\ttttt=\CurrentFile.tex
+  \ifeof\ttttt\closein\ttttt\else\closein\ttttt \input
+  \CurrentFile.tex\fi
+%  \edef\Tmp{#2 #1}
+%  \IMM\write\listout{\Tmp} 
+  \IMM\write\listout{#2}
+%
+  \addcontentsline{lll}{list}{#5::\csname the#4\endcsname::#1::#2}
+  }
+
+\newcommand{\SelI}[4]{#1}
+\newcommand{\ListSub}[2]{%
+  \edef\Tmp{\expandafter\csname \CurrentFileN-#1\endcsname}
+\ListSubN{#1}{#2}{\Tmp}
+}
+\newcommand{\ListSubN}[3]{%
+\VerbatimInput[firstnumber=#3,numbers=left]{\CurrentFile.#1-#2}
+%  \listinginput{#3}{\CurrentFile.#1-#2}
+  \write\listout{\CurrentFile,#1,#2}
+}
+\newcommand{\SVG}{{\upshape SVG} 文書}
+\newcommand{\HTML}{{\upshape HTML} 文書}
+\newcommand{\DOM}{{\upshape DOM}}
+\newcommand{\Ref}[1]{\RefF{\CurrentFileN}{#1}}
+%\newcommand{\RefF}[2]{\expandafter\ref{#1-#2}}
+\newcommand{\RefF}[2]{\expandafter\csname #1-#2\endcsname}
+\newcounter{CREF}
+\newcommand{\Line}[1]{\mbox{}\Ref{#1}行目}
+\newcommand{\LineR}[2]{\Line{#1}から\Line{#2}}
+\newcommand{\Lines}[2]{\Line{#1}と\Line{#2}}
+\newcommand{\LineF}[3]{\mbox{}\RefF{CH#1/#2}{#3}行目}
+\newcommand{\LineA}[2]{%
+     \setcounter{CREF}{#1}\addtocounter{CREF}{#2}\arabic{CREF}行目}
+\newcommand{\ExpList}[1]{%
+\begin{itemize}
+\ExpListDo#1\relax
+\end{itemize}
+}
+\newcommand{\ExpListE}[1]{%
+\begin{enumerate}
+\ExpListDo#1\relax
+\end{enumerate}}
+\newcommand{\ExpListI}[1]{%
+\begin{itemize}
+\ExpListDo#1\relax
+\end{itemize}}
+\newcommand{\ExpListDo}[1]{%
+\def\TTT{#1}
+\ifx\TTT\RELAX\else
+\item #1\expandafter\ExpListDo\fi%
+}
+\newcommand{\SolSVGFile}[4]{%
+   \WriteHead{#1}{#2}{#3}
+   \IMM\write\answer{\string\VerbatimInput[numbers=left,firstnumber=1, numbersep=6pt]}
+   \IMM\write\answer{{\CH#4.svg}}
+}
+\newcommand{\ProbwithFigSol}[6]{%
+\CheckFirst%
+  \begin{Problem}\upshape\problabel{#1}
+    図\ref{#1}は#6
+    \ShowFig{#2}{#3}{#1}{#4}{#1}
+    \SolSVGFile{問題}{prob-#1}{#4}{#5}
+  \end{Problem}
+}
+\newcommand{\ProbwithSolOnly}[3]{%
+\CheckFirst%
+  \begin{Problem}\upshape\problabel{#1}
+    #2
+  \end{Problem}
+   \WriteHead{問題}{prob-#1}{\relax}
+    \IMM\write\answer{\noexpand\par\noindent}
+    \IMM\write\answer{#3}
+    \IMM\write\answer{  \noexpand\par}
+}
+\newcommand{\ProbwithSol}[4]{\ProbwithSolC{#1}{#2}{#3}{#4}{\relax}}
+\newcommand{\ProbwithSolC}[5]{%
+\CheckFirst%
+  \begin{Problem}\upshape\problabel{#1}
+    #4
+    \SolSVGFileC{問題}{prob-#1}{#2}{#3}{#5}
+  \end{Problem}
+}
+\newcommand{\SolSVGFileC}[5]{%
+   \WriteHead{#1}{#2}{#3}
+   \def\TTT{#5}
+   \ifx\TTT\RELAX\else
+     \IMM\write\answer{\noexpand\par{\string #5}}
+   \fi
+   \IMM\write\answer{\string\VerbatimInput[numbers=left,firstnumber=1, numbersep=6pt]}
+   \IMM\write\answer{{\CH#4.svg}}
+}
+
+\newcommand{\CheckFirst}{%
+  \ifProblemfirst\Problemfirstfalse
+    \IMM\write\answer{\protect\section{第\thechapter 章}}
+  \fi
+}
+\newcommand{\problabel}[1]{\label{prob-#1}}

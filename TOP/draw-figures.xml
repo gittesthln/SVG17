@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:svg="http://www.w3.org/2000/svg" >
+  <head>
+  <script type="text/ecmascript">
+<![CDATA[
+var htmlNS = "http://www.w3.org/1999/xhtml";
+var svgNS = "http://www.w3.org/2000/svg";
+var Canvas, Rect, Table;
+var FillColor, Width, Figure, StrokeColor, FillOpacity, strokeOpacity;
+var Colors=["red","赤","magenta","ピンク","orange","オレンジ",
+            "yellow","黄色","green","緑","lime","黄緑","blue","青",
+            "cyan","水色","gray","灰色","black","黒","white","白"];
+var Widths =["1","極細","3","細","5","普通","10","太","20","極太"];
+var Forms =["path","曲線","line","直線","rect","四角形","ellipse","円"];
+var Opacities=["1","100%","0.90","90%","0.8","80%","0.7","70%","0.6","60%",
+               "0.5","50%","0.4","40%","0.3","30%","0.2","20%","0.1","10%",
+               "0","0%"];
+var XOffset = 20, YOffset= 20;
+function init()
+{
+  Canvas=document.getElementById("Canvas");
+  Canvas.addEventListener("mousedown", mdown, false);
+  Canvas.addEventListener("mousemove", mmove, false);
+  Canvas.addEventListener("mouseup", mup, false);
+  Rect = document.getElementById("Rect");
+  Table = document.getElementById("Table");
+  Figure  = makeSelect(Table, "形", "", Forms);
+  Width = makeSelect(Table, "直線・外枠の幅", "", Widths);
+  StrokeColor = makeSelect(Table, "線・外枠の色", "", Colors);
+  StrokeOpacity  = makeSelect(Table, "線の色の不透明度", "", Opacities);
+  FillColor = makeSelect(Table, "塗りつぶし", "線では使用不可", Colors);
+  FillOpacity  = makeSelect(Table, "塗り潰し不透明度", "", Opacities);
+//  makeSelect(Table, "", "", "");
+}
+function makeSelect(P, BText, AText, Opts) {
+  var TR, TD, Select;
+  TR = makeElem(null, htmlNS, "tr", []);
+  TD = makeElem(TR, htmlNS, "td",[]);
+  TD.appendChild(document.createTextNode(BText));
+  TD = makeElem(TR, htmlNS, "td",[]);
+  Select = makeElem(TR, htmlNS, "select", []);
+  TD = makeElem(TR, htmlNS, "td",[]);
+  TD.appendChild(document.createTextNode(AText));
+  if(P) P.appendChild(TR);
+  SetOpt(Select, Opts);
+  return Select;
+}
+function makeElem(P, NS, Elem, Attribs) {
+  var NewElem = document.createElementNS(NS, Elem);
+  if(P) P.appendChild(NewElem);
+   setAttributes(NewElem, Attribs);
+  return NewElem;
+}
+function setAttributes(Obj, Attribs) {
+  for( var i=0; i<Attribs.length; i+=2) {
+    Obj.setAttribute(Attribs[i], Attribs[i+1]);
+  }
+}
+function SetOpt(Opt, Vs) {
+var tmp;
+  for( var i=0; i<Vs.length; i+=2) {
+    tmp=makeElem(Opt, htmlNS, "option", ["value",Vs[i]]);
+    tmp.appendChild(document.createTextNode(Vs[i+1]));
+  }
+}
+var NewObj = null;
+var x1, y1, x2, y2, d;
+function mdown(event)
+{
+  x1 = parseInt(event.clientX)-XOffset;
+  y1 = parseInt(event.clientY)-YOffset;
+  switch(Figure.value)
+  {
+    case "path":
+      d = "M"+x1+","+y1;
+      NewObj = makeElem(null, svgNS, "path", 
+        ["d", d, "stroke", StrokeColor.value,
+         "stroke-width", Width.value, "stroke-opacity", StrokeOpacity.value, 
+         "fill","none"]);
+    break;
+    
+    case "line":
+      NewObj = makeElem(null, svgNS, "line", 
+        ["x1",x1, "y1", y1, "x2", x1, "y2", y1,
+         "stroke", StrokeColor.value, "stroke-width", Width.value,
+         "stroke-opacity", StrokeOpacity.value, 
+         "fill", FillColor.value, "fill-opacity",FillOpacity.value]);
+    break;
+    
+    case "rect":
+      NewObj = makeElem(null, svgNS, "rect", 
+           ["x", x1, "y", y1, "width","0", "height","0",
+            "stroke", StrokeColor.value, "stroke-width", Width.value,
+            "stroke-opacity", StrokeOpacity.value, 
+            "fill", FillColor.value, "fill-opacity",FillOpacity.value]);
+    break;
+    
+    case "ellipse":
+      NewObj = makeElem(null, svgNS, "ellipse", 
+            ["rx","0", "ry","0", "cx", x1, "cy", y1,
+             "stroke",StrokeColor.value, "stroke-width", Width.value,
+             "stroke-opacity", StrokeOpacity.value,
+             "fill", FillColor.value, "fill-opacity", FillOpacity.value]);
+    break;
+    
+  }
+  Canvas.insertBefore(NewObj,Rect);
+}
+
+function mmove(event)
+{
+  x2 = parseInt(event.clientX)-XOffset;
+  y2 = parseInt(event.clientY)-YOffset;
+  if(NewObj) {
+    switch(Figure.value)
+    {
+      case "path":
+        d+=" "+x2+","+y2;
+        NewObj.setAttribute("d",d);
+      break;
+      
+      case "line":
+        setAttributes(NewObj, ["x2",x2, "y2",y2]);
+      break;
+      
+      case "rect":
+        setAttributes(NewObj,(x2>x1)?["x",x1, "width", x2-x1]:["x",x2, "width",x1-x2]);
+        setAttributes(NewObj,(y2>y1)?["y",y1, "height",y2-y1]:["y",y2, "height",y1-y2]);
+      break;
+      
+      case "ellipse":
+        setAttributes(NewObj, ["cx", (x1+x2)/2, "cy", (y1+y2)/2,
+            "rx", Math.abs((x2-x1)/2), "ry", Math.abs((y2-y1)/2)]);
+      break;
+    }
+  }
+}
+
+function mup(event)
+{
+  NewObj=null;
+}
+
+]]> </script>
+  <style type="text/css">
+ .svg {position:absolute; left:20px; top:20px;}
+table {position:absolute; left:440px; top:20px; }
+select {font-size:25px;}
+   </style>
+  </head>
+<title>ペイント</title>
+  <body onload="init()">
+    <svg:svg class="svg" width="400px" height="400px" id="Canvas">
+      <svg:rect id="Rect" x="0" y="0" width="400" height="400"
+                stroke="black" stroke-width="1" fill="lightgray"
+                fill-opacity="0" stroke-opacity="1"/>
+    </svg:svg>
+    <form>
+      <table id="Table"/>
+    </form>
+  </body>
+</html>

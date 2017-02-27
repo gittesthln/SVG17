@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" onload="init()">
+  <script type="text/ecmascript">
+//    <![CDATA[
+var Debug = false;
+var SVGNS = "http://www.w3.org/2000/svg";
+var RMax = 300;
+var SWidth =0.8;
+var Ratio = 0.85;
+var UAng = 90/4;
+var UAng2 = UAng/2;
+var UAng4 = UAng/4;
+var C = Math.log(Ratio) /UAng2;
+var R0 = RMax;
+var BWidth = 4;
+var Col1 = "#000", Col2="#CCC";
+var Canvas;
+function MakeSVGElement(elem, attribs) {
+  var SVGElement = document.createElementNS(SVGNS,elem);
+  var i;
+  for( i=0; i<attribs.length; i+=2) {
+    SVGElement.setAttribute(attribs[i],attribs[i+1]);
+  }
+  return SVGElement;
+}
+function Deg2Rad(degree) {
+  return Math.PI/180*degree;
+}
+function SetPos(R,deg) {
+  var ang = Deg2Rad(deg);
+  var Rtmp = Math.exp(C*R)*R0;
+  return " "+(Rtmp*Math.cos(ang))+","+(Rtmp*Math.sin(ang));
+}
+var step = 10;
+function DrawCurve(FrR, FrAng, ToR, ToAng) {
+  var d = "", i, DR, DAng;
+  DR = ToR-FrR;
+  DAng = ToAng-FrAng;
+  for(i=0;i<=step; i++) {
+    d += SetPos(FrR+DR*i/step,FrAng+DAng*i/step);
+  }
+  return d;
+}
+function checkang(ang) {
+  return Math.exp(C*ang)*R0>10;
+}
+function init() {
+  var R, ang, line, g, spiral1, spiral2, d, path, path2, w;
+  Canvas = document.getElementById("canvas");
+if(Debug) {
+  for(R = RMax; R >2; R *= Ratio) {
+    Canvas.appendChild(
+      MakeSVGElement("circle",
+       ["r",R,'stroke-width',"1","fill", "none", "stroke","black"]));
+  }
+  line = MakeSVGElement("line",
+       ["x1",0,'y1',"0","x2",RMax+10,'y1',"0", "stroke","black"]);
+}
+  d = "";
+  for(ang=0; checkang(ang); ang += UAng2) {
+  d += "M"+
+     DrawCurve(ang,      ang,            ang + UAng4, ang+UAng4)+
+     DrawCurve(ang + UAng4, ang + UAng4, ang + UAng2, ang)+ 
+     DrawCurve(ang + UAng2, ang,         ang + UAng4, ang-UAng4)+ 
+     DrawCurve(ang + UAng4, ang - UAng4, ang, ang)+ 
+     "z";
+  }
+  path = MakeSVGElement("path",
+     ["d",d,"stroke-width","1","stroke","none","fill", Col1]);
+  d = "";
+  for(ang=UAng4; checkang(ang); ang += UAng2) {
+  d += "M"+
+     DrawCurve(          ang,       ang, ang + UAng4, ang+UAng4)+
+     DrawCurve(ang + UAng4, ang + UAng4, ang + UAng2, ang)+ 
+     DrawCurve(ang + UAng2, ang,         ang + UAng4, ang-UAng4)+ 
+     DrawCurve(ang + UAng4, ang - UAng4, ang, ang)+ 
+     "z";
+  }
+  path2 = MakeSVGElement("path",
+     ["d",d,"stroke-width","1","stroke","none","fill", Col2]);
+if(Debug) {
+  d = "M";
+  for(ang = 0; ang<180; ang +=0.25) {
+    d += SetPos(ang,ang);
+  }
+  spiral1 = MakeSVGElement("path",
+     ["d",d,"stroke-width","1","stroke","black","fill", "none"]);
+  d = "M";
+  for(ang = 0; ang<180; ang +=0.25) {
+    d += SetPos(ang,-ang);
+  }
+  spiral2 = MakeSVGElement("path",
+     ["d",d,"stroke-width","1","stroke","black","fill", "none"]);
+}
+if(Debug) {
+  for(ang = 0; checkang(ang); ang += UAng2) {
+    g = MakeSVGElement("g",["transform","rotate("+ang+")"]); 
+    g.appendChild(line.cloneNode(true));
+    g.appendChild(spiral1.cloneNode(true));
+    g.appendChild(spiral2.cloneNode(true));
+    g.appendChild(path.cloneNode(true));
+    Canvas.appendChild(g);
+  }
+} else {
+  for(ang = 0; ang<360; ang += UAng) {
+    g = MakeSVGElement("g",["transform","rotate("+ang+")"]); 
+    g.appendChild(path.cloneNode(true));
+    g.appendChild(path2.cloneNode(true));
+    Canvas.appendChild(g);
+    g = MakeSVGElement("g",["transform","rotate("+(ang+UAng2)+")"]); 
+    g.appendChild(path2.cloneNode(true));
+    Canvas.appendChild(g);
+  }
+  for(w=BWidth, R = RMax*Math.sqrt(Ratio); R>10; w*=Ratio, R *=Ratio) {
+    Canvas.appendChild(
+      MakeSVGElement("circle",
+         ["cx","0", "cy","0", "r",R,"stroke-width",w,"stroke","white",
+          "fill", "none"]));
+  }
+  R0 = RMax;
+  d = "";
+  for(ang = 0; ang<360; ang +=UAng2) {
+  d += "M" + DrawCurve(ang + UAng4-SWidth,ang-UAng4+SWidth,
+                      ang+UAng4+SWidth,ang+UAng-UAng4+SWidth)
+          + DrawCurve(ang+UAng4+SWidth,ang+UAng-UAng4+SWidth,
+                     ang+UAng4+SWidth,ang+UAng+UAng4-SWidth)
+          + DrawCurve(ang+UAng4+SWidth,ang+UAng+UAng4-SWidth,
+                      ang+UAng4-SWidth,ang+UAng4-SWidth)
+          + DrawCurve(ang+UAng4-SWidth,ang-UAng4+SWidth,
+                      ang+UAng4-SWidth,ang-UAng4+SWidth)
+  +"z";
+  }
+  path = MakeSVGElement("path",
+     ["d",d,"stroke-width","1","stroke","none","fill", Col1]);
+  for(ang = 0; ang<360; ang+=UAng) {
+    g = MakeSVGElement("g",["transform","rotate("+ang+")"]); 
+    g.appendChild(path.cloneNode(true));
+    Canvas.appendChild(g);
+  }
+}
+}
+//    ]]></script>
+<g id="canvas" transform="translate(310,310)" />
+</svg>

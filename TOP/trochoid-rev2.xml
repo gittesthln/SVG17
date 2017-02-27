@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+<title>trochoid</title>
+<script type="text/ecmascript">
+<![CDATA[
+var Rc = 200, Rm = 50, Pm = Rm;
+var Current, Step=2, pX, pY, Rd, Rr, NRot = 1, Lim;
+var C, CircleC, CircleM, PointM, rotateC, rotateD, Canvas, SLineG, Root, Curves;
+var Segments=[], CNo, NStep, CRot;
+function getElm(id) {
+  return document.getElementById(id);
+}
+function setAttribs(O,Attribs) {
+  for(var i=0;i< Attribs.length;i+=2) {
+    O.setAttribute(Attribs[i],Attribs[i+1]);
+  }
+}
+function SetElms(L) {
+  for(var i=0;i<L.length;i++) {
+    eval(L[i]+"=getElm(\""+L[i]+"\")");
+  }
+}
+function init() {
+  var i, table, TR, TD, O1;
+  SetElms(["Canvas","Curves","rotateC","rotateD","SLineG"]);
+  Root = Canvas.parentNode;
+  for(i=0;i<360; i+=30) {
+    O1 = SLineG.cloneNode(true);
+    O1.removeAttribute("id");
+    O1.setAttribute("transform","rotate("+i+")");
+    rotateD.appendChild(O1);
+  }
+  C = MKElmS(null, "path",["fill","none","stroke","black","stroke-width","3"]);
+  CNo = 0;
+  table =getElm("intable");
+  CircleC = setTR(table,"ShowC","定円","半径", Rc);
+  CircleM = setTR(table,"ShowM","動円","半径", Rm);
+  PointM  = setTR(table,"","動点","位置", Pm);
+  NStep   = setTR(table,"","表示","間隔", Step);
+  NRot    = setTR(table,"","回転","回数", 1);
+  CRot    = setTR(table,"","回転","角度", 0);
+  TR = MKElm(table, "tr",[]);
+  TD = MKElm(TR,"td",["colspan","4","align","center"]);
+  MKElm(TD,"button", 
+      ["onclick","javascript:start(); return false;"]
+      ).appendChild(document.createTextNode(" 開始"));
+  setCanvas();
+}
+function setTR(Obj,checkboxID,text1,text2,iniVal) {
+  var TR = MKElm(Obj,"tr",[]),TD,T;
+  TD = MKElm(TR, "td", []);
+  if(checkboxID !="") {
+    T = MKElm(TD,"input",["type","checkbox","id",checkboxID,"checked","checked"]);
+  }
+  TD = MKElm(TR, "td", []);
+  TD.appendChild(document.createTextNode(text1)); 
+  TD = MKElm(TR, "td", []);
+  TD.appendChild(document.createTextNode(text2)); 
+  TD = MKElm(TR, "td", []);
+  T  = MKElm(TD,"input",["type","text", "size","4"]);
+  T.value = iniVal;
+  return T;
+}
+function MKElm(P,tag,Attribs) {
+  return MKElmH(P,"http://www.w3.org/1999/xhtml",tag,Attribs);
+}
+function MKElmS(P,tag,Attribs) {
+  return MKElmH(P,"http://www.w3.org/2000/svg",tag,Attribs);
+}
+function MKElmH(P, NS, tag, Attribs) {
+  var T = document.createElementNS(NS,tag);
+  setAttribs(T, Attribs);
+  if(P) P.appendChild(T);
+  return T;
+}
+function setCanvas() {
+  var R, T, V, SL;
+  Rd = Rc-Rm;
+  Rr = Rc/Rm-1;
+  Pm = ((Rm>0)?1:(-1))*Math.abs(Pm);
+  Current = 0;
+  R = (Rc-2*Math.min(Rm,0))*1.2;
+  setAttribs(Root,["width", 2*R, "height", 2*R]);
+  setAttribs(Canvas,["transform", "translate("+R+","+R+")"]);
+  setAttribs(getElm("const"),["r",Rc,
+      "visibility", (getElm("ShowC").checked)?"visible":"hidden"]);
+  V = (getElm("ShowM").checked)?"visible":"hidden";
+  setAttribs(rotateC,
+     ["visibility", (getElm("ShowM").checked)?"visible":"hidden"]);
+  setAttribs(getElm("tM"),["transform","translate(0,"+(-Rd)+")"]);
+  setAttribs(getElm("discM"),["cy", -Pm]);
+  setAttribs(getElm("Cm"),["cy", (Rm-Rc), "r", Math.abs(Rm)]);
+  SL = Rm * 0.2;
+  setAttribs(getElm("SLine"),["d","M0,"+(-Rm)+" "+(-SL)+","+(-Rm-SL)]);
+  setAttribs(getElm("lineM"),["d", "M0,0 0,"+(-Rm+Math.min(Rm-Pm,0))]);
+  for(; CNo > 0; CNo--) Curves.removeChild(Segments[CNo-1]);
+  pX = 0;
+  pY = -Rc+Rm-Pm;
+  if(NRot.value <1) NRot.value =1;
+  Lim = 360* NRot.value;
+  if(Lim<=360) Lim = 360;
+}
+function start() {
+  Rc = parseInt(CircleC.value);
+  Rm = parseInt(CircleM.value);
+  Pm = parseInt(PointM.value);
+  Step = parseInt(NStep.value);
+  setCanvas();
+  drawCurve();
+}
+function drawCurve(){
+  var Next = Current +Step, rad, d;
+  if(Current<Lim) {
+    for( d="M"; Current<= Next; Current++) {
+      rad = Current/180*Math.PI;
+      pX = Rd*Math.sin(rad)-Pm*Math.sin(Rr*rad);
+      pY = -(Rd*Math.cos(rad)+Pm*Math.cos(Rr*rad));
+      d += pX+","+pY+" ";
+    }
+    Current = Next;
+    CNo++;
+    if(CNo >= Segments.length) { 
+      Segments[CNo-1] = C.cloneNode(false);
+    }
+    Curves.appendChild(Segments[CNo-1]);
+    Segments[CNo-1].setAttribute("d",d);
+    setAttribs(rotateC,["transform","rotate(" + (Current) +")"]);
+    setAttribs(rotateD,["transform","rotate("+(-Next*Rc/Rm)+")"]);
+    CRot.value = Current;
+    setTimeout("drawCurve()",100);
+  }
+}
+]]>
+</script>
+</head>
+<table>
+  <tr>
+    <td colspan="2" style="font-size:30px;" align="center">trochoidの表示</td>
+  </tr>
+  <tr>
+    <td>
+    <svg:svg width="200" height="200" onload="init()">
+      <svg:defs>
+        <svg:path id="SLine" stroke-width="2" stroke="black" fill="none" />
+        <svg:g id="SLineG"><svg:use xlink:href="#SLine"/></svg:g>
+      </svg:defs>
+      <svg:g id="Canvas" >
+        <svg:circle id="const" cx="0" cy="0" r="100"
+          fill="none" stroke-width="2" stroke="black"/>
+        <svg:g id="Curves" />
+        <svg:g id="rotateC">
+          <svg:circle id="Cm" cx="0" cy="0" r="50"
+            stroke-width="3" stroke="black" fill="none"/>
+          <svg:g id="tM">
+            <svg:g id="rotateD">
+              <svg:circle id="discM" cx="0" cy="-100" r="5" fill="black"/>
+	      <svg:path id="lineM" fill="none" stroke-width="2" stroke="black"/>
+            </svg:g>
+          </svg:g>
+        </svg:g>
+      </svg:g>
+    </svg:svg>
+    </td>
+    <td >
+      <table id="intable" />
+    </td>
+  </tr>
+</table>
+</html>

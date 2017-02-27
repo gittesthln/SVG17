@@ -1,0 +1,29 @@
+% -*- coding: utf-8 -*-
+\input svg-macro.tex
+\title{{\huge SVG ではじめる Web Graphics}\\(情報メディア基礎演習I)\\\today 改訂\\[1cm]
+ \begin{center}
+\scalebox{0.7}{\includegraphics{./ps/fraserspiral.eps}}
+\\フレイザーの渦巻き錯視 \end{center}}
+\author{}
+\date{}
+\makeindex
+\begin{document}
+\maketitle\clearpage
+\input copyright.tex
+\renewcommand{\thepage}{\roman{page}}
+\tableofcontents
+\listoffigures
+\cleardoublepage
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+\Basictrue
+\INPUT{01whatissvg.tex}
+\INPUT{02firstsvgexample.tex}
+\INPUT{03object.tex}
+\INPUT{04-2animation.tex}
+%\INPUT{05generatingsvg.tex}
+\INPUT{06abilityofsvg.tex}
+\INPUT{99refference.tex}
+\addcontentsline{toc}{chapter}{索引}
+\input 00svg.ind
+\end{document}
