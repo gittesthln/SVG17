@@ -1,23 +1,17 @@
 % -*- coding: utf-8 -*-
 \documentclass[a4j]{jbook}
-%\documentclass[a4j]{ltjsbook}
-\iffalse\else
 \usepackage{atbegshi}
 \ifnum 42146=\euc"A4A2 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}\else%"
 \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}\fi
-\fi
 %\usepackage[T1]{fontenc}
 \usepackage
 %[dvips]
-[dvipdfm]
-{graphicx,color}
+[dvipdfm]{graphicx,color}
 
 \usepackage{mathptmx}
 \usepackage{amsmath,amssymb}
 \usepackage{array,longtable}
-%\usepackage{moreverb}
 \usepackage{fancyvrb}
-\newcommand{\YEAR}{2016}
 \newif\ifHyperref
 \newif\ifProblemfirst
 \Hyperreftrue

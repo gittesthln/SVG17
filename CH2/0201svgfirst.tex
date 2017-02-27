@@ -1,0 +1,421 @@
+% -*- coding: utf-8 -*-
+\section{はじめてのSVGグラフィックス}
+\subsection{座標系について}
+ものの位置を示すためには座標系とその単位が必要です。SVG の場合は初期の段
+階では左上隅が原点 $(0,0)$ になり、単位はピクセル(px)です。水平方向は右の
+ほうへ行くにつれて、垂直方向は下に行くほどそれぞれ値が増大します(図
+\ref{coordinatesystem}参照)。
+\begin{figure}[h]%\refstepcounter{figure}
+ \begin{center}
+\setlength{\unitlength}{1cm}
+  \begin{picture}(12,6)(-1,-5)
+   \put(0,0){\line(1,0){10}}
+   \put(0,0){\line(0,-1){5}}
+   \put(0,0.3){\makebox[0em]{$(0,0)$}}
+   \put(0,0.3){\makebox[10cm][c]{$x\longrightarrow $ 大}}
+   \put(-0.5,0.3){\rotatebox{-90}{\makebox[5cm][c]{$y\longrightarrow $
+   大}}}
+   \put(4,-2){$\bullet$}
+   \put(4.3,-2){$(200,100)$}
+   \put(2,-4){$\bullet$}
+   \put(2.3,-4){$(100,200)$}
+  \end{picture}
+ \end{center}
+\caption{SVGの座標系}
+\label{coordinatesystem}
+\end{figure}
+
+後で述べるようにSVGではいくつかの図形をまとめて平行移動したり、
+回転させることが可能です。また、水平方向や垂直方向に拡大することも可
+能です(座標系がすでに回転していればその方向に拡大が行われます)。
+%
+\subsection{\SVG におけるコメントの記入方法}
+\SVG でコメント\IndexSet{コメント(SVG)}{}{}{}{}{}{}を入れる方法は \HTML
+と同様にコメントの部分を
+\texttt{<!--} と \texttt{-->} ではさみます。この本の中ではコメントをほと
+んど利用していません。
+\subsection{色について}\label{howtoindicatecolor}
+SVGで色を指定する方法は次の3種類です。\IndexSet{色の指定}{}{}{}{}
+\begin{enumerate}
+ \item 名称による指定\\英語名で色を指定します。
+ どのような名称があり、どのような色になるかは
+付録\ref{SVGColor}
+を見てください。
+ \item \AttribCVal{rgb}{}関数による色の指定\\
+色の3原色、赤、緑、青のそれぞれに対し$0\sim255$ の値を割り当てて指定し
+       ます。%次のようになっています。
+%
+なお、\AttribCVal{rgb}{}関数では $0\sim255$の値ではなく \Showattrib{\%}で
+       色の割合を指定することも可能です。たとえば \AttribCVal{red}{} は
+       \AttribCVal{rgb}{(100\%,0\%,0\%)} と表されます。
+ \item 16進数による色の指定\\
+$0\sim255$ までの数は16進数2桁で表すことができます。これを用いて
+       \AttribCVal{rgb}{}で定めた色を16進数6桁で表示ができます。
+ 
+このほかに各色の構成を16進数1桁で表し、16進数3桁で指定することもできます。
+\end{enumerate}
+%具体的には
+%\AttribVal{red}{}は \Showattrib{\#FF0000} と表すことができます。
+SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考にしてくださ
+       い。
+なお、特別な色として、塗らないことを指示する\AttribCVal{none}があります。
+\subsection{直線}
+図形のうちで一番簡単な直線を描いてみましょう。次の例を見てください。
+
+\ShowFig{0.45}{ht}{linecap}
+     {直線と端の指定\AttribO{stroke-linecap}の違い}{example-line}
+     これを描いたSVGファイルの内容は次のとおりです。
+%\newpage
+\SVGListN{直線の例}{linecap}{linecap}
+\begin{itemize}
+ \item \Line{xmldec}はこのファイルが XML の規格に基づいて書かれている
+       ことを宣言
+       しています。この行の先頭に空白があってはいけません。また
+       \texttt{<?xml}の部分も空白があってはいけません。
+
+       それに続く\Attrib{version} や \Attrib{encoding} の部分は
+       \keyitem{属性}、
+       \texttt{=}の右側はその\keyitem{属性値}とそれぞれよばれます。
+       属性値は必ず\texttt{"}%"
+       で囲む必要があります。
+\begin{itemize}
+ \item \Attrib{version}は XML の規格のバージョンを表します。
+ \item \Attrib{encoding}はこのファイルが使用している文字の表し方(
+       \keyitem{エンコーディング}
+とよばれます。)を表します。SVGで日本語を含む文字列を扱う
+       ためには UTF-8 と呼ばれるエンコーディングにする必要があります。
+       XML文書は通常、UTF-8 でエンコーディングするのが標準となっています。
+\end{itemize}
+ \item \LineR{svg-top}{svg-end}の部分は\Elm{svg}を定義して
+       います。このように一番初
+       めに現れる要素を\keyitem{ルート要素}とよびます。SVGのファイルでは
+       ルート要素は必ず\Elm{svg}となります。ルート要素はXML文書では1回し
+       か現れてはいけません。
+\begin{itemize}
+ \item \Elm{svg}の属性値として \Attrib{xmlns} が指定されています。これ
+       はXML\keyitem{名前空間}とよばれていて、要素やそれに対する属性が定
+       義されている場所を示しています。ここでは \Elm{svg}が定義されてい
+       る場所を指定しています\footnote{XML文書にはこのほかに
+       \texttt{<!DOCTYPE}で始まるDTD(Documet Type Definition)への参照が
+       通常あります。なくても動作
+       するのでこのテキストでは省略しました。}。
+ \item 次の属性 \Attrib{xmlns:xlink}とは\texttt{xlink}が定義する名前空
+       間の参照場所を指定しています。このファイルではこの名前空間を使用
+       していないので省略してもかまいません。
+ \item \AttribO{width}と\AttribO{height}はこのSVGの画像を表示する大きさを
+       指定しています。ここでは両者とも $100\%$ なのでブラウザの画面全
+       体という意味になります。
+\end{itemize}
+ \item \Line{svg-g}はこれから描く図形をひとまとめにするために\Elm{g}
+       を用いてい
+       ます。\Attrib{transform}はこのグループ化された図形を移動すること
+       を指定しています。この属性値は表\ref{listofTransform}のようなもの
+       があります。
+\ListAttribsF{listofTransform}
+{\Attrib{transform}の属性値%
+\IndexSet{属性値}%
+{transformぞくせい@\protect\Showattrib{transform}}{T}{の}{SVG}}
+{|c|c|c|}
+{{属性値の関数名}{機能}{例}
+{\AttribVal{translate}{}}{平行移動}{\AttribVal{translate}{(20,40)}}
+{\AttribVal{rotate}{}}{回転(単位は度, 向きは時計回り)}{\AttribVal{rotate}{(30)}}
+{\AttribVal{scale}{}}{拡大・縮小}{\AttribVal{scale}{(0.5)},
+                            \AttribVal{scale}{(1,-1)}}}
+
+       ここでは\AttribVal{translate}{(50,50)}となっているので原点の位置
+       が左から $50$、上から $50$ の位置に移動します。
+ \item \LineR{line1}{line4}で\AttribO{stroke-linecap}で指
+       定される直線の両端の
+       形が異なるものを4つ定義しています。
+\begin{itemize}
+ \item \Elm{line}は\keyitem{直線}を定義します。この要素は\Elm{g}の内側に
+       \Elm{line}は\Elm{g}の\keyitem{子要素}になっているといいます。また、
+       \Elm{g}は\Elm{line}の\keyitem{親要素}であるとも言います。
+ \item \keysubT{属性}{直線}{の}としては表\ref{AttribofLine}を参考
+       にしてください。
+\ListAttribsF{AttribofLine}{\Elm{line}の属性%
+\IndexSet{属性値}%
+{line(ようそ)@\protect\ShowElm{line}}{T}{の}{SVG}}
+{|c|c|c|}{%
+{属性名}{意味}{属性値}
+{\AttribO{x1}}{開始位置の$x$座標}{数値}
+{\AttribO{y1}}{開始位置の$y$座標}{数値}
+{\AttribO{x2}}{終了位置の$x$座標}{数値}
+{\AttribO{y2}}{終了位置の$y$座標}{数値}
+{\AttribO{stroke}}{直線を塗る色}{色名またはrgb値で与える}
+{\AttribO{stroke-width}}{直線の幅}{数値}
+{\AttribO{stroke-linecap}}{直線の両端の形を指定}
+   {{\SetAttribExp{{butt}{(default)何もつけ加えない}%
+                   {round}{半円形にする}%
+                   {square}{長方形にする}}}}}
+
+ \item はじめの直線は開始位置が $(0,0)$ で終了点が $(200,0)$ となってい
+       ます。
+ \item 線の幅(\AttribO{stroke-width})が $20$ でその色(\AttribO{stroke})を
+       黒(\AttribCVal{black}{})に指定しています。
+ \item はじめの二つが同じ形をしているので\AttribO{linecap}のデフォルト値が
+       \AttribOVal{butt}{}であることがわかります。
+ \item 最後の文字列\texttt{/>}はこの要素が子要素を含まないことを示すため
+       の簡略的な記述方法です。
+\end{itemize}
+ \item \LineR{lineEx1}{lineEx4}でははじめの直線4本より幅が
+       狭いものを灰色
+       (\AttribCVal{gray}{})で描いています。これは描かれる線分の位置がど
+       こに来るかを確かめるためです。
+
+       この図から直線の幅は与えられた点の位置から両側に同じ幅で描かれる
+       ことがわかります。
+ \item この灰色の線がすべて見えていることから後から書かれた図形のほうが
+       優先して表示されることがわかります。
+ \item \Line{gEnd}では\Elm{g}の内容が終了したことを示す\texttt{</g>}があり
+       ます。
+ \item \Line{svgEnd}では\Elm{svg}の内容が終了したことを示す
+       \texttt{</svg>}があります。
+\end{itemize}
+%\NewpageB
+\paragraph{フィックの錯視}
+直線を組み合わせてできる一番簡単な錯視図形が\OIIdxMC{フィック}{61}{}で
+す(図\ref{example-fick})。
+\ShowFig{0.35}{ht}{fick1}{フィックの錯視}{example-fick}
+%\label{fick}
+
+水平の線分と垂直な線分の長さが同じなのにその位置が中央にあると長く見える
+ というとして知られているものです。簡単な図形ながら錯視量が大きいことで
+ 有名な図形です。これを描く\SVG のリストがリスト\ref{Oifick}です。
+%\newpage
+\SVGListN{フィックの錯視}{fick1}{Oifick}
+\begin{itemize}
+% \item 線分の長さが直感的にわかるために\Elm{g}で座標系を平行移動していま
+%       す(5行目)。
+ \item \LineR{line1-0}{line1-1}で水平の直線を描いています。
+ \item  \LineR{line2-0}{line2-1}で垂直の直線を描いています。
+\end{itemize}
+\begin{Problem}\upshape
+フィックの錯視に関連して次のことを行いなさい。
+\begin{enumerate}
+ \item $90^{\circ}$ 回転した図形でも同じように見えることを確認しなさい。
+ \item 垂直な直線の位置を水平方向に移動すると見え方はどのように変わるか
+       調べなさい。
+ \item 中央の線分の長さをどれだけ縮小したら同じ長さに見えるか調べなさい。 
+\end{enumerate}
+\end{Problem}
+
+%\label{Muller-Lyer}
+\paragraph{ミューラー$\cdot$ライヤーの錯視}
+図\ref{example-muller-lyer}は
+中央の線分が同じ長さなのに両端の矢印の向きが異なること
+で大きさが違って見えるという
+\OIIdxMC{ミューラー$\cdot$ライヤー}{57}{}
+として知られる図形です。
+
+\ShowFig{0.5}{ht}{muller-lyer}{ミューラー$\cdot$ライヤー錯視}
+{example-muller-lyer}
+
+この図形のリストでは両端の矢印の長さや角度を最小限の手間で変えられるよう
+にしています。
+%\newpage
+\SVGListN{ミューラー$\cdot$ライヤーの錯視}{muller-lyer}{muller-lyer}
+\begin{itemize}
+ \item 両端にある矢印をすべて同じ長さにするために雛形を定義することにし
+       ます。雛形は\Elm{defs}の中に記述します(\Line{defs})。
+ \item 矢印を構成する直線を\Line{line0}から\Line{line1}で定義します。こ
+       の要素は後で参
+       照するために\Attrib{id}で名前を付けておきます。ここでは
+       \Showattrib{Line}という名称になっています。
+ \item 次にこの直線を使って片側の矢印を構成します。二つの直線からなるの
+       で後でまとめて一つのものと見て参照するために二つの矢印をグループ
+       化します。それに利用するのが\Line{arrow}にある\Elm{g}であす。後で参照す
+       るために\Showattrib{edge}という名称を与えています。
+ \item この中に二つの直線を描きますが、それぞれを$\pm45^{\circ}$傾けるた
+       めにさらに\Elm{g}を用います(\Line{slant45}と\Line{slant-45})。
+       \Line{slant45}の\Elm{g}には 
+       \Attrib{transform}で\AttribVal{rotate}{(45)}という値を指定している
+       ので原点$(0,0)$を中心として$45^{\circ}$時計回りに傾くことになります。
+ \item この\Elm{g}のなかに先ほど定義した直線を参照する記述をします。これ
+       が \Elm{use} です(\Line{use1}と\Line{use2})。参照先を指定するために
+       \Attrib{xlink:href}を用います。参照先は\Attrib{id}で定義された名
+       称の前に\AttribVal{\#}{}を付けます。
+ \item \LineR{arrow1b}{arrow1e}の間が上の矢印を記述している部分です。
+\ListSub{arrow1b}{arrow1e}
+\begin{itemize}
+ \item \LineR{bar1}{bar2}で横の直線を定義しています。
+ \item \Line{bar1leftarrow}で左の矢印の部分を定義しています。
+ \item \LineR{bar1rightarrows}{bar1rightarrowe}で右の矢印を描い
+       ています。
+ \item 右の矢印は全体を横の直線の左端に平行移動させます
+       (\Showattrib{transform="translate(200,0)"})。
+ \item 矢印の向きを反転させるために\Line{scale}で
+       \Showattrib{transform="scale(-1,1)"}をしています。$x$座標の値を
+       $-1$倍し、$y$座標の値をそのまま($1$倍)に指定しています。
+\end{itemize}
+ \item \LineR{arrow2b}{arrow2e}で下の部分の図形を定義しています。
+\ListSub{arrow2b}{arrow2e}
+ \item 矢印の向きが上と逆になっているので左の矢印は
+       属性\Showattrib{transform="scale(-1,1)"}を持つ\Elm{g}の中に入れて
+       左右の向きの入れ替えを行っています。
+ \item 右の矢印は属性\Showattrib{transform="translate(200,0)"}を持つ
+       \Elm{g}の中に入れて平行移動しています。
+\end{itemize}
+\begin{Problem}\upshape
+ミューラー$\cdot$ライヤーの錯視図形で次のことを調べなさい。
+\begin{enumerate}
+ \item 両端の矢印の長さを変える
+ \item 両端の矢印の色を変えることとそのときの見え方の違い
+ \item 両端の矢印の角度を変えることとそのときの見え方の変化
+ \item \Elm{defs}を用いないでこの図形を定義して、矢印の長さを変えたときの手
+       間の違い
+\end{enumerate}
+\end{Problem}
+%\newpage
+\subsection{長方形}
+長方形を表すのは\Elm{rect}です。
+長方形の\keysubT{属性}{長方形}{の}を表
+       \ref{AttribofRect}に掲げます。
+\ListAttribsF{AttribofRect}{\Elm{rect}の属性%
+\IndexSet{属性}%
+{rect (ようそ)@\protect\ShowElm{rect}}{T}{の}{SVG}}
+{|c|c|c|}{%
+{属性名}{意味}{属性値}
+{\AttribO{x}}{長方形の左上の位置の$x$座標}{数値}
+{\AttribO{y}}{長方形の左上の位置の$y$座標}{数値}
+{\AttribO{width}}{長方形の幅}{負でない数値}
+{\AttribO{height}}{長方形の高さ}{負でない数値}
+{\AttribO{stroke-width}}{長方形の縁取りの幅}{負でない数値}
+{\AttribO{stroke}}{長方形の縁取りの色}{色}
+{\AttribO{fill}}{長方形の内部の塗りつぶしの色}{色}
+{\AttribO{rx}}{長方形の角に丸みを付けはじめる水平方向の位置}{負でない数
+値}
+{\AttribO{ry}}{長方形の角に丸みを付けはじめる垂直方向の位置}{負でない数
+値}
+}
+\paragraph{ポッケンドルフの錯視}
+ 図\ref{poggendorf}は中央部が隠されているために直線の対応が見誤るという
+\OIIdxMC{ポッケンドルフ}{58}{}として知られる図形で
+ す。長方形と直線を使って描いています。
+\ShowFig{0.3}{ht}{poggendorf}{ポッケンドルフ錯視}
+{poggendorf}
+\SVGListN{ポッケンドルフ錯視}{poggendorff}{poggendorff}
+\begin{itemize}
+ \item 3本の直線を下から描いています。
+ \item \LineR{last1}{last2}で一番下にある直線を描いています。これが
+       右側に飛び出しているものです。
+ \item \LineR{top1}{top2}、\LineR{middle1}{middle2}に一番下
+       の直線より半分の長さの
+       ものを縦方向に $20$ ずつ移動した形で描いています。
+ \item 最後に、中央部を隠すように長方形を描いています(\LineR{rect1}{rect2})。
+       ここでは内部を白で塗りつぶしているので先に描かれた直線の部分でこれと重
+       なる部分は見えなくなります。
+\end{itemize}
+
+ここでは属性を別々に指定していますがこれらをまとめて指定できる
+\Attrib{style} という属性もあります。この場合は次のように指定できます。
+\begin{center}
+ \Attrib{style}\Showattrib{="fill:black;stroke:red;stroke-width:4"}
+\end{center}
+\Showattrib{name="value"}の代わりに \Showattrib{name:value} と表し、属性
+同士の間は \Showattrib{;}(セミコロン)で区切ります。
+
+\paragraph{色の対比}
+図\ref{whiteIO0}は正方形の内部が
+\OIIdxB{同じ色なのに周りの色で見え方が異なる}
+という錯視図形です。
+\ShowFig{0.5}{ht}{colorinenv}{周りの濃度で見え方が異なる}
+{whiteIO0}
+\SVGListN{周りの濃度で見え方が異なる}{colorinenv}{colorinenv}
+この図形は左の部分は二つの正方形を重ねて描いています。
+右の部分は縁取りの幅を大きくして同じような大きさの図形になる用の表示位置
+や長方形の大きさを調整しています。同じ図形を描くのでもいろいろな方法があ
+ることを確認してください。
+\begin{itemize}
+ \item 左の部分は\LineR{left1}{left2}の部分で描かれています。大きな正方
+       形(\Line{leftlarge})の上に小さな正方形(\Line{leftsmall})を描いて
+       います。
+ \item 右の部分は\LineR{rightsq1}{rightsq2}のひとつの正方形で描
+       かれています。線の
+       幅(\AttribO{stroke-width}{})の半分だけ元来の図形の外側には
+       み出しますので左上の位置をその分だけ移動させています。
+       また、線の幅だけ\AttribO{width}と
+       \AttribO{height}の値が左の正方形の値より小さくなっています。
+\end{itemize}
+\begin{Problem}\upshape\label{prob-contrast}
+図\ref{color-contrast}の6個の長方形は一番左が赤(\texttt{\#FF0000})で一番
+ 右がオレンジ(\texttt{\#FFA500})で塗られています。間にある長方形の色はこの
+ 2つの色を補間しています\cite[カラー図版3]{Ninio}。
+ \ShowFig{0.65}{ht}{color-contrast}
+{\protect\OIIdxB{色の対比}}{color-contrast}
+
+境界での色の差が強調されて見えますが、境界を指で隠すと両者の色の区別
+ がつかなくなります。
+
+この図を作成しなさい。また、ほかの色の組み合わせでも調べなさい。
+\end{Problem}
+%\newpage
+\paragraph{ヘルマン格子}
+ 図\ref{hermann-line}は白い線の交差している位置に灰色のちらつきが表れるという
+\OIIdxN{ヘルマン格子}{180}{}と呼ばれるものです。
+\ShowFig{0.4}{ht}{hermann-line}{ヘルマン格子}{hermann-line}
+\SVGListN{ヘルマン格子}{svg-hermann-line}{svg-hermann-line}
+\begin{itemize}
+ \item \Line{line}で水平垂直に引く直線の雛形を決めています。ここでは長さ
+       と幅だけ競ってしています。
+ \item \Line{vline}で垂直方向の直線の属性\AttribO{stroke}を
+       \AttribCVal{white}{}に設定しています。
+ \item \LineR{hlineS}{hlineE}で垂直方向の直線を回転させて水平方向の直線
+       にしています。
+ \item \Line{hline}で色を\AttribCVal{white}{}に設定しています。
+ \item \Line{rect}で背景を黒にするための正方形を定義しています。
+ \item \LineR{vlinesS}{vlinesE}で垂直方向の直線を描いています。\Elm{use}
+       のなかで属性\AttribO{x}や\AttribO{y}を指定することで参照している図
+       形の表示位置を移動できます。
+ \item \LineR{hlinesS}{hlinesE}で水平方向の直線を描いています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-hermann-line}について次の事柄を検討しなさい。
+\begin{enumerate}
+ \item 成分の間隔や幅、または色をいろいろ変えてどれが一番良く錯視が見え
+       るか
+ \item 垂直線をひとつのグループにして、それを参照することで水平線の記述
+       を簡略化すること
+ \item 正方形を並べて同じような図形を描くこと
+\end{enumerate}
+\end{Problem}
+
+\ProbwithFigSol{munsterberg}{0.45}{ht}{カフェウォール錯視}
+{svg-munsterberg}{%
+\OIIdxC{カフェウォール}{62}{}
+と呼ばれる錯視図形です\footnote{水平線が黒の場合にはミュンスターベルグ錯
+ 視と呼ばれます。}。水平線はすべて平行なのですが黒い正方形がずれているた
+ めに平行に見えません。この図形を描きなさい。}
+ \iffalse
+{%\small
+\subsection{錯視とデザイン}
+図\ref{font-design}はフォントのデザインでは錯視によりフォントが醜くならな
+いようにしています。ここで使われているフォントは Adobe が開発した 
+ページ記述言語\keyitem{PostScript} のクローンである
+\keyitem{GhostScript} に添付されている Helvetica Bold です。下の
+部分で罫線をいれてこれらのデザインの違いが分かるように
+しています。
+%\footnote{GhostScript ではこのようになりましたが pdf ファイ
+%ルに直すと別のフォントが使用されているため同じようになっていないかもし
+%れません。}
+\ShowFig{0.7}{ht}{font-design}{フォントにおける錯視の回避}
+{font-design}
+
+このフォントでは次のような点が考慮されてデザインされています。
+\begin{itemize}
+ \item \texttt{A}の横線は高さの中心にありません。中央にあるとその上の三
+       角形の白い部分が小さくなって見にくくなるからです。
+ \item \texttt{E}の中央の横線は上下の横線から同じだけ離れていません。少
+       し上にあります。少し上にあることで中央にあるように見えるからです。
+ \item \texttt{E}の横線の太さと縦線の太さが違います。
+       縦線のほうが細く見える尾で同じ印象を与えるために縦線を少し太くし
+       ています。
+ \item \texttt{X}を構成する斜線の輪郭は同じ方向で傾きが異なっています。
+       これはポッケンドルフの錯視を避けるためのデザインです。
+\end{itemize}
+\begin{Problem}\upshape
+ Windows に付属するフォントを大きく表示して他の文字でも錯視による影響を
+ 避けるようなデザインをしているか調べなさい。
+\end{Problem}
+}
+\fi

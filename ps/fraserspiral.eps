@@ -1,0 +1,168 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 9 9 411 411
+%%Title: C:\usr\local\home\tel\JTEXFILE\SVG\ps\fraserspiral.ps
+%%Creator: GSview from C:\usr\local\home\tel\JTEXFILE\SVG\ps\fraserspiral.ps
+%%CreationDate: Thu Mar 22 07:49:30 2007
+%%Pages: 1
+%%EndComments
+%%Page: 1 1
+%%BeginDocument: C:\usr\local\home\tel\JTEXFILE\SVG\ps\fraserspiral.ps
+/RMax 200 def
+/SWidth 1.5 def %given by degrees
+/WidthW 12 def
+/Ratio 0.8 def
+
+/UnitAng 90 4 div def
+/UnitAng2 UnitAng 2 div def
+/UnitAng4 UnitAng 4 div def
+
+/C Ratio log UnitAng2 div def
+
+/Setcolor1 { 0 0 0 setrgbcolor} def
+/Setcolor2 { 0.7 0.7 0.7 setrgbcolor} def
+/SetPos {
+    /Ang exch def
+    C mul 10 exch exp R0 mul dup Ang cos mul exch Ang sin mul
+} def
+
+RMax 10 add dup translate
+%
+% auxiriary figures
+%
+false
+%pop true
+{
+    /R0 RMax def
+    0 UnitAng2 360 {
+	gsave
+	    rotate
+	    0 0 moveto RMax 10 add 0 lineto stroke
+	grestore
+    } for
+    {
+	0 0 R0 0 360 arc stroke
+	/R0 R0 Ratio mul def
+	R0 1 lt {exit} if
+    } loop
+    /R0 RMax def
+    0 UnitAng2 360 {
+	gsave
+	rotate
+	0 0 SetPos moveto
+	0 0.25 180 {
+	    dup SetPos lineto
+	} for
+	stroke
+	0 0 SetPos moveto
+	0 0.25 180 {
+	    dup neg SetPos lineto
+	} for
+	stroke
+	grestore
+    } for
+} if
+
+/Step 8 def
+
+/StartCurve {
+    /FrAng exch def
+    /FrR   exch def
+    FrR FrAng SetPos moveto
+} def
+/DrawCurve {
+    /ToAng exch def
+    /ToR   exch def
+    /DR ToR FrR sub def
+    /DAng ToAng FrAng sub def
+    1 1 Step {
+	Step div dup DR mul FrR add exch DAng mul FrAng add SetPos lineto
+    } for
+    /FrAng ToAng def
+    /FrR   ToR   def    
+} def
+/FillArea {
+    /OffsetAng exch def
+    /OffsetR   exch def
+    OffsetR OffsetAng StartCurve
+    OffsetR UnitAng4 add OffsetAng UnitAng4 add DrawCurve
+    OffsetR UnitAng2 add OffsetAng              DrawCurve
+    OffsetR UnitAng4 add OffsetAng UnitAng4 sub DrawCurve
+    OffsetR OffsetAng                           DrawCurve
+    closepath
+    fill
+} def
+/FillArea2 {
+    /OffsetAng exch def
+    /OffsetR   exch def
+    OffsetR SWidth sub OffsetAng SWidth sub StartCurve
+    OffsetR SWidth add OffsetAng UnitAng sub SWidth sub DrawCurve
+    OffsetR SWidth add OffsetAng UnitAng sub UnitAng2 sub SWidth add DrawCurve
+    OffsetR SWidth sub OffsetAng UnitAng2 sub SWidth add DrawCurve
+    OffsetR SWidth sub OffsetAng SWidth sub    DrawCurve
+    closepath
+    fill
+} def
+
+/R0 RMax def
+1 setgray
+true
+pop false
+{
+    1 0 0  setrgbcolor
+RMax 0.7 mul
+newpath
+dup neg dup moveto
+dup dup neg lineto
+dup dup lineto
+dup neg exch lineto
+closepath
+gsave stroke grestore
+gsave fill grestore
+%clip
+} if
+Setcolor1
+
+0 UnitAng 360 {
+    gsave
+    rotate
+    0 UnitAng2 240 {
+	dup FillArea
+    } for
+    grestore
+} for
+Setcolor2
+0 UnitAng2 360 {
+    gsave
+    rotate
+    UnitAng4 UnitAng2 180 {
+	dup FillArea
+    } for
+    grestore
+} for
+/R0 RMax Ratio sqrt div def
+1 setgray
+WidthW setlinewidth
+
+%
+% Make Band
+%
+{
+    0 0 R0 0 360 arc stroke
+    /R0 R0 Ratio mul def
+    currentlinewidth Ratio mul dup setlinewidth
+    1 lt {exit} if
+} loop
+
+/R0 RMax def
+0 UnitAng 360 {
+    gsave
+    rotate
+    0 UnitAng2 240 {
+	Setcolor1 
+	dup UnitAng4 add dup FillArea2
+    } for
+    grestore
+} for
+
+%%EndDocument
+%%Trailer

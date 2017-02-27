@@ -1,0 +1,77 @@
+% -*- coding: utf-8 -*-
+Web上での各種規格は \keyitem{World Wide Web  Consortium}(\keyitem{W3C})
+と呼ばれる組織が中心になって制定しています。その
+\Href{http://www.w3.org/standards/webdesign/}{Web Design and Applications}
+(\Aref{図}{w3c-design}参照)には次のよう
+に書かれています。
+\ShowFig{0.9}{ht}{w3c-webdesign}{World Wide Web  Consortium の Web Design and
+Application のページ(2017/2/27参照)}{w3c-design}
+\begin{quotation}
+Web Design and Applications involve the standards for building and
+ Rendering Web pages, including HTML, CSS, SVG, device APIs, and other
+ technologies for Web Applications (“WebApps”). This section also
+ includes information on how to make pages accessible to people with
+ disabilities (WCAG), to internationalize them, and make them work on
+ mobile devices.
+\end{quotation}
+
+このページの Graphics をクリックすると W3C のグラフィックス関係の規格の
+解説のページへ移動します(図\ref{w3c-graphics})。
+%\clearpage
+
+このページの下に SVG の簡単な説明があります。
+\ShowFig{0.9}{p}{w3c-graphics}{W3C の SVG に関するトップページ
+(2017/2/27参照)}{w3c-graphics}
+\begin{quotation}
+Scalable Vector Graphics (SVG) is like HTML for graphics. It is a markup
+ language for describing all aspects of an image or Web application,
+ from the geometry of shapes, to the styling of text and shapes, to
+ animation, to multimedia presentations including video and audio. It is
+ fully interactive, and includes a scriptable DOM as well as declarative
+ animation (via the SMIL specification). It supports a wide range of
+ visual features such as gradients, opacity, filters, clipping, and
+ masking.
+ 
+The use of SVG allows fully scalable, smooth, reusable graphics, from
+ simple graphics to enhance HTML pages, to fully interactive chart and
+ data visualization, to games, to standalone high-quality static
+ images. SVG is natively supported by most modern browsers (with plugins
+ to allow its use on all browsers), and is widely available on mobile
+ devices and set-top boxes. All major vector graphics drawing tools
+ import and export SVG, and they can also be generated through
+ client-side or server-side scripting languages.
+\end{quotation}
+
+SVG の正式な規格書は図\ref{w3c-graphics}のページの右側にある CURRENT
+STATUS の部分の SVG をクリックするとみることができます(図\ref{svg-rec})。
+\ShowFig{0.9}{ht}{w3c-svg-recommendation}{SVG の規格のページ
+(2017/2/27参照)}{svg-rec}
+%\clearpage
+
+画像を作成し、保存する形式を大きく分けるとビットマップ方式とベクター方式
+があります。
+
+ビットマップ方式は画像を画素(ピクセル)という単位に分け、その色
+の情報で画像を表します。したがってはじめに決めた大きさで画像の解像度が決
+まります。 Adobe社の
+Photoshop や Windows に標準でついてくるペイントはビットマップ方式の画像
+を作成するツールです。
+
+これに対し、ベクター方式では線の開始位置と終了位置
+(または長さと方向)、線の幅、色の情報などをそのまま持ちます。したがって
+画像をいくら拡大しても画像が汚くなることはありません。ベクター方式のソフ
+トウェアはドロー系のソフトウェアとも呼ばれます。代表的なものとしては
+Adobe社の Illustrator があります。
+
+SVG はその名称からもわかるようにベクター
+形式の画像を定義するフォーマットのひとつです。
+
+\begin{PreLearn}次の事柄について調べなさい。
+\begin{enumerate}
+ \item 画像の保存形式を調べ、それがビットマップ方式かベクター方式か調べ
+       なさい。
+ \item ビットマップ方式とベクター方式の画像形式の利点と難点をそれぞれ述
+       べなさい。
+\end{enumerate}
+\end{PreLearn}
+%\clearpage

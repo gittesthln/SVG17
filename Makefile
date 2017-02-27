@@ -102,7 +102,8 @@ Appendix = Appendix/99answer.tex Appendix/color-fff.tex \
 
 full: $(FULL).dvi
 
-$(FULL).dvi: $(FULLFILES) 
+$(FULL).dvi:
+#$(FULLFILES) 
 	make TOP="$(FULL)" dvi
 $(FULL).pdf: $(FULL).dvi
 #	make index

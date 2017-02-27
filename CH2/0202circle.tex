@@ -1,0 +1,71 @@
+% -*- coding: utf-8 -*-
+\section{円と楕円}
+\Elm{circle}は\keyB{円}{の}{属性}を表します。
+また、\Elm{ellipse}は\keyitem{楕円}を表します。表
+\ref{attribs-circle-ellipse}にこの二つの要素の代表的な属性を掲げます。
+\ListAttribsF{attribs-circle-ellipse}{円と楕円の属性%
+\IndexSet{属性}%
+{circle (ようそ)@\protect\ShowElm{circle}}{T}{の}{SVG}%
+\IndexSet{属性}%
+{ellipse (ようそ)@\protect\ShowElm{ellipse}}{T}{の}{SVG}}
+{|c|l|c|}{%
+{属性名}{\multicolumn{1}{c|}{説明}}{\multicolumn{1}{c|}{値}}
+{\AttribO{cx}}{円、楕円の中心の$x$座標}{数値}
+{\AttribO{cy}}{円、楕円の中心の$y$座標}{数値}
+{\AttribO{r}}{円の半径}{数値}
+{\AttribO{rx}}{楕円の$x$軸方向の長さ}{数値}
+{\AttribO{ry}}{楕円の$y$軸方向の長さ}{数値}
+{\AttribO{stroke}}{縁取りを塗る色}{色名またはrgb値で与える}
+{\AttribO{stroke-width}}{縁取りの幅}{数値}
+{\AttribO{fill}}{内部を塗る色}{色名またはrgb値で与える}}
+
+\keyB{楕円}{の}{属性}は円の場合の半径を表す
+\AttribO{r}の代わりに$x$軸、$y$軸の方向の軸の長さをそれぞれ表す
+\AttribO{rx}、\AttribO{ry} 属性があります。この値を同じにすれば円となります。
+\paragraph{周りの大きさで見え方が変わる}
+例\ref{example-ellipse}は同じ大きさの円の周りに大きさの違う円を並べた
+ものです。中央の円は、周りの円が小さいと大きく、周りの円が大きいと小さく見えます。
+\ShowFig{0.55}{ht}{ellipse}{周りの大きさで見え方が変わる}{example-ellipse}
+%\newpage
+\SVGListN{周りの大きさで見え方が変わる}{svg-ellipse}{svg-ellipse}
+\begin{itemize}
+ \item \Line{C}で中央にある円を定義し、それに
+       \texttt{CCircle}という\Attrib{id}を付けています。
+ \item \Line{L}で右側の周りに置く円のひとつを定義し、それに
+       \texttt{LCircle}という\Attrib{id}を付けています。
+ \item \Line{S}で左側に描く円を定義しています。この円には
+       \texttt{LCircle}という\Attrib{id}を付けています。
+ \item \Line{lefts}から\Line{lefte}で左側の図形を定義しています。$(0,0)$
+       の位置に中央
+       の円を描き、その周りに\texttt{SCircle}で参照する小さな円を4つ付け
+       ています。小さな円を描く方法として\Line{ScircleP}で
+       \Attrib{transform}の値を
+       \Showattrib{rotate(90),translate(0,75)}と二つ指定しています。これ
+       は次のように記述したものと同じです。
+\begin{verbatim}
+  <g transform="rotate(90)">
+　　<g transform="translate(0,75)">
+      <use xlink:href="#SCircle"/>
+    </g>
+  </g>
+\end{verbatim}
+
+ \item 右側の図形も\Line{rights}から\Line{righte}で同様に描いています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{example-ellipse}において次のことをしなさい。
+\begin{enumerate}
+ \item \Elm{defs}内で定義された、周りにある
+円の属性値を変えて、全体の記述を簡単にしなさい。
+ \item 中心の円や周りの円の色を変えたときに見え方が変わるかどうか調べなさ
+ い。
+ \item 円の代わりに正方形で同様の図形を作成しなさい。
+\end{enumerate}
+\end{Problem}
+\ProbwithFigSol{delboef}{0.6}{ht}{デルブーフの錯視}{svg-delboef}
+{\OIIdxMCY{デルブーフ}{59}{}と呼ばれています。
+この図は\cite[131ページ図12.7]{Ninio}からとりました。左右の単独にある円が中央
+ で重なっています。小さいほうの円は左より大きく見え、大きいほうの円は右
+ より小さく見えます。\par
+この現象は円を正方形に変えても起こります。正方形による同様な図を
+描いて確認しなさい。}

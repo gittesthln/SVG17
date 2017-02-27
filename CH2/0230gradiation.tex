@@ -1,0 +1,262 @@
+% -*- coding: utf-8 -*-
+\section{グラデーション}
+今までは長方形の内部を単一の色で塗りつぶしました。
+これ以外に
+色が順に変化する\keyitem{グラデーション}という塗り方を
+もあります。SVGでは2種類のグラデーションが利用できます。
+ここでは簡単なグラデーションの定義と使い方だけを紹介します。
+
+グラデーションは\Elm{defs}の中で定義し, 後から参照するための属性
+\Attrib{id}をつけます。
+\subsection{\keyitem{線形グラデーション}}
+\paragraph{線形グラデーションの基礎}
+開始位置と終了位置の色を指定することで途中の色が中間の色に変わっていくも
+のです。次の例を見てください。
+%\NewpageB
+\ShowFig{0.4}{ht}{svg-gradient}
+    {線形グラデーション}{gradiation-example}
+\SVGListN{線形グラデーション}{svg-gradient1}{Example-linearGrad}
+\begin{itemize}
+ \item グラデーションのパターンは\Elm{defs}のなかで定義します。
+ \item \Line{grad1}が\keysubE{線形}{グラデーション}{\relax}の定義の開
+       始を示す\Elm{linearGradient}です。この要素には次のような属性が与
+       えられています。
+\begin{itemize}
+ \item \Attrib{id} 後で参照するための名称を定義するものです。
+       \Line{refgrad}で参照されています。\Attrib{id} の属性値は他のもの
+       と重複してはいけません。
+ \item \AttribC{gradientUnits} はグラデーションをどの座標系で指定するか
+       を表します。ここではオブジェクトの座標系で決めることを示す
+       \AttribCVal{objectBoundingBox}{} を指定しています。このほかには
+       \AttribCVal{userSpaceOnUse} があります。グラデーションを適用
+       するオブジェクトをとりまく座標系を基準にします。
+この違いについては
+       \pageref{diff-gradientUnits}ページ以降で説明します。
+\end{itemize}
+ \item \Line{stopstart}と\Line{stopend}にグラデーションの特定の位置
+       に対する場所
+       (\AttribC{offset}{})とそこでの色(\AttribC{stop-color})を\Elm{stop}で
+       定義しています。ここでは開始位置(\texttt{offset="0\%"})の色を赤に、
+       終了位置(\texttt{offset="100\%"})の色を黄色に指定しています。
+
+       したがって、このグラデーションは左の赤から右に行くにしたがい
+       黄色へと変化することになります。なお、\Elm{stop}は途中の値も指定できる
+       ので2つより多くてもかまいません。
+ \item \Elm{linearGradient}のなかで別の要素を宣言しているのでこの要素に
+       対する終了を示す\ShowElm{/linearGradient} が必要です(\Line{endgrad})。
+ \item \Line{enddefs}で\ShowElm{/defs} の宣言を終了しています。
+ \item \Line{rect1}から\Line{refgrad}で長方形のオブジェクトを宣言しています。
+        \AttribO{fill} の値はグラデーションの定義を 
+       参照するために\AttribVal{url}{(\#Gradient1)}と表しています。
+       \Showattrib{\#}の後に\Attrib{id}で定義したラベルを用いていることに注意
+       してください。
+\end{itemize}
+\ProbwithFigSol{gradient-mach}{0.35}{ht}{マッハバンド錯視}
+{svg-gradient-mach}
+{\OIIdxC{マッハバンド}{99}{}と呼ばれています。
+この図では左1/3の位置から右1/3の間だけにグラデーションを
+付けているだけです。グラデーションの開始の位置では少し明るく色が強調
+されて見えています。
+\par
+この図をSVGで作成しなさい。
+また、色やグラデーションの位置をいろいろ変えてどのように見えるか確認
+しなさい。} 
+%
+\ProbwithFigSol{zavagno}{0.7}{ht}{ザバーニョの錯視}
+{svg-zavagno}
+{\OIIdxY{ザバーニョ}と呼ばれています。
+グラデーションがついた長方形を$90^{\circ}$ずつ回転したものを
+並べただけですが中央部がより明るく見えます。
+\par
+この図をSVGで作成しなさい。
+また、色やグラデーションをいろいろ変えてどのように見えるか確認しなさい。}
+%\newpage
+\subsubsection{線形グラデーションの向きを変える}
+図\ref{gradiation-example2}はグラデーションが左上から右下に変化して
+います。
+\ShowFig{0.4}{ht}{svg-gradient2}
+    {傾いた方向の線形グラデーション}{gradiation-example2}
+
+リスト\ref{Example-linearGrad2}はこの図を描くものです。
+\SVGListN{傾いた方向の線形グラデーション}{svg-gradient2}{Example-linearGrad2}
+このリストとリスト\ref{Example-linearGrad}の違いは\Line{grad2}の記述が追
+加してあるだけです。\AttribC{x1}と\AttribC{y1}でグラデーションの開始
+位置を指定できます。ここではともに$0\%$なので左上が指定されることになり
+ます。\AttribC{x2}と\AttribC{y2}でグラデーションの開始
+位置を指定できます。ここではともに$100\%$なので右下が指定されることになり
+ます。したがって、グラデーションの方向が左上から右下に向かうことにな
+るわけです。
+\begin{Problem}\upshape
+リスト\ref{Example-linearGrad2}について次のことを調べなさ い。
+\begin{enumerate}
+ \item  \AttribC{x1}、\AttribC{y1}、 \AttribC{x2}と\AttribC{y2}の値をいろいろ変
+ えたときグラデーションの向きがどのように変わるか
+ \item 長方形の縦横比が異なったものにたいしてグラデーションがどのよ
+       うに変化するか
+ \item グラデーションの方向が左上から右下$45^{\circ}$の方向になるよ
+       うにすること
+\end{enumerate}
+\end{Problem}
+\ProbwithFigSol{Koffka}{0.3}{ht}{コフカリング}
+{svg-Koffka}{\OIIdxN{コフカリング}{90}{}と呼ばれています。
+背景の明度に差がある部分を中央部のグラ
+ディエーションの部分が隠しています。同じ色の円の縁取りが明るさの違う色に
+見えます。グラデーションでなくても縁取りと同じ色でなければ明度に差が
+あるように見えることも確認しなさい。}
+\ProbwithFigSol{diamond-grad}{0.4}{ht}
+{ひし形を用いたクレイク・オブライエン効果}
+{svg-diamond-grad}
+{\OIIdxB{ひし形を用いたクレイク・オブライエン効果}と呼ばれています
+(\cite[58ページ図6.4]{Ninio})。
+ひし形を塗っているグラデーションはどこも同じですが下の方が明るく
+見えます。}
+\paragraph{\AttribC{gradientUnits}の値の違い}\label{diff-gradientUnits}
+\AttribC{gradientUnits}の値として\AttribCVal{objectBoundingBox}{} と
+\AttribCVal{userSpaceOnUse}{}があることはすでに説明しました。図
+\ref{gradiation-example3}はこの違いを説明するためのものです。
+%
+色の
+変化を見やすくするために色の変化が完全に別な色になるようなグラディエーショ
+ンを付けています。
+\ShowFig{0.35}{ht}{svg-gradient3}
+    {線形グラデーションの\protect\texttt{gradientUnits}の違い}{gradiation-example3}
+\SVGListN{\protect\AttribC{gradientUnits}の値の違い}
+{svg-gradient-bb-vs-us}{svg-gradiation-example3}{}
+
+\Line{gradBB}から\Line{EndGradBB}では\AttribC{gradientUnits}の値が
+\AttribCVal{objectBoundingBox}{}となる線形グラデーションを定義してい
+ます。
+%\ListSubN{gradBB}{EndGradBB}{6}
+\ListSub{gradBB}{EndGradBB}%{6}
+\begin{itemize}
+ \item 色の変化位置を明確にするために同じ位置で二つの色を定義しています
+       (\Line{stop2}と\Line{stop3}、\Line{stop4}と\Line{stop5})。
+% \item
+ これにより左から$20\%$までの位置は赤に、そこから$80\%$までは黄色
+       に、そして残りの部分は再び赤に塗られます。
+\item \Line{gradUS}から\Line{endgrad}では
+\AttribC{gradientUnits}の値が
+\AttribCVal{userSpaceOnUse}{}となる線形グラデーションを定義してい
+ます。
+%\ListSubN{gradUS}{endgrad}{14}
+%
+このグラデーションは\Line{gradUS1}で
+\AttribC{x1}、\AttribC{y1}、\AttribC{x2}と\AttribC{y2}を割合
+(\texttt{\%})で定義しています。グラデーションの割合は前と同じ
+      です。
+
+\item \Line{gradUSS}から\Line{EndgradUSS}でも
+\AttribC{gradientUnits}の値が
+\AttribCVal{userSpaceOnUse}{}となる線形グラデーションを定義してい
+ます。
+%\ListSubN{gradUSS}{EndgradUSS}{23}
+%
+このグラデーションでは\Line{gradUSE}で
+\AttribC{x1}、\AttribC{y1}、\AttribC{x2}と\AttribC{y2}を数値
+で定義しています。このグラデーションの割合も前と同じです。
+\item \Line{RL}と\Line{RS}ではグラデーションをつける二種類の長方形を
+      定義しています。
+ \item 初めのグラデーションを付けているグループは上から2つ並んでいる
+       ものです。
+\ListSub{Grad1S}{Grad1E}%{35}
+ \item これらの長方形は\Line{RL}と\Line{RS}で定義されたものを
+       \Elm{use}を用いて利用しています。
+ \item これらのグラデーションは\AttribC{gradientUnits}の値が
+\AttribCVal{objectBoundingBox}{}となっているので色が塗られるオブジェクト
+       の位置が基準になっています。したがって、長方形の幅や位置に関係な
+       くグラデーション全体が指定された割
+       合でつくことになります。
+ \item 次の3行にわたって並んでいる長方形は\Line{gradUS}から
+       \Line{endgrad}で指定したグラデーションで塗られています。
+\ListSub{Grad2S}{Grad2E}%{40}
+ \item 2つ目のグループの小さい長方形の色の変化の位置がその上の長方形
+       と同じです。この列の位置の基準が
+       \Line{Grad2S}にある\Elm{g}で規定されている
+       (\AttribCVal{userSpaceOnUse}{})からです。
+ \item 3つ目のグループの小さい長方形は前に定義した小さな長方形を
+       \Elm{use}で引用しています。この場合にはこのなかで新しい基準が用い
+       られるので両方とも左端が赤になっています。
+  \item 最後のグループは\Line{gradUSS}から\Line{EndgradUSS}で定義したグ
+	ラディエーションで塗られています。
+\ListSub{Grad3S}{Grad3E}%{51}
+ \item この場合には上の二つの色の変化位置は同じです。また、一番最後の行
+       はやはり小さな長方形の左端が赤くなっています。
+ \item 2番目のグループと3番目のグループでは色の変化の場所が少し異なりま
+       す。これは2番目のグループの右端の基準がブラウザ画面の右端になっ
+       ているためです。それが証拠に、ブラウザの画面の横幅を変えると2番目
+       のグループだけが色に変化が起こります。
+\end{itemize}
+\begin{Problem}\upshape
+ 図\ref{gradiation-example3}でブラウザの幅を変化させたとき、グラデーションがどのように変化
+ するか調べ、その理由を考えなさい。
+\end{Problem}
+%\clearpage
+\subsection{\keysubE{放射}{グラデーション}{\relax}グラデーション}
+一点を中心として順次色の変化がつく
+\keyitem{放射グラデーション}を表す
+\Elm{radialGradiation}があります。
+%
+\keyitem{放射グラデーション}には次の属性があります。
+\ListAttribsF{attribRadialGrad}{放射グラデーションの属性%
+\IndexSet{属性}%
+{radialGradiation (ようそ)@\protect\ShowElm{radialGradiation}}{T}{の}{SVG}}
+{|c|c|c|}{%
+{属性名}{意味}{値}
+{\AttribC{cx}}{放射グラデーションの終了位置の円の中心の$x$座標}{数値
+または割合}
+{\AttribC{cy}}{放射グラデーションの終了位置の円の中心の$y$座標}{数値
+または割合}
+{\AttribC{r}}{放射グラデーションの終了位置の円の半径 }{数値または割合}
+{\AttribC{fx}}{放射グラデーションの中心の$x$座標}{数値または割合}
+{\AttribC{fy}}{放射グラデーションの中心の$y$座標}{数値または割合}}
+
+これらの属性の値は\AttribC{gradientUnits}の値により解釈が異なります。
+\AttribCVal{userSpaceOnUse}{}のときは数値がそのまま採用され, 
+\AttribCVal{objectBoundingBox}{}のときは使用されるオブジェクトの大きさに対
+する割合を意味します。次の二つの例を見比べてください。
+なお、これらの例では放射グラデーションの端を示すために
+\csname CH2-svg-raidalgradiation2.svg-refcircle1\endcsname 行目から
+\csname CH2/svg-raidalgradiation2.svg-refcircle2\endcsname 行目
+で円の縁を描いて
+います(\AttribO{fill}の値が\AttribCVal{none}{}になっていることに注意すること)。
+\ShowFigs{0.33}{ht}{{radialgradiation2}{radialgradiation3}}
+    {放射グラデーション(userSpaceOnUse(左)とobjectBoundingBox(右))}{example-radialgradiation2}
+%\ShowFig{0.5}{ht}{radialgradiation3}
+%    {放射グラデーション(objectBoundingBoxの場
+%    合)}{example-radialgradiation3}
+\vspace{-1.5\baselineskip}\\
+\SVGListN{放射グラデーション(userSpaceOnUseの場合)}
+  {svg-raidalgradiation2}{svg-raidalgradiation2}
+\begin{itemize}
+ \item \Line{radgrad1}から\Line{radgrad2}で放射グラデーションを定義し
+       ています。
+ \item ここでグラデーションをする基準の座標系を
+       \AttribCVal{userSpaceOnUse}{}としています。
+ \item グラデーションの終了位置を示す円の位置と大きさとグラディエー
+       ションの開始位置は\Line{gradstart}で指定しています。ここではすべ
+       ての値は数値で指定しています。
+ \item \Line{colors}から\Line{colore}ではグラデーションの途中の色を
+       線形グラデーションと同じ方法で指定しています。
+ \item \Line{rect}で定義している長方形の内部をここで定義したグラディエーショ
+       ンで塗っています。終了位置の円の外側は最後の色をそのまま使うのが
+       デフォルトです。
+\end{itemize}
+\ \vspace{-2.5\baselineskip}\\
+\SVGListN{放射グラデーション(objectBoundingBoxの場合)}
+  {svg-raidalgradiation3}{svg-raidalgradiation3}
+\begin{itemize}
+ \item 7行目から12行目で放射グラデーションを定義しています。
+ \item ここでグラデーションをする基準の座標系を
+       \AttribCVal{objectBoundingBox}としています。
+ \item グラデーションの終了位置を示す円の位置と大きさとグラディエー
+       ションの開始位置はすべて割合で指定しています(7行目)。
+ \item 9行目から11行目ではグラデーションの途中の色を線形グラデーションと
+       同じかたちで指定しています。
+\end{itemize}
+\ProbwithFigSol{craik-obraien}{0.3}{ht}{クレイク・オブライエン効果}
+{svg-craik-obraien}
+{\OIIdxB{クレイク・オブライエン効果}とよばれるものです。
+内側にある境界部分の黒が内部の白を外部よりより白く見えさせています。放射グ
+ ラディエーションを利用してこの図を描きなさい。また、色を変えて同じよう
+ な図を作成した場合にはどのようになるか調べなさい。}
+%\NewpageB

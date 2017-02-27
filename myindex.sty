@@ -1,0 +1,20 @@
+%
+% Index Style
+%		Made by T. Hilano 1995.2.17
+%
+% Make index with small character
+%preamble "\\begin{theindex}\\small\n"
+preamble "\\begin{theindex}\\small\n\\addcontentsline{toc}{section}{\\indexnameshort}\n"
+%preamble "\\begin{theindex}\\small\n\\ifFull\\fi"
+%
+% leading letter is a little large
+lethead_prefix	"\\item {\\large\\bf "
+lethead_suffix	"}\\nopagebreak[4]"
+%
+% Japanese leading letter is  hiragana
+lethead_flag 1
+letter_head 2
+%
+% set delimeters between item and page numbers as \dotfill .or
+delim_0	" \\dotfill "
+delim_1	" \\dotfill "
