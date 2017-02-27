@@ -1,5 +1,7 @@
 *~
 *.log
 *.bmc
+tmp$$.ps
+tmp$@@@
 pdfs/*.ps
 pdfs/*.dvi
