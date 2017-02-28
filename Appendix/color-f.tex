@@ -1,0 +1,30 @@
+% -*- coding: utf-8 -*-
+\newcommand{\G}[4]{%
+%   \raisebox{-1.5mm}{\includegraphics[width=0.5cm]{Appendix/#1.eps}}
+   \raisebox{-1mm}{\rule[-0.5mm]{0mm}{5.mm}%
+    \fcolorbox[rgb]{0,0,0}{#4}{\rule{4mm}{0cm}\rule{0cm}{4mm}}}
+   &#1
+   &\TMP #2 &\texttt{#3}\\\hline}
+\newcommand{\TBox}[1]{\makebox[2em][r]{#1}}
+\def\TMP(#1,#2,#3){\texttt{rgb(\TBox{#1},\TBox{#2},\TBox{#3})}}
+\newcommand{\RGB}[2]{}
+\setlength{\fboxrule}{0.1mm}
+\setlength{\fboxsep}{0mm}
+\chapter{SVGの色名}\label{SVGColor}\setcounter{page}{1}
+次の表は\cite{SVG11}にあるSVGで利用できる色名とその\texttt{rbg}値の一覧表
+です。
+{\small
+\begin{longtable}{|c|c|c|c|}
+\hline
+色&色名&rgb値&16進表示\\\hline
+\endfirsthead
+\hline
+色&色名&rgb値&16進表示\\\hline
+\endhead
+\multicolumn{4}{r}{次のページへ}
+\endfoot
+\hline
+\endlastfoot
+\input Appendix/color-fff.tex
+\end{longtable}
+}

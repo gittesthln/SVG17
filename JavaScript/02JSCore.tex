@@ -1,0 +1,239 @@
+% -*- coding: utf-8 -*-
+\chapter{\JS 入門}
+\subsection{データの型}
+JavaScript のデータ型には大きく分けてプリミティブ型と非プリミティブ型の2種類
+があります。
+\subsubsection{プリミティブデータ型}
+プリミティブ型には表\ref{JSPrimitiveData}のような種類のものがあります。
+\begin{table}
+\caption{\JS のプリミティブなデータ型}\label{JSPrimitiveData}
+\begin{center}
+\begin{tabular}{|c|m{30zw}|}\hline
+ 型&\multicolumn{1}{c|}{説明} \\\hline
+ Number & 浮動小数点数だけ\\ \hline
+ String & 文字列型、1文字だけのデータ型はない。ダブルクオート(\verb+"+)     か%"
+     シングルクオート(\verb+'+)で囲む。\\ \hline
+ Boolean& \ElmJ{true} か \ElmJ{false} の値のみ\\ \hline
+ \ElmJ{undefined} & 変数の値が定義されていないことを示す\\ \hline
+ \ElmJ{null}& \ElmJ{null} という値しか取ることができない特別なオブジェク
+     ト\\ \hline
+\end{tabular}
+\end{center}
+ \end{table}
+
+ 変数や値の型を知りたいときは\ElmJ{typeof} 演算子を使います。
+\paragraph{Number型}
+JavaScriptで扱う数は64ビット浮動小数点形式です。数を表現する方法(数値
+リテラル)としては次のものがあります。
+\begin{itemize}
+ \item{\bfseries\ElmJ{整数リテラル}} 10進整数は通常通りの形式です。16進数を表す場合は
+	      先頭に\verb+0x+ か \verb+0X+ をつけます。\verb+0+で始まりそ
+	      のあとに\verb+x+または\verb+X+が来ない場合には8進数と解釈
+	      される場合があるので注意が必要です。
+ \item{\bfseries 浮動小数点リテラル} 整数部、そのあとに必要ならば小数点、小数部そ
+       のあとに指数部がある形式である。
+\end{itemize}
+{\bfseries \ElmJ{特別なNumber}} Number型には次のような特別な Number が定義され
+ている。
+\begin{itemize}
+ \item {\bfseries \ElmJ{Infinity}}無限大を表す読み出し可能な変数である。
+       オーバーフローした場合や \verb+1/0+などの結果としてこの値が設定さ
+       れる。
+ \item {\bfseries \ElmJ{NaN}} Not a Number の略である。計算ができなかった場合
+       表す読み出し可能な変数です。
+       文字列を数値に変換できない場合や \verb+0/0+ などの結果としてこの値が設定さ
+       れます。
+\end{itemize}
+\paragraph{String型}
+文字列に関する情報や操作には次のようなものがあります。
+\begin{table}[ht]
+\caption{文字列操作のメソッド}\label{StringMethod}
+\begin{center}
+ \begin{tabular}{|c|m{28zw}|}\hline
+ メンバー&\multicolumn{1}{c|}{説明} \\\hline
+  \ElmJ{length}\verb++ &文字列の長さ\\ \hline
+\ElmJ{indexOf}\verb+(needle,start)+& \verb+needle+が与えられた文字列内にあ
+      ればその位置を返す。\verb+start+の引数がある場合には、指定された位
+      置以降から調べる。見つからない場合は$-1$を返す。\\\hline
+  \ElmJ{split}\verb+(separator,limit)+&\verb+separator+で与えられた文字列で与え
+      られた文字列を分けて配列で返す。セパレーターの部分は返されない。
+      2番目の引数はオプションで分割する最大数を返す。\\ \hline
+  \ElmJ{substring}\verb+(start,end)+&与えられた文字列の\verb+start+から
+      \verb+end+の位置までの部分文字列を返す。\\ \hline
+\end{tabular}
+\end{center}
+ \end{table}
+\paragraph{Bool型}
+\ElmJ{true} と \ElmJ{false} の2つの値をとります。この2つは予約語です。論理
+式の結果としてこれらの値が設定されたり、論理値が必要なところでこれらの値
+に設定されます。
+\paragraph{\protect\ElmJ{undefined}}
+値が存在しないことを示す読み出し可能な変数である。変数が宣言されたのに値
+が設定されていない場合などはこの値に初期化されます。
+\paragraph{\protect\texttt{null}}
+\texttt{typeof null} の値が "\ElmJ{object}"であることを示すように、オブジェ
+クトが存在しないことを示す特別なオブジェクト値（であると同時にオブジェク
+トでもある）です。
+\subsubsection{配列}
+\paragraph{配列の宣言と初期化}
+配列を使うためには、変数を配列で初期化する必要がある。変数の宣言と同時に
+行ってもよい。
+\begin{verbatim}
+var a = [];
+var b = [1,2,3];
+\end{verbatim}
+\verb+a+ は空の配列で初期化されている。\verb+b+ は　
+\verb+b[0]=1,b[1]=2,b[2]=3+ となる配列で初期化されている。
+次のことに注意する必要がある。
+\begin{itemize}
+ \item 配列の各要素のデータの型は同じでなくてもよい。
+ \item 実行時に配列の大きさを自由に変えられる。
+ \item 配列の要素に配列を置くことができる。
+\begin{verbatim}
+var a=[1,[2,3,4],"a"];
+\end{verbatim}
+\end{itemize}
+\paragraph{配列のメソッド}
+\begin{center}
+ \begin{tabular}{|c|m{28zw}|}\hline
+ メンバー&\multicolumn{1}{c|}{説明} \\\hline
+  \verb+length+ &配列の要素の数\\ \hline
+  \verb+join(separator)+& 配列を文字列に変換する。\verb+separator+はオプ
+      ションの引数で、省略された場合はカンマ\verb+,+である。\\ \hline
+  \verb+pop()+& 配列の最後の要素を削除し、その値を返す。配列をスタックと
+      して利用できる。\\ \hline
+  \verb+push(i1,i2,...)+& 引数で渡された要素を配列の最後に付け加える。配
+      列をスタックやキューとして利用できる。\\ \hline
+  \verb+shift()+&配列の最初の要素を削除し、その値を返す。配列をキューと
+      して利用できる。\\ \hline
+  \verb+slice(start,end)+&\verb+start+から\verb+end+の前の位置にある要素を取
+      り出した配列を返す。元の配列は変化しない。\\ \hline
+  \verb+splice(start,No,i1,i2,...)+&\verb+start+の位置から\verb+No+の要素を取
+      り除き、その位置に\verb+i1,i1,...+以下の要素を付け加える。\\ \hline
+\end{tabular}
+\end{center}
+\subsection{演算子}
+\subsubsection{代入、四則演算}
+数に対してはC言語と同様の演算子が使用できる。ただし、次のことに注意する
+こと。
+\begin{itemize}
+ \item \verb-+-演算子は文字列の連接にも使用できる。\verb-+-演算子は左右のオペ
+ランドがNumberのときだけ、数の和をとる。どちらかが数でもう一方が文字列の
+場合は数を文字列に直して、文字列の連接を行う。
+\begin{verbatim}
+1+2  => 3
+1+"2" => 12
+\end{verbatim}
+ \item そのほかの演算子(\verb+-*/+)については文字列を数に変換してから数
+       として計算する。
+ \item 文字列全体が数にならない場合には変換の結果が\verb+NaN+になる。
+\begin{verbatim}
+ "2" + 3  => "23"
+ "2"-0 +3 => 5
+ "2"*3    => 6
+ "2"*"3"  => 6
+ "f" *2   => NaN
+ "0xf"*2 => 30
+\end{verbatim}
+ \item 整数を整数で割った場合、割り切れなければ小数となる。
+\begin{verbatim}
+1/3 => 0.3333333333333333
+\end{verbatim}
+\end{itemize}
+
+\subsection{変数}
+\subsection{変数のスコープと簡単な例}
+\JS に限らず、どのプログラミング言語でも\keyitem{変数のスコープ}という概念は重要で
+す。変数のスコープとは、使用している変数が通用する範囲のことです。\JS で
+は次のようになっています。
+\begin{itemize}
+ \item 変数は宣言しないでも使用できます。この場合はグローバル変数になり
+       ます。つまり、どの範囲からも参照が可能になります。
+ \item 関数内で\ElmJ{var}を用いて宣言した変数はその関数の中で有効です。
+       つまり、ローカル変数となります。
+       同じ名前のグローバル変数があった場合には、そのグローバル変数には
+       アクセスできません。
+ \item 関数内での変数の宣言は、ある変数を使用した後で宣言したとしても、
+       使用したところでもローカルな変数です。
+ \item \JS では関数も通常のオブジェクトで変数に代入することができます。
+       今まで関数を定義していた方法
+\begin{verbatim}
+	function foo() {...
+	}
+\end{verbatim}
+はグローバル変数 \texttt{foo}に対し次の形のコードと同じ意味を持ちます。
+\begin{verbatim}
+	var foo = function(){...
+	          }
+\end{verbatim}
+\end{itemize}
+図\ref{testScope}は\Opera でリスト\ref{testScopeL}を表示（実行）させたの
+ち、\keyitem{Dragonfly}を開き、上部にあるボタ
+ンの一番右にある「コンソール」をクリックしたときの画面です。これらのボタンは
+左から「ドキュメント」（DOMツリーが見えます）、「スクリプト」(\JS のデバッ
+ガーの画面)、「ネットワーク」、「リソース」、「ストレージ」(HTML5 の新機
+能である WebStorage や Cookie に関する情報が見られます)、「エラー」、
+「ユーティリティ」、「コンソール」の順に並んでいます。
+
+この図ではウィンド
+ウの幅を狭くしたので「ドキュメント」しか見えていません。また、表示画面も
+狭くしてあります。
+%\newpage
+\ShowFig{0.7}{ht}{testScope}{変数のスコープ--コンソールを使う}{testScope}
+\HTMLListN{変数のスコープ}{testScope}{testScopeL}
+この\HTML は\JS の実行結果をコンソールに出力するものです。
+\begin{itemize}
+ \item \Line{DefGlobal}でグローバル変数\Variable{Variable}を定義して、値を
+       \texttt{"global"}に定義しています。
+ \item 関数\Func{func1}は変数\Variable{Variable}の値を関数名とともに出力
+       します(\Lines{func1S}{func1E})。\ElmJ{console.log()}はコンソール
+       に引数の値を表示する関数です。
+ \item 関数\Func{func2}は\Variable{Variable}を関数内で定義しその値を
+       \texttt{"local"}に定義しています。さらにその値 
+       を関数名とともに出力します(\Lines{func2S}{func2E})。
+ \item \Func{func3}は\Func{func2}と同様に
+       \Variable{Variable}を関数内で定義しその値を\texttt{"local"}に定義し
+       ています。出力は\Func{func1}を呼び出すことで実現しています。
+ \item 関数\texttt{func4}は関数\texttt{func3}と同様に
+       \Variable{Variable}を関数内で定義しその値を\texttt{"local"}に定義し
+       ています。この関数の戻り値は変数\Variable{Variable}の値をコンソール
+       に出力する関数です。
+ \item \Line{execfunc1}で\Func{func1}が実行されています。この関数では
+       \Variable{Variable}は\Line{DefGrobal}で定義されたものが参照されます
+       ので出力結果は\texttt{func1:global}となります。
+ \item \Line{execfunc2}で\Func{func2}が実行されています。この関数では
+       \texttt{Variable}は\Line{DefLocal}でローカル変数が定義されている
+       ことからグローバル変数のほうが参照されません。この時点では値が代
+       入されていないので\texttt{func2:undefined}が出力されます。そのあとで値
+       が設定されるので次の出力結果は\texttt{func2:local}となります。
+ \item \Line{execfunc3}で\Func{func3}が実行されています。この関数では
+       \texttt{Variable}は\Line{DefLocal}でローカル変数が定義されて、値
+       が設定されています。出力は\Func{func1}で行われているので、参照
+       される\texttt{Variable}はグローバルに定義されているものになります。
+ \item \Line{execfunc4}で\Func{func4}が実行されていて、その戻り値が
+       \Variable{f}に代入されています。この時点では戻り値である関数は実
+       行されていません。\Func{func4}の中でローカル
+       \Variable{Variable}が定義され、その値を戻り値の関数が利用しています。
+ \item \Line{execfunc4real}で\Func{func1}が実行されています。このとき利用さ
+       れる\Variable{Variable}は\Func{func4}内で定義されたものです。つま
+       り、この関数からは\Func{func4}内で定義されたローカル変数が参照
+       できるのです。しかしながら、この関数で定義されたローカル変数を外
+       部から直接変更や参照する手段はありません。
+ \item \Line{execfunc4another}戻り値が関数オブジェクトのとき、それを変数
+       にしまわないでそのまま実行する方法です。\Func{func4}の内容を直
+       接この\texttt{()}内に記述することも可能です。この場合、関数自体に
+       名前がありませんので\ElmJ{無名関数}と呼ばれます。
+ \item \Line{execfunc4real2nd}では\Line{execfunc4}で保存された関数を再び
+       実行しています。この関数ではコンソールへの出力後、ローカル変数
+       \Variable{count}の値を$1$増加させているのでこの変数の値が$1$となり、
+       それの値が出力されます。この変数\Variable{count}の値を変えることができ
+       るのはこの関数の呼び出しでしかできません。このような技術を
+       \ElmJ{クロージャ}と呼びます。
+ \item \Line{execfunc4real3rd}ではもう一度、同じ関数が実行され、
+       \Variable{count}の値として$2$が出力されます。この変数の値は関数
+       \texttt{f()}が呼び出されたときだけ、$1$ 増加し、これ以外の方法で
+       この変数の値を変更することができません。つまり、一種のカプセル化
+       がおこなわれています。
+\end{itemize}
+
+ \section{オブジェクト指向プログラミング}

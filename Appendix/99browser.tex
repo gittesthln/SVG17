@@ -1,0 +1,41 @@
+% -*- coding: utf-8 -*-
+\iffalse
+\chapter{\thechapter{} Webページのデバッグ方法}
+\section{最近のブラウザ上の開発環境}
+最近のブラウザーはいろいろなデバッグ環境を取り揃えています。
+その機能には次のようなものがあります。
+\begin{itemize}
+ \item XML文書の構造(DOMツリー)の表示と属性値の直接の編集
+ \item CSSの表示と編集
+ \item \JS のデバッグの機能
+
+通常のデバッグ機能であるブレークポイントやステップ実行などができます。
+\JS にエラーがあるとその位置を教えてくれます。
+ \item コンソールによる\JS の直接の実行、途中結果の表示(以前は
+       \ElmJ{alert}による表示しかできませんでした。)
+ \item ネットワークの利用状況(ファイルがどのような順番でダウンロードされ
+       たかをグラフィカルに表示し、ボトルネックの解明ができます)。
+ \item \keyitem{クッキー}や \keyitem{WebStorage}の管理と表示
+\end{itemize}
+この章ではメジャーなブラウザにおいてこの機能を利用する方法を簡単に説明します。
+\section{\Operan}
+\Operan におけるデバッグツールは\keyitem{Opera Dragonfly}です。
+これを開始するためにはメニューから
+\begin{center}
+ 「ツール」$\longrightarrow$「詳細ツール」$\longrightarrow$「Opera Dragonfly」
+\end{center}
+を選択します(図\ref{operaDragonflyStart})
+\ShowFig{0.95}{ht}{operaDragonflyStart}
+{Opera Dragonfly の開始方法}{operaDragonflyStart}
+
+このときウィンドウの下部に Opera Dragonfly 
+が現れます(図\ref{operaDragonflyStartAfter})。
+\ShowFig{0.95}{ht}{operaDragonflyStartAfter}
+{Opera Dragonfly の開始直後の画面}{operaDragonflyStartAfter}
+
+この上部には Opera Dragonfly のメニューが現れます。この図では「ドキュメ
+ント」が選択されているので DOM ツリーが表示されています。DOMツリーは展開
+したりまとめたりできます。それぞれのタブを選択することで上に述べた機能を
+使用できます。
+\section{\IE 9}
+\fi

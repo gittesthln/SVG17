@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>変数のスコープ</title>
+<script type="text/ecmascript">
+var Variable = "global";
+function func1() {
+  console.log("func1:"+Variable);
+}
+function func2() {
+  console.log("func2:"+Variable);
+  var Variable = "local";
+  console.log("func2:"+Variable);
+}
+function func3(arg) {
+  var Variable = "local";
+  func1();
+}
+function func4() {
+  var Variable = "local--closure";
+  var count = 0;
+  return function(){ 
+    console.log("func4:"+Variable+" count="+count);
+    count++;
+  };
+}
+
+func1();
+func2();
+func3();
+f = func4();
+f();
+(func4())();
+f();
+f();
+</script>
+</head>
+<body>
+</boy>
+</html>

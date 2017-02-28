@@ -1,0 +1,1484 @@
+% -*- coding: utf-8 -*-
+\section{データの型}
+JavaScript のデータ型には大きく分けてプリミティブ型と非プリミティブ型の2種類
+があります。
+\subsection{プリミティブデータ型}
+プリミティブ型には表\ref{JSPrimitiveData}のような種類のものがあります。
+\begin{table}
+\caption{\JS のプリミティブなデータ型}\label{JSPrimitiveData}
+\begin{center}
+\begin{tabular}{|c|m{30zw}|}\hline
+ 型&\multicolumn{1}{c|}{説明} \\\hline
+ Number & 浮動小数点数だけ\\ \hline
+ String & 文字列型、1文字だけのデータ型はない。ダブルクオート(\verb+"+)     か%"
+     シングルクオート(\verb+'+)で囲む。\\ \hline
+ Boolean& \ElmJ{true} か \ElmJ{false} の値のみ\\ \hline
+ \ElmJ{undefined} & 変数の値が定義されていないことを示す\\ \hline
+ \ElmJ{null}& \ElmJ{null} という値しか取ることができない特別なオブジェク
+     ト\\ \hline
+\end{tabular}
+\end{center}
+ \end{table}
+
+ 変数や値の型を知りたいときは\ElmJ{typeof} 演算子を使います。
+\paragraph{Number型}
+JavaScriptで扱う数は64ビット浮動小数点形式です。数を表現する方法(数値
+リテラル)としては次のものがあります。
+\begin{itemize}
+ \item{\bfseries\ElmJ{整数リテラル}} 10進整数は通常通りの形式です。16進数を表す場合は
+	      先頭に\verb+0x+ か \verb+0X+ をつけます。\verb+0+で始まりそ
+	      のあとに\verb+x+または\verb+X+が来ない場合には8進数と解釈
+	      される場合があるので注意が必要です。
+ \item{\bfseries 浮動小数点リテラル} 整数部、そのあとに必要ならば小数点、小数部そ
+       のあとに指数部がある形式です。
+\end{itemize}
+{\bfseries \ElmJ{特別なNumber}} Number型には次のような特別な Number が定義され
+ている。
+\begin{itemize}
+ \item {\bfseries \ElmJ{Infinity}}無限大を表す読み出し可能な変数である。
+       オーバーフローした場合や \verb+1/0+などの結果としてこの値が設定さ
+       れます。
+ \item {\bfseries \ElmJ{NaN}} Not a Number の略である。計算ができなかった場合
+       表す読み出し可能な変数です。
+       文字列を数値に変換できない場合や \verb+0/0+ などの結果としてこの値が設定さ
+       れます。
+\end{itemize}
+\paragraph{String型}
+文字列に関する情報や操作には次のようなものがあります。
+\begin{table}[ht]
+\caption{文字列操作のメソッド}\label{StringMethod}
+\begin{center}
+ \begin{tabular}{|c|m{28zw}|}\hline
+ メンバー&\multicolumn{1}{c|}{説明} \\\hline
+  \ElmJ{length} &文字列の長さ\\ \hline
+\ElmJ{indexOf}\verb+(needle[,start])+& \verb+needle+が与えられた文字列内にあ
+      ればその位置を返す。\verb+start+の引数がある場合には、指定された位
+      置以降から調べる。見つからない場合は$-1$を返す。\\\hline
+  \ElmJ{split}\verb+(separator[,limit])+&\verb+separator+で与えられた文字列で与え
+      られた文字列を分けて配列で返す。セパレーターの部分は返されない。
+      2番目の引数はオプションで、分割する最大数を与える。\\ \hline
+  \ElmJ{substring}\verb+(start[,end])+&与えられた文字列の\verb+start+から
+      \verb+end+の位置までの部分文字列を返す。\verb+end+がない場合には文
+      字列の最後までがとられる。\\ \hline
+\end{tabular}
+\end{center}
+ \end{table}
+\paragraph{Bool型}
+\ElmJ{true} と \ElmJ{false} の2つの値をとります。この2つは予約語です。論理
+式の結果としてこれらの値が設定されたり、論理値が必要なところでこれらの値
+に設定されます。
+\paragraph{\protect\ElmJ{undefined}}
+値が存在しないことを示す読み出し可能な変数である。変数が宣言されたのに値
+が設定されていない場合などはこの値に初期化されます。
+\paragraph{\protect\texttt{null}}
+\texttt{typeof null} の値が "\ElmJ{objec}"であることを示すように、オブジェ
+クトが存在しないことを示す特別なオブジェクト値（であると同時にオブジェク
+トでもある）です。
+\subsection{配列}
+\paragraph{配列の宣言と初期化}
+配列を使うためには、変数を配列で初期化する必要があります。変数の宣言と同時に
+行うこともできます。配列の初期化は次のように行います。
+\begin{verbatim}
+var a = [];
+var b = [1,2,3];
+\end{verbatim}
+\begin{itemize}
+ \item \verb+a+ は空の配列で初期化されています。
+ \item \verb+b+ は \verb+b[0]=1,b[1]=2,b[2]=3+ となる配列で初期化されて
+			 います。
+\end{itemize}
+次のことに注意する必要があります。
+\begin{itemize}
+ \item 配列の各要素のデータの型は同じでなくてもかまいません。
+ \item 実行時に配列の大きさを自由に変えることができます。
+ \item 配列の要素に配列を置くことができます。
+			 たとえば、次のような配列の初期化が可能です。
+\begin{verbatim}
+var a=[1,[2,3,4],"a"];
+\end{verbatim}
+			 この例では\verb+a[0]+は数\texttt{1}、\verb+a[1]+は配列
+			 \verb+[2,3,4]+、\verb+a[2]+は文字列\verb+"a"+でそれぞれ初期化され
+			 ています。
+\end{itemize}
+配列のメソッドについては\ref{arrayMethod}で解説します。
+\section{演算子}
+\subsection{代入、四則演算}
+数に対してはC言語と同様の演算子が使用できます。ただし、次のことに注意す
+る必要があります。
+\begin{itemize}
+ \item \verb-+-演算子は文字列の連接にも使用できます。\verb-+-演算子は左右のオペ
+ランドがNumberのときだけ、ふたつの数の和をもとめます。どちらかが数でもう一方が文字列の
+場合は数を文字列に直して、文字列の連接を行います\footnote{一般にどのよう
+			 なオブジェクトにも\ElmJ{toString}というメソッドが用意されていて、
+			 文字列が必要な状況ではこのメソッドによってオブジェクトが文字列に
+			 変換されます。}。
+\begin{verbatim}
+1+2  => 3
+1+"2" => 12
+\end{verbatim}
+ \item そのほかの演算子(\verb+-*/+)については文字列を数に変換してから数
+       として計算します。
+ \item 文字列全体が数にならない場合には変換の結果が\verb+NaN+になります。
+			 次の例を見てください。
+\begin{verbatim}
+ "2" + 3  => "23"
+ "2"-0 +3 => 5
+ "2"*3    => 6
+ "2"*"3"  => 6
+ "f" *2   => NaN
+ "0xf"*2 => 30
+\end{verbatim}
+			 最後の例では\verb+"0xf"+が16進数と解釈され($15$),
+			 その値が$2$倍されています。
+ \item 整数を整数で割った場合、割り切れなければ小数となります。
+\begin{verbatim}
+1/3 => 0.3333333333333333
+\end{verbatim}
+\end{itemize}
+\subsection{比較演算子}
+\JS の比較演算子は通常の\verb+>+、\verb+>=+などが使えます。数と文字列の
+比較も文字列が数に変換されて比較されます。文字列同士を比較する場合は文字
+コード順になります。次の例を見てください。
+\begin{verbatim}
+>(11>2)?"true":"false";
+"true"
+>(11>"2")?"true":"false";
+"true"
+>("11">2)?"true":"false";
+"true"
+>("11">"2")?"true":"false";
+"false"
+\end{verbatim}
+初めの3つは数として比較されていますが、最後のものは文字コードで
+\verb+"1"+のほうが\verb+"2"+より小さいので判定が逆になっています。
+
+また、比較演算子\ElmJ{==}で文字列と数を比較すると文字列は数に直されて比
+較されます。値の型を含めて等しいかどうかを調べるためには演算子
+\ElmJ{===}(等しい)や\ElmJ{!==}(等しくない)を用います。特別な事情がない限
+り\ElmJ{===}や\ElmJ{!==}を使いましょう\cite[127ページ]{Crockford}。
+\begin{verbatim}
+>("1"==1)?"true":"false";
+"true"
+>("1"===1)?"true":"false";
+"false"
+\end{verbatim}
+\section{制御構造}
+\subsection{\protect\ElmJ{if}文}
+\subsection{\protect\ElmJ{switch}文}
+\subsection{\protect\ElmJ{for}文と\protect\ElmJ{while}文}
+\section{関数}
+\subsection{関数の定義と呼び出し}
+次の例は \verb+sum()+という関数を定義している例です。
+\begin{verbatim}
+function sum(a,b) {
+  var c = a + b;
+  return c;
+}
+\end{verbatim}
+関数の定義は次の部分から成り立っています。
+\begin{itemize}
+ \item \verb+function+キーワード\\
+戻り値の型を記す必要はありません。
+ \item 関数の名前\\
+\verb+function+の後にある識別名が関数の名前になります。この場合は \verb+sum+
+       が関数の名前になりす。
+ \item 引数のリスト\\
+関数名の後に\verb+()+内にカンマで区切られた引数を記述します。この場合は変数
+       \verb+a+と\verb+b+が与えられています。引数はなくてもかまいません。
+ \item 関数の本体であるコードブロック\\
+\verb+{}+で囲まれた部分に関数の内容を記述します。
+\item \verb+return+ キーワード\\
+関数の戻り値をこの後に記述すします。戻り値がない場合には戻り値として
+       \verb+undefined+が返されます。
+\end{itemize}
+\paragraph{実行例}
+次の部分はこの関数の実行例です。
+\begin{verbatim}
+>sum(1,2)
+3
+>sum(1)
+NaN
+>sum(1,2,3)
+3
+\end{verbatim} 
+\begin{itemize}
+ \item 引数に \verb+1+ と \verb+2+ を与えれば期待通りの結果が得られます。
+ \item 引数に \verb+1+ だけを与えた場合、エラーが起こらず、\ElmJ{NaN} と
+       なります。これは、不足している引数(この場合には \verb+b+)に
+       \ElmJ{undefined} が渡されるためです。\verb+1+undefined+の結果は通
+       常の計算ができないので、数ではないことを示す\ElmJ{NaN} になります。
+ \item 引数を多く渡してもエラーが発生しません。無視されるだけです。
+\end{itemize}
+\JS の関数はオブジェクト指向で使われるポリモーフィ
+ズムをサポートしていないことがわかります。さらに、次の例で見るように同じ関数を定義しても
+エラーにならりません。後の関数の定義が優先されます。
+\begin{verbatim}
+function sum(a, b){
+  var c = a+b;
+  return c;
+}
+function sum(a, b, c){
+  var d = a+b+c;
+  return d;
+}
+\end{verbatim}
+\subsection{仮引数への代入}
+仮引数に値を代入してもエラーとはなりません。仮引数の値がプリミティブなとき
+とそうでないときとでは呼び出し元における変数の値がかわります。
+
+ 次の例は呼び出した関数の中で仮引数の値を変化させたときの例です。
+\begin{listing}{1}
+function func1(a){
+  a = a*2;
+  return 0;
+}
+function func2(a){
+  a[0] *=2;
+  return 0;
+}
+\end{listing}
+
+\begin{itemize}
+ \item \verb+func1()+では仮引数\verb+a+の値を2倍しています。これを次のよう
+       に実行すると、呼び出し元の変数の値には変化がないことがわかります。つ
+       まり、プリミティブな値を仮引数で渡すと値そのものが渡されます
+       (値渡し)。
+\begin{verbatim}
+>a = 4;
+4
+>func1(a);
+0
+>a;
+4
+\end{verbatim}
+ \item \verb+func2()+の仮引数は配列が想定しています。この配列の先頭の値だけ2倍さ
+       れる関数です。これに配列を渡すと、戻ってきたとき配列の先頭の値
+       が変化しています。つまり、プライミティブ型以外では仮引数の渡し方が
+       参照渡しであることがわかります。
+\begin{verbatim}
+>a = [1,2,3];
+[1, 2, 3]
+>func2(a);
+0
+>a;
+[2, 2, 3]
+\end{verbatim}
+\end{itemize}
+
+\subsection{\protect\ElmJ{arguments}について}\label{argumentsSum}
+JavaScriptでは引数リストで引数の値などが渡されるほかに\ElmJ{arguments}
+という配列のようなオブジェクトでもアクセスできます。
+\begin{itemize}
+ \item 引き渡された変数の数は\ElmJ{length}+で知ることができます。
+\begin{verbatim}
+function sumN(){
+  var i, s = 0;
+  for(i = 0; i <arguments.length;i++) {
+    s += arguments[i];
+  }
+  return s;
+}
+\end{verbatim}
+			 実行例は次のとおりになります。
+\begin{verbatim}
+>sumN(1,2,3,4);
+10
+>sumN(1,2,3,4,5);
+15
+\end{verbatim}
+ \item 引数があっても無視できます。
+\begin{verbatim}
+function sumN2(a,b,c){
+  var i, s = 0;
+  for(i = 0; i <arguments.length;i++) {
+    s += arguments[i];
+  }
+  return s;
+}
+\end{verbatim}
+この例では引数が3個より少なくても正しく動きます。実行例は次のとおりです。
+\begin{verbatim}
+>sumN2(1,2,3,4,5);
+15
+
+\end{verbatim}
+ \item 仮引数と\ElmJ{arguments}は対応していて、片方を変更しても他の方も
+       変更されます。
+\end{itemize}
+実行例は次のとおりです。
+\begin{verbatim}
+function sum2(a, b){
+  var c;
+  a *= 3;
+  console.log(arguments[0]);
+  return a + b;
+}
+\end{verbatim}
+\begin{verbatim}
+>sum2(1,2,3,4,5);
+3 
+5
+\end{verbatim}
+
+\section{変数のスコープと簡単な例}
+\JS に限らず、どのプログラミング言語でも\keyitem{変数のスコープ}という概念は重要で
+す。変数のスコープとは、使用している変数が通用する範囲のことです。\JS で
+は次のようになっています。
+\begin{itemize}
+ \item 変数は宣言しないでも使用できます。この場合はグローバル変数になり
+       ます。つまり、どの範囲からも参照が可能になります。
+ \item 関数内で\ElmJ{var}を用いて宣言した変数はその関数の中で有効です。
+       つまり、ローカル変数となります。
+       同じ名前のグローバル変数があった場合には、そのグローバル変数には
+       アクセスできません。
+ \item 関数内での変数の宣言は、どこで行ってもローカルな変数と扱われます。
+			 したがって、関数の途中で\ElmJ{var} 宣言してそこで初期化した場合、
+			 その前で同じ変数を使用するとその値は初期化されていない
+			 \ElmJ{undefined}になります。
+ \item \JS では関数も通常のオブジェクトで変数に代入することができます。
+       今まで関数を定義していた方法
+\begin{verbatim}
+	function foo() {...
+	}
+\end{verbatim}
+はグローバル変数 \texttt{foo}に対し次の形のコードと同じ意味を持ちます。
+\begin{verbatim}
+	var foo = function(){...
+	          }
+\end{verbatim}
+\end{itemize}
+
+\ShowFig{0.7}{ht}{testScope}{変数のスコープ--コンソールを使う}{testScope}
+\HTMLListN{変数のスコープ}{testScope}{testScopeL}
+この\HTML は\JS の実行結果をコンソールに出力するものです。
+\begin{itemize}
+ \item \Line{DefGlobal}でグローバル変数\Variable{Variable}を定義して、値を
+       \texttt{"global"}に定義しています。
+ \item 関数\Func{func1}は変数\Variable{Variable}の値を関数名とともに出力
+       します(\LineR{func1S}{func1E})。\ElmJ{console.log()}はコンソール
+       に引数の値を表示する関数です。
+ \item 関数\Func{func2}は\Variable{Variable}を関数内で定義しその値を
+       \texttt{"local"}に定義しています。さらにその値 
+       を関数名とともに出力します(\LineR{func2S}{func2E})。
+ \item \Func{func3}は\Func{func2}と同様に
+       \Variable{Variable}を関数内で定義しその値を\texttt{"local"}に定義し
+       ています。出力は\Func{func1}を呼び出すことで実現しています。
+ \item 関数\texttt{func4}は関数\texttt{func3}と同様に
+       \Variable{Variable}を関数内で定義しその値を\texttt{"local"}に定義し
+       ています。この関数の戻り値は変数\Variable{Variable}の値をコンソール
+       に出力する関数です。
+ \item \Line{execfunc1}で\Func{func1}が実行されています。この関数では
+       \Variable{Variable}は\Line{DefGrobal}で定義されたものが参照されます
+       ので出力結果は\texttt{func1:global}となります。
+ \item \Line{execfunc2}で\Func{func2}が実行されています。この関数では
+       \texttt{Variable}は\Line{DefLocal}でローカル変数が定義されている
+       ことからグローバル変数のほうが参照されません。この時点では値が代
+       入されていないので\texttt{func2:undefined}が出力されます。そのあとで値
+       が設定されるので次の出力結果は\texttt{func2:local}となります。
+ \item \Line{execfunc3}で\Func{func3}が実行されています。この関数では
+       \texttt{Variable}は\Line{DefLocal}でローカル変数が定義されて、値
+       が設定されています。出力は\Func{func1}で行われているので、参照
+       される\texttt{Variable}はグローバルに定義されているものになります。
+ \item \Line{execfunc4}で\Func{func4}が実行されていて、その戻り値が
+       \Variable{f}に代入されています。この時点では戻り値である関数は実
+       行されていません。\Func{func4}の中でローカル
+       \Variable{Variable}が定義され、その値を戻り値の関数が利用しています。
+ \item \Line{execfunc4real}で\Func{func1}が実行されています。このとき利用さ
+       れる\Variable{Variable}は\Func{func4}内で定義されたものです。つま
+       り、この関数からは\Func{func4}内で定義されたローカル変数が参照
+       できるのです。しかしながら、この関数で定義されたローカル変数を外
+       部から直接変更や参照する手段はありません。
+ \item \Line{execfunc4another}戻り値が関数オブジェクトのとき、それを変数
+       にしまわないでそのまま実行する方法です。\Func{func4}の内容を直
+       接この\texttt{()}内に記述することも可能です。この場合、関数自体に
+       名前がありませんので\ElmJ{無名関数}と呼ばれます。
+ \item \Line{execfunc4real2nd}では\Line{execfunc4}で保存された関数を再び
+       実行しています。この関数ではコンソールへの出力後、ローカル変数
+       \Variable{count}の値を$1$増加させているのでこの変数の値が$1$となり、
+       それの値が出力されます。この変数\Variable{count}の値を変えることができ
+       るのはこの関数の呼び出しでしかできません。このような技術を
+       \ElmJ{クロージャ}と呼びます。クロージャについては後で詳しく説明し
+       ます。
+ \item \Line{execfunc4real3rd}ではもう一度、同じ関数が実行され、
+       \Variable{count}の値として$2$が出力されます。この変数の値は関数
+       \texttt{f()}が呼び出されたときだけ、$1$ 増加し、これ以外の方法で
+       この変数の値を変更することができません。つまり、クロージャを用い
+       ることで一種のカプセル化が可能となっています。
+\end{itemize}
+\subsection{JavaScriptにおける関数の特徴}
+JavaScript関数ではほかの言語では見られない関数の取り扱い方法があります。
+\subsubsection{関数もデータ}
+関数もデータ型のひとつなので、関数の定義を変数に代入することができます。
+HTMLリスト\ref{testScope}の31行目では関数の戻り値が関数オブジェクトで、
+その結果を変数に代入しています。
+代入はいつでもできるので、実行時に関数の定義を変えることも可能です。
+\subsubsection{無名関数とコールバック関数}
+HTMLリスト\ref{testScopeL}の22行目の関数オブジェクトは
+\ElmJ{function}の後には関数名がありません。このよ
+うな関数は無名関数と呼ばれます。HTML文書などでは、いろいろなイベント(マウ
+スがクリックされた、一定の時間が経過した)が発生したときに、その処理を行
+う関数を登録する必要があります。この関数をその場で定義して、無名関数で渡
+すことはよく使われる技法です。なお、ある関数に引数として渡される関数は渡
+された関数の中で呼び出されるので\ElmJ{コールバック関数}とよばれます。
+
+%%%\begin{Exec}
+ 次の例は、一定の経過時間後にある関数を呼び出す\verb+window+オブジェクト
+ の\ElmJ{setTimeout()}メソッドの使用例です。
+\begin{listing}{1}
+var T = new Date();
+window.setTimeout(
+  function(){
+    var NT = new Date();
+    if(NT-T<10000) {
+      console.log(Math.floor((NT-T)/1000));
+      window.setTimeout(arguments.callee,1000);
+    }
+   },1000);
+\end{listing}
+\begin{itemize}
+ \item １行目では実行開始時の時間を変数\verb+T+に格納しています。単位はミ
+       リ秒です。
+ \item このメソッドは一定時間経過後に呼び出される関数と、実行される経過
+       時間(単位はミリ秒)を引数に取ります。
+ \item 実行する関数は3行目から9行目で定義されています。
+ \item この関数内で一定の条件のときはこの関数を呼び出すために、この関数
+       に名前はありません(3行目)。
+ \item 4行目で呼び出されたときの時間を求め、経過時間が$10000$ミリ秒以下
+       であれば(5行目)、経過時間を秒単位で表示します(6行目)。
+ \item さらに、自分自身を1秒後に呼び出す(7行目)。\ElmJ{arguments}をもつ
+       関数を\ElmJ{arguments.callee}で呼び出すことができます。つまり無名
+       関数である自分自身を呼び出せます。
+\end{itemize}
+%
+\begin{Problem}
+次のプログラムは何を計算するか答えなさい。
+\begin{verbatim}
+var f = function(n) {
+  if( n<=1) return 1;
+  return n*arguments.callee(n-1);
+}
+\end{verbatim}
+\end{Problem}
+\subsubsection{自己実行関数}
+関数を定義してその場で直ちに実行することができます。次のコードを
+見てみましょう。
+\begin{verbatim}
+  var i;
+  for(i=1;i<10;i++) {
+    console.log(i+" "+i*i);
+  }
+\end{verbatim}
+このプログラムを実行すると$1$から$9$までの値とそれの2乗の値がコンソール
+に出力されます。実行後に、コンソールに\verb+i+と入力すれば\verb+10+が出
+力されます。つまり、変数\verb+i+が存在しています。
+
+ある関数を実行した後でその中で使用したグローバル変数を消してしまいたいこ
+とがある。それを実現するためには次のように記述する。
+\begin{verbatim}
+(function(){
+  var i;
+  for(i=1;i<10;i++) {
+    console.log(i+" "+i*i);
+  })();
+\end{verbatim}
+この様に関数の定義を全体で\verb+()+で囲み、そのあとに関数の呼び出しを示
+すための\verb+()+を付けています。
+
+この技法は、初期化の段階で1回しか実行しない事柄を記述し、かつグローバル
+な空間を汚さない(余計な変数などを残さない)手段として用いられています。
+\iffalse
+\subsubsection{関数を返す関数}
+関数もデータなので、ある関数の戻り値として関数自体を返すことも可能です。
+この使用法の例として、ある処理がブラウザごとに異なる作業を必要とするとき
+に、それに適応した判定を1回だけしてあとは戻した関数を実行するだけにする
+ようにできます。
+\fi
+\subsection{クロージャ}
+JavaScriptをオブジェクト指向言語として使用するための基本的な概念です。
+ここで上げる例は実用に乏しいと思われるかもしれないが、この後に出てくる
+オブジェクトの項ではより実用的なものと理解できるでしょう。
+\subsubsection{スコープチェイン}
+関数の中で関数を定義すると、その
+内側の関数内で\ElmJ{var}で宣言された変数のほかに、一つ上の関数で利用でき
+る(スコープにある)変数が利用できます。これがスコープチェインです。
+\begin{verbatim}
+var G1, G2;
+function func1(a) {
+  var b, c;
+  function func2() [
+    var G2, c;
+   ...
+  }
+}
+\end{verbatim}
+\begin{itemize}
+ \item 関数\verb+func1()+ではグローバル変数である\verb+G1+と\verb+G2+、
+       仮引数の \verb+a+ とローカル変数\verb+b+と\verb+c+が利用できます。
+ \item 関数\verb+func2()+ではグローバル変数である\verb+G1+、
+       \verb+func1()+の仮引数の \verb+a+ と\verb+func1()+のローカル変数
+       \verb+b+、\verb+func2()+のローカル変数\verb+G2+と\verb+c+が利用で
+       きます。
+\end{itemize}
+このように内側で定義された関数は自分自身の中で定義されたローカル変数があ
+るかを探し、見つからない場合には一つ上のレベルでの変数を探します。これがスコー
+プチェインです。JavaScriptの関数のスコープは関数が定義されたときのスコー
+プチェインが適用されます。これを\ElmJ{レキシカルスコープ}と呼びます。レキシカルスコー
+プは静的スコープとも呼ばれます。これに対して実行時にスコープが決まるものは
+動的スコープと呼ばれます。
+\subsubsection{クロージャ}
+このように関数内部で宣言された変数は、その外側から参照することができませ
+ん。
+つまり、その関数は関数内のローカル変数を閉じ込めています。しかし、関数内部
+で定義された関数を外部に持ち出す(グローバルな関数にする)と、持ち出された
+関数のスコープチェイン内に定義された親の関数のスコープを引き継いでいるこ
+とから、親の関数のローカル変数の参照が可能となります。
+
+このような関数に対して
+依存する環境(変数や呼び出せる関数などのリスト)を合わせたものをその関数の
+クロージャと呼ばれます。
+
+次の例は関数を定義したのちに、仮引数の値を\verb+1+増加しています。
+\begin{verbatim}
+function f(arg) {
+  var n = function() {
+    return arg;
+  }
+  arg++;
+  return n;
+}
+\end{verbatim}
+\begin{verbatim}
+>var m = f(123);
+undefined
+>m();
+124
+\end{verbatim}
+定義時の\verb+arg+の値ではなく、参照時の\verb+arg+の値が参照されているこ
+とに注意してください。
+
+このことが連続して関数を作成したときにバグを引き起こすことがあります。
+%%\begin{Exec}
+
+次の例は配列の添え字を戻り値にする関数を3つ定義しています。配列に保存さ
+ れた関数が添え字の値を返すように見えますが、実際にはそのようには動きま
+ せん。
+\begin{verbatim}
+function f() {
+  var a = [];
+  var i;
+  for(i=0; i<3; i++) {
+    a[i] = function() {
+      return i;
+    };
+  }
+  return a;
+}
+\end{verbatim}
+\begin{verbatim}
+>var a = f();
+undefined
+>a[0]();
+3
+>a[1]();
+3
+>a[2]();
+3
+\end{verbatim}
+すべて同じ値が返る関数になってしまっています。これは関数\verb+f()+が実行
+されるとローカルな変数\verb+i+の値は\ElmJ{for}文が終了した時点で値が$3$
+となり、戻り値の関数が実行された時点では、その値が参照されるからです。
+
+これを避けるためには関数にその値を渡してスコープチェインを切る必要があり
+ます。
+\begin{verbatim}
+function f2() {
+  var a = [];
+  var i;
+  for(i=0; i<3; i++) {
+    a[i] = (function(x){
+      return function() {
+        return x;
+      }
+    })(i);
+  };
+  return a;
+}
+\end{verbatim}
+\begin{itemize}
+ \item 引数を取る無名関数を用意し、その場で与えられた引数を返す無名関数
+       を返す関数を実行しています。
+ \item 仮引数には、実行されたときの\verb+i+のコピーが渡されるので、その
+       後変数の値が変わっても呼び出された時の値が保持されます。
+\end{itemize}
+\begin{verbatim}
+>var a = f2();
+undefined
+>a[0]();
+0
+>a[1]();
+1
+>a[2]();
+2
+\end{verbatim}
+
+最後の例題は同じオブジェクトを連続的に作成して、通し番号を付けたい場
+合に応用できます。
+
+\ElmJ{Ajax}で非同期通信を行う場合では通信が終了したときに呼び出される関数
+(\Elm{コールバック関数})を使用します。このとき、コールバック関数を定義し
+たときに特別な変数の値を利用する場合があります。非同期通信を同時に複数行
+う場合にはその変数の値が呼び出し時と実行時で変わってしまう場合があります。
+定義したときの変数の値を実行時にそのまま利用するためにはこのような手法が
+必要になります。
+\section{配列のメソッド}
+\label{arrayMethod}
+配列には表\ref{MethodArray}のようなメソッドが定義されています。
+このうちいくつかを具体的な例で示します。
+\begin{longtable}{|l|m{25zw}|}
+ \caption{配列のメソッド}\label{MethodArray}\\
+ \hline
+\multicolumn{1}{|c|}{メンバー}&\multicolumn{1}{c|}{説明} \\\hline
+\endfirsthead
+ \caption{配列のメソッド(続き)}\\
+ \hline
+ \multicolumn{1}{|c|}{メンバー}&\multicolumn{1}{c|}{説明} \\\hline
+\endhead
+\hline\multicolumn{2}{r}{次ページへ続く}
+\endfoot
+ \hline
+\endlastfoot
+ \ElmJA{length} &配列の要素の数。このメンバーに値を代入すると配列の大き
+      さが変えられる。\\ \hline
+  \ElmJA{join}\verb+(separator)+& 配列を文字列に変換する。\verb+separator+はオプ
+      ションの引数で、省略された場合はカンマ\verb+,+である。\\ \hline
+\ElmJA{concat}\verb+(i1,i2,...)+&指定した引数の値をもとの配列に付け加え
+ た配列を新たに作成する。引数が配列の場合は配列の要素を付け加える。元の
+ 配列は変化しない。\\\hline
+ \ElmJA{sort}\verb+([func])+&配列の要素をアルファベット順に並べ替える。
+ \verb+func+は並べ替えを指定するための関数である。\\\hline
+  \ElmJA{indexOf}\verb+(value[,start])+&\verb+start+以降(指定しない場合は
+      \verb+0+)の要素で\verb+value+の値と等しい(\verb+===+)最初のインデ
+      クッスを返す。見つからない場合は\verb+-1+。\\ \hline
+  \ElmJA{lastIndexOf}\verb+(value[,start])+&\verb+start+以前(指定しない場合は
+      配列の最後)の要素で\verb+value+の値と等しい(\verb+===+)最初のインデ
+      クッスを返す。見つからない場合は\verb+-1+。\\ \hline
+  \ElmJA{pop}\verb+()+& 配列の最後の要素を削除し、その値を返す。配列をスタックと
+      して利用できる。\\ \hline
+  \ElmJA{push}\verb+(i1,i2,...)+& 引数で渡された要素を配列の最後に付け加える。配
+      列をスタックやキューとして利用できる。\\ \hline
+  \ElmJA{shift}\verb+()+&配列の最初の要素を削除し、その値を返す。配列をキューと
+      して利用できる。\\ \hline
+  \ElmJA{unshift}\verb+(i1,i2,...)+&引数で渡された要素を配列の最初の要素とする。\\ \hline
+  \ElmJA{reverse}\verb+()+&与えられた配列の要素を逆順に並べ替えたものに
+ 変更する。\\ \hline
+ \ElmJA{slice}\verb+(start[,end])+&\verb+start+から\verb+end+の前の位置に
+ ある要素を取り出した配列を返す。\verb+end+がないときは配列の最後までを
+ 指定したことになる。元の配列は変化しない。\\ \hline
+  \ElmJA{splice}\verb+(start,No,i1,i2,...)+&\verb+start+の位置から
+ \verb+No+個の要素を取り除き、その位置に\verb+i1,i1,...+以下の要素を付け加
+ える。\\\hline
+  \ElmJA{forEach}\verb+(func)+&引数\verb+func+に与えられた関数を配列の各要素に対
+      して実行する。関数の引数は配列の値、配列の\verb+index+、配列の順と
+      なる。与えられた関数の戻り値は無視される。途中でループの処理を中断
+      できない。\\\hline
+  \ElmJA{map}\verb+(func)+&引数に与えられた関数を配列の各要素に対して実行し、関数の戻
+      り値からなる新しい配列を作成する。引数として与えられた関数の引数は
+      \verb+forEach+と同じである。\\ \hline
+  \ElmJA{reduce}\verb+(func[,initial])+&\verb+func+は2つの仮引数をとる関数。
+      \verb+initial+がないときは\verb+func+が初めて呼び出されるときは配
+      列の1番目と2番目の要素が引数として与えられる。2回目以降の呼び出し
+      では1番目の引数はその前に呼び出された関数の戻り値が使用される。
+      \verb+initial+があるときは初めての呼び出しで1番目の引数として使わ
+      れる。\\ \hline
+  \ElmJA{reduceRight}\verb+(func[,initial])+&\verb+reduce+と同様のメソッド。
+      配列の要素のアクセスが大きい方から小さい方になる。\\ \hline
+ \ElmJA{every}\verb+(func)+&\verb+func()+を各配列の要素に適用し、すべて
+ が\ElmJ{true}と解釈される値のとき、\ElmJ{true}を返す。どこか一つで\ElmJ{false}のとき
+ にはそこで実行が打ち切られ、\ElmJ{false}の値が返る。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+ \ElmJA{some}\verb+(func)+&\verb+func()+を各配列の要素に適用し、どれか
+ひとつが\ElmJ{true}と解釈される値のとき、\ElmJ{true}を返す。どこか一つで
+ \ElmJ{true}のとき にはそこで実行が打ち切られる。すべての結果が
+ \ElmJ{false}のときは\ElmJ{false}となる。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+ \ElmJA{filter}\verb+(func)+&\verb+func+で呼び出される関数の戻り値が
+ \ElmJ{true}に変換される要素を集めて新しい配列を作成する。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+\end{longtable}
+\ElmJA{slice}と\ElmJA{splice}は似たメソッドですが、引数の意味が異なる
+ところがあるので注意が必要です。
+\begin{listing}{1}
+>A=[1,2,3,4,5,6,7,8,9];
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>A.slice(2,4)
+[3, 4]
+>A;
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>A.splice(2,4)
+[3, 4, 5, 6]
+>A;
+[1, 2, 7, 8, 9]
+>A.splice(2,0,"a","b")
+[]
+>A;
+[1, 2, "a", "b", 7, 8, 9]
+\end{listing}
+\begin{itemize}
+  \item \ElmJA{slice}の引数は配列から取り出す開始位置と終了位置の直後ま
+        でを指定します。したがって、3行目の例では2番目と3番目の要素が切り
+        出されます。また、5行目の実行例からも元の配列が変化していないこ
+        とがわかります。
+  \item \ElmJA{splice}の1番目の引数は配列から取り出す開始位置で、2番目の
+        引数は\ElmJA{slice}とは異なり、取り出す個数です(7、8行目参照)。
+ \item \ElmJA{splice}を行った配列は戻り値の部分が取り除かれています(9、
+       10行目)。
+ \item \ElmJA{splice}は追加の引数で取り除いた位置に挿入する要素を指定で
+       きます。
+ \end{itemize}
+ \ElmJA{forEach}と\ElmJA{map}の引数で与えられる関数は3つの引数
+       \verb+value+、\verb+index+と\verb+array+をとることができます。
+したがって、次の関係が成立します。
+\begin{verbatim}
+  array[index] = value
+\end{verbatim}
+%
+元の配列の要素を変更しないのであれば、3つ目の引数\verb+array+は必要ありません。
+
+\begin{verbatim}
+>A=[1,2,3];
+A.forEach(function(V, i, AA) {AA[i] = V*V;});
+>A;
+[1, 4, 9]
+\end{verbatim}
+この例では、元の配列の各要素を2乗して元の配列に格納しています。
+
+これに対し、\verb+map+では新しい配列を作成します。
+\begin{verbatim}
+>A=[1,2,3];
+[1, 2, 3]
+>A.map(function(V) {return V*V;});
+[1, 4, 9]
+>A;
+[1, 2, 3]
+\end{verbatim}
+
+次の例は\ElmJA{reduce}の実行例です。
+\begin{verbatim}
+>[1,2,3].reduce(function(x,y){return x+y;});
+6
+\end{verbatim}
+与えられた関数は引数の和を求めているので、全体としては配列の中の要素の和
+が求められています。
+\ref{argumentsSum}で\ElmJ{arguments}の総和をとる関数を作成しています。
+この部分を\ElmJA{reduce}で置き換えるとうまくいきません。
+\begin{verbatim}
+>function sum() {return arguments.reduce(function(x,y){return x+y;})}
+undefined
+>sum(1,2,3);
+VM510:2 Uncaught TypeError: arguments.reduce is not a function(…)
+\end{verbatim}
+「\ElmJ{arguments}には\ElmJA{reduce}という関数がない」というメッセージが
+表示されています。これからも、\ElmJ{arguments}は配列のようなものだけれど
+も配列とは違うことがわかります。
+
+これを解決するにはオブジェクトのメソッドとして関数を呼び出す\ElmJ{call}
+を使用します。
+\begin{verbatim}
+>function sum(){return Array.prototype.reduce.call(arguments,function(x,y){return x+y;})}
+undefined
+>sum(1,2,3);
+6
+\end{verbatim}
+\ElmJA{reduce}は\ElmJ{Array}オブジェクトの\ElmJ{prototype}で定義されてい
+る関数です。それを\ElmJ{arguments}のメソッドとして呼び出すために
+\ElmJ{call}を用いています。
+\ElmJ{reduce}の引数として関数を必要としますので、それを無名関数として2番
+目の引数に与えています。
+
+\verb+document.getElemensByTagName+などで得られた
+配列のようなものに対して\ElmJA{forEach}などを利用したい場合にもこの手法
+が利用できます。
+ \section{オブジェクト}
+\subsection{配列とオブジェクト}
+配列はいくつかのデータをまとめて一つの変数に格納しています。各データを利用
+するためには \verb+foo[1]+ のように数による添え字を使います。これに対し、
+オブジェクトでは添え字に任意の文字列を使うことができます。
+%%\begin{Exec}\label{Execconstructor}
+
+次の例はあるオブジェクトを定義して、その各データにアクセスする方法を示し
+ています。
+\begin{verbatim}
+var person = {
+  name : "foo",
+  birthday :{
+    year : 2001,
+    month : 4,
+    day : 1
+  },
+  "hometown" : "神奈川",
+}
+\end{verbatim}
+\begin{itemize}
+ \item オブジェクトは全体を \verb+{}+ で囲みます。
+ \item 各要素はキーと値の組で表されます。両者の間は \verb+:+ で区切りま
+			 す。
+ \item キーは任意の文字列でかまいません。キー全体を \verb+""+ で囲わなく
+			 てもかまいません。
+ \item 値はJavaScriptで取り扱えるデータなあらば何でもかまいません。上の例ではキー
+       \verb+birthday+ の値がまたオブジェクトとなっています。
+ \item 各要素の値を取り出す方法は2通りあります。
+
+一つは\verb+.+演算子を用いてオブジェクトのキーをそのあとに書きます。もう一つ
+       は配列と同様に\verb+[]+内にキーを文字列として指定する方法です。
+\begin{verbatim}
+>person.name;
+"foo"
+>person["name"];
+"foo"
+\end{verbatim}
+オブジェクトの中にあるキーをすべて網羅するようなループを書く場合や変数名
+       として利用できないキーを参照する場合には後者
+       の方法が利用されます。
+ \item キーの値が再びオブジェクトであれば、前と同様の方法で値を取り出せ
+       ます。
+\begin{verbatim}
+>person.birthday;
+Object {year: 2001, month: 4, day: 1}
+>person.birthday.year;
+2001
+>person.birthday["year"];
+2001
+\end{verbatim}
+この例のように取り出し方は混在しても問題ありません。
+ \item キーの値は代入して変更できます。
+\begin{verbatim}
+>person.hometown;
+"神奈川"
+>person.hometown="北海道";
+"北海道"
+>person.hometown;
+"北海道"
+\end{verbatim}
+ \item 存在しないキーを指定すると値として\verb+undefined+が返ります。
+\begin{verbatim}
+>person.mother;
+undefined
+\end{verbatim}
+ \item 存在しないキーに値を代入すると、キーが自動で生成されます。
+\begin{verbatim}
+>person.mother = "aaa";
+"aaa"
+>person.mother;
+"aaa"
+\end{verbatim}
+ \item オブジェクトのキーをすべて渡るループは \verb+for-in+で実現できま
+			 す。
+\begin{itemize}
+ \item \verb+for( v in obj)+ の形で使用します。変数 \verb+v+ はループ内で
+       キーの値が代入される変数、\verb+obj+ はキーが走査されるオブジェク
+       トです。
+ \item キーの値は \verb+obj[v]+ で得られます。
+\end{itemize}
+\begin{verbatim}
+>for(i in person) { console.log(i+" "+person[i]);};
+name foo
+birthday [object Object]
+hometown 北海道
+mother aaa
+undefined
+\end{verbatim}
+最後の\verb+undefined+は\verb+for+ループの戻り値です。
+\end{itemize}
+
+なお、オブジェクトを\verb+{}+の形式で表したものをオブジェクトリテラルと
+よびます。
+\subsection{コンストラクタ関数}
+オブジェクトを定義する方法としてはコンストラクタ関数を使う方法がある。
+%%\begin{Exec}\label{constructor}
+次の例はコンストラクタ関数を用いて、前の例と同じオブジェクト(インスタン
+ ス)を構成しています。
+\begin{verbatim}
+function Person(){
+  this.name = "foo";
+  this.birthday = {
+    year : 2001,
+    month : 4,
+    day : 1
+  };
+  this["hometown"] = "神奈川";
+}
+\end{verbatim}
+\begin{itemize}
+ \item 通常、コンストラクタ関数は大文字で始まる名前を付けます。
+ \item そのオブジェクト内にメンバーを定義するために、\verb+this+をつけて
+       定義します。ここでは、前の例と同じメンバー名で同じ値を設定してい
+       ます。
+ \item この関数には\verb+return+がないことに注意すること。
+ \item この関数を用いてオブジェクトを作成するためには、\verb+new+ をつけ
+       て関数を呼び出します。
+\begin{verbatim}
+>var person = new Person();
+undefined
+\end{verbatim}
+ \item 元来、戻り値がないので\verb+undefined+が表示されているが、オブジェ
+       クトは作成されていいます。
+ \item 前と同じ文を実行すれば同じ結果が得られます。
+\end{itemize}
+
+ここの例はコンストラクタ関数に引数がないが、引数を持つコンストラクタ関数
+ も定義が可能です。これにより同じメンバーを持つオブジェクトをいくつか
+ 作る必要がある場合にプログラムが簡単になります。
+
+%%%\begin{Exec}
+次の例はコンストラクタ関数を \ElmJ{new} を用いないで実行した場合です。
+\begin{verbatim}
+>p = Person();
+undefined
+>p;
+undefined
+>name;
+"foo"
+>window.name;
+"foo"
+>birthday == window.birthday
+true
+\end{verbatim}
+\begin{itemize}
+ \item この関数は戻り値がないので、\verb+undefined+ が変数 \verb+p+ に代
+       入されます。
+ \item このとき、キーワード \verb+this+ が指すのはグローバルオブジェクト
+       です。
+ \item 現在の実行環境はブラウザ上なので、このときのグローバルオブジェク
+       トは \verb+window+ です。
+ \begin{itemize}
+  \item このとき、グローバル変数はすべてグローバルオブジェクトのメンバー
+	としてアクセス可能です。この例では \verb+this.name+ に値を代入
+	した時点で変数 \verb+name+ が定義されています。
+  \item 最後の例からも、\verb+name+ と \verb+window.name+ が同じものであ
+	ることがわかります。
+ \end{itemize}
+\end{itemize}
+%
+\iffalse
+\begin{Problem}
+\verb+window+ オブジェクトにはどのようなプロパティがあるか調べよ。2つ以
+ 上のブラウザで実行し、比較すること。
+\end{Problem}
+\fi
+\iffalse
+\begin{verbatim}
+>person.name;
+"foo"
+>person.birthday;
+Object {year: 2001, month: 4, day: 1}
+>person.birthday.year;
+2001
+>person.hometown;
+"神奈川"
+>person.hometown ="北海道";
+"北海道"
+>person.hometown;
+"北海道"
+>person.mother;
+undefined
+>person.mother="aaa";
+"aaa"
+>person.mother;
+"aaa"
+\end{verbatim}
+\fi
+\begin{Problem}\upshape
+ 上の実行例%\ref{constructor}
+ を次のように変えます。
+\begin{verbatim}
+function Person(D){
+  this.name = "foo";
+  this.birthday = {
+    year : 2001,
+    month : 4,
+    day : 1
+  };
+  this["hometown"] = "神奈川";
+  return D;
+}
+\end{verbatim}
+これに対して次のように実行したとき、作成されるオブジェクトは
+ 何か答えなさい。
+\begin{enumerate}
+ \item \verb+p = new Person(1);+
+%Person {name: "foo", birthday: Object, hometown: "神奈川"}
+ \item \verb+p = new Person([1,2,3]);+
+%[1, 2, 3]
+ \item \verb+p = new Person({o:"1"});+
+%Object {o: "1"}
+%p.o;
+%"1" 
+ \item \verb+p = new Person(function(){return 2;});+
+%function (){return 2;}
+%p;
+%function (){return 2;}
+%p();
+%2
+% \item \verb+p = new Person(new function(){return 2;});+
+%Object {}
+%p;
+%Object {}
+ \item \verb+p = new Person(new function(){this.a = "a"});+
+%Object {a: "a"}
+%p.a
+%"a"
+\end{enumerate}
+\end{Problem}
+\subsubsection{\protect\texttt{constructor}プロパティ}\label{constructorProp}
+オブジェクトが作成されると、\verb+constructor+ プロパティとよばれる特殊
+なプロパティも設定されます。
+このプロパティはオブジェクトを作成したときに使われたコンストラクタ関数を返します。
+
+\begin{verbatim}
+>var p = new Person();
+undefined
+>p.name;
+"foo"
+>p.constructor;
+function Person(){
+  this.name = "foo";
+  this.birthday = {
+    year : 2001,
+    month : 4,
+    day : 1
+  };
+  this["hometown"] = "神奈川";
+}
+\end{verbatim}
+
+このプロパティに含まれるものは関数なので、コンストラクタの名前を
+       知らなくても、元と同じオブジェクトのコピーが作成できます。
+\begin{verbatim}
+>np = new p.constructor();
+Person {name: "foo", birthday: Object, hometown: "神奈川"}
+>np.constructor;
+function Person(){
+  this.name = "foo";
+  this.birthday = {
+    year : 2001,
+    month : 4,
+    day : 1
+  };
+  this["hometown"] = "神奈川";
+}
+ オブジェクトリテラルを使ってオブジェクトを作ると、組み込み関数の
+       \ElmJ{Object()} コンストラクタ関数がセットされます。
+\begin{verbatim}
+>o = {}
+Object {}
+>o.constructor;
+function Object() { [native code] }
+\end{verbatim}
+ このプロパティは \verb+for-in+ループ内では表示されません。
+
+\subsubsection{\protect\texttt{instanceof}演算子}
+\texttt{instanceof}演算子はオブジェクトを生成したコンストラクタ関数が指
+定されたものかを判定できます。
+%%\begin{Exec}
+次の結果はOpera 29 で %実行例\ref{Execconstructor}をもとに、
+\ref{constructorProp}を実
+ 行した後にさらに実行したものです。
+\begin{verbatim}
+>p instanceof Person
+true
+>p instanceof Object;
+true
+>o instanceof Object;
+true
+>o instanceof Person
+false
+\end{verbatim}
+
+\subsection{オブジェクトリテラルとJSON}
+JSON(JavaScript Object Notation)はデータ交換のための軽量なフォーマットで
+す。形式はJavaScriptのオブジェクトリテラルの記述法と全く同じです。
+\begin{itemize}
+ \item 正しく書かれたJSONフォーマットの文字列をブラウザとサーバーの間で
+       データ交換の手段として利用できます。
+ \item JavaScript内で、JSONフォーマットの文字列をJavaScriptのオブジェク
+       トに変換できます。
+ \item JavaScript内のオブジェクトをJSON形式の文字列に変換できます。
+\end{itemize}
+
+JavaScriptのオブジェクトとJSONフォーマットの文字列の相互変換の手段を提供
+するのが\ElmJ{JSON}オブジェクトです。
+
+%%%\begin{Exec}\label{JSONExec}
+次の例は2つの同じ形式からなるオブジェクトを通常の配列に入れたものを定義
+ しています。
+\begin{verbatim}
+var persons = [{
+  name : "foo",
+  birthday :{ year : 2001, month : 4, day : 1},
+  "hometown" : "神奈川",
+},
+{
+  name : "Foo",
+  birthday :{ year : 2010, month : 5, day : 5},
+  "hometown" : "北海道",
+}];
+\end{verbatim}
+次の例はこのオブジェクトを \texttt{JSON}に処理させたものです。
+\begin{verbatim}
+>s = JSON.stringify(persons);
+"[{"name":"foo","birthday":{"year":2001,"month":4,"day":1},
+"hometown":"神奈川"},
+{"name":"Foo","birthday":{"year":2010,"month":5,"day":5},
+"hometown":"北海道"}]"
+>s2 = JSON.stringify(persons,["name","hometown"]);
+"[{"name":"foo","hometown":"神奈川"},{"name":"Foo","hometown":"北海道"}]"
+>o = JSON.parse(s2);
+[Object, Object]
+>o[0];
+Object {name: "foo", hometown: "神奈川"}
+\end{verbatim}
+\begin{itemize}
+ \item JavaScriptのオブジェクトを文字列に変更する方法は
+       \texttt{JSON.stringigy()}を用います。このまま見ると\verb+"+%"
+			 がおかし
+       いように見えるが表示の関係でそうなっているだけです。
+なお、結果は途中で改行を入れているが実際は一つの文字列となっています。
+ \item \texttt{JSON.stringigy()}の二つ目の引数として対象のオブジェクトの
+       キーの配列を与えることができます。このときは、指定されたキーのみが
+       文字列に変換されます。
+ \item ここでは、\verb+"name"+ と \verb+"hometown"+が指定されているので
+\verb+"birthday"+のデータは変換されていません。
+ \item JSONデータをJavaScriptのオブジェクトに変換するための方法は
+       \texttt{JSON.parse()}を用います。
+ \item ここではオブジェクトの配列に変換されたことがわかります。
+ \item 各配列の要素が正しく変換されていることがわかります。
+\end{itemize}
+
+\begin{Problem}
+上の実行例で%\ref{JSONExec}において、
+\begin{verbatim}
+s3 = JSON.stringify(persons,["year"]);
+\end{verbatim}
+としたときの結果はどうなるか調べなさい。
+\end{Problem}
+
+
+\subsection{ECMAScript5のオブジェクト属性}
+\subsubsection{オブジェクト指向言語におけるプロパティとメソッドの属性}
+オブジェクト指向言語ではオブジェクトのプロパティやメソッドは次のよ
+うに分類されます。
+\begin{itemize}
+ \item {\bfseries インスタンスフィールド}\\インスタンスごとに異なる値を保
+       持できるプロパティ
+ \item {\bfseries インスタンスメソッド}\\
+クラスのすべてのインスタンスで共有されるメソッド
+ \item {\bfseries クラスフィールド}\\クラスに関連付けられたプロパティ
+ \item {\bfseries クラスメソッド}\\
+クラスに関連付けられたメソッド
+\end{itemize}
+JavaScriptでは関数もデータなのでフィールドとメソッドに厳密な区別はないの
+でフィールドとメソッドは同一視できます。また、\texttt{prototype}を用いれ
+ばクラスフィールドなども作成できます。
+
+通常、オブジェクト指向の言語ではフィールドを勝手に操作され
+ないようにするために、フィールドを直接操作できなくして、値を設定や取
+得するメソッドを用意します。そのために、フィールドにアクセスするため
+記述が面倒になるという欠点もあります。
+
+一方、プロパティの代入の
+形をとっても実際はゲッターやセッター関数を呼ぶ形になっている言語もありま
+す。JavaScriptの最新版1.8.1以降ではこの方式が可能となっています。
+\subsubsection{プロパティ属性}
+JavaScript は Ecma International が定義している ECMAScript の仕様に基づ
+いています。2014年現在、最新バージョンの ECMAScript 5.1 の仕
+様は
+ECMA-262\footnote{\texttt{http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf}}
+で公開されています。
+
+このバージョンではオブジェクトのプロパティやメソッドにプロパティ属性とい
+う機能が追加されました。オブジェクトのプロパティの属性には表
+\ref{PropAttribute}のようなものがあります。
+\begin{table}[ht]
+ \caption{プロパティの属性のリスト}\label{PropAttribute}
+\begin{center}
+ \begin{tabular}{|c|m{6zw}|m{20zw}|c|}\hline
+ 属性名 & \multicolumn{1}{c|}{値の型}& \multicolumn{1}{c|}{説明}&
+デフォルト値\\\hline
+  \texttt{value}& 任意のデータ&プロパティの値&\texttt{undefined}\\ \hline
+  \texttt{writable}&\texttt{Boolean}& \texttt{false}のときは
+	  \texttt{value}の変更ができない&\texttt{false}\\ \hline
+  \texttt{enumerable}&\texttt{Boolean}& \texttt{true}のときは
+	  \texttt{for-in}ループでプロパティが現れる。&\texttt{false}\\ \hline
+  \texttt{configurable}&\texttt{Boolean}&\texttt{false}のときはプロパティ
+	  を消去したり、\texttt{value}以外の値の変化ができない&\texttt{false}\\ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+%
+また、メソッドに関しては表\ref{MethodAttribute}のものがあります。
+\begin{table}[ht]
+ \caption{メソッドの属性のリスト}\label{MethodAttribute}
+\begin{center}
+ \begin{tabular}{|c|m{6zw}|m{20zw}|c|}\hline
+ 属性名 & \multicolumn{1}{c|}{値の型}& \multicolumn{1}{c|}{説明}& デフォルト値 \\\hline
+  \texttt{get}& オブジェクトまたは未定義&関数オブジェクトでなければなら
+	  ない。プロパティの値が読みだされるときに呼び出される&\texttt{undefined}\\ \hline
+  \texttt{set}&オブジェクトまたは未定義& 関数オブジェクトでなければなら
+	  ない。プロパティの値を設定するときに呼び出される&\texttt{undefined}\\ \hline
+  \texttt{enumerable}&\texttt{Boolean}& \texttt{true}のときは
+	  \texttt{for-in}ループでプロパティが現れる。&\texttt{false}\\ \hline
+  \texttt{configurable}&\texttt{Boolean}&\texttt{false}のときはプロパティ
+	  を消去したり、\texttt{value}以外の値の変化ができない&\texttt{false}\\ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+
+\iffalse
+これらの属性が設定されないときのデフォルトは表\ref{DefaultProp}のとおり
+である。
+\begin{table}[ht]
+ \caption{属性のデフォルト値}\label{DefaultProp}
+\begin{center}
+ \begin{tabular}{|c|c|}\hline
+ 属性名 & デフォルト値 \\\hline
+  \texttt{value}&\texttt{undefined} \\\hline
+  \texttt{get}& \texttt{undefined}\\\hline
+  \texttt{set}&\texttt{false} \\\hline
+  \texttt{enumerable}&\texttt{false}\\\hline
+  \texttt{configurable}&\texttt{false}\\\hline
+ \end{tabular}
+\end{center}
+\end{table}
+\fi
+
+これらの属性を使うとオブジェクトのプロパティの呼び出しや変更に関して、いわ
+ゆるゲッター関数やセッター関数を意識しないで呼び出すことが可能となります。
+%これらの属性は\texttt{Object.defineProperty()}を用いることで設定できる。
+%\newpage
+次の例は\cite{JavaScript}にある9章の例9.2の \texttt{Range} を改良した例9.18と9.21をま
+とめたものです。
+%%\begin{Exec}\label{ExRange2}\upshape
+この例はさらにコンストラクタやセッター
+ のところで不適切な値が設定されないようにチェックを加えています。
+\begin{listing}{1}
+function Range(from, to) {
+  if(from > to ) throw Error("Range: from must be <= to");
+  function getF() { return from;};
+  function setF(v) {
+    if(v <= to ) from = v;
+    else throw Error("Range: from must be <= to");
+  };
+  function getT() {return to;};
+  function setT(v) {
+    if(v >= from ) to = v;
+    else throw Error("Range: from must be <= to");
+  }
+  Object.defineProperty(this, "from",
+    {get: getF, set: setF, enumerable:true, configurable:false});
+  Object.defineProperty(this, "to",
+    {get: getT, set: setT, enumerable:true, configurable:false});
+}
+\end{listing}
+\begin{itemize}
+ \item 前と同様に、二つの引数を持つ \texttt{Range} 関数を作成します。
+ \item 2行目では下限の値が上限の値より大きくなったらエラーを発生させてい
+       ます。
+ \item 3行目から12行目では下限(\texttt{from})と上限(\texttt{to})のゲッター
+       とセッターを定義しています。各セッターではコンストラクタと同様に値
+       に矛盾が起きていたらエラーを発生させるようにしています。
+ \item 13行目から14行目で作成するインスタンスのプロパティ \texttt{from}
+       のオブジェクト属性を \texttt{defineProperty()} を用いて定義してい
+       ます。この関数の引数は次のとおりです。
+ \begin{itemize}
+  \item 一番目の引数はプロパティを設定するオブジェクト
+  \item 2番目の引数はプロパティの名前。ここでは文字列で与えている。
+  \item 3番のの引数は設定するプロパティ属性。ここではゲッター関数とセッ
+	ター関数を指定し、\texttt{for-in}ループで列挙可能にし、関数の置
+	き換えや再設定ができないように設定しています。
+ \end{itemize} 
+ \item 15行目から16行目では同様に作成するインスタンスのプロパティ \texttt{from}
+       のオブジェクト属性を設定しています。
+\end{itemize}
+\begin{listingcont}
+Range.prototype = {
+  includes : function(v) {
+    return this.from <= v && v <= this.to;
+  },
+  foreach : function(f) {
+    for(var k = Math.ceil(this.from); k<= this.to; k++) f(k);
+  },
+  toString : function() { return "[" + this.from+",...,"+this.to+"]";}
+};
+Object.defineProperties(Range.prototype, 
+  { includes : {enumerable : false},
+    foreach  : {enumerable : false},
+    toString : {enumerable : true}
+  });
+\end{listingcont}
+\begin{itemize}
+ \item 18行目から26行目までは前と同じく \texttt{prototype} にクラスメソッ
+       ドを定義しています。
+ \item これらのクラスメソッドの一部を列挙可能にしないために
+       \texttt{definePropaties()} を用いて設定しています。この関数は
+       \texttt{definePropaty()} が一つのプロパティごとに設定するのに対し、
+       複数のプロパティに対して設定が可能です。なお、ここでは機能を確
+       かめるため設定の値を変えています。
+\begin{itemize}
+ \item 一番目の引数は設定するオブジェクト
+ \item 2ア番目の引数は設定するプロパティをキーとし、設定する属性のリスト
+       を表すオブジェクトの値
+\end{itemize}
+\end{itemize}
+これらの設定が正しく動作しているか検証します。
+\begin{itemize}
+ \item オブジェクトを作成し、プロパティを列挙します。
+\begin{verbatim}
+>r = new Range(1,5);
+Range {from: (...), to: (...), toString: function}
+>for(key in r) console.log(key+":"+r[key]);
+from:1
+to:5
+toString:function () { return "[" + this.from+",...,"+this.to+"]";}
+undefined
+>r.includes;
+function (v) {
+    return this.from <= v && v <= this.to;
+  } 
+\end{verbatim}
+\begin{itemize}
+ \item \texttt{include} と \texttt{foraeach} の \texttt{enumerable} のプロパティ
+       を \texttt{false} 、\texttt{toString} の \texttt{enumerable} のプロパティ
+       を \texttt{true} に設定したので、メソッドは \texttt{toString} し
+       か表示されていません。
+ \item 関数が存在することは確認できます。
+\end{itemize}
+ \item 各メソッドが正しく動作するか確認します。
+\begin{verbatim}
+>r.includes(3);
+true
+>r.includes(10);
+false
+\end{verbatim}
+以前と同じ動作をしています。
+ \item プロパティに代入します。
+\begin{verbatim}
+>r.from = 10;
+Uncaught Error: Range: from must be <= to 
+>r.from = -5;
+-5
+>r.from;
+-5
+\end{verbatim}
+\begin{itemize}
+ \item 上限より大きな値を下限に設定するとエラーが起きます。\texttt{get} で
+       指定した関数が動作していることがわかります。
+ \item 条件を満たす値を設定すれば、正しく設定されます。
+\end{itemize}
+念のため、オブジェクトの値がどうなっているか確認します。
+\begin{verbatim}
+>for(key in r) console.log(key+":"+r[key]);
+from:-5
+to:5
+toString:function () { return "[" + this.from+",...,"+this.to+"]";}
+undefined
+\end{verbatim}
+ \item プロパティが削除できるか確認します。
+\begin{verbatim}
+>delete r.from;
+false
+>r.from
+-5
+\end{verbatim}
+\texttt{delete} の結果が \texttt{false} なので、取り除きに失敗しています。
+       値は元の値のままです。
+\end{itemize}
+
+\begin{Problem}
+ 上の実行例
+ %\ref{ExRange2}
+ に対して次のことをしなさい。
+\begin{enumerate}\upshape
+ \item 各メソッドが正しく動くことを確認しなさい。
+ \item 13行目から16行目にある2つの \texttt{Object.defineProperty()} 関数
+       を \texttt{Object.defineProperties()} 関数で置き換えなさい。
+ \item 3行目から12行目で定義されている関数はグローバルな関数か答えなさい。ま
+       た、13行目から16行目の部分は関数 \texttt{Range()} の外に記述して
+       もよいか答えなさい。
+ \item 3行目から12行目で定義されている関数を無名関数にしてゲッターとセッ
+       ターを定義しなさい。
+ \item 関数 \texttt{Range()} 内にある変数 \texttt{from} と \texttt{to}
+       はどどこで定義されているか答えなさい。
+ \item 関数 \texttt{Range()} 内にある変数 \texttt{from} と \texttt{to}
+       と \texttt{this.from}、\texttt{this.to} は同じものを指す
+       か答えなさい。たとえば、3行目の \texttt{from} を \texttt{this.from}
+       としたら何が起こるか確認しなさい。
+ \item 上記の実行例で \texttt{delete r.from} が失敗する理由を説明しなさ
+			 い。
+\end{enumerate}
+\end{Problem}
+\subsection{エラーオブジェクトについて}
+前節の例ではオブジェクトの条件に合わない値を設定すると、エラーを発生する
+ようにしています。ここでは \ElmJ{エラーオブジェクト}について詳しく説明します。
+%%\begin{Exec}\upshape
+次の例は前の実行例に、実行時に上限と下限の値を設定する
+ ためのテスト関数です。コンソールから \texttt{var r = test()} などで実
+ 行すると上限と下限の値が正しくなるまで繰り返されます。
+
+なお、このプログラムはブラウザ上で実行されることを想定しています。
+\begin{listing}{1}
+function test() {
+  var f, t;
+  for(;;) {
+    try {
+      f = Number(prompt("区間の下限の値を入力してください"));
+      t = Number(prompt("区間の上限の値を入力してください"));
+      return new Range(f,t);
+    } catch(e) {
+      console.log(e.name+":"+e.message);
+      console.log("from:"+f+", to:"+t);
+    }
+  }
+}
+\end{listing}
+\begin{itemize}
+ \item 2行目でこの関数内で使用するローカル変数を宣言しています。
+ \item 3行目の \texttt{for(;;)} は初期条件、終了条件、後処理がすべて記述
+       されていない \texttt{for} ループです。これにより無限ループが構
+       成できます。
+ \item エラー処理をする構文が \texttt{try/catch/finnally} 構文です。
+\begin{itemize}
+ \item \texttt{try}の後に書かれたブロック(ここでは5行目から7行目を含むブ
+       ロック)が通常実行されます。
+ \item この実行の間エラーが発生しなければ \texttt{catch}の後のブロックは
+       実行されません。
+ \item エラーが起きると \texttt{catch(e)} に書かれた変数 \texttt{e}にエ
+       ラーオブジェクトが設定されています。この変数はこのブロック内でしか
+       有効ではありません。
+\end{itemize}
+ \item \texttt{try} ブロック内ではキーボードから2つの数を読むため、
+       \texttt{window} オブジェクトの \texttt{prompt()} を呼び出していま
+       す。
+ \item この関数の戻り値（文字列)を \texttt{Number} コンストラクタで
+       数に変換しています(5行目と6行目)。
+ \item 7行目で作成した \texttt{Range} オブジェクトを戻り値としています。
+ \item \texttt{Range}コンストラクタでは上限の値が下限の値より小さいとき
+       はエラーが発生させています。エラーオブジェクトではエラーが起きたコ
+       ンストラクタの名前が \ElmJ{name} プロパティに、投げられたエラー
+       で引数に書かれた文字列が \ElmJ{message} プロパティに設定されて
+       いるので、その内容を9行目で表示させていいます。
+ \item その後、コンストラクタを呼んだときの値を表示させています。
+\end{itemize}
+
+次の実行例は、はじめに下限値を $5$、上限値を $1$ に設定しエラーを表示さ
+せ、その後、下限値を $1$ 、上限値を $5$ に設定したときのものです。
+希望したオブジェクトが作成できていることがわかります。
+\begin{verbatim}
+>r = test();
+Error:Range: from must be <= to
+from:5, to:1
+Range {from: (...), to: (...), toString: function}
+>r.from
+1
+>r.from =10;
+Error: Range: from must be <= to
+\end{verbatim}

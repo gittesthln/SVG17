@@ -5,16 +5,20 @@ SVGはテキストベースの画像表現フォーマットです。
 %\footnote{テキストベースといっても顔文字とは違います。}
 これを作成するためには
 \keyitem{テキストエディタ}と呼ばれるソフトウェアを使います。Windows で標準につい
-てくるメモ帳はテキストエディタの例です。また、XML 専用のエディタ
-を利用するのもよいでしょう。
+てくるメモ帳はテキストエディタの例です。
 %XML の文書を編集するためのエディタも便利です。
 \begin{Problem}
 エディタソフトウェアにはどのようなものがあるか調べなさい。特に Unix では
- どのようなものが有名であるか調べること。また、XML文書を編集するためのエ
- ディターにどのようなものがあるか調べなさい。
+ どのようなものが有名であるか調べること。また、XML文書を編集するための
+ テキストエディタにどのようなものがあるか調べなさい。
 \end{Problem}
-エディターでSVGファイルを作成するときの注意を次にあげておきます。
+テキストエディタでSVGファイルを作成するときの注意を次にあげておきます。
 \begin{itemize}
+ \item SVGファイルの標準の文字コードはUTF-8です。Windows のメモ帳では文
+			 字コードをUTF-8 で保存するとファイルの先頭にBOMと呼ばれるコードが
+			 付き、XML形式のファイルとしては正しくないものになってしまいます。
+			 エディタによっては保存する文字コードにこのBOMなしで保存を選択でき
+			 るものがあります。
  \item SVGファイルの内容はHTMLファイルのようにタグをつけた形で記述します。
        タグで定義されるものを要素と呼びます。
  \item HTMLファイルのタグでは次のようなことが可能です。
@@ -45,39 +49,37 @@ SVGはテキストベースの画像表現フォーマットです。
        やすくなるようにきれいに記述しましょう。
 \end{itemize}
 
-\Opera におけるXML文書としてのエラーがあった場合の表示例を解説します。
+\Chrome におけるXML文書としてのエラーがあった場合の表示例を解説します。
 \SVGListN{XML文書としてエラーがあった場合}{first}{first}
 
 リスト\ref{first}では6行目で
 \texttt{x="0" y="0"} と記すべきところを \texttt{x="0"y="0"} と空白を入れ
        なかった場合のエラーの表示です。
 
-\Opera{} では
-エラーがあった位置を行数とその行からの位置でに指摘してくれます。
-\ShowFig{0.6}{ht}{error-1}{\Opera におけるエラーメッセージ}
-{error-opera-1}
+\Chrome{} では
+エラーがあった位置を行数と桁で指摘してくれます。
+\ShowFig{0.6}{ht}{first-error}{\Chrome におけるエラーメッセージ}
+{first-error}
 
-これでよくわからない場合には次のような方法もあります。
+これでよくわからない場合には
+\href{http://w3c.github.io/developers/tools/}{http://w3c.github.io/developers/tools/}
+を利用する方法があります(図\ref{validator})。
+\ShowFig{0.6}{ht}{validator}{Validatorのトップ画面}{validator}
 \begin{enumerate}
- \item 図\ref{error-opera-1}で右クリックすると図\ref{error-opera-2}のコ
-       ンテキストメニューが表示されます。
-\ShowFig{0.6}{ht}{error-2}{エラー画面でのコンテキストメニューの表
-       示}
-{error-opera-2}
- \item ここで「ソースの検証」をクリックすると図\ref{error-opera-3}のメッ
-       セージボックスが表示されます。
-\ShowFig{0.6}{ht}{error-3}{ファイルのアップロードの確認のメッセー
-       ジボックス}
-{error-opera-3}
- \item ここで「はい」のボタンを押すと W3C にデータが送られてデータの検証
-       が行われます(図\ref{error-opera-4})。
-\ShowFig{0.6}{ht}{error-4}{検証結果の表示画面}
-{error-opera-4}
- \item このページを下のほうにスクロールすると間違いの理由と場所がより具
-       体的に指摘されます(図\ref{error-opera-5})。
-\ShowFig{0.6}{ht}{error-5}{検証結果の表示画面(2)}
-{error-opera-5}
+ \item 図\ref{validator}でNu Html Checkerをクリックすると図
+			 \ref{nu-checker}が表示されます。
+\ShowFig{0.6}{ht}{nu-checker}{Nu Html Checkerの画面}
+{nu-checker}
+ \item ここで「Check by」のプルダウンメニュで「file upload」を設定し、
+       「ファイル選択」でチェックしたいファイルを指定します図\ref{file-upload}。
+\ShowFig{0.6}{ht}{file-upload}{ファイルのアップロード}{file-upload}
+ \item ここで「check」のボタンを押すとデータが送られてデータの検証
+       が行われます(図\ref{result})。
+\ShowFig{0.6}{ht}{result}{検証結果の表示画面}
+{result}
+ \item このページを下のほうに間違いの理由と場所がより具体的に指摘されます。
 \end{enumerate}
+\iffalse
 \begin{Problem}\upshape
  \IEn、 \FFn や Chrome でエラー表示がどのようになるかチェックしなさい。
 \end{Problem}
@@ -86,6 +88,6 @@ SVGはテキストベースの画像表現フォーマットです。
 \input CH2/0202circle.tex
 \input CH2/0230gradiation.tex
 \input CH2/0240opacity.tex
-
+\fi
 %\section{HTML文書内に\SVG を取り込む}
 

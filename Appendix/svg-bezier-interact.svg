@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" onload="init()" >
+  <script type="text/ecmascript" xlink:href="make-elm.js"/>
+  <script type="text/ecmascript">
+//    <![CDATA[
+    var svgDoc;
+    var Points = [], P = [], Reg = [];
+    var Offsetx, Offsety, DragPoint = null;
+    var IPos =[[250,400,"red"],[530,400,"lime"],
+               [410,130,"green"],[250,240,"orange"]];
+    var NumPoints = IPos.length;
+    var paths =[["fill","#DDD", "stroke","none","opacity","0.8"],
+                ["fill","#C22", "stroke","none","opacity","0.8"],
+                ["fill","#3D3", "stroke","none","opacity","0.8"],
+                ["stroke-width","2","fill","none","stroke","black"],
+                ["stroke-width","3","fill","none","stroke","black"]];
+    function init() {
+      var i, j, k;
+      svgDoc = document.getElementById("canvas");
+      for(i=0;i<paths.length; i++) {
+        Reg[i] = MKSVGElm(svgDoc, "path", paths[i],[]);
+      }
+      MKSVGElm(svgDoc, "rect",
+         ["x",0, "y",0,"width","100%","height","100%","opacity",0], []);
+      for(i=0, j=0; i<NumPoints; i++,j++) {
+        Points[j] = MKSVGElm(svgDoc, "circle",
+          ["cx",IPos[i][0],"cy",IPos[i][1],"fill",IPos[i][2],"r","6"],
+          ["mousedown", beginDrag, false, "mouseup", endDrag, false]);
+      }
+      for(k=(NumPoints-1)*NumPoints/2;k>0;k--,j++){
+          Points[j] = MKSVGElm(svgDoc, "circle",["fill","black","r","6"],[]);
+      }
+      RefreshRegion();
+    }
+    function RefreshRegion(){
+      var i, j=NumPoints, k, d="M", db, x, y, txtNode, PN;
+      db ="M"+P2S(0)+"C"+P2S(1)+P2S(2)+P2S(3);
+      for(i=0;i<NumPoints;i++) {
+        d +=P2S(i);
+        txtNode = document.createTextNode(P[i][0].toString());
+        PN = document.getElementById("P"+i+"x");
+        PN.replaceChild(txtNode, PN.firstChild);
+        txtNode = document.createTextNode(P[i][1].toString());
+        PN = document.getElementById("P"+i+"y");
+        PN.replaceChild(txtNode, PN.firstChild);
+      }
+      for(i=NumPoints; i>1; i--) {
+        d+= "M";
+        for(k=1; k<i; k++, j++) {
+          x = (P[j-i][0]+P[j-i+1][0])/2;
+          y = (P[j-i][1]+P[j-i+1][1])/2;
+          d += x+","+y+" ";
+          P[j]=[x,y];
+          SetAttributes(Points[j],["cx", x, "cy", y]);
+        }
+      }
+      Reg[3].setAttribute("d",d);
+      Reg[4].setAttribute("d",db);
+      PaintRegion(0,P[0],P[1],P[2],P[3]);
+      PaintRegion(1,P[0],P[4],P[7],P[9]);
+      PaintRegion(2,P[9],P[8],P[6],P[3]);
+    }
+    function P2S(i) {
+      P[i] =[parseFloat(Points[i].getAttribute("cx")),
+             parseFloat(Points[i].getAttribute("cy"))];
+      return P[i][0]+","+P[i][1]+" ";
+    }
+    function PS(PP) {
+      return PP[0]+","+PP[1]+" "
+    }
+    function PaintRegion(S, P0,P1,P2,P3){
+      var path;
+      var PSS=getSign(P0,P1,P2);
+      if(getSign(P0,P1,P3) != PSS) {
+        if(getSign(P1,P2,P3)==PSS) {
+          path = PS(P3)+PS(P1)+PS(P2);
+          if(getSign(P2,P0,P3)==PSS) path += PS(P0);
+        } else {
+          path = PS(P3)+PS(P2)+PS(P0);
+        } 
+      } else {
+        if(getSign(P1,P2,P3)==PSS) {
+          path = PS(P0)+PS(P1)+PS(P2);
+          if(getSign(P2,P0,P3)!=PSS) path += PS(P3);
+        } else {
+          path =PS(P0)+PS(P1)+PS(P3);
+          if(getSign(P2,P0,P3)==PSS) path += PS(P2);
+        } 
+      }
+      Reg[S].setAttribute("d", "M"+path+"z");
+    }
+    function getSign(A,B,C){
+      if((B[0]-A[0])*(C[1]-A[1])-(C[0]-A[0])*(B[1]-A[1])>=0) return 1;
+      return -1;
+    }
+    function beginDrag(event) {
+      DragPoint = event.target;
+      svgDoc.appendChild(DragPoint);
+      Offsetx = DragPoint.getAttribute("cx")-event.clientX;
+      Offsety = DragPoint.getAttribute("cy")-event.clientY;
+      svgDoc.addEventListener("mousemove", Dragging, true);
+      
+    }
+    function Dragging(event) {
+      event.stopPropagation();
+      SetAttributes(DragPoint,
+        ["cx", Offsetx+event.clientX,"cy", Offsety+event.clientY]);
+      RefreshRegion();
+    }
+    function endDrag(event) {
+      svgDoc.removeEventListener("mousemove", Dragging, true);
+    }
+//  ]]></script>
+<g id="canvas">
+  <g transform="translate(15,0)" font-size="24px" text-anchor="end">
+    <g transform="translate(0,30)">
+      <text text-anchor="start" fill="red"> P0</text>
+      <text id="P0x" x="75"> </text><text id="P0y" x="135"> </text>
+    </g>
+    <g transform="translate(0,60)" >
+      <text text-anchor="start" fill="lime">P1</text>
+      <text id="P1x" x="75"> </text><text id="P1y" x="135"> </text>
+    </g>
+    <g transform="translate(0,90)">
+      <text text-anchor="start" fill="green">P2</text>
+      <text id="P2x" x="75"> </text><text id="P2y" x="135"> </text>
+    </g>
+    <g transform="translate(0,120)">
+      <text text-anchor="start" fill="orange">P3</text>
+      <text id="P3x" x="75"> </text><text id="P3y" x="135"> </text>
+    </g>
+  </g>
+</g>
+</svg>

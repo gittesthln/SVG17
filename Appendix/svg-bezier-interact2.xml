@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" ref="html1"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svg="http://www.w3.org/2000/svg" ref2="html2">
+<head>
+  <script type="text/ecmascript" src="make-elm.js"/>
+  <script type="text/ecmascript">
+//    <![CDATA[
+    var svgDoc;
+    var Points = [], P = [], Reg = [];
+    var Offsetx, Offsety, DragPoint = null;
+    var IPos =[[250,400,"red"],[530,400,"lime"],
+               [410,130,"green"],[250,240,"orange"]];
+    var NumPoints = IPos.length;
+    var paths =[["fill","#DDD", "stroke","none","opacity","0.8"],
+                ["fill","#C22", "stroke","none","opacity","0.8"],
+                ["fill","#3D3", "stroke","none","opacity","0.8"],
+                ["stroke-width","2","fill","none","stroke","black"],
+                ["stroke-width","3","fill","none","stroke","black"],
+                ["stroke-width","3","fill","none","stroke","yellow"],
+                ["stroke-width","3","fill","none","stroke","blue"]];
+    function init() {
+      var i, j, k;
+      svgDoc = document.getElementById("canvas");
+      MKSVGElm(svgDoc, "rect",
+         ["x",0, "y",0,"width","100%","height","100%", "fill", "white"], []);
+      for(i=0;i<paths.length; i++) {
+        Reg[i] = MKSVGElm(svgDoc, "path", paths[i],[]);
+      }
+      for(i=0, j=0; i<NumPoints; i++,j++) {
+        Points[j] = MKSVGElm(svgDoc, "circle",
+          ["cx",IPos[i][0],"cy",IPos[i][1],"fill",IPos[i][2],"r","6"],
+          ["mousedown", beginDrag, false, "mouseup", endDrag, false]);
+        SetAttributes(document.getElementById("P"+i),
+          ["style", "color:"+ IPos[i][2]]);
+      }
+      for(k=(NumPoints-1)*NumPoints/2;k>0;k--,j++){
+          Points[j] = MKSVGElm(svgDoc, "circle",["fill","black","r","6"],[]);
+      }
+      document.getElementById("Portion").value="1/2";
+      RefreshRegion();
+    }
+    function SetPoints() {
+      for(var i=0;i<NumPoints;i++) {
+        P[i][0] = parseInt(document.getElementById("P"+i+"x").value);
+        P[i][1] = parseInt(document.getElementById("P"+i+"y").value);
+        SetAttributes(Points[i],["cx",P[i][0], "cy", P[i][1]]);
+      }
+      RefreshRegionN();
+    }
+    function RefreshRegion(){
+      for(var i=0;i<NumPoints;i++) {
+        P[i] =[parseFloat(Points[i].getAttribute("cx")),
+               parseFloat(Points[i].getAttribute("cy"))];
+        document.getElementById("P"+i+"x").value = P[i][0];
+        document.getElementById("P"+i+"y").value = P[i][1];
+      }
+      RefreshRegionN();
+    }
+    function RefreshRegionN(){
+      var i, j=NumPoints, k, d, db, x, y, txtNode, PN, A;
+      A = eval(document.getElementById("Portion").value);//alert(A);
+      db = "M"+PS(P[0])+"C"+PS(P[1])+PS(P[2])+PS(P[3]);
+      d = "M"+PS(P[0])+PS(P[1])+PS(P[2])+PS(P[3]);
+      for(i=NumPoints; i>1; i--) {
+        d+= "M";
+        for(k=1; k<i; k++, j++) {
+          P[j] = [P[j-i][0]*(1-A)+P[j-i+1][0]*A, P[j-i][1]*(1-A)+P[j-i+1][1]*A];
+          d += PS(P[j]);
+          SetAttributes(Points[j],["cx", P[j][0], "cy", P[j][1]]);
+        }
+      }
+      Reg[3].setAttribute("d",d);
+      Reg[4].setAttribute("d",db);
+      Reg[5].setAttribute("d","M"+PS(P[0])+"Q"+PS(P[1])+PS(P[2]));
+      Reg[6].setAttribute("d","M"+PS(P[1])+"Q"+PS(P[2])+PS(P[3]));
+      PaintRegion(0,P[0],P[1],P[2],P[3]);
+      PaintRegion(1,P[0],P[4],P[7],P[9]);
+      PaintRegion(2,P[9],P[8],P[6],P[3]);
+    }
+    function PS(PP) {
+      return PP[0]+","+PP[1]+" "
+    }
+    function PaintRegion(S, P0,P1,P2,P3){
+      var path, PSS=getSign(P0,P1,P2);
+      if(getSign(P0,P1,P3) != PSS) {
+        if(getSign(P1,P2,P3)==PSS) {
+          path = PS(P3)+PS(P1)+PS(P2);
+          if(getSign(P2,P0,P3)==PSS) path += PS(P0);
+        } else {
+          path = PS(P3)+PS(P2)+PS(P0);
+        } 
+      } else {
+        if(getSign(P1,P2,P3)==PSS) {
+          path = PS(P0)+PS(P1)+PS(P2);
+          if(getSign(P2,P0,P3)!=PSS) path += PS(P3);
+        } else {
+          path =PS(P0)+PS(P1)+PS(P3);
+          if(getSign(P2,P0,P3)==PSS) path += PS(P2);
+        } 
+      }
+      Reg[S].setAttribute("d", "M"+path+"z");
+    }
+    function getSign(A,B,C){
+      if((B[0]-A[0])*(C[1]-A[1])-(C[0]-A[0])*(B[1]-A[1])>=0) return 1;
+      return -1;
+    }
+    function beginDrag(event) {
+      DragPoint = event.target;
+      svgDoc.appendChild(DragPoint);
+      Offsetx = DragPoint.getAttribute("cx")-event.clientX;
+      Offsety = DragPoint.getAttribute("cy")-event.clientY;
+      svgDoc.addEventListener("mousemove", Dragging, true);
+    }
+    function Dragging(event) {
+      event.stopPropagation();
+      SetAttributes(DragPoint,
+        ["cx", Offsetx+event.clientX,"cy", Offsety+event.clientY]);
+      RefreshRegion();
+    }
+    function endDrag(event) {
+      svgDoc.removeEventListener("mousemove", Dragging, true);
+    }
+//  ]]></script>
+<style type="text/css">
+td, input, button{font-size:30px;}
+</style>
+</head>
+<body onload="init()">
+<table>
+  <tr>
+    <td>
+      <svg:svg width="700" height="500" id="canvas"/>
+    </td>
+    <td>
+      <table valign="top">
+        <tr>
+          <td id="P0" align="center">P0</td>
+          <td><input type="text" id="P0x" size="3"/></td>
+          <td><input type="text" id="P0y" size="3"/></td>
+        </tr>
+        <tr>
+          <td id="P1" align="center">P1</td>
+          <td><input type="text" id="P1x" size="3" align="right"/></td>
+          <td><input type="text" id="P1y" size="3" align="right"/></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td id="P2" align="center">P2</td>
+          <td><input type="text" id="P2x" size="3" align="right"/></td>
+          <td><input type="text" id="P2y" size="3" align="right"/></td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td id="P3" align="center">P3</td>
+          <td><input type="text" id="P3x" size="3" align="right"/></td>
+          <td><input type="text" id="P3y" size="3" align="right"/></td>
+        </tr>
+        <tr>
+          <td>Portion</td>
+          <td colspan="6"><input type="text" id="Portion" size="5" align="right"/></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center">
+            <button onclick="SetPoints(); return false;">設定</button>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -25,14 +25,15 @@
 \newwrite\answer
 \openout\answer \jobname-answer.tex
 \INPUT{CH1}{01whatissvg.tex}
-\iffalse
 \INPUT{CH2}{02fundamentalfigs.tex}
+\iffalse
 \INPUT{CH3}{03object.tex}
 \INPUT{CH4}{04animation.tex}
 \INPUT{CH5}{05showingtext.tex}
 \INPUT{CH6}{06filter.tex}
 \INPUT{CH7}{07svg-withjavascript.tex}
 \INPUT{CH8}{08svgwithserver.tex}
+\fi
 %\backmatter
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
@@ -47,6 +48,7 @@
 %\INPUT{Appendix}{99browser.tex}
 %\cleardoublepage
 %\backmatter
+\iffalse
 \newcommand\indexnameshort{}
 \renewcommand{\thesection}{}
 \newcommand{\IncludeIndex}[2]{%
