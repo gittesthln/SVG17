@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>Muller-Lyer の錯視</title>
+<defs>
+  <line class="Line" id="Line" x1="0" y1="0" x2="30" 
+       stroke-width="10" stroke-linecap="round" stroke="black" />
+  <g id="edge">
+    <g transform="rotate(45)" >
+      <use xlink:href="#Line" />
+    </g>
+    <g transform="rotate(-45)" >
+      <use xlink:href="#Line" />
+    </g>
+  </g>
+</defs>
+<g transform="translate(100,50)" >
+  <line x1="0" y1="0" x2="200" y2="0"
+      stroke-width="10" stroke-linecap="round" stroke="black" />
+  <use xlink:href="#edge"/>
+  <g transform="translate(200,0)" >
+    <g transform="scale(-1,1)" >
+      <use xlink:href="#edge"/>
+    </g>
+  </g>
+</g>
+<g transform="translate(100,150)" >
+  <g>
+    <line x1="0" y1="0" x2="200" y2="0"
+      stroke-width="10" stroke-linecap="round" stroke="black"/>
+    <g transform="scale(-1,1)">
+      <use xlink:href="#edge"/>
+    </g>
+    <g transform="translate(200,0)">
+      <use xlink:href="#edge"/>
+    </g>
+  </g>
+</g>
+</svg>

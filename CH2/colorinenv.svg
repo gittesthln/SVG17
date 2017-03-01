@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>周りの濃度で見え方が異なる</title>
+  <g transform="translate(50,50)" ref="left1" >
+    <rect x="0" y="0" width="200" height="200" fill="black" ref="leftlarge" />
+    <rect x="50" y="50" width="100" height="100" fill="gray" ref="leftsmall" />
+  </g><!-- ref="left2"-->
+  <g transform="translate(250,50)" ref="right1" >
+    <rect x="25" y="25" width="150" height="150" fill="gray" ref="rightsq1"
+       stroke-width="50" stroke="lightgray" ref2="rightsq2" />
+  </g><!-- ref="right2"-->
+</svg>

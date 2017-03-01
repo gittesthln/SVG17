@@ -2,7 +2,7 @@
 \indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{iii}
 \indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{iii}
 \indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{iii}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{iii}
+\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{iv}
 \indexentry{::SVG::::::::::|hyperpage}{1}
 \indexentry{::World Wide Web Consortium::::::::::|hyperpage}{1}
 \indexentry{::W3C::::::::::|hyperpage}{1}
@@ -24,176 +24,144 @@
 \indexentry{::BR@\ShowElm {BR}::::::::HTML::|hyperpage}{7}
 \indexentry{::\ShowElm {BR}::要素::::::HTML::|hyperpage}{7}
 \indexentry{::BR@\ShowElm {BR}::::::::HTML::|hyperpage}{7}
-\indexentry{::ECMA::::::::::|hyperpage}{付録 9}
-\indexentry{::ecmascript::::::::::|hyperpage}{付録 9}
-\indexentry{::typeof@\Showattrib {typeof}::::::::JS::|hyperpage}{付録 9}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::undefined@\Showattrib {undefined}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::null@\Showattrib {null}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::null@\Showattrib {null}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::整数リテラル@\Showattrib {整数リテラル}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::特別なNumber@\Showattrib {特別なNumber}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::Infinity@\Showattrib {Infinity}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::NaN@\Showattrib {NaN}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::length@\Showattrib {length}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::indexOf@\Showattrib {indexOf}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::split@\Showattrib {split}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::substring@\Showattrib {substring}::::::::JS::|hyperpage}{付録 10}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 11}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 11}
-\indexentry{::undefined@\Showattrib {undefined}::::::::JS::|hyperpage}{付録 11}
-\indexentry{::objec@\Showattrib {objec}::::::::JS::|hyperpage}{付録 11}
-\indexentry{::toString@\Showattrib {toString}::::::::JS::|hyperpage}{付録 12}
-\indexentry{::==@\Showattrib {==}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::===@\Showattrib {===}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::!==@\Showattrib {!==}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::===@\Showattrib {===}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::!==@\Showattrib {!==}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::if@\Showattrib {if}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::if@\Showattrib {if}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::else@\Showattrib {else}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::else@\Showattrib {else}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::if@\Showattrib {if}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::else@\Showattrib {else}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::if@\Showattrib {if}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{付録 13}
-\indexentry{::break@\Showattrib {break}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::,@\Showattrib {,}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::break@\Showattrib {break}::::::::JS::|hyperpage}{付録 14}
-\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{付録 15}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 15}
-\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{付録 15}
-\indexentry{::NaN@\Showattrib {NaN}::::::::JS::|hyperpage}{付録 16}
-\indexentry{::undefined@\Showattrib {undefined}::::::::JS::|hyperpage}{付録 16}
-\indexentry{::NaN@\Showattrib {NaN}::::::::JS::|hyperpage}{付録 16}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 17}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 17}
-\indexentry{::length@\Showattrib {length}::::::::JS::|hyperpage}{付録 17}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 18}
-\indexentry{::変数のスコープ::::::::::|hyperpage}{付録 18}
-\indexentry{::var@\Showattrib {var}::::::::JS::|hyperpage}{付録 18}
-\indexentry{::var@\Showattrib {var}::::::::JS::|hyperpage}{付録 18}
-\indexentry{::undefined@\Showattrib {undefined}::::::::JS::|hyperpage}{付録 18}
-\indexentry{::console.log()@\Showattrib {console.log()}::::::::JS::|hyperpage}{付録 20}
-\indexentry{::無名関数@\Showattrib {無名関数}::::::::JS::|hyperpage}{付録 21}
-\indexentry{::クロージャ@\Showattrib {クロージャ}::::::::JS::|hyperpage}{付録 21}
-\indexentry{::function@\Showattrib {function}::::::::JS::|hyperpage}{付録 21}
-\indexentry{::コールバック関数@\Showattrib {コールバック関数}::::::::JS::|hyperpage}{付録 21}
-\indexentry{::setTimeout()@\Showattrib {setTimeout()}::::::::JS::|hyperpage}{付録 22}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 22}
-\indexentry{::arguments.callee@\Showattrib {arguments.callee}::::::::JS::|hyperpage}{付録 22}
-\indexentry{::var@\Showattrib {var}::::::::JS::|hyperpage}{付録 23}
-\indexentry{::レキシカルスコープ@\Showattrib {レキシカルスコープ}::::::::JS::|hyperpage}{付録 24}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{付録 25}
-\indexentry{::Ajax@\Showattrib {Ajax}::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\ShowElm {コールバック関数}::要素::::::SVG::|hyperpage}{付録 26}
-\indexentry{::コールバック関数 (ようそ)@\ShowElm {コールバック関数}::::::::SVG::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {length}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::length Arrayのめそっど@\Showattrib {length}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {join}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::join Arrayのめそっど@\Showattrib {join}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {concat}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::concat Arrayのめそっど@\Showattrib {concat}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {sort}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::sort Arrayのめそっど@\Showattrib {sort}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {indexOf}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::indexOf Arrayのめそっど@\Showattrib {indexOf}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {lastIndexOf}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::lastIndexOf Arrayのめそっど@\Showattrib {lastIndexOf}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {pop}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::pop Arrayのめそっど@\Showattrib {pop}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {push}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::push Arrayのめそっど@\Showattrib {push}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {shift}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::shift Arrayのめそっど@\Showattrib {shift}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {unshift}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::unshift Arrayのめそっど@\Showattrib {unshift}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {reverse}::Arrayのメソッド::::::JS::|hyperpage}{付録 26}
-\indexentry{::reverse Arrayのめそっど@\Showattrib {reverse}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 26}
-\indexentry{::\Showattrib {slice}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::slice Arrayのめそっど@\Showattrib {slice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {splice}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::splice Arrayのめそっど@\Showattrib {splice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {map}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::map Arrayのめそっど@\Showattrib {map}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {reduce}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::reduce Arrayのめそっど@\Showattrib {reduce}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {reduceRight}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::reduceRight Arrayのめそっど@\Showattrib {reduceRight}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {every}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::every Arrayのめそっど@\Showattrib {every}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {some}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::some Arrayのめそっど@\Showattrib {some}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::false@\Showattrib {false}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {filter}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::filter Arrayのめそっど@\Showattrib {filter}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::true@\Showattrib {true}::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {slice}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::slice Arrayのめそっど@\Showattrib {slice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {splice}::Arrayのメソッド::::::JS::|hyperpage}{付録 27}
-\indexentry{::splice Arrayのめそっど@\Showattrib {splice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 27}
-\indexentry{::\Showattrib {slice}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::slice Arrayのめそっど@\Showattrib {slice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {splice}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::splice Arrayのめそっど@\Showattrib {splice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {slice}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::slice Arrayのめそっど@\Showattrib {slice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {splice}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::splice Arrayのめそっど@\Showattrib {splice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {splice}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::splice Arrayのめそっど@\Showattrib {splice}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {map}::Arrayのメソッド::::::JS::|hyperpage}{付録 28}
-\indexentry{::map Arrayのめそっど@\Showattrib {map}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 28}
-\indexentry{::\Showattrib {reduce}::Arrayのメソッド::::::JS::|hyperpage}{付録 29}
-\indexentry{::reduce Arrayのめそっど@\Showattrib {reduce}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 29}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::\Showattrib {reduce}::Arrayのメソッド::::::JS::|hyperpage}{付録 29}
-\indexentry{::reduce Arrayのめそっど@\Showattrib {reduce}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 29}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::\Showattrib {reduce}::Arrayのメソッド::::::JS::|hyperpage}{付録 29}
-\indexentry{::reduce Arrayのめそっど@\Showattrib {reduce}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 29}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::call@\Showattrib {call}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::\Showattrib {reduce}::Arrayのメソッド::::::JS::|hyperpage}{付録 29}
-\indexentry{::reduce Arrayのめそっど@\Showattrib {reduce}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 29}
-\indexentry{::Array@\Showattrib {Array}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::prototype@\Showattrib {prototype}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::call@\Showattrib {call}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::reduce@\Showattrib {reduce}::::::::JS::|hyperpage}{付録 29}
-\indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{付録 29}
-\indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{付録 29}
-\indexentry{::new@\Showattrib {new}::::::::JS::|hyperpage}{付録 32}
-\indexentry{::JSON@\Showattrib {JSON}::::::::JS::|hyperpage}{付録 35}
-\indexentry{::エラーオブジェクト@\Showattrib {エラーオブジェクト}::::::::JS::|hyperpage}{付録 41}
-\indexentry{::name@\Showattrib {name}::::::::JS::|hyperpage}{付録 42}
-\indexentry{::message@\Showattrib {message}::::::::JS::|hyperpage}{付録 42}
+\indexentry{::コメント(SVG)::::::::::|hyperpage}{11}
+\indexentry{::色の指定::::::::::|hyperpage}{11}
+\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{11}
+\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{11}
+\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{11}
+\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{11}
+\indexentry{::\Showattrib {red}::値--色::::::SVG::|hyperpage}{12}
+\indexentry{::red あたいいろ@\Showattrib {red}(値--色)::::::::SVG::|hyperpage}{12}
+\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{12}
+\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{12}
+\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{12}
+\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{12}
+\indexentry{::\Showattrib {none}::値--色::::::SVG::|hyperpage}{12}
+\indexentry{::none あたいいろ@\Showattrib {none}(値--色)::::::::SVG::|hyperpage}{12}
+\indexentry{::\Showattrib {stroke-linecap}::図形::::::SVG::|hyperpage}{12}
+\indexentry{::stroke-linecap ぞくせい(ずけい)@\Showattrib {stroke-linecap}(図形)::::::::SVG::|hyperpage}{12}
+\indexentry{::versionぞくせい@\Showattrib {version}::::::::SVG::|hyperpage}{13}
+\indexentry{::encodingぞくせい@\Showattrib {encoding}::::::::SVG::|hyperpage}{13}
+\indexentry{::属性::::::::::|hyperpage}{13}
+\indexentry{::属性値::::::::::|hyperpage}{13}
+\indexentry{::versionぞくせい@\Showattrib {version}::::::::SVG::|hyperpage}{13}
+\indexentry{::encodingぞくせい@\Showattrib {encoding}::::::::SVG::|hyperpage}{13}
+\indexentry{::エンコーディング::::::::::|hyperpage}{13}
+\indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{13}
+\indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{13}
+\indexentry{::ルート要素::::::::::|hyperpage}{13}
+\indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{13}
+\indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{13}
+\indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{13}
+\indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{13}
+\indexentry{::xmlnsぞくせい@\Showattrib {xmlns}::::::::SVG::|hyperpage}{13}
+\indexentry{::名前空間::::::::::|hyperpage}{13}
+\indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{13}
+\indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{13}
+\indexentry{::xmlns:xlinkぞくせい@\Showattrib {xmlns:xlink}::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {width}::図形::::::SVG::|hyperpage}{13}
+\indexentry{::width ぞくせい(ずけい)@\Showattrib {width}(図形)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {height}::図形::::::SVG::|hyperpage}{13}
+\indexentry{::height ぞくせい(ずけい)@\Showattrib {height}(図形)::::::::SVG::|hyperpage}{13}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{13}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{13}
+\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{13}
+\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {stroke-linecap}::図形::::::SVG::|hyperpage}{13}
+\indexentry{::stroke-linecap ぞくせい(ずけい)@\Showattrib {stroke-linecap}(図形)::::::::SVG::|hyperpage}{13}
+\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{14}
+\indexentry{::属性値::transformぞくせい@\Showattrib {transform}::T::の::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{14}
+\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{14}
+\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{14}
+\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{14}
+\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {line}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::line (ようそ)@\ShowElm {line}::::::::SVG::|hyperpage}{14}
+\indexentry{::直線::::::::::|hyperpage}{14}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {line}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::line (ようそ)@\ShowElm {line}::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{14}
+\indexentry{::子要素::::::::::|hyperpage}{14}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {line}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::line (ようそ)@\ShowElm {line}::::::::SVG::|hyperpage}{14}
+\indexentry{::親要素::::::::::|hyperpage}{14}
+\indexentry{::属性::直線::T::の::::|hyperpage}{14}
+\indexentry{::\ShowElm {line}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::line (ようそ)@\ShowElm {line}::::::::SVG::|hyperpage}{14}
+\indexentry{::属性値::line(ようそ)@\ShowElm {line}::T::の::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {x1}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::x1 ぞくせい(ずけい)@\Showattrib {x1}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {y1}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::y1 ぞくせい(ずけい)@\Showattrib {y1}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {x2}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::x2 ぞくせい(ずけい)@\Showattrib {x2}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {y2}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::y2 ぞくせい(ずけい)@\Showattrib {y2}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {stroke-width}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke-width ぞくせい(ずけい)@\Showattrib {stroke-width}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {stroke-linecap}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke-linecap ぞくせい(ずけい)@\Showattrib {stroke-linecap}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {butt}::値--図形::::::SVG::|hyperpage}{14}
+\indexentry{::butt あたいずけい@\Showattrib {butt}(値--図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {round}::値--図形::::::SVG::|hyperpage}{14}
+\indexentry{::round あたいずけい@\Showattrib {round}(値--図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {square}::値--図形::::::SVG::|hyperpage}{14}
+\indexentry{::square あたいずけい@\Showattrib {square}(値--図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {stroke-width}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke-width ぞくせい(ずけい)@\Showattrib {stroke-width}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {black}::値--色::::::SVG::|hyperpage}{14}
+\indexentry{::black あたいいろ@\Showattrib {black}(値--色)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {linecap}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::linecap ぞくせい(ずけい)@\Showattrib {linecap}(図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {butt}::値--図形::::::SVG::|hyperpage}{14}
+\indexentry{::butt あたいずけい@\Showattrib {butt}(値--図形)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {gray}::値--色::::::SVG::|hyperpage}{14}
+\indexentry{::gray あたいいろ@\Showattrib {gray}(値--色)::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{14}
+\indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{14}
+\indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{14}
+\indexentry{::フィックの錯視::::::::::|hyperpage}{15}
+\indexentry{::フィック::錯視::E::の::::|hyperpage}{15}
+\indexentry{::ミューラー$\cdot $ライヤーの錯視::::::::::|hyperpage}{16}
+\indexentry{::ミューラー$\cdot $ライヤー::錯視::E::の::::|hyperpage}{16}
+\indexentry{::\ShowElm {defs}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::defs (ようそ)@\ShowElm {defs}::::::::SVG::|hyperpage}{17}
+\indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{17}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{17}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{17}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{17}
+\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{17}
+\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{17}
+\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{17}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{17}
+\indexentry{::\ShowElm {use}::要素::::::SVG::|hyperpage}{17}
+\indexentry{::use (ようそ)@\ShowElm {use}::::::::SVG::|hyperpage}{17}
+\indexentry{::xlink:hrefぞくせい@\Showattrib {xlink:href}::::::::SVG::|hyperpage}{17}
+\indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{17}
+\indexentry{::\Showattrib {\#}::値::::::SVG::|hyperpage}{17}
+\indexentry{::\# あたい@\Showattrib {\#}(値)::::::::SVG::|hyperpage}{17}

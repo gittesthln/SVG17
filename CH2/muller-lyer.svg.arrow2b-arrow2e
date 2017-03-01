@@ -1,0 +1,12 @@
+<g transform="translate(100,150)" >
+  <g>
+    <line x1="0" y1="0" x2="200" y2="0"
+      stroke-width="10" stroke-linecap="round" stroke="black"/>
+    <g transform="scale(-1,1)">
+      <use xlink:href="#edge"/>
+    </g>
+    <g transform="translate(200,0)">
+      <use xlink:href="#edge"/>
+    </g>
+  </g>
+</g>
