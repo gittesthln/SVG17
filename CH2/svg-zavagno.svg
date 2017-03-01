@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>ザバーニョの錯視</title>
+  <defs>
+    <linearGradient id="Gradient1" gradientUnits="objectBoundingBox">
+      <stop stop-color="black" offset="0%"/>
+      <stop stop-color="white" offset="100%"/>
+    </linearGradient>
+    <rect id="R" x="-175" y="-25" width="150" height="50"
+        stroke-width="4" stroke="none" fill="url(#Gradient1)" />
+    <g id="Unit">
+      <use xlink:href="#R"/>
+      <g transform="rotate(90)"><use xlink:href="#R"/></g>
+      <g transform="rotate(180)"><use xlink:href="#R"/></g>
+      <g transform="rotate(270)"><use xlink:href="#R"/></g>
+    </g>
+  </defs>
+  <g transform="translate(250,200)"><use xlink:href="#Unit"/></g>
+  <g transform="translate(650,200)">
+    <rect x="-175" y="-175" width="350" height="350" fill="lightgray" stroke="none"/>
+    <use xlink:href="#Unit"/>
+  </g>
+</svg>

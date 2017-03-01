@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>クレイク・オブライエン効果</title>
+  <defs>
+    <radialGradient id="radGradient" gradientUnits="objectBoundingBox">
+      <stop stop-color="white" offset="0%"/>
+      <stop stop-color="white" offset="30%"/>
+      <stop stop-color="black" offset="30%"/>
+      <stop stop-color="white" offset="60%"/>
+      <stop stop-color="white" offset="100%"/>
+    </radialGradient>
+  </defs>
+  <rect x="10" y="10" width="250" height="250"
+    stroke-width="4" stroke="black" fill="url(#radGradient)" />
+</svg>

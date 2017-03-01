@@ -1,7 +1,7 @@
 \indexentry{::if@\Showattrib {if}::::::::JS::|hyperpage}{iii}
 \indexentry{::switch@\Showattrib {switch}::::::::JS::|hyperpage}{iii}
-\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{iii}
-\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{iii}
+\indexentry{::for@\Showattrib {for}::::::::JS::|hyperpage}{iv}
+\indexentry{::while@\Showattrib {while}::::::::JS::|hyperpage}{iv}
 \indexentry{::arguments@\Showattrib {arguments}::::::::JS::|hyperpage}{iv}
 \indexentry{::SVG::::::::::|hyperpage}{1}
 \indexentry{::World Wide Web Consortium::::::::::|hyperpage}{1}
@@ -225,6 +225,47 @@
 \indexentry{::y ぞくせい(ずけい)@\Showattrib {y}(図形)::::::::SVG::|hyperpage}{23}
 \indexentry{::カフェウォール錯視::::::::::|hyperpage}{23}
 \indexentry{::カフェウォール::錯視::E::::::|hyperpage}{23}
+\indexentry{::\ShowElm {circle}::要素::::::SVG::|hyperpage}{23}
+\indexentry{::circle (ようそ)@\ShowElm {circle}::::::::SVG::|hyperpage}{23}
+\indexentry{::円::属性::T::の::::|hyperpage}{23}
+\indexentry{::属性::円::E::の::::|hyperpage}{23}
+\indexentry{::\ShowElm {ellipse}::要素::::::SVG::|hyperpage}{23}
+\indexentry{::ellipse (ようそ)@\ShowElm {ellipse}::::::::SVG::|hyperpage}{23}
+\indexentry{::楕円::::::::::|hyperpage}{23}
+\indexentry{::楕円::属性::T::の::::|hyperpage}{23}
+\indexentry{::属性::楕円::E::の::::|hyperpage}{23}
+\indexentry{::\Showattrib {r}::図形::::::SVG::|hyperpage}{23}
+\indexentry{::r ぞくせい(ずけい)@\Showattrib {r}(図形)::::::::SVG::|hyperpage}{23}
+\indexentry{::\Showattrib {rx}::図形::::::SVG::|hyperpage}{23}
+\indexentry{::rx ぞくせい(ずけい)@\Showattrib {rx}(図形)::::::::SVG::|hyperpage}{23}
+\indexentry{::\Showattrib {ry}::図形::::::SVG::|hyperpage}{23}
+\indexentry{::ry ぞくせい(ずけい)@\Showattrib {ry}(図形)::::::::SVG::|hyperpage}{23}
+\indexentry{::属性::circle (ようそ)@\ShowElm {circle}::T::の::SVG::|hyperpage}{24}
+\indexentry{::属性::ellipse (ようそ)@\ShowElm {ellipse}::T::の::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {cx}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::cx ぞくせい(ずけい)@\Showattrib {cx}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {cy}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::cy ぞくせい(ずけい)@\Showattrib {cy}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {r}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::r ぞくせい(ずけい)@\Showattrib {r}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {rx}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::rx ぞくせい(ずけい)@\Showattrib {rx}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {ry}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::ry ぞくせい(ずけい)@\Showattrib {ry}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {stroke-width}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::stroke-width ぞくせい(ずけい)@\Showattrib {stroke-width}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{24}
+\indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{24}
+\indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{25}
+\indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{25}
+\indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{25}
+\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{25}
+\indexentry{::\ShowElm {defs}::要素::::::SVG::|hyperpage}{26}
+\indexentry{::defs (ようそ)@\ShowElm {defs}::::::::SVG::|hyperpage}{26}
+\indexentry{::デルブーフのさくし@デルブーフの錯視::::::::::|hyperpage}{26}
+\indexentry{::デルブーフ::錯視::E::の::::|hyperpage}{26}
 \indexentry{::ECMA::::::::::|hyperpage}{付録 9}
 \indexentry{::ecmascript::::::::::|hyperpage}{付録 9}
 \indexentry{::typeof@\Showattrib {typeof}::::::::JS::|hyperpage}{付録 9}

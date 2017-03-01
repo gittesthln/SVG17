@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>周りの大きさで見え方が変わる</title>
+  <defs>
+    <circle cx="0" cy="0" id="CCircle" r="40" fill="black" /> <!-- ref="C" -->
+    <circle cx="0" cy="0" id="LCircle" r="60" fill="black" /> <!-- ref="L" -->
+    <circle cx="0" cy="0" id="SCircle" r="20" fill="black" /> <!-- ref="S" -->
+  </defs>
+  <g transform="translate(150,200)"> <!-- refLs="lefts" -->
+    <use xlink:href="#CCircle"/>
+    <g transform="translate(0,75)">
+      <use xlink:href="#SCircle"/>
+    </g>
+    <g transform="rotate(90),translate(0,75)"> <!-- refSCP="ScircleP" -->
+      <use xlink:href="#SCircle"/>
+    </g>
+    <g transform="rotate(180),translate(0,75)">
+      <use xlink:href="#SCircle"/>
+    </g>
+    <g transform="rotate(270),translate(0,75)">
+      <use xlink:href="#SCircle"/>
+    </g>
+  </g>  <!-- refLs="lefte" -->
+  <g transform="translate(450,200)"> <!-- ref="rights" -->
+    <use xlink:href="#CCircle"/>
+    <g transform="translate(110,0)">
+      <use xlink:href="#LCircle"/>
+    </g>
+    <g transform="rotate(90),translate(110,0)">
+      <use xlink:href="#LCircle"/>
+    </g>
+    <g transform="rotate(180),translate(110,0)">
+      <use xlink:href="#LCircle"/>
+    </g>
+    <g transform="rotate(270),translate(110,0)">
+      <use xlink:href="#LCircle"/>
+    </g>
+  </g> <!-- ref="righte" -->
+</svg>

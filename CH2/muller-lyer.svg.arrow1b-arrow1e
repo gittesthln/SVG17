@@ -1,4 +1,4 @@
-<g transform="translate(100,50)" >
+<g transform="translate(80,50)" >
   <line x1="0" y1="0" x2="200" y2="0"
       stroke-width="10" stroke-linecap="round" stroke="black" />
   <use xlink:href="#edge"/>

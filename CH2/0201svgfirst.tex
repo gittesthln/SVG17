@@ -1,5 +1,5 @@
 % -*- coding: utf-8 -*-
-\section{はじめてのSVGグラフィックス}
+\section{SVGの基礎}
 \subsection{座標系について}
 ものの位置を示すためには座標系とその単位が必要です。SVG の場合は初期の段
 階では左上隅が原点 $(0,0)$ になり、単位はピクセル(px)です。水平方向は右の
@@ -59,7 +59,7 @@ $0\sim255$ までの数は16進数2桁で表すことができます。これを
 SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考にしてくださ
        い。
 なお、特別な色として、塗らないことを指示する\AttribCVal{none}があります。
-\subsection{直線}
+\section{直線}
 図形のうちで一番簡単な直線を描いてみましょう。次の例を見てください。
 
 \ShowFig{0.45}{ht}{linecap}
@@ -122,8 +122,8 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 {\AttribVal{scale}{}}{拡大・縮小}{\AttribVal{scale}{(0.5)},
                             \AttribVal{scale}{(1,-1)}}}
 
-       ここでは\AttribVal{translate}{(50,50)}となっているので原点の位置
-       が左から $50$、上から $50$ の位置に移動します。
+       ここでは\AttribVal{translate}{(60,50)}となっているので原点の位置
+       が左から $60$、上から $50$ の位置に移動します。
  \item \LineR{line1}{line4}で\AttribO{stroke-linecap}で指
        定される直線の両端の
        形が異なるものを4つ定義しています。
@@ -267,7 +267,7 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 \end{enumerate}
 \end{Problem}
 %\newpage
-\subsection{長方形}
+\section{長方形}
 長方形を表すのは\Elm{rect}です。
 長方形の\keysubT{属性}{長方形}{の}を表
        \ref{AttribofRect}に掲げます。
@@ -357,7 +357,7 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 \SVGListN{ヘルマン格子}{svg-hermann-line}{svg-hermann-line}
 \begin{itemize}
  \item \Line{line}で水平垂直に引く直線の雛形を決めています。ここでは長さ
-       と幅だけ競ってしています。
+       と幅だけ定めています。
  \item \Line{vline}で垂直方向の直線の属性\AttribO{stroke}を
        \AttribCVal{white}{}に設定しています。
  \item \LineR{hlineS}{hlineE}で垂直方向の直線を回転させて水平方向の直線

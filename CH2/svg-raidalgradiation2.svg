@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>放射グラデーション(userSpaceOnUseの場合)</title>
+  <defs>
+    <radialGradient id="radGradient2" gradientUnits="userSpaceOnUse" ref="radgrad1"
+      cx="200" cy="200" r="200" fx="200" fy="100" ref2="gradstart" >
+      <stop stop-color="yellow" offset="0%"/><!-- ref="colors"-->
+      <stop stop-color="red" offset="70%"/>
+      <stop stop-color="orange" offset="100%"/><!-- ref="colore"-->
+    </radialGradient><!-- ref="radgrad2"-->
+  </defs>
+  <g transform="translate(10,10)">
+    <rect x="0" y="0" width="400" height="300" fill="url(#radGradient2)" ref="rect" />
+    <circle cx="200" cy="200" r="200" ref="refcircle1"
+      stroke-width="2" stroke="black" fill="none" ref1="refcircle2"/>
+  </g>
+</svg>
