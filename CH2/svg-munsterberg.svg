@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>カフェウォール錯視</title>
+<defs>
+  <rect id="LineH" x="-20" y="-2" width="510" height="2" fill="black"/>
+  <rect id="Square" x="0" y="0" width="50" height="50" fill="black"/>
+  <g id="unit">
+    <g transform="translate(0,0)"><use xlink:href="#Square"/></g>
+    <g transform="translate(100,0)"><use xlink:href="#Square"/></g>
+    <g transform="translate(200,0)"><use xlink:href="#Square"/></g>
+    <g transform="translate(300,0)"><use xlink:href="#Square"/></g>
+    <g transform="translate(400,0)"><use xlink:href="#Square"/></g>
+  </g>
+  <g id="unit2" transform="translate(20,0)"><use xlink:href="#unit"/></g>
+</defs>
+<g transform="translate(50,50)"><use xlink:href="#unit"/></g>
+<g transform="translate(50,102)"><use xlink:href="#unit2"/><use xlink:href="#LineH"/></g>
+<g transform="translate(50,154)"><use xlink:href="#unit"/><use xlink:href="#LineH"/></g>
+<g transform="translate(50,206)"><use xlink:href="#unit2"/><use xlink:href="#LineH"/></g>
+<g transform="translate(50,258)"><use xlink:href="#unit"/><use xlink:href="#LineH"/></g>
+</svg>

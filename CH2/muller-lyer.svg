@@ -15,7 +15,7 @@
     </g>
   </g>
 </defs>
-<g transform="translate(100,50)" ref="arrow1b" >
+<g transform="translate(80,50)" ref="arrow1b" >
   <line x1="0" y1="0" x2="200" y2="0" ref="bar1"
       stroke-width="10" stroke-linecap="round" stroke="black" ref1="bar2" />
   <use xlink:href="#edge" ref="bar1leftarrow"/>
@@ -25,7 +25,7 @@
     </g>
   </g><!-- ref="bar1rightarrowe"-->
 </g><!-- ref="arrow1e"-->
-<g transform="translate(100,150)" ref="arrow2b" >
+<g transform="translate(80,150)" ref="arrow2b" >
   <g>
     <line x1="0" y1="0" x2="200" y2="0"
       stroke-width="10" stroke-linecap="round" stroke="black"/>

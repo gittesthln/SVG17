@@ -3,7 +3,7 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
      height="100%" width="100%" ref1="svg-end">
 <title ref="title">linecap の違い</title>
-<g transform="translate(50,50)" ref="svg-g">
+<g transform="translate(60,50)" ref="svg-g">
   <line x1="0" y1="0"   x2="200" y2="0"   stroke-width="20" stroke="black" ref="line1"/>
   <line x1="0" y1="50"  x2="200" y2="50"  stroke-width="20" stroke="black" 
        stroke-linecap="butt"/>

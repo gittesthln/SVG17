@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>色の対比</title>
+  <defs>
+    <rect id="rect" x="0" y="0" width="100" height="200" />
+  </defs>
+  <g transform="translate(20,20)">
+    <use x="0"   y="0" xlink:href="#rect" fill="#AF0000"/>
+    <use x="100" y="0" xlink:href="#rect" fill="#BF2100"/>
+    <use x="200" y="0" xlink:href="#rect" fill="#CF4200"/>
+    <use x="300" y="0" xlink:href="#rect" fill="#DF6300"/>
+    <use x="400" y="0" xlink:href="#rect" fill="#EF8400"/>
+    <use x="500" y="0" xlink:href="#rect" fill="#FFA500"/>
+<!--    <rect id="rect" x="90" y="0" width="20" height="200">
+      <animate attributeName="x" attributeType="XML"
+         values="90;90;190;290;390;490" calcMode="discrete"
+         dur="30s" fill="remove"/>
+      <animate attributeName="visibility" attributeType="XML"
+         values="hidden;visible" keyTimes="0;0.17" calcMode="discrete"
+         dur="30s" fill="remove"/>
+    </rect>
+-->
+  </g>
+</svg>
+
