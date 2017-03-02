@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>カフェウォール錯視--パターンで作成</title>
+<defs>
+  <rect id="Square" x="0" y="0" width="50" height="50" fill="black"/>
+  <rect id="L" x="0" y="0" width="100" height="2" fill="gray" />
+  <pattern id="unit" width="100" height="100" patternUnits="userSpaceOnUse">
+    <g transform="translate(0,0)">
+      <use xlink:href="#L"/>
+      <g transform="translate(20,2)">
+        <use xlink:href="#Square"/>
+      </g>
+    </g>
+    <g transform="translate(0,52)">
+      <g transform="translate(40,2)">
+        <use xlink:href="#Square"/>
+      </g>
+      <use xlink:href="#L"/>
+    </g>
+  </pattern>
+</defs>
+<g transform="translate(50,50)">
+  <rect x="0" y="0" width="500" height="300" fill="url(#unit)" />
+</g>
+</svg>

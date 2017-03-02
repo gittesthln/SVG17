@@ -45,6 +45,7 @@
 \contentsline {paragraph}{{\upshape \texttt {rotate($\alpha $)}}の場合}{62}{section*.15}
 \contentsline {paragraph}{{\upshape \texttt {scale(a,b)}}の場合}{63}{section*.16}
 \contentsline {paragraph}{{\upshape \texttt {skewX($\alpha $)}}、{\upshape \texttt {skewY($\alpha $)}}の場合}{63}{section*.17}
+\contentsline {section}{\numberline {3.4}SVGパターン}{63}{section.3.4}
 \contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
 \contentsline {chapter}{\numberline {付 録C }JavaScript入門}{付録 9}{appendix.C}

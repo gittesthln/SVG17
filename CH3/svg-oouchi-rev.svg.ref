@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>浮動する円(簡略版)</title>
+  <defs>
+    <pattern id="P" width="20" height="80" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" height="100%" width="100%" fill="white"/>
+      <path d="M0,0 l10,0 l0,80 l10,0 l0,-40 l-20,0z" fill="black"/>
+    </pattern>
+  </defs>
+  <g transform="translate(20,20)">
+    <circle cx="200" cy="200" r="200" fill="url(#P)"
+      stroke="black" stroke-width="4"/>
+    <g transform="rotate(90,200,200)">
+      <circle cx="200" cy="200" r="130" fill="url(#P)"/>
+    </g>
+  </g>
+</svg>
