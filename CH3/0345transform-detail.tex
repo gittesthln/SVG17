@@ -1,0 +1,162 @@
+% -*- coding: utf-8 -*-
+\section{\Attrib{transform}についての補足}
+\Attrib{transform}の値として平行移動(\AttribVal{translate}{})、回転
+(\AttribVal{rotate}{})と拡大縮小(\AttribVal{scale}{}) があることはすでに
+解説しました。ここでは今までに説明しなかったものに対して解説をします。
+\subsection{原点以外を中心とする回転}
+\AttribVal{rotate}{}は回転の角度だけではなく回転の中心位置を指定できま
+す。
+\AttribVal{rotate}{(<回転角度>,
+<回転の中心の$x$座標>,<回転の中心の$y$座標>)}の形をとります。
+
+%\newpage
+図\ref{rotate-full}はこの属性値を使った例です。$y$座標軸上にある中抜
+きの丸が回転の中心を表します。また、薄い色の長方形が元の位置にあるもので
+す。
+\ShowFig{0.6}{ht}{rotate-full}
+         {回転の中心を指定した\AttribO{rotate}}{rotate-full}
+\vspace{-\baselineskip}
+\SVGListN{回転の中心を指定した\AttribO{rotate}}
+         {svg-rotate-full}{svg-rotate-full}
+\begin{itemize}
+ \item \LineR{axisS}{axisE}で$x$ と$y$の座標軸をまとめて\Elm{path}を用い
+       て定義しています。
+ \item \LineR{centerS}{centerE}で回転の
+       中心を表す円を定義しています。
+ \item これらの二つの図形をまとめて
+       \Showattrib{axis}と名付けています(\Line{axisS})。
+ \item \LineR{figS}{figE}で回転する図形を定義しています。
+\begin{itemize}
+ \item 回転の向きを明確にするために三角形二つ
+       で長方形を作成しています(\Lines{red}{yellow})。
+ \item その上に塗りつぶしのない長方形を描いて(\LineR{rectS}{rectE})ひと
+       つの図形に見せています。
+ \item 左上の位置(元の図形では原点にある)に小さい円を付けています(\Line{C})。
+\end{itemize}
+ \item \LineR{rotateOS}{rotateOE}で原点を中心とする回転と平行移動を用
+       いて中心を指定した回転を実現しています。これは次の3つの操作の組み
+       合わせで実現できます。
+\begin{center}
+ 回転の中心を原点に移動$\Rightarrow$そこで回転$\Rightarrow$回転の中心位
+ 置を原点から元に戻す
+\end{center}
+%で実現しています。
+ \item \LineR{rotateNS}{rotateNE}は回転の中心を指定した移動を指定してい
+       ます。\Line{rotateNM}に記述があります。
+ \item 両者とも同じ位置に図形が移動していることを確認してください。
+\end{itemize}
+\subsection{座標軸方向へのゆがみ}
+$x$軸に垂直な直線を角度$\alpha$だけ傾ける変形をするのが
+\AttribVal{skewX}{($\alpha$)}です。同様に$y$軸に垂直な直線を角度$\alpha$だけ
+傾ける変形をするのが\AttribVal{skewY}{($\alpha$)}です。
+
+SVGの開始の座標系は$y$軸が下向きになっているので変形する方向には注意して
+ください。図\ref{skew}はどちらの図形も$-45^{\circ}$傾かせています。
+\ShowFig{0.6}{ht}{skew}
+         {座標軸方向への歪み}{skew}
+%\ifFull\newpage\fi
+%\newpage
+
+\SVGListN{座標軸方向への歪み}{svg-skew}{svg-skew}
+\begin{itemize}
+ \item \LineR{axisS}{axisE}で座標軸を定義しています。
+ \item \LineR{figS}{figE}で基準となる図形を定義しています。
+ \item \LineR{skewXS}{skewXE}で左側の図形を定義しています。
+ \item \Line{skewXM}で$-45^{\circ}$だけ$x$軸方向に傾かせています。角度が
+       負なので左方向に傾きます。
+ \item \LineR{skewYS}{skewYE}で右側の図形を定義しています。
+ \item \Line{skewYM}で$-45^{\circ}$だけ$x$軸方向に傾かせています。角度が
+       負なので上方向に傾きます。
+\end{itemize}
+\subsection{一般の線形変換}
+今までに説明してきた\Attrib{transform}をすべて含むものが
+\AttribVal{matrix}{(a,b,c,d,e,f)}です。この変換は
+現在の位置$(x_{\mathrm{now}},y_{\mathrm{now}})$ を次の式で
+計算して新しい位置$(x_{\mathrm{new}},y_{\mathrm{new}})$ にします
+\footnote{係数のアルファベットの順序がおかしいと思うかもしれませんがこの
+順序はSVGの仕様書内で使われているものと同じです。}。
+ここでの値はブラウザの左上を原点とする位置と考えます。
+\begin{equation}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=&
+    ax_{\mathrm{now}}+cy_{\mathrm{now}}+e\\
+ y_{\mathrm{new}}  & =&
+    bx_{\mathrm{now}}+dy_{\mathrm{now}}+f
+	\end{array}\right.\label{matrix}
+\end{equation}
+行列で表すと次のようになります。
+\begin{equation}
+\left(\begin{array}{c}x_{\mathrm{new}}\\y_{\mathrm{new}} \end{array}\right)
+=\left(\begin{array}{ccc}a&c&e\\b&d&f\end{array}\right)
+\left(\begin{array}{c}x_{\mathrm{now}}\\y_{\mathrm{now}}\\1\end{array}\right)
+\label{matrix-rep}
+\end{equation}
+または、
+\begin{equation}
+\left(\begin{array}{c}x_{\mathrm{new}}\\y_{\mathrm{new}}\\1 \end{array}\right)
+=\left(\begin{array}{ccc}a&c&e\\b&d&f\\0&0&1\end{array}\right)
+\left(\begin{array}{c}x_{\mathrm{now}}\\y_{\mathrm{now}}\\1\end{array}\right)
+\label{matrix-rep-2}
+\end{equation}
+と表されます。この表現では変換行列が正方行列になり、点の位置を表す座標の
+形も両辺で同じ形になるので式の扱いが簡単になります
+\footnote{より正確には同次座標系の特別な場合です。この形式を用いるとCGの
+基本である射影変換を取り扱うことができます。}。
+%
+なお、この行列と点の位置のあらわし方は日本の線形代数学の慣例に従っています。ア
+メリカなどのCGの教科書では点の位置を横ベクトルで表すようです。
+その記法に従うと式(\ref{matrix-rep-2})は次のようになります。
+\begin{equation}
+\left(x_{\mathrm{new}},y_{\mathrm{new}},1\right)
+=\left(x_{\mathrm{now}},y_{\mathrm{now}},1\right)
+\left(\begin{array}{ccc}a&b&0\\c&d&0\\e&f&1\end{array}\right)
+\label{matrix-rep-3}
+\end{equation}
+\paragraph{\AttribVal{translate}{(a,b)}の場合}
+図形を$x$方向に$a$、$y$方向に$b$移動するので次の式で表されます。
+\begin{equation*}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=&
+    x_{\mathrm{now}}+a\\
+ y_{\mathrm{new}}  & =&
+    y_{\mathrm{now}}+b
+	\end{array}\right.
+\end{equation*}
+\paragraph{\AttribVal{rotate}{($\alpha$)}の場合}
+\begin{equation*}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=&
+    \cos\alpha x_{\mathrm{now}}-\sin \alpha y_{\mathrm{now}}\\
+ y_{\mathrm{new}}  & =&
+    \sin \alpha  x_{\mathrm{now}}+\cos\alpha y_{\mathrm{now}}
+	\end{array}\right.
+\end{equation*}
+\paragraph{\AttribVal{scale}{(a,b)}の場合}
+図形を$x$方向に$a$倍、$y$方向に$b$倍するので次の式で表されます。
+\begin{equation*}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=& ax_{\mathrm{now}}\\
+ y_{\mathrm{new}} &=& by_{\mathrm{now}}
+	\end{array}\right.
+\end{equation*}
+
+\paragraph{\AttribVal{skewX}{($\alpha$)}、\AttribVal{skewY}{($\alpha$)}の場合}
+\AttribVal{skewX}{($\alpha$)}は図形を$x$方向に角度$\alpha$だけ傾けるので
+\begin{equation*}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=& x_{\mathrm{now}}+\tan\alpha y_{\mathrm{now}} \\
+ y_{\mathrm{new}} &=& y_{\mathrm{now}}
+	\end{array}\right.
+\end{equation*}
+となります。同様に\AttribVal{skewY}{($\alpha$)}は次の式で表されます。
+\begin{equation*}
+ \left\{\begin{array}{rcl}
+ x_{\mathrm{new}} &=&  x_{\mathrm{now}} \\
+ y_{\mathrm{new}} &=& \tan\alpha　x_{\mathrm{now}}+y_{\mathrm{now}}
+	\end{array}\right.
+\end{equation*}
+
+\begin{Problem}
+ 直線 $y=x$ や $y=-x$ に関して図形を対称移動するためにはどのような変換を
+ 指定すればよいか。
+\end{Problem}

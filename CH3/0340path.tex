@@ -1,0 +1,456 @@
+% -*- coding: utf-8 -*-
+%\newpage
+\section{道のり(Path)}
+SVGは\Elm{path}を用いて曲線や直線を組み合わせた図形を
+記述できます。\Elm{path} では図形は属性\AttribO{d}で指定します。
+表\ref{paramd}は指定できるパラメータの一覧です。パラメータは大文字と小
+文字がありますが、大文字の場合は絶対座標で、小文字の場合は直前の位置から
+の相対座標で指定することを意味します。
+\ListAttribsF{paramd}{\texttt{d}で指定できるパラメータ}{|c|c|m{0.6\textwidth}|}{%
+{パラメータ}{\multicolumn{1}{m{4zw}|}{指定する点の数}}
+{\multicolumn{1}{c|}{\makebox[5zw]{説\hfill 明}}}
+{\AttribOVal{M}{},\AttribOVal{m}{}}{1}{指定した位置へ移動}
+{\AttribOVal{L}{},\AttribOVal{l}{}}{1}{指定した位置までパスを設定(デフォルト(省略可能))}
+{\AttribOVal{A}{},\AttribOVal{a}{}}{1}{楕円の弧の一部を指定した位置まで描く。
+                                   このほかに6個のパラメータが必要}
+{\AttribOVal{C}{},\AttribOVal{c}{}}{3}{3次の\Bezier 曲線を描く}
+{\AttribOVal{S}{},\AttribOVal{s}{}}{2}{直前の\Bezier 曲線の後の制御点と最後の点に
+関して対称な位置にある制御点を持つ3次の\Bezier 曲線を描く。}
+{\AttribOVal{Q}{},\AttribOVal{q}{}}{2}{2次の\Bezier 曲線を描く。}
+{\AttribOVal{T}{},\AttribOVal{t}{}}{1}
+      {直前の\Bezier 曲線の後の制御点と最後の点に関して対称な位置にある
+      制御点を持つ2次の\Bezier 曲線を描く。}
+{\AttribOVal{z}{}}{}
+      {直前の\AttribOVal{M}{}で開始した位置まで戻る。}
+}
+
+次の節から順にこれらの指定の方法を見ていきます。
+\subsection{直線の組み合わせ}
+図\ref{vint}は\OIIdxM{ヴィント}図形と呼ばれます。
+斜線により中央の平行線が中央部で細く見えるというものです。
+\ShowFig{0.5}{ht}{vint}{ヴィントの錯視図形}{vint}
+\SVGListN{ヴィントの錯視図形}{svg-vint}{svg-vint}
+\begin{itemize}
+ \item \Line{start}から\Line{end}で錯視の原因となる上部の一点から放射状
+       に広がって下部の一点へ集まる図形を\Elm{path}を用いて作成していま
+       す(この図形は\Elm{polyline}で描くことも可能です)。
+ \item \Elm{path}の形状を示すための属性は\AttribO{d}です。
+ \item 点の座標はすでに見てきた\Elm{polyline}や\Elm{polygon}と同様の方法
+       で記述します。
+ \item \Line{M}の\AttribO{d}の先頭にある\texttt{M}で開始点への移動を指示
+       しています。この位置は上部の線分が集中している場所の位置
+       $(0,-100)$です。
+\begin{itemize}
+ \item 次は中央部の一番左の位置$(-200,0)$ です。\texttt{M}などの指定があ
+       りません。この場合には\texttt{L}を指定したものとみなされます。
+ \item 次は下部の線分が集中している位置$(0,100)$です。
+ \item 次は中央部の右端の位置$(0,200)$です。
+ \item 次は上部の線分が集中している位置に戻っています。
+ \item その後は$x$座標の位置を少しずつ中央部に移動しながら残りの部分の位
+       置を指定しています。
+\end{itemize}
+ \item 直線だけしか描かない場合には属性\AttribO{fill}を\AttribCVal{none}{}
+       に指定しないと開始点と最後の点を結んでできる図形の内部が黒く塗ら
+       れてしまいます(\Line{none})。
+ \item 水平線も同様に\Elm{path}で描いています。ここで注意することは属性
+       \AttribO{d}の値に\texttt{M}が2回現れていることです(\Line{M2})。こ
+       の前後で直線がつながらなくなります。したがって、2本の平行線はひと
+       つの \Elm{path}で定義することができます。
+
+このように\AttribO{d} で指定された道のりは必ずしも連続でつながっている必要は
+ありません。
+\end{itemize}
+\begin{Problem}\upshape\label{vint-path}
+ ヴィントの錯視図形で次のことを確かめなさい。
+\begin{enumerate}
+ \item 放射状にでてくる線の位置や水平線の間隔を変えたときの図形はどのよ
+       うに見えるか確かめなさい。
+ \item 水平線の代わりに円や正方形を描いたときどのように見えるか確かめな
+       さい(\cite[85ページ参照]{OIwCD})。
+ \item ヴィントの錯視図形を片目で見ると見え方が変わるかどうか確かめなさ
+       い。
+\end{enumerate}
+\end{Problem}
+なお、このような図形では描く直線の数や間隔を変えたい場合には
+それぞれの点の座標を変えることになりますがその手間は大変です。
+このような場合にはプログラムで点の位置を出力するといろいろな場合の
+図形が簡単にかけます。プログラムで作成する方法については
+第\ref{MakeInterractiveSVG}章で説明します。
+
+\Elm{path}を用いて正方形を描くことができます。絶対座標で指定すると
+\begin{center}
+ \texttt{d="M0,0 0,100 100,100 100,0z"}
+\end{center}
+となります。\AttribOVal{z}{}を使うので開始位置を再び指定する必要がありま
+せん。
+
+一方、相対座標で指定すると
+\begin{center}
+ \texttt{d="M0,0 l0,100 100,0 0,-100z"}
+\end{center}
+と初めの移動先の位置を指定するときに一度だけ\AttribOVal{l}{}で移動を定義
+しておくと残りは移動量だけですみます。
+\begin{Problem}\upshape
+正方形を描くとき、\AttribOVal{z}{}を用いなくて
+\begin{center}
+ \texttt{d="M0,0 0,100 100,100 100,0 0,0"}
+\end{center}
+と指定した場合に図形の形に変化はあるか調べなさい
+(ヒント:\AttribO{stroke-width}を少し大きく指定すること)。
+\end{Problem}
+%
+\subsection{楕円の一部となる曲線}
+楕円の\keysubT{一部となる曲線}{楕円}{の}は次のような値を与えて描きます。
+\begin{itemize}
+ \item \Showattrib{M}で開始点に移動します。すでに何らかのパスを指定した
+       後ならば不要です。
+ \item \Showattrib{A}のあとに楕円の$x$軸の方向の長さと$y$軸方向の長さを
+       指定します。
+ \item その後に描くこの選択をするためのパラメーターを次の順序で指定しま
+       す。
+\begin{enumerate}
+ \item 軸を傾ける角度
+ \item 描く弧の指定。 \texttt{0}の時は短いほうの弧(劣弧)\texttt{1}の
+       ときは長いほうの弧(優弧)を描きます。
+ \item 描く向きの指定。\texttt{0}のときは反時計回り,
+       \texttt{1}のときは時計回りです。\footnote{\cite[p.135]{Cagle}の図
+       をまねて図\ref{draw-arc}を描きましたが, このパラメーターの指定が
+       逆になっています。この図のほうが時計回り反時計回りの見た目とあっ
+       ていますが, SVGでは$y$座標の正の方向が下向きなので解釈では反対に
+       も取れます。}
+\end{enumerate}
+ \item 最後に終了点の座標を指定します。
+\end{itemize}
+この弧の指定方法では描く弧の中心位置はシステムのほうで計算します。
+
+図\ref{draw-arc}
+は赤い円がはじめの点, 青の点が終了点になっています。
+これらの円弧は\Elm{path}の属性で
+\AttribO{d}{="M50,0 A50,50 0 0 0 0,50"}とすることで描くことが
+できます。
+%\newpage
+\ShowFig{0.6}{ht}{draw-arc}{楕円の弧を描く}{draw-arc}
+%\vspace{-2\baselineskip}\ \\
+\SVGListN{楕円の弧を描く}{svg-arc}{svg-arc}
+{\noexpand\newline\noexpand\small\noexpand\mdseries(ここでは後で解説する
+文字列の表示も使用しています。また
+円弧を破線で描くために\noexpand\Attrib{stroke-dasharray}を用いています)。}
+
+図\ref{kanizsa}は\OIIdxC{カニッツァ}{88}{}とよばれるもので
+す。三角形が描かれていないのに三角形があることが認知されるというものです。
+\ShowFig{0.4}{ht}{kanizsa}{カニッツァの主観的三角形}{kanizsa}
+\SVGListN{カニッツァの主観的三角形}{svg-kanisza}{svg-kanisza}
+\begin{itemize}
+ \item 円の一部が欠けている図形は円を描いた上に白で正三角形を描けば可能
+       ですがここでは直接、図形を定義することにします。
+ \item 円の一部が欠けている図形は\Line{deffund}で定義しています。
+       この図は原点を中心として$x$軸の負の方向上下に$30^{\circ}$の方向に
+       欠けるようにしました。
+\begin{itemize}
+ \item 出発点を原点 $(0,0)$ (\texttt{M0,0})にとります。
+ \item $(50\cos(-120^{\circ}),50\sin(-120^{\circ})$へ直線で移動
+       (\texttt{L-43.3,-25})します。
+ \item $(50\cos(120^{\circ}),50\sin(120^{\circ})$(\texttt{-43.3,25})まで
+       時計回りに円弧(優弧)(\texttt{A50,50 0}のあとの\texttt{1 1})を描き
+       ます。
+ \item パスを閉じます(\texttt{z})。
+\end{itemize}
+ \item $30^{\circ}$ 回転した方向に折れ線で正三角形の頂点近くの図を描きま
+       す(\Line{polyline1}から\Line{polyline2})。
+ \item この図形を平行移動してさらに回転して目的の位置へ配置しています
+  (\Line{firsts}から\Line{firste}、\Line{seconds}から\Line{seconde}と
+  \Line{3rds}から\Line{3rde})。
+\end{itemize}
+\ProbwithFigSol{neon}{0.4}{ht}{主観的輪郭のネオン輝度現象}{svg-neon}
+{\OIIdxN{主観的輪郭のネオン輝度現象}{232}{}と呼ばれます。中
+ 央部の1/4の赤い円弧の間が薄く赤に塗られている
+ ように見えますが、実際は塗られていません。\par
+この図を作成しなさい。}
+\subsection{\Bezier 曲線}
+\keyitem{\Bezier 曲線}の歴史については
+\cite[p.13--14]{Metafont}に解説があります。なお、\cite[28ページ]{Cox}によると
+\Bezier は自動車会社の技術者だったそうです。
+\subsubsection{3次の\Bezier 曲線の定義}
+平面上に4点${\rm P}_i(x_i,y_i),\ (i=0,1,2,3)$ をとります。
+この4点に対して $0\leqq t \leqq 1$ の範囲で
+$t$ を動かしたときにできる, 次の式で定められる曲線を$3$次の\Bezier 曲線
+といいます。
+\footnote{ここではベクトルを用いて表していませんので$x$座標と$y$座標の値
+を別々に書いています。}
+\begin{eqnarray}
+ x&=&(1-t)^3x_0+3(1-t)^2tx_1+3(1-t)t^2x_2+t^3x_3\label{Bezierx}\\
+ y&=&(1-t)^3y_0+3(1-t)^2ty_1+3(1-t)t^2y_2+t^3y_3\label{Beziery}
+\end{eqnarray}
+この曲線は次の性質を持ちます。
+\begin{enumerate}
+ \item $t=0$ のときは点${\rm P}_0$, $t=1$ のときは点${\rm P}_3$ と
+       なります。
+ \item ${\rm P}_0$ におけるこの曲線の接線は直線
+       ${\rm P}_0{\rm P}_1$であり, ${\rm P}_0$ におけるこの曲線
+       の接線は 直線 ${\rm P}_2{\rm P}_3$ です。
+ \item $t=\dfrac{1}{2}$ における点は次のように作図して得られます。
+\begin{enumerate}
+ \item 点${\rm P}_0$ と 点${\rm P}_1$ の中点を ${\rm P}_{01}$,
+       点${\rm P}_1$ と 点${\rm P}_2$ の中点を ${\rm P}_{12}$,
+       点${\rm P}_2$ と 点${\rm P}_3$ の中点を ${\rm P}_{23}$ と
+       します。このとき、${\rm P}_{01}$, ${\rm P}_{12}$, ${\rm P}_{23}$
+       の $x$ 座標はそれぞれ$\dfrac{1}{2}(x_0+x_1),\
+       \dfrac{1}{2}(x_1+x_2),\ \dfrac{1}{2}(x_2+x_3),\ $ となります。
+ \item 点${\rm P}_{01}$ と 点${\rm P}_{12}$ の中点を ${\rm P}_{012}$,
+       点${\rm P}_{12}$ と 点${\rm P}_{23}$ の中点を
+       ${\rm P}_{123}$ とおきます。
+\begin{eqnarray*}
+ {\rm P}_{012}の x 座標 &=& 
+   \dfrac{1}{2}\left(\dfrac{1}{2}(x_0+x_1)+\dfrac{1}{2}(x_1+x_2)\right)
+   \ =\ \dfrac{1}{4}(x_0+2x_1+x_2)\\
+ {\rm P}_{123}の x 座標 &=& 
+   \dfrac{1}{2}\left(\dfrac{1}{2}(x_1+x_2)+\dfrac{1}{2}(x_2+x_3)\right)
+   \ =\ \dfrac{1}{4}(x_1+2x_2+x_3)
+\end{eqnarray*}
+ \item 点${\rm P}_{012}$ と 点${\rm P}_{123}$ の中点
+       ${\rm P}_{0123}$が求めるものです。
+\[
+ {\rm P}_{0123}の x 座標 =
+\dfrac{1}{2}\left(\dfrac{1}{4}(x_0+2x_1+x_2)+\dfrac{1}{4}(x_1+2x_2+x_3)\right)
+=\dfrac{1}{8}(x_0+3x_1+3x_2+x_3)
+\]
+ \item このとき, 4点 ${\rm P}_0$, ${\rm P}_{01}$, ${\rm P}_{012}$,
+       ${\rm P}_{0123}$ で定義される3次の\Bezier 曲線と 
+       4点 ${\rm P}_{0123}$, ${\rm P}_{123}$, ${\rm P}_{23}$,
+       ${\rm P}_{3}$ で定義される $3$ 次の\Bezier 曲線はそれぞれ
+       もとの\Bezier 曲線の $0\leqq t\leqq \dfrac{1}{2}$ の部分と
+       $ \dfrac{1}{2}\leqq t \leqq 1$ の部分に一致します。
+\end{enumerate}
+ \item 式(\ref{Bezierx})と(\ref{Beziery})を変数 $t$ で微分すると
+\begin{eqnarray*}
+ \dfrac{dx}{dt}&=&
+   -3(1-t)^2x_0+(-6(1-t)t+3(1-t)^2)x_1+(-3t^2+6(1-t)t)x_2+3t^2x_3\\
+ \dfrac{dy}{dt}&=&
+   -3(1-t)^2y_0+(-6(1-t)t+3(1-t)^2)y_1+(-3t^2+6(1-t)t)y_2+3t^2y_3
+\end{eqnarray*}
+となり、$t=0$ を代入すると $x$ の式は $3(x_1-x_0)$、$y$ の式は
+       $3(y_1-y_0)$ となります。微分の定義からベクトル
+       $(x_1-x_0,y_1-y_0)$ は\Bezier 曲線の点 ${\rm P}_0$ における接線の方向
+       であり、これは点${\rm P}_0$ から ${\rm P}_1$ へ向かう方向です。
+
+ \item 与えられた\Bezier 曲線は4点${\rm P}_i(x_i,y_i),\ (i=0,1,2,3)$を
+       頂点とする凸な四角形の内部(周も含む)に含まれます。これは式
+       (\ref{Bezierx})の前の係数が $0\leqq t\leqq 1$ に対して常に正であ
+       り、その和が
+\[
+ (1-t)^3+3(1-t)^2t+3(1-t)t^2+t^3=((1-t)+t)^3)=1
+\]
+からそのような性質を持つことがわかります。
+\end{enumerate}
+\begin{figure}\hfill
+\setlength{\unitlength}{0.7cm}
+\begin{picture}(18,10)(0,0)
+ \put(1,1){%\scalebox{0.7}
+\put(0,0){\includegraphics{\CH bezier3.eps}}%}
+\put(0,-0.5){\makebox{${\rm P}_0$}}
+\put(7,-0.5){\makebox{${\rm P}_1$}}
+\put(4,8.5){\makebox{${\rm P}_2$}}
+\put(0,4){\makebox[0em][r]{${\rm P}_3$}}
+\put(3.5,-0.5){\makebox{${\rm P}_{01}$}}
+\put(5.8,4){\makebox[0em][l]{${\rm P}_{12}$}}
+\put(2,6.25){\makebox[0em][r]{${\rm P}_{23}$}}
+\put(4.8,2.){\makebox[0em][l]{${\rm P}_{012}$}}
+\put(3.8,5.4){\makebox[0em][l]{${\rm P}_{123}$}}
+\put(4.3,3.8){\makebox[0em][l]{${\rm P}_{0123}$}}
+%
+\put(10,-0.5){\makebox{${\rm P}_0$}}
+\put(14,8.5){\makebox{${\rm P}_1$}}
+\put(17,-0.5){\makebox{${\rm P}_2$}}
+\put(10,4){\makebox[0em][r]{${\rm P}_3$}}
+\put(12,4.5){\makebox[0em]{${\rm P}_{01}$}}
+\put(15.8,4){\makebox[0em][l]{${\rm P}_{12}$}}
+\put(13.5,1.5){\makebox[0em]{${\rm P}_{23}$}}
+\put(13.5,4.5){\makebox[0em][l]{${\rm P}_{012}$}}
+\put(14.8,2.5){\makebox[0em][l]{${\rm P}_{123}$}}
+ \put(14.3,3.7){\makebox[0em][l]{${\rm P}_{0123}$}}
+ }
+
+\end{picture}\hspace*{\fill}
+\caption{\Bezier 曲線の解説}\label{bezier3}
+\end{figure}
+図\ref{bezier3}の左の図は
+${\rm P}_0(0,0),{\rm P}_1(280,0),{\rm P}_2(160,-320),{\rm P}_3(0, 160)$ 
+としたときの上で解説した点の位置関係を示したもので, 右の図は左の図で
+の点${\rm P}_1$と${\rm P}_2$の位置を取り替えたものです。このように
+${\rm P}_1$ と と${\rm P}_2$ の位置によって\Bezier 曲線は形を変えます。
+この2点を特に, この\keyB{{\Bezier}曲線}{の}{制御点}と呼びます。
+
+図\ref{bezier3}の左の図を点の名称なしでSVGで書くと次のようになります。
+\footnote{図\ref{bezier3}は\keyitem{PostScript}というプログ
+ラミング言語で書きました。} 
+
+\iffalse
+なお、制御点をインターラクテイブに操作できるSVGの例が付録
+\ref{svg-Bezier-interactive}
+にありますので参考にしてください。
+\fi
+%\newpage
+\SVGListN{{\Bezier}曲線の例}{svg-bezier}{svg-bezier}
+\begin{itemize}
+ \item \Bezier 曲線は\Elm{path}の\AttribO{d}のなかで定義します
+       (\Line{defBezier})。4点は$
+%       \[
+	\mathrm{P}_0(0,0),$ $\mathrm{P}_1(280,0),$ 
+        $\mathrm{P}_2(160,-320),$ $\mathrm{P}_3(0,-160)
+$%       \]
+ となっています。
+ \item $\mathrm{P}_0$の位置は \texttt{M}で定めその後に\Bezier 曲線を定義を開始
+       する\texttt{C}(cubic(3次) \Bezier )を書き, 残りの3点の位置を与えて
+       います。
+ \item \LineR{P0}{P3}でこの$4$点の位置に小さな円を描いています。
+ \item これらの点の中点の座標は次のようになります(\LineR{P01}{P23})。
+\begin{align*}
+ \mathrm{P}_{01} =& \left(\frac{0+280}{2},\frac{0+0}{2}\right) \ =\ (140,0)\\
+ \mathrm{P}_{12} =& \left(\frac{280+160}{2},\frac{0+(-320)}{2}\right)
+   \ =\ (220,-160)\\
+ \mathrm{P}_{23} =&
+  \left(\frac{160+0}{2},\frac{(-320)+(-160)}{2}\right)
+    \ =\ (80,-240)
+\end{align*}
+ \item さらに、これら$3$点の中点の座標は次のようになります(\LineR{P012}{P123})。
+\begin{align*}
+  \mathrm{P}_{012}=& \left(\frac{140+220}{2},\frac{0+(-160)}{2}\right)
+     \ =\ (180,-80)\\
+  \mathrm{P}_{123}=& \left(\frac{220+80}{2},\frac{(-160)+(-240)}{2}\right)
+     \ =\ (150,-200)
+\end{align*}
+ \item さらにこれら$2$点の中点の座標は次のようになります(\Line{P0123})。
+\[ 
+  \mathrm{P}_{0123}
+    = \left(\frac{180+150}{2},\frac{(-80)+(-200)}{2}\right)
+     \ =\ (165,-140)
+\]
+このとき、次の関係が成立していることが確かめられます。
+\begin{align*}
+\lefteqn{ \frac{1}{8}\left(\mathrm{P}_0+ 3\mathrm{P}_1+3 \mathrm{P}_2+
+       \mathrm{P}_3\right)}\\
+=& \left(\frac{1}{8}\left(0 +3\times280+3\times160+0\right),
+         \frac{1}{8}\left(0+3\times0+3\times(-320)+(-160)\right)\right)\\
+=& \left(165,-140\right)
+\end{align*}
+したがって、この点は\Bezier 曲線上にあることが確認できました。
+\end{itemize}
+なお, SVGの規約では\Bezier 曲線の後に直線や曲線をつなぐことができます。
+\Bezier 曲線を\AttribO{d}に指定したときには最後の点${\rm P}_3$の位置から
+\Elm{path}が引き継がれます。
+
+二つの\Bezier 曲線をつなぐとき、曲線を滑らかにつなぐためには最低限接線の
+方向を合わせる必要があります。接線の方向を一致させるためには計算が必
+要です。SVGでは\AttribO{d}の中で
+\AttribOVal{S}{}を指定することでこの点を計算しなくてすむ
+ことが可能です。新しい\Bezier 曲線の${\rm P}_1$は
+前の\Bezier 曲線の${\rm P}_2$を前の\Bezier 曲線の点 ${\rm P}_3$(=新しい
+\Bezier 曲線の${\rm P}_0$)に関して対称な位置に移した点になります。
+
+\texttt{S}の使用例は\pageref{onequartercirclebybezier}ページの
+「円を\Bezier 曲線で近似する例」の解説(リスト
+\ref{svg-bezier-circle4})を見てください。
+\iffalse
+\begin{Problem}\upshape
+ 上記の\Bezier 曲線の性質を確かめなさい。
+\end{Problem}
+\fi
+\ProbwithFigSol{suits}{0.6}{ht}
+{スーツマークを描く}{suits}
+{カードのスーツの絵です。この図を描きなさい。}
+
+
+\subsubsection{2次の\Bezier 曲線}
+SVGでは制御点がひとつである2次の\Bezier 曲線を指定することができる
+\texttt{Q}も利用が可能です。接線を同一にするための\texttt{T}もあります。
+この曲線は次の式で与えられます($0\leqq t\leqq1$で考えることは3次の場合と
+同じです)。
+\begin{eqnarray*}
+ x&=&(1-t)^2x_0+2(1-t)tx_1+t^2x_2\\
+ y&=&(1-t)^2y_0+2(1-t)ty_1+t^2y_2
+\end{eqnarray*}
+2次の\Bezier 曲線も3次の\Bezier 曲線と同様の性質が成立します。
+
+図\ref{bezier-comp}は2次と3次の\Bezier 曲線の違いを表したものです。
+\ShowFig{0.35}{ht}{bezier-comp}{2次と3次の\Bezier 曲線の違い}{bezier-comp}
+
+赤が$\mathrm{Q}_0(0,0),\ \mathrm{Q}_1(280,0),\ \mathrm{Q}_2(0,280)$ とし
+た2次の\Bezier 曲線です。小さな赤い円は $t=\dfrac{1}{2}$ に対応する位置で
+す。
+
+残りの3つの曲線は制御点をそれぞれ次のように取った3次の\Bezier
+曲線です。小さな円はそれぞれの曲線の$t=\dfrac{1}{2}$ に対応する位置で
+す。
+\[
+\begin{array}{|c|c|c|c|c|}\hline
+  色& \mathrm{P}_0&\mathrm{P}_1 &\mathrm{P}_2 &\mathrm{P}_3 \\\hline
+  緑& \mathrm{Q}_0& \mathrm{Q}_1 & \mathrm{Q}_1  & \mathrm{Q}_2 \\ \hline
+  水色& \mathrm{Q}_0& \mathrm{Q}_0 & \mathrm{Q}_1  & \mathrm{Q}_2 \\ \hline
+  青& \mathrm{Q}_0& \mathrm{Q}_1 & \mathrm{Q}_2  & \mathrm{Q}_2 \\ \hline
+\end{array}
+\]
+2次の\Bezier 曲線は 
+\Href{http://www.microsoft.com/typography/otspec/TTCH01.htm}
+{TrueType フォントの形状を記述する}ために使われています。
+
+%\subsection{円を\keysubitem{{\Bezier}曲線で近似}{円}する}
+\subsubsection{円を\keysub{{\Bezier}曲線で近似}{円}する}
+\IndexSet{円を近似}{{\Bezier}曲線}{}{}{}
+原点を中心とする半径$1$の円の第1象
+限の部分を\Bezier 曲線で近似することを考えます。
+
+%\newpage
+円の対称性と接線の方向から
+$\textrm{P}_0(1,0)$,
+$\textrm{P}_1(1,a)$, $\textrm{P}_2(a,1)$, $\textrm{P}_2(0,1)$ とおきま
+す。$t=\dfrac{1}{2}$ のとき、点
+$\left(\dfrac{1}{\sqrt{2}},\dfrac{1}{\sqrt{2}}\right)$
+を通るように $a$ を定めると式(\ref{Bezierx})より
+\[
+ \dfrac{1}{\sqrt{2}}=\dfrac{1}{8}+3\times\dfrac{1}{8}+3\times\dfrac{1}{8}a
+\]
+これより$a=\dfrac{4}{3}\left(\sqrt{2}-1\right)\approx 0.55228\dots$
+が得られます。
+
+これの基づいて円を書くと図\ref{onequartercirclebybezier}のようになります。
+なお、この図では\Elm{circle}の図形の比較をするために
+少し幅の広い円の上に\Bezier 曲線を重ねて
+描いています。
+\ShowFig{0.35}{ht}{svg-bezier-circle4}{1/4円を{\Bezier}曲線で近似する}
+{onequartercirclebybezier}
+\SVGListN{1/4円を{\Bezier}曲線で近似する}{svg-bezier-circle4}%
+{svg-bezier-circle4}
+\begin{itemize}
+ \item SVGの\Elm{circle}で書いたのと比較するために\AttribO{stroke-width}
+       を大きめにした円を描いています(\LineR{circle}{circlee})。
+ \item 円を4つの1/4円をつなげて描きます。
+\begin{itemize}
+ \item まず \AttribOVal{M}{-100,0}で開始点へ移動します(\Line{M})。
+ \item 次に \Showattrib{C-100,-55.228 -55.228,-100 0,-100} で左上の部分
+       の{\upshape1/4}円を描く
+       {\Bezier}曲線の点の値を記述しています(\LineA{8}{1})。
+
+      値が上の解説と異なり負の値になっているのは$y$座標の正の向きが下向
+       きになっているからです。
+ \item 次に, 右上の部分を書きます。はじめの制御点は前の{\Bezier}曲線と最後の点
+       に関して対称な位置にいますので \Showattrib{S}を用いて記述するのが
+       簡単です。ここでは\Showattrib{100,-55.228 100,0}となります。
+ \item 残りの部分も同様に \Showattrib{S}を用いて記述できます。
+ \item 最後に\AttribOVal{z}{}をつけて道のりを閉じます(\Line{z})。
+\end{itemize}
+\end{itemize}
+図\ref{svg-bezier-circle4}をみるとよく近似されていることがわかり
+ます。
+\cite[p.14]{Metafont}には$1/4$円を\Bezier 曲線で近似すると0.06\%以下の精度
+で描くことができるとの記述があります。
+\iffalse
+\begin{Problem}
+ 上記の値を用いて半径$100$の円との誤差の割合を計算しなさい。
+\end{Problem}
+\fi
+\begin{Problem}\upshape
+ 半円をひとつの3次の\Bezier 曲線で近似しなさい。近似の度合いはどのように
+ なっているか確かめなさい。
+\end{Problem}
+
+

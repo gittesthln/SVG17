@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="100%" width="100%">
+<title>ヴィントの錯視図形</title>
+  <g id="canvas" transform="translate(250,130)">
+    <path stroke-width="1" stroke="black" fill="none" ref1="start"
+ refs="M"     d="M0,-100 -200,0 0,100 200 0 0,-100 -180,0 0,100 180,0 0,-100 
+         -160,0 0,100 160,0 0,-100 -140,0 0,100 140,0 0,-100
+         -120,0 0,100 120,0 0,-100 -100,0 0,100 100,0 0,-100
+          -80,0 0,100  80,0 0,-100  -60,0 0,100  60,0 0,-100
+          -40,0 0,100  40,0 0,-100  -20,0 0,100  20,0 0,-100 0,100" ref2="end" />
+    <path stroke-width="3" stroke="black" fill="none" refnone="none"
+       d="M-200,-40 200,-40 M-200,40 200,40" ref="M2" />
+  </g>
+</svg>

@@ -1,0 +1,101 @@
+% -*- coding: utf-8 -*-
+\section{\keyitem{折れ線}と\keyitem{多角形}}
+%\label{}
+直線をつなげて図形を描くものとして\Elm{polyline}と\Elm{polygon}がありま
+す。この二つの違いは図形が閉じない(\Elm{polyline})か閉じるか
+(\Elm{polygon})の違いです。両方のタグも点の位置は\AttribO{points}で指定します。
+次の例は正5角形
+の頂点を結ぶ図形を描きます。
+%\newpage
+\ShowFig{0.7}{ht}{polygon5}{\Elm{polygon}の例}{polygon5}
+\SVGListN{\Elm{polygon}の例}{svg-polygon5}{svg-polygon5}
+\begin{itemize}
+ \item \Line{scale}では\Attrib{transform}の\AttribVal{scale}{(1,-1)}を
+       用いて座標系を数学で使われる通常の形にしています。
+ \item \Line{polygon1start}から\Line{polygon1end}で一番左にある正5角形を
+       \Elm{polygon}を用いて描いて
+       います。頂点の座標は属性\AttribO{points}を用いて与えます。頂点の
+       $x$座標と$y$座標を空白または\texttt{,}で区切って与えます。ここで
+       は$x$座標と$y$座標の間を\texttt{,}で、点の区切りを空白で区切って
+       関係がわかりやすくなるように記述しました。
+
+      なお、点の座標は計算機などで別に計算しておく必要があります。
+\footnote{後の章ではSVGファイルの起動時に計算する方法を紹介しま
+       す。}
+ここでは円の半径が $100$ なので一番画面の頂点にある点の位置は$(0,100)$
+       となり、残りの点の位置はこれを$72^{\circ}$ずつ回転して得られます。
+       したがって、$(100\cos(90+72)^{\circ},100\sin(90+72)^{\circ})$ な
+       どの式を用いて計算しています。
+ \item 塗られる範囲は点の位置を与えた順で決まります。
+       \Line{polygon2start}から\Line{polygon2end}は正5角形の頂点の位置
+       をひとつおきに与えた図形(星形)を描いています。通常はこれらの直線
+       で囲まれた部分が塗られます。また、縁取りもすべて描かれます。
+ \item \Line{polygon3start}から\Line{polygon3end}の図形では
+       新しい属性\AttribO{fill-rule}があります(\Line{polygonfill-rule})。
+ \item 属性\AttribO{fill-rule}の値は\AttribCVal{evenodd}{}です。これにより
+       図形の内部の点と無限点とを結んだ直線が縁取りの直線と奇数回交わる領域が
+       \AttribO{fill}で指定された色で塗られます。
+
+       この図では中央にある小さな5角形の部分が偶数回交わる領域なので塗ら
+       れなくなります。
+\end{itemize}
+\ProbwithSolOnly{object-gradiation}
+{図\ref{polygon5}の個々の図形をグラデーションを用いて塗りつぶしなさい。}{svg-polygon5-gradiation}
+%{ここでは右の二つの星型を\noexpand\SetTT{{use}}を用いて表してみました。}
+
+\ProbwithFigSol{objects-gradiation}{0.7}{ht}
+{まとまった図形をグラデーションで図形を塗りつぶす}{svg-polygon5-gradiation4}
+{図\ref{polygon5}の3つの図形をひとつと見て全体をひとつのグラディエーショ
+ンで塗っています。下の長方形はグラデーションの比較のために描いていま
+す。この図形を描きなさい。}
+%{3つの図形を\noexpand\SetTT{{transform}}を用いないで平行移動した座標で与えてい
+%ます。}
+\newpage
+折れ線を結ぶとき頂点の形を制御することができます(図\ref{linejoin})。
+この図では線分の中央をわかりやすくするために細い線を追加しています。
+\ShowFig{0.5}{ht}{linejoin-more}{\AttribO{linejoin}属性の違い}{linejoin}
+
+\begin{itemize}
+ \item 線分をつなぎ合わせる頂点の形を制御する属性が
+       \AttribO{stroke-linejoin}です。デフォルトは\AttribOVal{miter}{}です。
+
+\AttribOVal{miter}{}の欠点は二つの線分の交わる角度が小さいときは先端が鋭く
+       なり、頂点の部分が大きくなる場合があります。
+ \item その他の値として丸くする\AttribOVal{round}{}と切り捨ててしまう
+       \AttribOVal{bevel}{}があります。
+ \item なお、属性\AttribO{miterlimit}で交わる角度が一定角度より小さいとき
+       は\AttribOVal{bevel}{}に、それより大きいときは\AttribOVal{miter}{}
+       になるように設定できます。
+ \item なお、折れ線の指定では内部がないように思われるかもしれませんが、
+       内部を塗る\AttribO{fill}が指定できます。ここでは\AttribCVal{none}{}
+       にして塗らないようにしています。
+\end{itemize}
+この図のソースはリスト\ref{svg-linejoin}です。図に文字を表示するために
+\Elm{text}を使用しています。文字列の表示については第\ref{ShowText}章で解
+説します。
+\SVGListN{\AttribO{linejoin}属性の違い}{svg-linejoin}{svg-linejoin}
+\begin{itemize}
+ \item \Line{hairline1}から\Line{hairline2}で折れ線の中央部に描く細い線
+       を定義しています。この折れ線は\Line{use1}、\Line{use2}と
+       \Line{use3}で引用されています。
+ \item \Line{line1s}から\Line{line1e}で左の直線を、
+       \Line{line2s}から\Line{line2e}で中央の直線を、
+       \Line{line3s}から\Line{line3e}で右の直線をそれぞれ描いています。
+ \item それぞれの直線に\AttribO{stroke-linejoin}が設定されていることを確
+       認してください。
+\end{itemize}
+
+\ProbwithFigSol{shepard}{0.35}{ht}{シェパードの錯視}{svg-shepard}
+{\OIIdxMCY{シェパード}{64}{}と呼ばれています。
+二つの平行四辺形は同じ形をしていますが見え方が異なります。
+%\par
+通常はテーブルの形に見せるように足を付けますが、ここでは省略しました。
+\par
+この図を作成しなさい。}
+
+\ProbwithFigSol{bourdon}{0.3}{ht}{ブルドンの錯視}{svg-bourdon}
+{\OIIdxMCY{ブルドン}{73}{}と呼ばれています。
+二つの三角形の左の辺は一直線上に並んでいるのですが少し曲がって見えます。
+\par
+この図を作成しなさい。また、傾きを変えたときにどのように見えるか確認しな
+ さい。}

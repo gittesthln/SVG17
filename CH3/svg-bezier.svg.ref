@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>Bezier曲線の例</title>
+<g transform="translate(150,350)">
+  <path stroke-width="4" stroke="black" fill="none"
+      d="M0,0 C280,0 160,-320 0,-160"/> 
+  <circle cx="0"   cy="0"    r="6" fill="black"/>  <!--P_0-->
+  <circle cx="280" cy="0"    r="6" fill="black"/>  <!--P_1-->
+  <circle cx="160" cy="-320" r="6" fill="black"/>  <!--P_2-->
+  <circle cx="0"   cy="-160" r="6" fill="black"/>  <!--P_3-->
+  <polygon stroke-width="2" stroke="black" fill="none"
+       points="0,0 280,0 160,-320 0,-160"/>
+
+  <circle cx="140" cy="0"    r="6" fill="black"/>  <!--P_01-->
+  <circle cx="220" cy="-160" r="6" fill="black"/>  <!--P_12-->
+  <circle cx="80"  cy="-240" r="6" fill="black"/>  <!--P_23-->
+  <polyline stroke-width="2" points="140,0 220,-160 80,-240" 
+      stroke="black" fill="none"/>
+
+  <circle cx="180" cy="-80"  r="6" fill="black"/>  <!--P_012-->
+  <circle cx="150" cy="-200" r="6" fill="black"/>  <!--P_123-->
+  <line x1="180" y1="-80" x2="150" y2="-200" 
+      stroke-width="2" stroke="black" />
+  <circle cx="165" cy="-140" r="6" fill="black"/>   <!--P_0123-->
+</g>
+</svg>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>主観的輪郭のネオン輝度現象</title>
+  <defs>
+    <g id="Base">
+      <path d="M30,0 A30,30 0 0 0 0,-30" 
+        stroke-width="4" stroke="red" fill="none"/>
+      <path d="M30,0 A30,30 0 1 1 0,-30"
+        stroke-width="4" stroke="black" fill="none"/>
+      <path d="M50,0 A50,50 0 0 0 0,-50" 
+        stroke-width="4" stroke="red" fill="none"/>
+      <path d="M50,0 A50,50 0 1 1 0,-50"
+        stroke-width="4" stroke="black" fill="none"/>
+      <path d="M70,0 A70,70 0 0 0 0,-70" 
+        stroke-width="4" stroke="red" fill="none"/>
+      <path d="M70,0 A70,70 0 1 1 0,-70"
+        stroke-width="4" stroke="black" fill="none"/>
+      <path d="M90,0 A90,90 0 0 0 0,-90" 
+        stroke-width="4" stroke="red" fill="none"/>
+      <path d="M90,0 A90,90 0 1 1 0,-90"
+        stroke-width="4" stroke="black" fill="none"/>
+    </g>
+  </defs>
+  <g transform="translate(110,110),rotate(90)">
+    <use xlink:href="#Base"/>
+  </g>
+  <g transform="translate(310,110),rotate(180)">
+    <use xlink:href="#Base"/>
+  </g>
+  <g transform="translate(110,310)">
+    <use xlink:href="#Base"/>
+  </g>
+  <g transform="translate(310,310),rotate(270)">
+    <use xlink:href="#Base"/>
+  </g>
+</svg>

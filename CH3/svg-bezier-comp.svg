@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>2次と3次の\Bezier 曲線の違い</title>
+<g transform="translate(30,30)">
+  <polygon points="0,0 280,0 0,280" fill="#F0F0F0" stroke-width="2" stroke="black"/>
+  <path stroke-width="4" stroke="green" fill="none"
+      d="M0,0 C280,0 280,0 0,280"/> <!-- ref="defBezier" -->
+  <circle cx="210" cy="35" r="6" fill="green"/>
+  <path stroke-width="4" stroke="skyblue" fill="none"
+      d="M0,0 C0,0 280,0 0,280"/> <!-- ref="defBezier" -->
+  <circle cx="105" cy="35" r="6" fill="skyblue"/>
+  <path stroke-width="4" stroke="blue" fill="none"
+      d="M0,0 C280,0 0,280 0,280"/> <!-- ref="defBezier" -->
+  <circle cx="105" cy="140" r="6" fill="blue"/>
+  <path stroke-width="6" stroke="red" fill="none"
+      d="M0,0 Q280,0 0,280"/> <!-- ref="defBezier" -->
+  <circle cx="140" cy="70" r="6" fill="red"/>
+  <circle cx="0" cy="0" r="6" fill="black"/>
+  <circle cx="280" cy="0" r="6" fill="black"/>
+  <circle cx="0" cy="280" r="6" fill="black"/>
+</g>
+</svg>

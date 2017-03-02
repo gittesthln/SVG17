@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>1/4円をBezier曲線で近似する</title>
+  <g transform="translate(150,120)">
+    <circle cx="0" cy="0" r="100"
+      stroke-width="12" fill="none" stroke="blue"/> 
+    <path d="M-100,0
+             C-100,-55.228 -55.228,-100 0,-100
+             S100,-55.228 100,0
+             S55.228,100 0,100
+             S-100,55.228 -100,0z"
+      stroke-width="6" fill="none" stroke="yellow"/>
+  </g>
+</svg>
+

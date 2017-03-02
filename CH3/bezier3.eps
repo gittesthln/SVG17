@@ -1,0 +1,81 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 96 96 440 261
+%%Title: C:\usr\local\home\tel\JTEXFILE\SVG\ps\bezier3.ps
+%%Creator: GSview from C:\usr\local\home\tel\JTEXFILE\SVG\ps\bezier3.ps
+%%CreationDate: Fri May 05 21:44:20 2006
+%%Pages: 1
+%%EndComments
+%%Page: 1 1
+%%BeginDocument: C:\usr\local\home\tel\JTEXFILE\SVG\ps\bezier3.ps
+72 2.54 div 0.7 mul dup scale
+
+5 5 translate
+/DrawDisks {
+  {
+    AP
+    gsave
+      translate
+      0 0 0.1 0 360 arc fill
+      grestore
+    } repeat
+} def
+
+/M { AP moveto } def
+/L { AP lineto } def
+/AP { aload pop } def
+/ShowBezier3 {
+  /P3 exch def
+  /P2 exch def
+  /P1 exch def
+  /P0 exch def
+  P0 P1 P2 P3 4 DrawDisks
+  P0 P1 P2 P3 DrawLines
+
+  /P01 P0 P1 MidPoint
+  /P12 P1 P2 MidPoint
+  /P23 P2 P3 MidPoint
+  P01 P12 P23 3 DrawDisks
+
+  /P012 P01 P12 MidPoint
+  P01 P12 DrawLine
+
+  /P123 P12 P23 MidPoint
+  P12 P23 DrawLine
+
+  /P0123 P012 P123 MidPoint
+  P012 P123 DrawLine
+
+  P012 P123 P0123 3 DrawDisks
+
+  P0 M P0123 L P3 L stroke
+  
+  P0 M P1 AP P2 AP P3 AP curveto
+  0.1 setlinewidth
+  stroke
+} def
+/DrawLines {
+    M 3 { L } repeat
+    closepath
+    stroke
+} def
+/DrawLine { M L stroke } def
+/MidPoint {
+    /T0 exch def
+    /T1 exch def
+    T0 AP pop
+    T1 AP pop add 2 div
+    T0 AP 
+    T1 AP exch pop add 2 div exch pop
+    2 array astore def
+} def
+    
+0.05 setlinewidth
+gsave
+[0 0] [7 0] [4 8] [0 4] ShowBezier3
+grestore
+10 0 translate
+[0 0] [4 8] [7 0] [0 4] ShowBezier3
+
+
+%%EndDocument
+%%Trailer

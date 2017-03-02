@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>座標軸方向への歪み</title>
+  <defs>
+    <g id="axis">
+      <path d="M-150,0 150,0 M 0,-100 0,150"
+        fill="none" stroke-width="2" stroke="black"/>
+    </g>
+    <g id="fig">
+      <path d="M0,0 160,0 160,80" fill="red" />
+      <path d="M0,0 0,80 160,80"  fill="yellow" />
+      <path d="M0,0 160,0 160,80 0,80z" fill="none"
+         stroke-width="4" stroke="black"/>
+    </g>
+  </defs>
+  <g transform="translate(180,200)">
+    <use xlink:href="#axis"/>
+    <use xlink:href="#fig" opacity="0.5"/>
+    <g transform="skewX(-45)">
+       <use xlink:href="#fig"/>
+    </g>
+  </g>
+  <g transform="translate(500,200)">
+    <use xlink:href="#axis"/>
+    <use xlink:href="#fig" opacity="0.5"/>
+    <g transform="skewY(-45)">
+       <use xlink:href="#fig"/>
+    </g>
+  </g>
+</svg>

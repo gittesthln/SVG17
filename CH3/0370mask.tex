@@ -1,0 +1,88 @@
+% -*- coding: utf-8 -*-
+\section{画像の一部を見せる}
+図形の内部だけに画像を表示させることを行うには\Elm{mask}
+を用います。
+
+\ShowFig{0.55}{ht}{svg-image-mask}{画像をくりぬく(\Elm{mask})}
+{image-mask}
+%\ifFull\newpage\fi
+%\vspace{-3em}
+%\newpage
+\SVGListN{画像をくりぬく(\Elm{mask})}{svg-image-pattern-mask}{svg-image-mask}
+\begin{itemize}
+ \item ここでは\Elm{mask}を用いる方法と図形の属性\AttribO{fill}で行う方
+       法を比較します。
+ \item \Elm{mask}は\LineR{maskS}{maskE}で定義されています。
+\begin{itemize}
+ \item ここでは後で引用するために\Attrib{id}として\Showattrib{mask1}を与
+       えています。
+ \item \AttribO{maskUnits}で対象となる座標系として
+       \AttribCVal{userSpaceOnUse}{}を指定しています
+       \footnote{\AttribCVal{objectBoundingBox}{}も定義できるのですが表示を
+       うまくコントロールできませんでした。}。
+ \item 左上の座標位置を\AttribO{x}と\AttribO{y}で指定し、大きさを
+       \AttribO{width}と\AttribO{height}で指定します。
+ \item \Elm{mask}は内部に含む図形の各点の明るさを\keyitem{不透明度}(一般にはア
+       ルファ値)に変換した図形に変換し、引用された図形の上にかぶせます。
+       色が\AttribCVal{white}{}のときが不透明度が
+       $0$に、\AttribCVal{black}{}のときには不透明度が
+       $1$に設定されます。
+ \item ここでは楕円の内部を\AttribCVal{white}{}に塗っているのでこの部分
+       だけ表示されることになります。
+\end{itemize}
+ \item \LineR{image2S}{image2E}でこの\Elm{mask}を使って画像を表示してい
+       ます。
+ \item \Line{image}では\Elm{pattern}で利用する図形を定義しています。
+ \item \LineR{patternS}{patternE}で\Line{ellipse2}で定義された楕円の内部
+       を塗るためのパターンを定義しています。\Elm{image}を\AttribO{fill}
+       での参照要素に指定できないのでパターンを利用しています。
+ \item \Line{use1}ではパターンに利用する画像を引用しています。
+\end{itemize}
+\iffalse
+\begin{Problem}
+ 図形の内部を\Elm{pattern}で塗る方法と\Elm{mask}で切り抜く方法の特徴を比
+ 較しなさい。
+\end{Problem}
+\fi
+%\CPageF
+\begin{Problem}\upshape\label{prob-image-mask-gradiation}
+ 図\ref{image-mask-gradiation}は
+\Elm{mask}のなかにある
+楕円を放射グラデーションで塗りつぶしたものを利用して
+います。適当な画像を使用してこれと同じような図形を作成しなさい。
+    \ShowFig{0.33}{ht}{image-mask-gradiation}
+       {グラデーションを使用した\Elm{mask}}{image-mask-gradiation}
+    \SolSVGFile{問題}{prob-image-mask-gradiation}
+     {グラデーションを使用した\noexpand\Showattrib{mask}}
+     {svg-image-pattern-mask-grad}
+  \end{Problem}
+	%\CPageF
+\ProbwithSol{object-gradiation-mask}
+{グラデーションで図形を塗りつぶす}{svg-polygon5-mask}
+{図\ref{polygon5}を\Elm{mask}を使用して作成しなさい。}
+{\relax}
+
+\iffalse\else
+%\paragraph{画像を\Elm{mask}に使う}
+図\ref{image-pattern-mask2}では画像を\Elm{mask}として利用しています。
+
+\ShowFig{0.3}{ht}{image-pattern-mask2}
+{画像を\Elm{mask}につかう}{image-pattern-mask2}
+
+楕円を黒で塗りつぶしているので
+明るさが逆になるモノクロのネガ画像が得られます。
+%どのような図形が表示されるか考えてみてください。
+\VerbatimInput[firstnumber=1,numbers=left]{\CH svg-image-pattern-mask2.svg}
+
+%\ \\[-6em]
+\fi
+\ProbwithFigSol{image-mixed}{0.31}{ht}
+{二つの画像を細く分けて互い違いに並べて表示する}
+{svg-image-pattern-mask-hidden}
+{二つの画像を縦に細かく分けて交互に表示したものです。
+どちらかの画像がないと隠れている部分があっても何の画像かわかります。
+\par 適当な画像を二つ用意してこの図を作成しなさい。}
+
+\ShowFigs{0.3}{ht}{{image-mixed1}{image-mixed2}}
+{画像を\Elm{mask}につかう(元画像)}{image-mixed-a}
+

@@ -1,0 +1,79 @@
+% -*- coding: utf-8 -*-
+\section{いろいろな錯視図形}
+ここでは今までに学んだことを生かしていくつかの錯視図形の例を挙げます。描
+き方は一通りとは限りませんのでいろいろ工夫をしてください。
+%\CPageF
+%\CPageF
+\paragraph{色の同化}
+ 図\ref{uniform}は\OIIdxB{色の同化}とよばれる錯視図形です
+ (\cite[62ページ図6.8]{Ninio}参照)。この図の背景である灰色はどこでも同じ
+ 濃度です。間に入った直線の色で灰色の濃度が違って見えます。
+
+なお、背景の色を変えて同じ色の細い直線を入れると背景に応じて色の見え方が
+変わる錯視もあります(\cite[90ページ]{OIHandbook})。
+\ShowFig{0.8}{ht}{uniform}{色の同化}{uniform}
+    \SolSVGFile{図}{uniform}
+     {色の同化}{svg-uniform-rev}
+\paragraph{レジナルド・ニールの絵}
+図\ref{niel}は\cite[75ページ図7.6]{Ninio}にあるものです。ここの解説では
+ニールの絵の一部のようです。また、浮き上がるように見えるともありますが、
+正方形が傾いているようにも見えます。
+\ShowFig{0.45}{ht}{niel}{\OIIdxB{レジナルド・ニールの絵}}{niel}
+\SolSVGFileC{図}{niel}{レジナルド・ニールの絵}{svg-niel}
+{正方形を大きいほうから並べるのではなく、\noexpand\Showattrib{path}で定
+義して\noexpand\Showattrib{fill-rule}を指定して必要なところだけパターン
+で記述してあります。}
+%\NewpageF
+\paragraph{傾いたパターンによる錯視}
+図\ref{pattern-rotate}は\cite[188ページ図17.9]{Ninio}にあるものです。
+模様がついた正方形は模様が傾いているために傾いて見えます。なお、この引用
+した場所では辺と平行線が約22度で接していると書かれていますがこれは26.7度
+($\arctan\dfrac{1}{2}$ラジアン)の間違いです。
+\ShowFig{0.45}{ht}{rotated-square-with-pattern}
+{\OIIdxB{傾いて見える正方形}}{rotated-square-with-pattern}
+\SolSVGFile{図}{rotated-square-with-pattern}{傾いて見える正方形}
+{svg-square-with-rotated-pattern}
+\paragraph{浮動する円(オリジナル版)}
+図\ref{oouchi}で
+塗りつぶすパターンを変えれば\cite[74ページ図7.5]{Ninio}にあるものと同等
+の図形が描けます。
+\ShowFig{0.45}{ht}{oouchi-rev}{\OIIdxB{浮動する円(オリジナル版)}}{oouchi2}
+\SolSVGFile{図}{oouchi2}{浮動する円(オリジナル版)}
+{svg-oouchi-rev}
+\paragraph{盛永の矛盾}
+図\ref{morinaga}は基本的には図\ref{example-muller-lyer}の
+\OIIdxM{ミューラー$\cdot$ライヤー}です。ミューラー$\cdot$ライヤー錯視
+では長く見える役割を果たしている\texttt{<}の位置は短く見えるその下の
+\texttt{>}より右にあるように見えます。これは二つの図形の間の距離に矛盾が
+生じています。
+\ShowFig{0.45}{ht}{morinaga}
+{\OIIdxB{盛永の矛盾}}{morinaga}
+\SolSVGFile{図}{morinaga}{盛永の矛盾}{svg-morinaga}
+\iffalse\else
+\paragraph{カニッツァの透明視パターン}
+斜めに置かれた明るい長方形は穴の開いた白い長方形の下から見えているように
+見えます。一方で、この長方形は透明なもので、白い長方形がその下にあるよう
+にも見えます。特に上部では白の間隔が狭いこともあってそのように見えます。
+また、これらの解釈により灰色の明るさが変化するように感じられます。
+\ShowFig{0.75}{ht}{kanizsa-transparent}
+{\OIIdxB{カニッツァの透明視パターン}}{kanizsa-transparent}
+\SolSVGFile{図}{kanizsa-transparent}{カニッツァの透明視パターン}
+{svg-kaniza-transparent}
+\fi
+\paragraph{マッケイの流れの錯覚}
+図\ref{mackey}は\OIIdxB{マッケイの流れの錯覚}です
+(\cite[49ページ図5.5]{Ninio})。二つのパターンの間の白いところに薄黒いも
+のが流れているように見えます。
+\ShowFig{0.8}{ht}{mackey}
+{\OIIdxB{マッケイの流れの錯覚}}{mackey}
+\SolSVGFileC{図}{mackey}{マッケイの流れの錯覚}{svg-mackey}
+{\noexpand\Showattrib{pattern}が入れ子になって図を定義しています。}
+\paragraph{グラデーションと色の対比}
+図\ref{gradiation-constrast}は\cite[185ページ図17.4]{Ninio}にあるもので
+す。ひし形はすべて同一の灰色で塗っていますが、配置されたグラディエーショ
+ンの位置により色がかなり異なって見えます。図\ref{uniform}と比較してくだ
+さい。
+\ShowFig{0.95}{ht}{gradiation-constrast}
+{\OIIdxB{グラデーションと色の対比}}{gradiation-constrast}
+\SolSVGFile{図}{gradiation-constrast}
+     {グラデーションと色の対比}{svg-gradiation-constrast}

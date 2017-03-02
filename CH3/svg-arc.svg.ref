@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+   <title>楕円の弧を描く</title>
+  <defs>
+    <g id="Points" stroke="gray">
+      <circle cx="0"  cy="0" r="50" fill="none" 
+        stroke-width="3" stroke-dasharray="3 3"/>
+      <circle cx="50"  cy="-50" r="50" fill="none" 
+        stroke-width="3" stroke-dasharray="3 3"/>
+      <circle cx="50" cy="0"   r="5" fill="red" stroke="none"/>
+      <circle cx="0"  cy="-50" r="5" fill="blue" stroke="none"/>
+      <line x1="-60" y1="0" x2="100" y2="0"  stroke-width="1"/>
+      <line x1="0"   y1="-100" x2="0"  y2="60" stroke-width="1"/>
+    </g>
+  </defs>
+  <g stroke-width="3" stroke="black" fill="none"
+    text-anchor="middle" font-size="15px">
+    <g transform="translate(100,150)">
+      <text y="-130" fill="black" stroke="none">LargeArcFlag=0</text>
+      <text y="-110" fill="black" stroke="none"> SweepFlag=0</text>
+      <use xlink:href="#Points"/>
+      <path d="M50,0 A50,50 0 0 0 0,-50"/>
+    </g>
+    <g transform="translate(300,150)">
+      <text y="-130" fill="black" stroke="none">LargeArcFlag=0</text>
+      <text y="-110" fill="black" stroke="none">SweepFlag=1</text>
+      <use xlink:href="#Points"/>
+      <path d="M50,0 A50,50 0 0 1 0,-50" />
+    </g>
+    <g transform="translate(100,370)">
+      <text y="-130" fill="black" stroke="none">LargeArcFlag=1</text>
+      <text y="-110" fill="black" stroke="none">SweepFlag=0</text>
+      <use xlink:href="#Points"/>
+      <path d="M50,0 A50,50 0 1 0 0,-50"/>
+    </g>
+    <g transform="translate(300,370)">
+      <text y="-130" fill="black" stroke="none">LargeArcFlag=1</text>
+      <text y="-110" fill="black" stroke="none">SweepFlag=1</text>
+      <use xlink:href="#Points"/>
+      <path d="M50,0 A50,50 0 1 1 0,-50"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>スーツマークを描く</title>
+  <g transform="translate(150,300)">
+    <path d="M0,0 C220,-150 100,-320 0,-240 C-100,-320 -220,-150 0,0z"
+      fill="pink" stroke-width="4" stroke="red" />
+  </g>
+  <g transform="translate(420,200)">
+    <path 
+     d="M20,50 C100,100 200,-20 0,-170 C-200,-20 -100,100 -20,50
+        L-30,100 30,100z"
+      fill="black" />
+  </g>
+  <g transform="translate(720,200)">
+    <path 
+     d=" M30,30 C50,70 140,70 140,0 S 50,-70 30,-30 
+                C70,-50 70,-140 0,-140 S-70,-50 -30,-30
+                C-50,-70 -140,-70 -140,0 S -50,70 -30,30 
+                L-40,100 40,100 z"
+      fill="black" />
+  </g>
+</svg>

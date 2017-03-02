@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="400" width="400">
+  <title>カニッツァの主観的三角形</title>
+  <defs>
+    <g id="Base">
+      <g transform="translate(150,0),scale(1.1)">
+        <path d="M0,0 L-43.3,-25 A50,50 0 1 1 -43.3,25 z" fill="black"/> <!-- ref="deffund" -->
+      </g>
+      <g transform="rotate(60),translate(130,0),scale(1.3)">
+        <polyline points="-43.3,-25 0,0 -43.3,25" ref="polyline1"
+          fill="none" stroke-width="2" stroke="black" ref2="polyline2" />
+      </g>
+    </g>
+  </defs>
+  <g transform="translate(210,250)">
+    <g transform="rotate(30)" ref="firsts">
+      <use xlink:href="#Base"/>
+    </g> <!-- ref="firste" -->
+    <g transform="rotate(150)"  ref="seconds">
+      <use xlink:href="#Base"/>
+    </g><!-- ref="seconde" -->
+    <g transform="rotate(270)" ref="3rds">
+      <use xlink:href="#Base"/> 
+    </g><!--  ref="3rde" -->
+  </g>
+</svg>

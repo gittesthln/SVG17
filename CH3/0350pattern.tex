@@ -1,0 +1,142 @@
+% -*- coding: utf-8 -*-
+\section{SVGパターン}
+長方形などの内部を塗るための\AttribO{fill}には繰り返しのパターンを指定す
+ることができます
+\iffalse\footnote{\FF はSVGパターンをサポートしていません。}\fi 。
+
+%パターンを用いると次のような錯視図形が簡単に描けます。
+
+ヘルマン格子(図\ref{hermann-line})をパターンを利用して描くと
+次のようになります。
+%\newpage
+\SVGListN{ヘルマン格子(パターンで描く)}{svg-hermann}{svg-hermann}
+\begin{itemize}
+ \item 内部が黒で、縁取りを白で塗る正方形を敷き詰める形でこの図
+       形を描きます。
+ \item 基本となる図形は\Elm{pattern}で定義します(\LineR{start}{end})。
+        \Elm{pattern}はグラデーションのときと同じように\Elm{defs}内
+	に記述します。
+ \begin{itemize}
+  \item \Elm{pattern}では後で参照するための属性\Attrib{id}とパターンの大
+	きさを\AttribO{width}と\AttribO{height}で指定します(\Line{start})。
+  \item \Line{coordinate}で\Elm{pattern}を塗る基準の座標系を属性
+	\AttribO{patternUnits}を用いて指定していま
+	す。グラデーションのときと同様に
+	\AttribCVal{objectBoundingBox}{}と\AttribCVal{userSpaceOnUse}{}
+	が指定できます。
+  \item \Elm{pattern}内の図形は大きさが\texttt{50}の正方形で縁取りの幅を
+	$8$にした正方形です(\LineR{rects}{rects})。
+ \end{itemize}
+ \item このパターンで内部を塗る長方形は
+       \Line{rectfillede}で定義されていま
+       す。\AttribO{fill}に\Elm{pattern}の属性\Attrib{id}の値を
+       指定します。この場合には\AttribVal{url}{(\#Hermann)}と
+       \AttribCVal{url}{()}を付けます。
+\end{itemize}
+\ProbwithFigSol{savigny}{0.5}{ht}{ザビニの錯視}{svg-savigny}
+{\OIIdxM{ザヴィニー}\cite[132ページ]{Ninio}とよばれます。両方のパターンを囲む正方形の大
+きさは同じなのですがパターンの向きにより異なった方向のほうが長い長方形に
+見えます。パターンには\Elm{path}を用いると良いでしょう。\par
+この図を描きなさい。}
+
+パターン内の図形としてはいくつかの図形を組み合わせ
+てもかまいません。図\ref{pattern-example}は別の
+グラデーションで塗った複数の正方形を組み合わせてパターンを構成しています。
+%
+\ShowFig{0.4}{ht}{pattern}
+   {二つの線形グラデーションを市松模様に並べた例}
+{pattern-example}
+\SVGListN{二つの線形グラデーションを市松模様に並べた例}
+   {patterndef1}{svg-pattern}
+\begin{itemize}
+ \item \Line{grad1S}から\Line{grad1E}と\Line{grad2S}から\Line{grad2E}で2
+       つの線形グラデーションを定義しています。
+ \begin{itemize}
+  \item \Line{grad1S}から\Line{grad1E}は上から下へ向
+	かう線形グラデーションを定義しています。
+  \item \Line{grad2S}から\Line{grad2E}は左から右へ向
+	かう線形グラデーションを定義しています。
+ \end{itemize}
+ \item 辺の長さが$60$の正方形を二つこれらのグラデーションを使って
+       塗ります。
+ \item この二つの正方形を市松模様に並べたパターンを\Line{patternS}から
+       \Line{patternE}で定義します。
+\begin{itemize}
+ \item パターンの大きさは正方形を縦横二つずつ並べたものなので大きさは
+       $2\times60=120$です。したがって、\AttribO{width}{}と
+       \AttribO{height}{}の値はそれぞれ$120$です(\Line{patternS})
+ \item グラデーションで塗られた2種類の正方形を\Elm{use}を用いて対角
+       線上に並べます(\Line{use1}から\Line{use4})。
+ \item \Elm{use}のなかに配置する位置\AttribO{x}や\AttribO{y}を指定してい
+       ます。
+\end{itemize}
+ \item \Line{rect}から始まる長方形をこのパターンで塗りつ
+       ぶします。ひとつのパターンの大きさが$120\times120$なのでこのパターンが横
+       に3回, 縦に2回繰り返されます。
+\end{itemize}
+\iffalse
+\begin{Problem}\upshape
+ 傾いたグラデーションを市松模様に並べた図形を作成しなさい。なお、
+各パターンは長方形の辺に平行でかまいません。
+\end{Problem}
+\fi
+
+%\clearpage
+\ProbwithFigSol{hermann-twinkle}{0.4}{ht}{輝くヘルマン格子}{svg-hermann-twinkle}
+{ないはずの点がよりはっきり見えるようになる
+\OIIdxN{輝くヘルマン格子}{180}{}です。
+%\par
+この図では正方形の間の隙間は少し明るめの灰色で、交差部分には
+白で塗られた円を描いています。これもパターンを用いてこの図を作成しなさい。}
+%
+%
+\ProbwithSol%
+{munsterberg-pattern1}{カフェウォール錯視--パターンで作成}
+{svg-munsterberg-pattern}
+{\keysubE{カフェウォール}{錯視}{}錯視(図\ref{munsterberg})をパターンを
+用いて作図しなさい。}\IndexSet{カフェウォール錯視}{}{}{}{}{}
+
+\ProbwithFigSol{morgan-twist}{0.4}{ht}{モーガンのねじれひも}{svg-morgan-twist}
+{\OIIdxN{モーガンのねじれひも}{76}{}とよばれる錯視図形です。これを作
+成しなさい。}
+%\ifFull\newpage\fi
+パターンを塗りつぶす図形は長方形でなくてもかまいません。
+
+図\ref{oouchi}は大内元によって作成された錯視図形を内部のパターンを
+簡略化した図形です(\cite[74ページ図7.5]{Ninio})。\footnote{\cite[75ペー
+ジ]{Ouchi}も参照のこと。この本にはほかにも面白い錯視図形が載っています。}
+中央の円がページの画面から浮き上がってゆらゆらします。片目で見ると立体感
+が増すように見えます。
+
+これは、円をパターンで塗りつぶしています。
+\ShowFig{0.35}{ht}{oouchi}{\OIIdxB{浮動する円}(簡略版)}{oouchi}
+%\ifFull\newpage\fi
+\SVGListN{浮動する円}{svg-oouchi-rev}{svg-oouchi}
+\begin{itemize}
+ \item \LineR{patternS}{patternE}でパターンを定義しています。
+ \item パターンは領域全体を白で塗りつぶされた長方形(\Line{rectW})とその
+       上に対角線上に二つ並んだ黒く塗りるつぶされた長方形(\Line{path})か
+       らなります。
+ \item \LineR{CS}{CE}で外側の円をこのパターンで塗りつぶしています。
+ \item その上に小さな円を同じパターンで塗りつぶし(\Line{C2})、さらに
+       $(200,200)$ を中心に $90^{\circ}$ 回転(\Line{rotate})したものを描
+       いています。
+\end{itemize}
+%\SolSVGFile{問題}{prob-oouchi}{浮動する円}{svg-oouchi}
+\begin{Problem}\upshape
+ 図\ref{polygon5}の内部をパターンで塗りつぶしなさい。パターンの開始がど
+ こから始まっているかを調べること。
+\end{Problem}
+なお、\Elm{pattern}の属性にはパターンの配置を変形させる
+\AttribO{patternTransform}があります。この値は図形を移動させる属性
+\Showattrib{transform}の値と同じものが書けます。
+\begin{Problem}\upshape\label{prob-pattern-rotate}
+    図\ref{pattern-rotate}は
+図\ref{pattern-example}のグラデーションのパターンを回転さ
+せた図形を内部に持つ長方形です。この図は\Elm{pattern}に属性
+ \AttribO{patternTransform}を用いて作成できます。この図を作成しなさい。
+    \ShowFig{0.4}{ht}{pattern-rotate}
+{図\ref{pattern-example}のグラデーションのパターンを回転させる}
+{pattern-rotate} %patterndef-rotate-rev.svg
+\end{Problem}
+%\vspace{-3em}

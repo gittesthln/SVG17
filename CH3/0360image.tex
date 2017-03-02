@@ -1,0 +1,81 @@
+% -*- coding: utf-8 -*-
+\section{画像の取り込み}
+\Elm{image}を用いると外部の画像ファイルを読み込むことができます。取り込
+める画像の種類は JPG や PNG があります。
+
+図\ref{image}は JPG 形式の同一の画像ファイルを属性値を変えて取り込んだものです。
+
+この\SVG は
+\Elm{image}で指定した画像(大きさは$1800\times1800$)を取り込む範囲と
+属性値との関係を示すためにその範囲と同じ大きさの長方形を描い
+ています。
+\ShowFig{0.8}{ht}{svg-image}{\Elm{image}の使用例}{image}
+%\ifFull\newpage\fi
+\SVGListN{\Elm{image}の使用例}{svg-image}{svg-image}
+\begin{itemize}
+ \item \Line{back} で表示画面全体を明るい灰色に塗りつぶしています。これ
+       は画像が表示されなかった場所がどのように扱われるかを示すためです。
+ \item \Line{image1}で\texttt{cyclamen-2.JPG}を取り込んでいます。
+\begin{itemize}
+ \item 取り込む範囲は縦横ともに$200$ピクセルの正方形の領域です。
+ \item 画像はその範囲に縮小されて表示されています。元の画像が正方形で表
+       示する範囲も正方形なので\Line{rect1}で示した正方形の枠内にちょう
+       ど収まります。
+\end{itemize}
+ \item \Line{image2}は表示領域の大きさを横$250$、縦$200$に変えて同じ図形を表示し
+       ています。
+\begin{itemize}
+ \item この画像の画像の収縮比は縦と横が同じであることがわかります。
+ \item 表示位置も横について画面の中央にあることがわかります。
+ \item 画像が表示されない部分は下の画像が表示されています。
+\end{itemize}       
+ \item 表示領域に対して画面の表示位置を移動させるためには
+       \AttribO{preserveAspectRatio}を用います。
+\begin{itemize}
+ \item \Line{image3}ではその値
+       を\AttribOVal{xMaxYMid}としています。\Showattrib{xMax}の部分で水
+       平方向の位置を一番右($x$方向の最大値)に、\Showattrib{YMid}で縦方
+       向は上下の中央にすることを意味します。
+ \item 指定できる値は水平方向が\Showattrib{xMax}、\Showattrib{xMid}と
+       \Showattrib{xMin}の3種類、垂直方向が\Showattrib{YMax}、
+       \Showattrib{YMid}、\Showattrib{YMin}の3種類あるので組み合わせて合
+       計9種類あることになります(\Showattrib{Y}が大文字になっていること
+       に注意してください)。
+ \item このほかに\AttribO{none}という値も指定できます(\Line{image4})。こ
+       の場合は縦横比(aspect ratio)を指定しないという意味になり、表示領
+       域いっぱいに画像が表示されます。ここでは横方向に拡大されています。
+\end{itemize}
+\end{itemize}
+なお、SVG内部では画像はすべてカラー画像(+不透明度)に変換されて保存されま
+す。
+\ProbwithSolOnly{listpreserveaspectratio}{\AttribO{preserveAspectRatio}の
+とりうる値をすべて記しなさい。}
+{{\noexpand\SetTT{{none}},
+\noexpand\SetTT{{xMinYMin}},
+\noexpand\SetTT{{xMidYMin}},
+\noexpand\SetTT{{xMaxYMin}},
+\noexpand\SetTT{{xMinYMid}},
+\noexpand\SetTT{{xMidYMid}},
+\noexpand\SetTT{{xMaxYMid}},
+\noexpand\SetTT{{xMinYMax}},
+\noexpand\SetTT{{xMidYMax}},
+\noexpand\SetTT{{xMaxYMax}}の10種類}}
+\iffalse\else
+\begin{Problem}
+ \AttribO{preserveAspectRatio}の値をいくつか変えて画像を表示させなさい。
+\end{Problem}
+図\ref{image-pattern}は画像を\Elm{pattern}で使用しています。
+\ShowFig{0.7}{ht}{cyclamen-pattern}{画像を\Elm{pattern}で使用する}
+{image-pattern}
+%\newpage
+%\vspace{-3\baselineskip}
+\SVGListN{画像を\Elm{pattern}で使用する}{svg-image-pattern}{svg-image-pattern}
+\begin{itemize}
+ \item \LineR{patternS}{patternE}でパターンを定義しています。パター
+       ンの大きさは縦横$200$の正方形です。
+ \item \Line{image1}でパターンに使用する画像を引用しています。この画像
+       を取り込む大きさも縦横$200$の正方形です。
+ \item \Line{rect}で内部をこのパターンで塗るように指定した長方形を定義し
+       ています。
+\end{itemize}
+\fi
