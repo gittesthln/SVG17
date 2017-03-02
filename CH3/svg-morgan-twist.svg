@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>モーガンのねじれひも</title>
+  <defs>
+    <pattern id="twist" width="60" height="64"
+       patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="60" height="64" fill="lightgray"/>
+      <g transform="translate(0,-10)">
+        <g transform="translate(0,28)">
+          <rect x="0" y="0" width="60" height="4" fill="white"/>
+          <polygon points="0,0 30,0 30,2 15,2 15,4 0,4" fill="black"/>
+          <rect x="45" y="2" width="15" height="2" fill="black"/>
+        </g>
+        <g transform="translate(0,60)">
+          <rect x="0" y="0" width="60" height="4" fill="white"/>
+          <polygon points="0,0 15,0 15,2 30,2 30,4 0,4" fill="black"/>
+          <rect x="45" y="0" width="15" height="2" fill="black"/>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <g transform="translate(20,20)">
+  <rect x="0" y="0" width="300" height="300"
+     fill="url(#twist)" />
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>ザビニの錯視</title>
+  <defs>
+    <pattern id="B" x="0" y="0" width="200" height="40"
+       patternUnits="userSpaceOnUse">
+      <path d="M0,0 l200,0 l-100,20z M0,40 l100,-20 l100,20z"
+        stroke="none" fill="black"/>
+    </pattern>
+    
+  </defs>
+  <g transform="translate(10,10)">
+    <rect x="0" y="0" width="200" height="200" 
+      stroke-width="1" stroke="black" fill="url(#B)"/>
+  </g>
+  <g transform="translate(440,10)">
+    <g transform="rotate(90)" >
+      <rect x="0" y="0" width="200" height="200" 
+        stroke-width="1" stroke="black" fill="url(#B)"/>
+  </g>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%">
+  <title>二つの線形グラデーションを市松模様に並べた例</title>
+  <defs>
+    <linearGradient id="LinGrad1" x1="0%" y1="0%" x2="0" y2="100%" ref1="grad1S"
+        gradientUnits="objectBoundingBox" >
+      <stop offset="0%" stop-color="#FF0000"/><!-- ref="stop1" -->
+      <stop offset="100%" stop-color="#600000"/><!-- ref="stop2" -->
+    </linearGradient><!--  ref2="grad1E" -->
+    <linearGradient id="LinGrad2" x1="0%" y1="0%" x2="100%" y2="0%"  ref1="grad2S"
+        gradientUnits="objectBoundingBox" >
+      <stop offset="0%" stop-color="#0000FF"/><!-- ref="stop3" -->
+      <stop offset="100%" stop-color="#000060"/><!-- ref="stop4" -->
+    </linearGradient><!--  ref2="grad2E" -->
+    <rect id="Rect1" fill="url(#LinGrad1)" width="60" height="60" ref="rect1"/>
+    <rect id="Rect2" fill="url(#LinGrad2)" width="60" height="60" ref="rect2"/>
+    <pattern id="checkerPattern" width="120" height="120"  ref="patternS"
+           patternUnits="userSpaceOnUse">
+      <use xlink:href="#Rect1" x="0"  y="0" ref="use1"/>
+      <use xlink:href="#Rect2" x="60" y="0" ref="use2"/>
+      <use xlink:href="#Rect2" x="0"  y="60" ref="use3"/>
+      <use xlink:href="#Rect1" x="60" y="60" ref="use4"/>
+    </pattern><!-- ref="patternE" -->
+  </defs>
+  <g transform="translate(10,10)">
+  <rect x="0" y="0" width="360" height="240" ref="rect"
+     fill="url(#checkerPattern)" stroke-width="4" stroke="blue"/>
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="100%" height="100%">
+  <defs>
+    <linearGradient id="LinGrad1" x1="0%" y1="0%" x2="0" y2="100%"
+        gradientUnits="objectBoundingBox" >
+      <stop offset="0%" stop-color="#FF0000"/>
+      <stop offset="100%" stop-color="#600000"/>
+    </linearGradient>
+    <linearGradient id="LinGrad2" x1="0%" y1="0%" x2="100%" y2="0%"
+        gradientUnits="objectBoundingBox" >
+      <stop offset="0%" stop-color="#0000FF"/>
+      <stop offset="100%" stop-color="#000060"/>
+    </linearGradient>
+    <rect id="Rect1" fill="url(#LinGrad1)" width="60" height="60"/>
+    <rect id="Rect2" fill="url(#LinGrad2)" width="60" height="60"/>
+    <pattern id="checkerPattern" width="120" height="120"
+           patternUnits="userSpaceOnUse">
+      <use xlink:href="#Rect1" x="0"  y="0" ref="use1"/>
+      <use xlink:href="#Rect2" x="60" y="0" ref="use2"/>
+      <use xlink:href="#Rect2" x="0"  y="60" ref="use3"/>
+      <use xlink:href="#Rect1" x="60" y="60" ref="use4"/>
+    </pattern>
+    <mask id="mask" maskUnits="userSpaceOnUse" x="0" y="0" 
+       width="360" height="240">
+       <rect x="0" y="0" width="360" height="240" fill="white" />
+    </mask>
+  </defs>
+  <g transform="translate(20,20)">
+    <g mask="url(#mask)">
+      <g transform="translate(170,128) rotate(45)">
+        <rect x="-240" y="-240" width="480" height="480"
+           fill="url(#checkerPattern)" />
+      </g>
+    </g>
+    <rect x="0" y="0" width="360" height="240"
+       stroke="blue" stroke-width="4" fill="none" />
+  </g>
+</svg>
