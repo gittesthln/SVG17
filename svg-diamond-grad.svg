@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>ひし形を用いたクレイク・オブライエン効果</title>
+  <defs>
+    <polygon  id="diamond" points="0,100 50,0 100,100 50,200" 
+        fill="url(#grad)" stroke="black" stroke-width="3"/>
+     <linearGradient id="grad" 
+      x1="0" y1="0" x2="0" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" offset="0%"/>
+      <stop stop-color="darkgray" offset="100%"/>
+    </linearGradient>
+    <g id="line5">
+      <use xlink:href="#diamond"/>
+      <use x="100" xlink:href="#diamond"/>
+      <use x="200" xlink:href="#diamond"/>
+      <use x="300" xlink:href="#diamond"/>
+      <use x="400" xlink:href="#diamond"/>
+    </g>
+    <g id="line6">
+      <use xlink:href="#line5"/>
+      <use x="-100" xlink:href="#diamond"/>
+    </g>
+  
+  </defs>
+  <g transform="translate(100,50)">
+    <use xlink:href="#line5"/>
+    <use x="50" y="100" xlink:href="#line6"/>
+    <use x="0"  y="200" xlink:href="#line5"/>
+    <use x="50" y="300" xlink:href="#line6"/>
+    <use x="0"  y="400" xlink:href="#line5"/>
+  </g>
+</svg>
+

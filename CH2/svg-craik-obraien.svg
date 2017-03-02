@@ -12,6 +12,6 @@
       <stop stop-color="white" offset="100%"/>
     </radialGradient>
   </defs>
-  <rect x="10" y="10" width="250" height="250"
+  <rect x="10" y="10" width="350" height="350"
     stroke-width="4" stroke="black" fill="url(#radGradient)" />
 </svg>

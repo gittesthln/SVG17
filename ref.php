@@ -25,30 +25,6 @@ for($i=0;$i<count($files);$i++) {
     $fp = fopen("$filename.tex", 'w');
     fputs($fp,$GLOBALS['res']);
     fclose($fp);
-  } else {
-    $start = $dd[1];
-    $end = $dd[2];
-    if(file_exists("$filename.$start-$end") &&
-       filemtime($filename)<filemtime("$filename.$start-$end")) continue;
-    print "$filename.$start-$end\n";
-    $fp = fopen("$filename", 'r');
-    $fp0 = fopen("$filename.$start-$end",'w');
-    $search = '/\sref.*="' . $start . '"/';
-    while(!feof($fp)) {
-      $line = fgets($fp,1024);
-      if(preg_match($search, $line)) break;
-    }
-    $nline = removeref($line);
-    fputs($fp0,$nline);
-    $search = '/\sref.*="' . $end . '"/';
-    while(!feof($fp)) {
-      $line = fgets($fp,1024);
-      $nline = removeref($line);
-      fputs($fp0,$nline);
-      if(preg_match($search, $line)) break;
-    }
-    fclose($fp);
-    fclose($fp0);
   }
 }
 function prout($s) {

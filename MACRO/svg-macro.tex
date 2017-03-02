@@ -216,11 +216,17 @@ bookmarkstype=toc]{hyperref}
 \newcommand{\SelI}[4]{#1}
 \newcommand{\ListSub}[2]{%
   \edef\Tmp{\expandafter\csname \CurrentFileN-#1\endcsname}
-\ListSubN{#1}{#2}{\Tmp}
+  \edef\Tmpi{\expandafter\csname \CurrentFileN-#1\endcsname}
+  \edef\Tmpii{\expandafter\csname \CurrentFileN-#2\endcsname}
+\ListSubNN{#1}{#2}{\Tmpi}{\Tmpii}
 }
 \newcommand{\ListSubN}[3]{%
 \VerbatimInput[firstnumber=#3,numbers=left]{\CurrentFile.#1-#2}
 %  \listinginput{#3}{\CurrentFile.#1-#2}
+  \write\listout{\CurrentFile,#1,#2}
+}
+\newcommand{\ListSubNN}[4]{%
+\VerbatimInput[firstline=#3,lastline=#4, numbers=left]{\CurrentFile.ref}
   \write\listout{\CurrentFile,#1,#2}
 }
 \newcommand{\SVG}{{\upshape SVG} 文書}

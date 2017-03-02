@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>線形グラデーションのgradientUnitsの違い</title>
+  <defs>
+    <linearGradient id="GradBB" gradientUnits="objectBoundingBox">
+      <stop stop-color="red"    offset="0%" />
+      <stop stop-color="red"    offset="20%" />
+      <stop stop-color="yellow" offset="20%" />
+      <stop stop-color="yellow" offset="80%" />
+      <stop stop-color="red"    offset="80%" />
+      <stop stop-color="red"    offset="100%" />
+    </linearGradient>
+    <linearGradient id="GradUS1" gradientUnits="userSpaceOnUse"
+      x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop stop-color="red"    offset="0%"/>
+      <stop stop-color="red"    offset="20%"/>
+      <stop stop-color="yellow" offset="20%"/>
+      <stop stop-color="yellow" offset="80%"/>
+      <stop stop-color="red"    offset="80%"/>
+      <stop stop-color="red"    offset="100%"/>
+    </linearGradient>
+    <linearGradient id="GradUS2" gradientUnits="userSpaceOnUse"
+      x1="0" y1="0" x2="300" y2="0" >
+      <stop stop-color="red"    offset="0%"/>
+      <stop stop-color="red"    offset="20%"/>
+      <stop stop-color="yellow" offset="20%"/>
+      <stop stop-color="yellow" offset="80%"/>
+      <stop stop-color="red"    offset="80%"/>
+      <stop stop-color="red"    offset="100%"/>
+    </linearGradient>
+    <rect id="RL" width="300" height="50" stroke-width="4" stroke="black"/>
+    <rect id="RS" width="100" height="50" stroke-width="4" stroke="black"/>
+  </defs>
+  <g transform="translate(20,20)">
+    <use xlink:href="#RL" x="0"   y="0"  fill="url(#GradBB)"/>
+    <use xlink:href="#RS" x="0"   y="75" fill="url(#GradBB)"/>
+    <use xlink:href="#RS" x="200" y="75" fill="url(#GradBB)"/>
+  </g>
+  <g transform="translate(20,170)">
+    <use xlink:href="#RL" x="0" y="0" fill="url(#GradUS1)" />
+    <rect x="0" y="75" width="100" height="50"
+      stroke-width="4" stroke="black" fill="url(#GradUS1)" />
+    <rect x="200" y="75" width="100" height="50"
+      stroke-width="4" stroke="black" fill="url(#GradUS1)" />
+    <use xlink:href="#RS" x="0"   y="150" fill="url(#GradUS1)"/>
+    <use xlink:href="#RS" x="200" y="150" fill="url(#GradUS1)"/>
+  </g>
+  <g transform="translate(20,395)">
+    <use xlink:href="#RL" x="0" y="0" fill="url(#GradUS2)"/>
+    <rect x="0" y="75" width="100" height="50"
+      stroke-width="4" stroke="black" fill="url(#GradUS2)" />
+    <rect x="200" y="75" width="100" height="50"
+      stroke-width="4" stroke="black" fill="url(#GradUS2)" />
+    <use xlink:href="#RS" x="0"   y="150" fill="url(#GradUS2)"/>
+    <use xlink:href="#RS" x="200" y="150" fill="url(#GradUS2)"/>
+  </g>
+</svg>
