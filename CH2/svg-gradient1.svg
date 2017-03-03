@@ -4,15 +4,13 @@
      height="100%" width="100%">
   <title>線形グラデーション</title>
   <defs>
-    <linearGradient id="Gradient1" ref="grad1"
-         gradientUnits="objectBoundingBox">
+    <linearGradient id="Gradient1" gradientUnits="objectBoundingBox" ref="grad1">
       <stop stop-color="red" offset="0%" ref="stopstart" />
       <stop stop-color="yellow" offset="100%" ref="stopend" />
     </linearGradient><!-- ref="endgrad"-->
   </defs><!-- ref="enddefs"-->
   <g transform="translate(10,10)">
-    <rect x="0" y="0" width="300" height="100" ref="rect1"
-      stroke-width="4" stroke="blue"
+    <rect x="0" y="0" width="300" height="100" stroke-width="4" stroke="blue" ref="rect1"
       fill="url(#Gradient1)" ref2="refgrad" />
   </g>
 </svg>

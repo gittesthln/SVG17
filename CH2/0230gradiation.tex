@@ -68,7 +68,7 @@
 {\OIIdxY{ザバーニョ}と呼ばれています。
 グラデーションがついた長方形を$90^{\circ}$ずつ回転したものを
 並べただけですが中央部がより明るく見えます。
-\par
+%\par
 この図をSVGで作成しなさい。
 また、色やグラデーションをいろいろ変えてどのように見えるか確認しなさい。}
 %\newpage
@@ -226,8 +226,7 @@
   {svg-raidalgradiation2}{svg-raidalgradiation2}
 \begin{itemize}
  \item \Line{radgrad1}から\Line{radgrad2}で放射グラデーションを定義し
-       ています。
- \item ここでグラデーションをする基準の座標系を
+       ています。ここではグラデーションをする基準の座標系を
        \AttribCVal{userSpaceOnUse}{}としています。
  \item グラデーションの終了位置を示す円の位置と大きさとグラディエー
        ションの開始位置をすべて数値で指定しています(\Line{gradstart})。
@@ -239,7 +238,6 @@
  \item 放射グラデーションの端を示すために\LineR{refcircle1}{refcircle2}
 で円の縁を描いて
 います(\AttribO{fill}の値が\AttribCVal{none}{}になっていることに注意すること)。
-
 \end{itemize}
 %\ \vspace{-2.5\baselineskip}\\
 
@@ -249,13 +247,12 @@
 \SVGListN{放射グラデーション(objectBoundingBoxの場合)}
   {svg-raidalgradiation3}{svg-raidalgradiation3}
 \begin{itemize}
- \item 7行目から12行目で放射グラデーションを定義しています。
- \item ここでグラデーションをする基準の座標系を
-       \AttribCVal{objectBoundingBox}としています。
+ \item 7行目から12行目で放射グラデーションを定義しています。ここでグラデー
+       ションをする基準の座標系を\AttribCVal{objectBoundingBox}としています。
  \item グラデーションの終了位置を示す円の位置と大きさとグラデー
        ションの開始位置をすべて割合で指定しています(7行目)。
- \item 9行目から11行目ではグラデーションの途中の色を線形グラデーションと
-       同じ方法で指定しています。
+ \item グラデーションの途中の色は線形グラデーションと
+       同じ方法で指定しています(9行目から11行目)。
 \end{itemize}
 \ProbwithFigSol{craik-obraien}{0.3}{ht}{クレイク・オブライエン効果}
 {svg-craik-obraien}

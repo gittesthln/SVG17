@@ -1,0 +1,89 @@
+% -*- coding: utf-8 -*-
+%\newpage
+\section{\keyitem{不透明度}}
+%これまでに説明した
+不透明度
+\footnote{不透明度はアルファ値とかアルファチャンネル呼ばれることがありま
+す。}を設定した図
+形はその設定した値の応じて色合いが薄くなり、その下にある図形が
+見えるようになります。不透明度が $1$ では下の図形がまったく見えず、
+$0$ では設定された図形がまったく見えなくなります。不透明度が設定できる属
+性は表\ref{opacity-attribute}を参照してください。
+\ListAttribsF{opacity-attribute}{不透明度の種類}{|c|l|m{20em}|}
+{{ 設定できる要素}{設定のための属性名}{\multicolumn{1}{c|}{説明}}
+{図形一般}{\AttribC{opacity}}
+     {対象の図形全体に不透明度が設定される。}
+{図形一般}{\AttribC{stroke-opacity}}
+    {図形の属性\AttribO{stroke}に設定される。}
+{図形一般}{\AttribO{fill-opacity}}
+    {図形の属性\AttribO{fill}に設定される。}
+{\Elm{stop}}{\AttribC{stop-opacity}}
+    {不透明度のグラデーションが設定できる。}}
+
+\iffalse
+不透明度 $0$ の部分の図形は見えませんが、存在はします。
+図形をまったく見せなくする方法としては属性\Attrib{visibility}を
+\AttribAVal{hidden}{}に設定する方法もあります。これについては
+\ref{visibility-hidden}を参照してください。
+%図形を見えなくする方法としては
+「不透明度を $0$ する」と「属性\Attrib{visibility}を
+\AttribAVal{hidden}{}に設定する」%の二通りが考えられます。
+%こ
+の違いはインターラクティブな\SVG を作成した場合に表れます。
+\fi
+
+図\ref{opacity-example}は円の内部の不透明度を$0.2$に設定して重ね合わせたものです。
+%
+\ShowFig{0.3}{ht}{opacity}
+    {円の内部に不透明度を設定した例}{opacity-example}
+%\newpage
+%\vspace{-2\baselineskip}\\
+\SVGListN{円の内部に不透明度を設定した例}%
+    {svg-opacity2}{svg-opacity}
+\begin{itemize}
+ \item \Line{circleB}でこの図形を描くための共通の円を定義しています。こ
+       の円には\AttribO{fill}や\AttribO{stroke}など通常の属性がまったく指
+       定されていないことに注意してください。
+ \item この円を$60^{\circ}$ずつ回転して全体で$6$個並べた図形を作成するた
+       めにまず、半分だけ\Elm{use}を用いて作成します
+       (\LineR{fighalfS}{fighalfE})。
+ \item これを$180^{\circ}$回転したものと組み合わせて図形の雛形を作成しま
+       す(\LineR{figAllS}{figAllE})。
+ \item \Line{figAllFill}で\AttribO{fill-opacity}、
+       \AttribO{fill}、\AttribO{stroke}の値を設定しています。引用された図
+       形ではこの値が採用されます。
+ \item \Line{figAllStroke}では\AttribO{stroke-width}、\AttribO{stroke}、
+       \AttribO{fill}の値を設定しています。
+ \item 
+\AttribC{opacity}がある図形の色は
+\[
+ \mbox{\AttribC{opacity}}が定義された図形の色\times この図形の色
+   + (1-この図形の\mbox{\AttribC{opacity}})\times この図形の下にある色
+\]
+という計算式で求められます。背景が白なのでこの図形ではすべての位置
+でRBGの赤の成分は $100\%$です。青と緑の成分はひとつ重なるごとに$0.8$倍さ
+       れます。
+ \item 具体的に\AttribCVal{rgb}{}で指定した色に塗った正方形をこ
+       の図形の下に順番に描いています(\LineR{colorS}{colorE})。
+%
+なお、一番右は赤に塗っています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-opacity}に関して次の問いに答えなさい。
+\begin{enumerate}
+ \item \AttribO{fill}と\AttribO{stroke}を別に設定している図形を二つ重ねて
+       いる理由はなにか。
+ \item 図のある部分の一番下をを青で塗ったらどのような図形になるか
+ \item 円を放射グラデーションで塗ったらどのようになるか
+ \item 円を放射グラデーションに\AttribC{stop-opacity}を入れたらどの
+       ようになるか
+\end{enumerate}
+\end{Problem}
+\ProbwithFigSol{pyramid}{0.75}{ht}{ピラミッドの稜線}
+{svg-pyramid}
+{\OIIdxB{ピラミッドの稜線}とよばれています(\cite[カラー図版 13]{Ninio})。
+色の濃度が異なる正方形がいくつか並んでいますが、頂点に沿って直線が描いて
+あるように見えます。左の二つは色をRGB値で直接指定し、右の二つは不透明度
+を利用して一番下に指定した色を透かして見せています。
+%\par
+ この図を作成しなさい。}

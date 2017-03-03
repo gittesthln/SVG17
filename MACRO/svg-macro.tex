@@ -228,7 +228,8 @@ bookmarkstype=toc]{hyperref}
   \write\listout{\CurrentFile,#1,#2}
 }
 \newcommand{\ListSubNN}[4]{%
-\VerbatimInput[firstline=#3,lastline=#4, numbers=left]{\CurrentFile.ref}
+\VerbatimInput[firstline=#3,lastline=#4, numbers=left, fontsize=\small,
+resetmargins=true]{\CurrentFile.ref}
   \write\listout{\CurrentFile,#1,#2}
 }
 \newcommand{\SVG}{{\upshape SVG} 文書}

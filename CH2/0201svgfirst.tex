@@ -60,7 +60,7 @@ $0\sim255$ までの数は16進数2桁で表せるので
 \section{直線}
 図形のうちで一番簡単な直線を描いてみましょう。次の例を見てください。
 
-\ShowFig{0.45}{ht}{linecap}
+\ShowFig{0.4}{ht}{linecap}
      {直線と端の指定\AttribO{stroke-linecap}の違い}{example-line}
      これを描いたSVGファイルの内容は次のとおりです。
 %\newpage
@@ -296,12 +296,12 @@ $0\sim255$ までの数は16進数2桁で表せるので
 \SVGListN{ポッケンドルフ錯視}{poggendorff}{poggendorff}
 \begin{itemize}
  \item 3本の直線を下から描いています。
- \item \LineR{last1}{last2}で一番下にある直線を描いています。これが
-       右側に飛び出しているものです。
- \item \LineR{top1}{top2}、\LineR{middle1}{middle2}に一番下
+ \item \Line{last1}%{last2}
+       で一番下にある、右側に飛び出している直線を描いています。
+ \item \Line{top1}、\Line{middle1}に一番下
        の直線より半分の長さの
        ものを縦方向に $20$ ずつ移動した形で描いています。
- \item 最後に、中央部を隠すように長方形を描いています(\LineR{rect1}{rect2})。
+ \item 最後に、中央部を隠すように長方形を描いています(\Line{rect1})。
        ここでは内部を白で塗りつぶしているので先に描かれた直線の部分でこれと重
        なる部分は見えなくなります。
 \end{itemize}
@@ -357,13 +357,9 @@ $0\sim255$ までの数は16進数2桁で表せるので
 \ShowFig{0.4}{ht}{hermann-line}{ヘルマン格子}{hermann-line}
 \SVGListN{ヘルマン格子}{svg-hermann-line}{svg-hermann-line}
 \begin{itemize}
- \item \Line{line}で水平垂直に引く直線の雛形を決めています。ここでは長さ
-       と幅だけ定めています。
- \item \Line{vline}で垂直方向の直線の属性\AttribO{stroke}を
-       \AttribCVal{white}{}に設定しています。
- \item \LineR{hlineS}{hlineE}で垂直方向の直線を回転させて水平方向の直線
+ \item \Line{line}で垂直線の開始と終了の位置、幅と色を定めています。
+ \item \LineR{hlineS}{hlineE}で\Line{line}の垂直線を回転させて水平方向の直線
        にしています。
- \item \Line{hline}で色を\AttribCVal{white}{}に設定しています。
  \item \Line{rect}で背景を黒にするための正方形を定義しています。
  \item \LineR{vlinesS}{vlinesE}で垂直方向の直線を描いています。\Elm{use}
        のなかで属性\AttribO{x}や\AttribO{y}を指定することで参照している図
