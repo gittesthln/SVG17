@@ -1,0 +1,1 @@
+C:\usr\local\bin\mktexpk.exe --dpi 1244 --bdpi 600 --mag 2+44/600 ptmr7tC:\usr\local\bin\mktexpk.exe --dpi 1037 --bdpi 600 --mag 1+437/600 ptmr7t

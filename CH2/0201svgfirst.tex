@@ -38,26 +38,24 @@
 SVGで色を指定する方法は次の3種類です。\IndexSet{色の指定}{}{}{}{}
 \begin{enumerate}
  \item 名称による指定\\英語名で色を指定します。
- どのような名称があり、どのような色になるかは
-付録\ref{SVGColor}
+ どのような名称がどのような色になるかは付録\ref{SVGColor}
 を見てください。
  \item \AttribCVal{rgb}{}関数による色の指定\\
-色の3原色、赤、緑、青のそれぞれに対し$0\sim255$ の値を割り当てて指定し
+色の3原色、赤、緑、青のそれぞれに対し$0\sim255$ の値を指定し
        ます。%次のようになっています。
 %
-なお、\AttribCVal{rgb}{}関数では $0\sim255$の値ではなく \Showattrib{\%}で
+なお、\AttribCVal{rgb}{}関数は $0\sim255$の代わりに\Showattrib{\%}で
        色の割合を指定することも可能です。たとえば \AttribCVal{red}{} は
        \AttribCVal{rgb}{(100\%,0\%,0\%)} と表されます。
  \item 16進数による色の指定\\
-$0\sim255$ までの数は16進数2桁で表すことができます。これを用いて
+$0\sim255$ までの数は16進数2桁で表せるので
        \AttribCVal{rgb}{}で定めた色を16進数6桁で表示ができます。
- 
-このほかに各色の構成を16進数1桁で表し、16進数3桁で指定することもできます。
+ %
+また、各色の構成を16進数1桁で表し、16進数3桁で指定することもできます。
 \end{enumerate}
 %具体的には
 %\AttribVal{red}{}は \Showattrib{\#FF0000} と表すことができます。
-SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考にしてくださ
-       い。
+%SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考にしてください。
 なお、特別な色として、塗らないことを指示する\AttribCVal{none}があります。
 \section{直線}
 図形のうちで一番簡単な直線を描いてみましょう。次の例を見てください。
@@ -176,7 +174,8 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 \paragraph{フィックの錯視}
 直線を組み合わせてできる一番簡単な錯視図形が\OIIdxMC{フィック}{61}{}で
 す(図\ref{example-fick})。
-\ShowFig{0.35}{ht}{fick1}{フィックの錯視}{example-fick}
+
+\ShowFig{0.35}{h}{fick1}{フィックの錯視}{example-fick}
 %\label{fick}
 
 水平の線分と垂直な線分の長さが同じなのにその位置が中央にあると長く見える
@@ -204,11 +203,11 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 \paragraph{ミューラー$\cdot$ライヤーの錯視}
 図\ref{example-muller-lyer}は
 中央の線分が同じ長さなのに両端の矢印の向きが異なること
-で大きさが違って見えるという
+で大きさが違って見える
 \OIIdxMC{ミューラー$\cdot$ライヤー}{57}{}
 として知られる図形です。
 
-\ShowFig{0.5}{ht}{muller-lyer}{ミューラー$\cdot$ライヤー錯視}
+\ShowFig{0.4}{ht}{muller-lyer}{ミューラー$\cdot$ライヤー錯視}
 {example-muller-lyer}
 
 この図形のリストでは両端の矢印の長さや角度を最小限の手間で変えられるよう
@@ -307,6 +306,7 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
        なる部分は見えなくなります。
 \end{itemize}
 
+\iffalse
 ここでは属性を別々に指定していますがこれらをまとめて指定できる
 \Attrib{style} という属性もあります。この場合は次のように指定できます。
 \begin{center}
@@ -314,6 +314,7 @@ SVGで利用できる色名と色のサンプルは付録\ref{SVGColor}を参考
 \end{center}
 \Showattrib{name="value"}の代わりに \Showattrib{name:value} と表し、属性
 同士の間は \Showattrib{;}(セミコロン)で区切ります。
+\fi
 
 \paragraph{色の対比}
 図\ref{whiteIO0}は正方形の内部が

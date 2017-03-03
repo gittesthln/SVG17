@@ -1,7 +1,8 @@
 % -*- coding: utf-8 -*-
 \documentclass[a4j]{jbook}
 \usepackage{atbegshi}
-\ifnum 42146=\euc"A4A2 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}\else%"
+\ifnum 42146=\euc"A4A2 
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}\else%"
 \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}\fi
 %\usepackage[T1]{fontenc}
 \usepackage
@@ -221,7 +222,8 @@ bookmarkstype=toc]{hyperref}
 \ListSubNN{#1}{#2}{\Tmpi}{\Tmpii}
 }
 \newcommand{\ListSubN}[3]{%
-\VerbatimInput[firstnumber=#3,numbers=left]{\CurrentFile.#1-#2}
+\VerbatimInput[firstnumber=#3,numbers=left,resetmargins=true]%
+{\CurrentFile.#1-#2}
 %  \listinginput{#3}{\CurrentFile.#1-#2}
   \write\listout{\CurrentFile,#1,#2}
 }

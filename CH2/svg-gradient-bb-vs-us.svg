@@ -30,30 +30,30 @@
       <stop stop-color="red"    offset="80%"/>
       <stop stop-color="red"    offset="100%"/>
     </linearGradient><!-- ref="EndgradUSS" -->
-    <rect id="RL" width="300" height="50" stroke-width="4" stroke="black" ref="RL"/>
-    <rect id="RS" width="100" height="50" stroke-width="4" stroke="black" ref="RS"/>
+    <rect id="RL" width="300" height="40" stroke-width="4" stroke="black" ref="RL"/>
+    <rect id="RS" width="100" height="40" stroke-width="4" stroke="black" ref="RS"/>
   </defs><!-- ref="enddefs"-->
   <g transform="translate(20,20)"><!-- ref="Grad1S" -->
     <use xlink:href="#RL" x="0"   y="0"  fill="url(#GradBB)"/>
-    <use xlink:href="#RS" x="0"   y="75" fill="url(#GradBB)"/>
-    <use xlink:href="#RS" x="200" y="75" fill="url(#GradBB)"/>
+    <use xlink:href="#RS" x="0"   y="60" fill="url(#GradBB)"/>
+    <use xlink:href="#RS" x="200" y="60" fill="url(#GradBB)"/>
   </g><!-- ref="Grad1E" -->
-  <g transform="translate(20,170)"><!-- ref="Grad2S" -->
+  <g transform="translate(20,140)"><!-- ref="Grad2S" -->
     <use xlink:href="#RL" x="0" y="0" fill="url(#GradUS1)" ref2="refgrad10" />
-    <rect x="0" y="75" width="100" height="50" ref="rect11"
+    <rect x="0" y="60" width="100" height="40" ref="rect11"
       stroke-width="4" stroke="black" fill="url(#GradUS1)" ref2="refgrad11" />
-    <rect x="200" y="75" width="100" height="50" ref="rect12"
+    <rect x="200" y="60" width="100" height="40" ref="rect12"
       stroke-width="4" stroke="black" fill="url(#GradUS1)" ref2="refgrad12" />
-    <use xlink:href="#RS" x="0"   y="150" fill="url(#GradUS1)"/>
-    <use xlink:href="#RS" x="200" y="150" fill="url(#GradUS1)"/>
+    <use xlink:href="#RS" x="0"   y="120" fill="url(#GradUS1)"/>
+    <use xlink:href="#RS" x="200" y="120" fill="url(#GradUS1)"/>
   </g><!-- ref="Grad2E" -->
-  <g transform="translate(20,395)"><!-- ref="Grad3S" -->
+  <g transform="translate(20,320)"><!-- ref="Grad3S" -->
     <use xlink:href="#RL" x="0" y="0" fill="url(#GradUS2)"/>
-    <rect x="0" y="75" width="100" height="50" ref="rect31"
+    <rect x="0" y="60" width="100" height="40" ref="rect31"
       stroke-width="4" stroke="black" fill="url(#GradUS2)" ref2="refgrad31" />
-    <rect x="200" y="75" width="100" height="50" ref="rect32"
+    <rect x="200" y="60" width="100" height="40" ref="rect32"
       stroke-width="4" stroke="black" fill="url(#GradUS2)" ref2="refgrad32" />
-    <use xlink:href="#RS" x="0"   y="150" fill="url(#GradUS2)"/>
-    <use xlink:href="#RS" x="200" y="150" fill="url(#GradUS2)"/>
+    <use xlink:href="#RS" x="0"   y="120" fill="url(#GradUS2)"/>
+    <use xlink:href="#RS" x="200" y="120" fill="url(#GradUS2)"/>
   </g><!-- ref="Grad3E" -->
 </svg>

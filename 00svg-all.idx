@@ -30,10 +30,10 @@
 \indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{11}
 \indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{11}
 \indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{11}
-\indexentry{::\Showattrib {red}::値--色::::::SVG::|hyperpage}{12}
-\indexentry{::red あたいいろ@\Showattrib {red}(値--色)::::::::SVG::|hyperpage}{12}
-\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{12}
-\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{12}
+\indexentry{::\Showattrib {red}::値--色::::::SVG::|hyperpage}{11}
+\indexentry{::red あたいいろ@\Showattrib {red}(値--色)::::::::SVG::|hyperpage}{11}
+\indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{11}
+\indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{11}
 \indexentry{::\Showattrib {rgb}::値--色::::::SVG::|hyperpage}{12}
 \indexentry{::rgb あたいいろ@\Showattrib {rgb}(値--色)::::::::SVG::|hyperpage}{12}
 \indexentry{::\Showattrib {none}::値--色::::::SVG::|hyperpage}{12}
@@ -66,26 +66,26 @@
 \indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{13}
 \indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{13}
 \indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{13}
+\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{13}
+\indexentry{::属性値::transformぞくせい@\Showattrib {transform}::T::の::SVG::|hyperpage}{13}
 \indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{13}
 \indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{13}
-\indexentry{::\Showattrib {stroke-linecap}::図形::::::SVG::|hyperpage}{13}
-\indexentry{::stroke-linecap ぞくせい(ずけい)@\Showattrib {stroke-linecap}(図形)::::::::SVG::|hyperpage}{13}
-\indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{14}
-\indexentry{::属性値::transformぞくせい@\Showattrib {transform}::T::の::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{14}
-\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{14}
-\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{14}
-\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{14}
-\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
-\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
-\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
-\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{14}
-\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{14}
+\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{13}
+\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{13}
+\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {rotate}::値::::::SVG::|hyperpage}{13}
+\indexentry{::rotate あたい@\Showattrib {rotate}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{13}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{13}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {scale}::値::::::SVG::|hyperpage}{13}
+\indexentry{::scale あたい@\Showattrib {scale}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {translate}::値::::::SVG::|hyperpage}{13}
+\indexentry{::translate あたい@\Showattrib {translate}(値)::::::::SVG::|hyperpage}{13}
+\indexentry{::\Showattrib {stroke-linecap}::図形::::::SVG::|hyperpage}{14}
+\indexentry{::stroke-linecap ぞくせい(ずけい)@\Showattrib {stroke-linecap}(図形)::::::::SVG::|hyperpage}{14}
 \indexentry{::\ShowElm {line}::要素::::::SVG::|hyperpage}{14}
 \indexentry{::line (ようそ)@\ShowElm {line}::::::::SVG::|hyperpage}{14}
 \indexentry{::直線::::::::::|hyperpage}{14}
@@ -141,10 +141,10 @@
 \indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{14}
 \indexentry{::\ShowElm {svg}::要素::::::SVG::|hyperpage}{14}
 \indexentry{::svg (ようそ)@\ShowElm {svg}::::::::SVG::|hyperpage}{14}
-\indexentry{::フィックの錯視::::::::::|hyperpage}{15}
-\indexentry{::フィック::錯視::E::の::::|hyperpage}{15}
-\indexentry{::ミューラー$\cdot $ライヤーの錯視::::::::::|hyperpage}{16}
-\indexentry{::ミューラー$\cdot $ライヤー::錯視::E::の::::|hyperpage}{16}
+\indexentry{::フィックの錯視::::::::::|hyperpage}{14}
+\indexentry{::フィック::錯視::E::の::::|hyperpage}{14}
+\indexentry{::ミューラー$\cdot $ライヤーの錯視::::::::::|hyperpage}{15}
+\indexentry{::ミューラー$\cdot $ライヤー::錯視::E::の::::|hyperpage}{15}
 \indexentry{::\ShowElm {defs}::要素::::::SVG::|hyperpage}{17}
 \indexentry{::defs (ようそ)@\ShowElm {defs}::::::::SVG::|hyperpage}{17}
 \indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{17}
@@ -174,6 +174,8 @@
 \indexentry{::\ShowElm {rect}::要素::::::SVG::|hyperpage}{18}
 \indexentry{::rect (ようそ)@\ShowElm {rect}::::::::SVG::|hyperpage}{18}
 \indexentry{::属性::長方形::T::の::::|hyperpage}{18}
+\indexentry{::ポッケンドルフの錯視::::::::::|hyperpage}{18}
+\indexentry{::ポッケンドルフ::錯視::E::の::::|hyperpage}{18}
 \indexentry{::\ShowElm {rect}::要素::::::SVG::|hyperpage}{19}
 \indexentry{::rect (ようそ)@\ShowElm {rect}::::::::SVG::|hyperpage}{19}
 \indexentry{::属性::rect (ようそ)@\ShowElm {rect}::T::の::SVG::|hyperpage}{19}
@@ -195,10 +197,6 @@
 \indexentry{::rx ぞくせい(ずけい)@\Showattrib {rx}(図形)::::::::SVG::|hyperpage}{19}
 \indexentry{::\Showattrib {ry}::図形::::::SVG::|hyperpage}{19}
 \indexentry{::ry ぞくせい(ずけい)@\Showattrib {ry}(図形)::::::::SVG::|hyperpage}{19}
-\indexentry{::ポッケンドルフの錯視::::::::::|hyperpage}{19}
-\indexentry{::ポッケンドルフ::錯視::E::の::::|hyperpage}{19}
-\indexentry{::styleぞくせい@\Showattrib {style}::::::::SVG::|hyperpage}{20}
-\indexentry{::styleぞくせい@\Showattrib {style}::::::::SVG::|hyperpage}{20}
 \indexentry{::同じ色なのに周りの色で見え方が異なる::::::::::|hyperpage}{20}
 \indexentry{::同じ色なのに周りの色で見え方が異なる::錯視::::::::|hyperpage}{20}
 \indexentry{::\Showattrib {stroke-width}::図形::::::SVG::|hyperpage}{21}
@@ -211,12 +209,12 @@
 \indexentry{::色の対比::錯視::::::::|hyperpage}{21}
 \indexentry{::ヘルマン格子::::::::::|hyperpage}{21}
 \indexentry{::ヘルマン格子::錯視::::::::|hyperpage}{21}
-\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{23}
-\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{23}
-\indexentry{::\Showattrib {white}::値--色::::::SVG::|hyperpage}{23}
-\indexentry{::white あたいいろ@\Showattrib {white}(値--色)::::::::SVG::|hyperpage}{23}
-\indexentry{::\Showattrib {white}::値--色::::::SVG::|hyperpage}{23}
-\indexentry{::white あたいいろ@\Showattrib {white}(値--色)::::::::SVG::|hyperpage}{23}
+\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{22}
+\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{22}
+\indexentry{::\Showattrib {white}::値--色::::::SVG::|hyperpage}{22}
+\indexentry{::white あたいいろ@\Showattrib {white}(値--色)::::::::SVG::|hyperpage}{22}
+\indexentry{::\Showattrib {white}::値--色::::::SVG::|hyperpage}{22}
+\indexentry{::white あたいいろ@\Showattrib {white}(値--色)::::::::SVG::|hyperpage}{22}
 \indexentry{::\ShowElm {use}::要素::::::SVG::|hyperpage}{23}
 \indexentry{::use (ようそ)@\ShowElm {use}::::::::SVG::|hyperpage}{23}
 \indexentry{::\Showattrib {x}::図形::::::SVG::|hyperpage}{23}
@@ -262,8 +260,8 @@
 \indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{25}
 \indexentry{::idぞくせい@\Showattrib {id}::::::::SVG::|hyperpage}{25}
 \indexentry{::transformぞくせい@\Showattrib {transform}::::::::SVG::|hyperpage}{25}
-\indexentry{::\ShowElm {defs}::要素::::::SVG::|hyperpage}{26}
-\indexentry{::defs (ようそ)@\ShowElm {defs}::::::::SVG::|hyperpage}{26}
+\indexentry{::\ShowElm {defs}::要素::::::SVG::|hyperpage}{25}
+\indexentry{::defs (ようそ)@\ShowElm {defs}::::::::SVG::|hyperpage}{25}
 \indexentry{::デルブーフのさくし@デルブーフの錯視::::::::::|hyperpage}{26}
 \indexentry{::デルブーフ::錯視::E::の::::|hyperpage}{26}
 \indexentry{::グラデーション::::::::::|hyperpage}{26}
@@ -290,10 +288,10 @@
 \indexentry{::stop-color ぞくせい(いろ)@\Showattrib {stop-color}(色)::::::::SVG::|hyperpage}{27}
 \indexentry{::\ShowElm {stop}::要素::::::SVG::|hyperpage}{27}
 \indexentry{::stop (ようそ)@\ShowElm {stop}::::::::SVG::|hyperpage}{27}
-\indexentry{::\ShowElm {stop}::要素::::::SVG::|hyperpage}{28}
-\indexentry{::stop (ようそ)@\ShowElm {stop}::::::::SVG::|hyperpage}{28}
-\indexentry{::\ShowElm {linearGradient}::要素::::::SVG::|hyperpage}{28}
-\indexentry{::linearGradient (ようそ)@\ShowElm {linearGradient}::::::::SVG::|hyperpage}{28}
+\indexentry{::\ShowElm {stop}::要素::::::SVG::|hyperpage}{27}
+\indexentry{::stop (ようそ)@\ShowElm {stop}::::::::SVG::|hyperpage}{27}
+\indexentry{::\ShowElm {linearGradient}::要素::::::SVG::|hyperpage}{27}
+\indexentry{::linearGradient (ようそ)@\ShowElm {linearGradient}::::::::SVG::|hyperpage}{27}
 \indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{28}
 \indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{28}
 \indexentry{::\Showattrib {url}::値::::::SVG::|hyperpage}{28}
@@ -311,14 +309,14 @@
 \indexentry{::x2 ぞくせい(いろ)@\Showattrib {x2}(色)::::::::SVG::|hyperpage}{29}
 \indexentry{::\Showattrib {y2}::色::::::SVG::|hyperpage}{29}
 \indexentry{::y2 ぞくせい(いろ)@\Showattrib {y2}(色)::::::::SVG::|hyperpage}{29}
-\indexentry{::\Showattrib {x1}::色::::::SVG::|hyperpage}{30}
-\indexentry{::x1 ぞくせい(いろ)@\Showattrib {x1}(色)::::::::SVG::|hyperpage}{30}
-\indexentry{::\Showattrib {y1}::色::::::SVG::|hyperpage}{30}
-\indexentry{::y1 ぞくせい(いろ)@\Showattrib {y1}(色)::::::::SVG::|hyperpage}{30}
-\indexentry{::\Showattrib {x2}::色::::::SVG::|hyperpage}{30}
-\indexentry{::x2 ぞくせい(いろ)@\Showattrib {x2}(色)::::::::SVG::|hyperpage}{30}
-\indexentry{::\Showattrib {y2}::色::::::SVG::|hyperpage}{30}
-\indexentry{::y2 ぞくせい(いろ)@\Showattrib {y2}(色)::::::::SVG::|hyperpage}{30}
+\indexentry{::\Showattrib {x1}::色::::::SVG::|hyperpage}{29}
+\indexentry{::x1 ぞくせい(いろ)@\Showattrib {x1}(色)::::::::SVG::|hyperpage}{29}
+\indexentry{::\Showattrib {y1}::色::::::SVG::|hyperpage}{29}
+\indexentry{::y1 ぞくせい(いろ)@\Showattrib {y1}(色)::::::::SVG::|hyperpage}{29}
+\indexentry{::\Showattrib {x2}::色::::::SVG::|hyperpage}{29}
+\indexentry{::x2 ぞくせい(いろ)@\Showattrib {x2}(色)::::::::SVG::|hyperpage}{29}
+\indexentry{::\Showattrib {y2}::色::::::SVG::|hyperpage}{29}
+\indexentry{::y2 ぞくせい(いろ)@\Showattrib {y2}(色)::::::::SVG::|hyperpage}{29}
 \indexentry{::コフカリング::::::::::|hyperpage}{30}
 \indexentry{::コフカリング::錯視::::::::|hyperpage}{30}
 \indexentry{::ひし形を用いたクレイク・オブライエン効果::::::::::|hyperpage}{30}
@@ -331,8 +329,8 @@
 \indexentry{::objectBoundingBox あたいいろ@\Showattrib {objectBoundingBox}(値--色)::::::::SVG::|hyperpage}{30}
 \indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{30}
 \indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{30}
-\indexentry{::\Showattrib {gradientUnits}::色::::::SVG::|hyperpage}{30}
-\indexentry{::gradientUnits ぞくせい(いろ)@\Showattrib {gradientUnits}(色)::::::::SVG::|hyperpage}{30}
+\indexentry{::\Showattrib {gradientUnits}::色::::::SVG::|hyperpage}{31}
+\indexentry{::gradientUnits ぞくせい(いろ)@\Showattrib {gradientUnits}(色)::::::::SVG::|hyperpage}{31}
 \indexentry{::\Showattrib {gradientUnits}::色::::::SVG::|hyperpage}{32}
 \indexentry{::gradientUnits ぞくせい(いろ)@\Showattrib {gradientUnits}(色)::::::::SVG::|hyperpage}{32}
 \indexentry{::\Showattrib {objectBoundingBox}::値--色::::::SVG::|hyperpage}{32}
@@ -367,10 +365,10 @@
 \indexentry{::gradientUnits ぞくせい(いろ)@\Showattrib {gradientUnits}(色)::::::::SVG::|hyperpage}{33}
 \indexentry{::\Showattrib {objectBoundingBox}::値--色::::::SVG::|hyperpage}{33}
 \indexentry{::objectBoundingBox あたいいろ@\Showattrib {objectBoundingBox}(値--色)::::::::SVG::|hyperpage}{33}
-\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{34}
-\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{34}
-\indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{34}
-\indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{34}
+\indexentry{::\ShowElm {g}::要素::::::SVG::|hyperpage}{33}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::SVG::|hyperpage}{33}
+\indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{33}
+\indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{33}
 \indexentry{::\ShowElm {use}::要素::::::SVG::|hyperpage}{34}
 \indexentry{::use (ようそ)@\ShowElm {use}::::::::SVG::|hyperpage}{34}
 \indexentry{::放射::グラデーション::E::\relax ::::|hyperpage}{34}
@@ -378,34 +376,34 @@
 \indexentry{::\ShowElm {radialGradiation}::要素::::::SVG::|hyperpage}{34}
 \indexentry{::radialGradiation (ようそ)@\ShowElm {radialGradiation}::::::::SVG::|hyperpage}{34}
 \indexentry{::放射グラデーション::::::::::|hyperpage}{34}
+\indexentry{::属性::radialGradiation (ようそ)@\ShowElm {radialGradiation}::T::の::SVG::|hyperpage}{34}
+\indexentry{::\Showattrib {cx}::色::::::SVG::|hyperpage}{34}
+\indexentry{::cx ぞくせい(いろ)@\Showattrib {cx}(色)::::::::SVG::|hyperpage}{34}
+\indexentry{::\Showattrib {cy}::色::::::SVG::|hyperpage}{34}
+\indexentry{::cy ぞくせい(いろ)@\Showattrib {cy}(色)::::::::SVG::|hyperpage}{34}
+\indexentry{::\Showattrib {r}::色::::::SVG::|hyperpage}{34}
+\indexentry{::r ぞくせい(いろ)@\Showattrib {r}(色)::::::::SVG::|hyperpage}{34}
+\indexentry{::\Showattrib {fx}::色::::::SVG::|hyperpage}{34}
+\indexentry{::fx ぞくせい(いろ)@\Showattrib {fx}(色)::::::::SVG::|hyperpage}{34}
+\indexentry{::\Showattrib {fy}::色::::::SVG::|hyperpage}{34}
+\indexentry{::fy ぞくせい(いろ)@\Showattrib {fy}(色)::::::::SVG::|hyperpage}{34}
 \indexentry{::\Showattrib {gradientUnits}::色::::::SVG::|hyperpage}{34}
 \indexentry{::gradientUnits ぞくせい(いろ)@\Showattrib {gradientUnits}(色)::::::::SVG::|hyperpage}{34}
 \indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{34}
 \indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{34}
 \indexentry{::\Showattrib {objectBoundingBox}::値--色::::::SVG::|hyperpage}{34}
 \indexentry{::objectBoundingBox あたいいろ@\Showattrib {objectBoundingBox}(値--色)::::::::SVG::|hyperpage}{34}
-\indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{34}
-\indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{34}
-\indexentry{::\Showattrib {none}::値--色::::::SVG::|hyperpage}{34}
-\indexentry{::none あたいいろ@\Showattrib {none}(値--色)::::::::SVG::|hyperpage}{34}
-\indexentry{::属性::radialGradiation (ようそ)@\ShowElm {radialGradiation}::T::の::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {cx}::色::::::SVG::|hyperpage}{35}
-\indexentry{::cx ぞくせい(いろ)@\Showattrib {cx}(色)::::::::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {cy}::色::::::SVG::|hyperpage}{35}
-\indexentry{::cy ぞくせい(いろ)@\Showattrib {cy}(色)::::::::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {r}::色::::::SVG::|hyperpage}{35}
-\indexentry{::r ぞくせい(いろ)@\Showattrib {r}(色)::::::::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {fx}::色::::::SVG::|hyperpage}{35}
-\indexentry{::fx ぞくせい(いろ)@\Showattrib {fx}(色)::::::::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {fy}::色::::::SVG::|hyperpage}{35}
-\indexentry{::fy ぞくせい(いろ)@\Showattrib {fy}(色)::::::::SVG::|hyperpage}{35}
-\indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{36}
-\indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{36}
+\indexentry{::\Showattrib {userSpaceOnUse}::値--色::::::SVG::|hyperpage}{35}
+\indexentry{::userSpaceOnUse あたいいろ@\Showattrib {userSpaceOnUse}(値--色)::::::::SVG::|hyperpage}{35}
+\indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{36}
+\indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{36}
+\indexentry{::\Showattrib {none}::値--色::::::SVG::|hyperpage}{36}
+\indexentry{::none あたいいろ@\Showattrib {none}(値--色)::::::::SVG::|hyperpage}{36}
 \indexentry{::\Showattrib {objectBoundingBox}::値--色::::::SVG::|hyperpage}{36}
 \indexentry{::objectBoundingBox あたいいろ@\Showattrib {objectBoundingBox}(値--色)::::::::SVG::|hyperpage}{36}
 \indexentry{::クレイク・オブライエン効果::::::::::|hyperpage}{36}
 \indexentry{::クレイク・オブライエン効果::錯視::::::::|hyperpage}{36}
-\indexentry{::不透明度::::::::::|hyperpage}{37}
+\indexentry{::不透明度::::::::::|hyperpage}{36}
 \indexentry{::\Showattrib {opacity}::色::::::SVG::|hyperpage}{37}
 \indexentry{::opacity ぞくせい(いろ)@\Showattrib {opacity}(色)::::::::SVG::|hyperpage}{37}
 \indexentry{::\Showattrib {stroke-opacity}::色::::::SVG::|hyperpage}{37}
@@ -420,12 +418,12 @@
 \indexentry{::stop (ようそ)@\ShowElm {stop}::::::::SVG::|hyperpage}{37}
 \indexentry{::\Showattrib {stop-opacity}::色::::::SVG::|hyperpage}{37}
 \indexentry{::stop-opacity ぞくせい(いろ)@\Showattrib {stop-opacity}(色)::::::::SVG::|hyperpage}{37}
-\indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{39}
-\indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{39}
-\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{39}
-\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{39}
-\indexentry{::\ShowElm {use}::要素::::::SVG::|hyperpage}{39}
-\indexentry{::use (ようそ)@\ShowElm {use}::::::::SVG::|hyperpage}{39}
+\indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{38}
+\indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::SVG::|hyperpage}{38}
+\indexentry{::\Showattrib {stroke}::図形::::::SVG::|hyperpage}{38}
+\indexentry{::stroke ぞくせい(ずけい)@\Showattrib {stroke}(図形)::::::::SVG::|hyperpage}{38}
+\indexentry{::\ShowElm {use}::要素::::::SVG::|hyperpage}{38}
+\indexentry{::use (ようそ)@\ShowElm {use}::::::::SVG::|hyperpage}{38}
 \indexentry{::\Showattrib {fill-opacity}::図形::::::SVG::|hyperpage}{39}
 \indexentry{::fill-opacity ぞくせい(ずけい)@\Showattrib {fill-opacity}(図形)::::::::SVG::|hyperpage}{39}
 \indexentry{::\Showattrib {fill}::図形::::::SVG::|hyperpage}{39}

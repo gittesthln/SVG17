@@ -3,7 +3,7 @@
 今までは長方形の内部を単一の色で塗りつぶしました。
 これ以外に
 色が順に変化する\keyitem{グラデーション}という塗り方を
-もあります。SVGでは2種類のグラデーションが利用できます。
+があります。SVGでは2種類のグラデーションが利用できます。
 ここでは簡単なグラデーションの定義と使い方だけを紹介します。
 
 グラデーションは\Elm{defs}の中で定義し, 後から参照するための属性
@@ -17,7 +17,8 @@
     {線形グラデーション}{gradiation-example}
 \SVGListN{線形グラデーション}{svg-gradient1}{Example-linearGrad}
 \begin{itemize}
- \item グラデーションのパターンは\Elm{defs}のなかで定義します。
+ \item グラデーションのパターンは\Elm{defs}の中で定義します
+       (\Line{enddefs}で\ShowElm{/defs}終了)。
  \item \Line{grad1}が\keysubE{線形}{グラデーション}{\relax}の定義の開
        始を示す\Elm{linearGradient}です。この要素には次のような属性が与
        えられています。
@@ -27,9 +28,10 @@
        と重複してはいけません。
  \item \AttribC{gradientUnits} はグラデーションをどの座標系で指定するか
        を表します。ここではオブジェクトの座標系で決めることを示す
-       \AttribCVal{objectBoundingBox}{} を指定しています。このほかには
-       \AttribCVal{userSpaceOnUse} があります。グラデーションを適用
-       するオブジェクトをとりまく座標系を基準にします。
+       \AttribCVal{objectBoundingBox}{} を指定しています。このほかに
+       グラデーションを適用
+       するオブジェクトをとりまく座標系を基準にする
+       \AttribCVal{userSpaceOnUse} があります。
 この違いについては
        \pageref{diff-gradientUnits}ページ以降で説明します。
 \end{itemize}
@@ -44,7 +46,6 @@
        ので2つより多くてもかまいません。
  \item \Elm{linearGradient}のなかで別の要素を宣言しているのでこの要素に
        対する終了を示す\ShowElm{/linearGradient} が必要です(\Line{endgrad})。
- \item \Line{enddefs}で\ShowElm{/defs} の宣言を終了しています。
  \item \Line{rect1}から\Line{refgrad}で長方形のオブジェクトを宣言しています。
         \AttribO{fill} の値はグラデーションの定義を 
        参照するために\AttribVal{url}{(\#Gradient1)}と表しています。
@@ -81,11 +82,11 @@
 \SVGListN{傾いた方向の線形グラデーション}{svg-gradient2}{Example-linearGrad2}
 このリストとリスト\ref{Example-linearGrad}の違いは\Line{grad2}の記述が追
 加してあるだけです。\AttribC{x1}と\AttribC{y1}でグラデーションの開始
-位置を指定できます。ここではともに$0\%$なので左上が指定されることになり
-ます。\AttribC{x2}と\AttribC{y2}でグラデーションの開始
-位置を指定できます。ここではともに$100\%$なので右下が指定されることになり
-ます。したがって、グラデーションの方向が左上から右下に向かうことにな
-るわけです。
+位置を指定できます。ここではともに$0\%$なので左上が指定されます。
+\AttribC{x2}と\AttribC{y2}でグラデーションの終了
+位置を指定できます。ここではともに$100\%$なので右下が指定されます。
+したがって、グラデーションの方向は左上から右下に向かうことにな
+ります。
 \begin{Problem}\upshape
 リスト\ref{Example-linearGrad2}について次のことを調べなさ い。
 \begin{enumerate}
@@ -93,16 +94,16 @@
  えたときグラデーションの向きがどのように変わるか
  \item 長方形の縦横比が異なったものにたいしてグラデーションがどのよ
        うに変化するか
- \item グラデーションの方向が左上から右下$45^{\circ}$の方向になるよ
+ \item グラデーションの方向が右上から左下$45^{\circ}$の方向になるよ
        うにすること
 \end{enumerate}
 \end{Problem}
 \ProbwithFigSol{Koffka}{0.3}{ht}{コフカリング}
-{svg-Koffka}{\OIIdxN{コフカリング}{90}{}と呼ばれています。
-背景の明度に差がある部分を中央部のグラ
-ディエーションの部分が隠しています。同じ色の円の縁取りが明るさの違う色に
-見えます。グラデーションでなくても縁取りと同じ色でなければ明度に差が
-あるように見えることも確認しなさい。}
+{svg-Koffka}{\OIIdxN{コフカリング}{90}{}です。
+背景の明度の差がある部分を中央のグラ
+ディエーションの部分が隠しているので、同じ色の円の縁取りが明るさの違う色に
+見えます。縁取りと同じ色でない色で塗っても明度に差が
+あるように見えることを確認しなさい。}
 \ProbwithFigSol{diamond-grad}{0.4}{ht}
 {ひし形を用いたクレイク・オブライエン効果}
 {svg-diamond-grad}
@@ -115,8 +116,7 @@
 \AttribCVal{userSpaceOnUse}{}があることはすでに説明しました。図
 \ref{gradiation-example3}はこの違いを説明するためのものです。
 %
-色の
-変化を見やすくするために色の変化が完全に別な色になるようなグラディエーショ
+色の変化を見やすくするために色の変化が完全に別な色になるようなグラディエーショ
 ンを付けています。
 \ShowFig{0.35}{ht}{svg-gradient3}
     {線形グラデーションの\protect\texttt{gradientUnits}の違い}{gradiation-example3}
@@ -126,7 +126,6 @@
 \Line{gradBB}から\Line{EndGradBB}では\AttribC{gradientUnits}の値が
 \AttribCVal{objectBoundingBox}{}となる線形グラデーションを定義してい
 ます。
-%\ListSubN{gradBB}{EndGradBB}{6}
 \ListSub{gradBB}{EndGradBB}%{6}
 \begin{itemize}
  \item 色の変化位置を明確にするために同じ位置で二つの色を定義しています
@@ -177,7 +176,7 @@
        \Elm{use}で引用しています。この場合にはこのなかで新しい基準が用い
        られるので両方とも左端が赤になっています。
   \item 最後のグループは\Line{gradUSS}から\Line{EndgradUSS}で定義したグ
-	ラディエーションで塗られています。
+	ラデーションで塗られています。
 \ListSub{Grad3S}{Grad3E}%{51}
  \item この場合には上の二つの色の変化位置は同じです。また、一番最後の行
        はやはり小さな長方形の左端が赤くなっています。
@@ -187,8 +186,8 @@
        のグループだけが色に変化が起こります。
 \end{itemize}
 \begin{Problem}\upshape
- 図\ref{gradiation-example3}でブラウザの幅を変化させたとき、グラデーションがどのように変化
- するか調べ、その理由を考えなさい。
+ 図\ref{gradiation-example3}でブラウザの幅を変化させたとき、グラデーショ
+ ンがどのように変化するか調べ、その理由を考えなさい。
 \end{Problem}
 %\clearpage
 \subsection{\keysubE{放射}{グラデーション}{\relax}グラデーション}
@@ -214,17 +213,15 @@
 \AttribCVal{userSpaceOnUse}{}のときは数値がそのまま採用され, 
 \AttribCVal{objectBoundingBox}{}のときは使用されるオブジェクトの大きさに対
 する割合を意味します。次の二つの例を見比べてください。
-なお、これらの例では放射グラデーションの端を示すために
-\csname CH2-svg-raidalgradiation2.svg-refcircle1\endcsname 行目から
-\csname CH2/svg-raidalgradiation2.svg-refcircle2\endcsname 行目
-で円の縁を描いて
-います(\AttribO{fill}の値が\AttribCVal{none}{}になっていることに注意すること)。
 \ShowFigs{0.33}{ht}{{radialgradiation2}{radialgradiation3}}
     {放射グラデーション(userSpaceOnUse(左)とobjectBoundingBox(右))}{example-radialgradiation2}
 %\ShowFig{0.5}{ht}{radialgradiation3}
 %    {放射グラデーション(objectBoundingBoxの場
 %    合)}{example-radialgradiation3}
-\vspace{-1.5\baselineskip}\\
+%\vspace{-1.5\baselineskip}\\
+
+リスト\ref{svg-raidalgradiation2}は図\ref{example-radialgradiation2}の左
+側の図のものです。
 \SVGListN{放射グラデーション(userSpaceOnUseの場合)}
   {svg-raidalgradiation2}{svg-raidalgradiation2}
 \begin{itemize}
@@ -233,25 +230,32 @@
  \item ここでグラデーションをする基準の座標系を
        \AttribCVal{userSpaceOnUse}{}としています。
  \item グラデーションの終了位置を示す円の位置と大きさとグラディエー
-       ションの開始位置は\Line{gradstart}で指定しています。ここではすべ
-       ての値は数値で指定しています。
- \item \Line{colors}から\Line{colore}ではグラデーションの途中の色を
+       ションの開始位置をすべて数値で指定しています(\Line{gradstart})。
+ \item \Line{colors}から\Line{colore}でグラデーションの途中の色を
        線形グラデーションと同じ方法で指定しています。
  \item \Line{rect}で定義している長方形の内部をここで定義したグラディエーショ
        ンで塗っています。終了位置の円の外側は最後の色をそのまま使うのが
        デフォルトです。
+ \item 放射グラデーションの端を示すために\LineR{refcircle1}{refcircle2}
+で円の縁を描いて
+います(\AttribO{fill}の値が\AttribCVal{none}{}になっていることに注意すること)。
+
 \end{itemize}
-\ \vspace{-2.5\baselineskip}\\
+%\ \vspace{-2.5\baselineskip}\\
+
+リスト\ref{svg-raidalgradiation2}は図\ref{example-radialgradiation2}の右
+側の図のものです。
+
 \SVGListN{放射グラデーション(objectBoundingBoxの場合)}
   {svg-raidalgradiation3}{svg-raidalgradiation3}
 \begin{itemize}
  \item 7行目から12行目で放射グラデーションを定義しています。
  \item ここでグラデーションをする基準の座標系を
        \AttribCVal{objectBoundingBox}としています。
- \item グラデーションの終了位置を示す円の位置と大きさとグラディエー
-       ションの開始位置はすべて割合で指定しています(7行目)。
+ \item グラデーションの終了位置を示す円の位置と大きさとグラデー
+       ションの開始位置をすべて割合で指定しています(7行目)。
  \item 9行目から11行目ではグラデーションの途中の色を線形グラデーションと
-       同じかたちで指定しています。
+       同じ方法で指定しています。
 \end{itemize}
 \ProbwithFigSol{craik-obraien}{0.3}{ht}{クレイク・オブライエン効果}
 {svg-craik-obraien}
