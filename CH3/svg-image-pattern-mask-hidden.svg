@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>二つの画像を細く分けて互い違いに並べて表示する</title>
+  <defs>
+    <rect id="Unit" x="0" y="0" width="20" height="300" fill="white"/>
+    <mask id="mask1" maskUnits="userSpaceOnUse"
+      x="0" y="0" width="300" height="300">
+      <rect x="0" y="0" width="20" height="300" fill="white"/>
+      <rect x="40" y="0" width="20" height="300" fill="white"/>
+      <rect x="80" y="0" width="20" height="300" fill="white"/>
+      <rect x="120" y="0" width="20" height="300" fill="white"/>
+      <rect x="160" y="0" width="20" height="300" fill="white"/>
+      <rect x="200" y="0" width="20" height="300" fill="white"/>
+      <rect x="240" y="0" width="20" height="300" fill="white"/>
+      <rect x="280" y="0" width="20" height="300" fill="white"/>
+      <rect x="320" y="0" width="20" height="300" fill="white"/>
+      <rect x="360" y="0" width="20" height="300" fill="white"/>
+    </mask>
+  </defs>
+  <g transform="translate(20,20)" opacity="1">
+    <image x="0" y="0" xlink:href="cyclamen-2.JPG" 
+      width="400" height="400" mask="url(#mask1)" />
+  </g>
+  <g transform="translate(40,20)">
+    <image x="0" y="0" xlink:href="cherry.JPG" 
+      width="400" height="400" mask="url(#mask1)" />
+  </g>
+</svg>
