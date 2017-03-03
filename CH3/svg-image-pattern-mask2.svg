@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" height="100%" width="100%">
+  <title>画像を mask 要素につかう</title>
+  <defs>
+    <mask id="mask1" maskUnits="userSpaceOnUse"
+      x="0" y="0" width="300" height="300">
+    <image id="image" xlink:href="cyclamen-2.JPG" width="300" height="300"/>
+    </mask>
+  </defs>
+  <ellipse cx="150" cy="120" rx="130" ry="100"  fill="black" mask="url(#mask1)"/>
+</svg>
