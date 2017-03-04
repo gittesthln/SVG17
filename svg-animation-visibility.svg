@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>図形が7秒後消える</title>
+  <g transform="translate(150,100)">
+    <circle cx="0" cy="0" r="50" stroke-width="8" fill="lime">
+      <animateColor attributeName="stroke" attributeType="CSS"
+           from="yellow" to="orange" dur="5s" fill="freeze"/>
+      <set attributeName="visibility" attributeType="CSS" 
+        to="hidden" fill="freeze" begin="7s" />
+    </circle>
+  </g>
+</svg>

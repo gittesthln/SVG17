@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>円周上を文字列が移動するアニメーション</title>
+  <defs>
+    <path id="Upper"
+      d="M-100,0 C-100,-55.228 -55.228,-100 0,-100
+                 S100,-55.228 100,0 S55.228,100 0,100 S-100,55.228 -100,0"
+      stroke-width="4"/>
+    <path id="Lower"
+      d="M100,0 C100,55.228 55.228,100 0,100
+                 S-100,55.228 -100,0 S-55.228,-100 0,-100 S100,-55.228 100,0"
+      stroke-width="4" stroke="black"/>
+  </defs>
+  <g transform="translate(150,150)">
+    <text>
+      <textPath xlink:href="#Upper" font-size="24px">
+      This is an Example.
+        <animate attributeName="startOffset"
+           values="50%;50%;0%" dur="30s" repeatCount="indefinite"/>
+      </textPath>
+      <animate attributeName="opacity" values="0;0;1;1"
+               keyTimes="0;0.5;0.5;1" repeatCount="indefinite" dur="30s"/>
+    </text>
+    <text>
+      <textPath xlink:href="#Lower" font-size="24px">
+      This is an Example.
+        <animate attributeName="startOffset"
+           values="50%;0%;0%" dur="30s" repeatCount="indefinite"/>
+      </textPath>
+      <animate attributeName="opacity" values="1;1;0;0"
+               keyTimes="0;0.5;0.5;1" repeatCount="indefinite" dur="30s"/>
+    </text>
+    <use xlink:href="#Upper" fill="none" stroke="red" />
+   </g>
+</svg>

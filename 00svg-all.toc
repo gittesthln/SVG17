@@ -46,19 +46,48 @@
 \contentsline {paragraph}{{\upshape \texttt {scale(a,b)}}の場合}{61}{section*.16}
 \contentsline {paragraph}{{\upshape \texttt {skewX($\alpha $)}}、{\upshape \texttt {skewY($\alpha $)}}の場合}{61}{section*.17}
 \contentsline {section}{\numberline {3.4}SVGパターン}{61}{section.3.4}
+\contentsline {section}{\numberline {3.5}画像の取り込み}{67}{section.3.5}
+\contentsline {section}{\numberline {3.6}画像の一部を見せる}{69}{section.3.6}
+\contentsline {chapter}{\numberline {第4章}アニメーション}{73}{chapter.4}
+\contentsline {section}{\numberline {4.1}アニメーションにおける属性}{73}{section.4.1}
+\contentsline {section}{\numberline {4.2}位置を動かす({\upshape \texttt {<animateTransform>}} 要素)}{74}{section.4.2}
+\contentsline {paragraph}{平行移動}{74}{section*.18}
+\contentsline {paragraph}{回転}{75}{section*.19}
+\contentsline {paragraph}{拡大縮小}{76}{section*.20}
+\contentsline {section}{\numberline {4.3}道のりに沿ったアニメーション({\upshape \texttt {<animateMotion>}} 要素)}{78}{section.4.3}
+\contentsline {section}{\numberline {4.4}いろいろな属性に動きをつける}{79}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}一般の属性に変化をつける({\upshape \texttt {<animate>}} 要素)}{79}{subsection.4.4.1}
+\contentsline {paragraph}{色の変化}{79}{section*.21}
+\contentsline {paragraph}{長方形の大きさの変化}{80}{section*.22}
+\contentsline {paragraph}{図形の形の変化}{80}{section*.23}
+\contentsline {paragraph}{グラデーションを横に動かす}{82}{section*.24}
+\contentsline {subsection}{\numberline {4.4.2}属性値をすぐに変える---{\upshape \texttt {<set>}} 要素を利用したアニメーション}{83}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}複数の値を指定する({\upshape \texttt {keyTimes}},{\upshape \texttt {values}})}{83}{section.4.5}
+\contentsline {section}{\numberline {4.6}イベントを利用したアニメーション}{84}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}イベントとは}{84}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}マウスのイベントを利用したアニメーション}{84}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}アニメーション終了のイベントを利用する}{86}{subsection.4.6.3}
+\contentsline {section}{\numberline {4.7}アニメーションがついた錯視図形}{88}{section.4.7}
+\contentsline {paragraph}{追いかけっこをする長方形}{88}{section*.25}
+\contentsline {chapter}{\numberline {第5章}文字列の表示}{91}{chapter.5}
+\contentsline {section}{\numberline {5.1}文字列表示の基礎}{91}{section.5.1}
+\contentsline {section}{\numberline {5.2}部分的に文字の表示を変える方法}{92}{section.5.2}
+\contentsline {section}{\numberline {5.3}文字をグラデーションで塗る}{94}{section.5.3}
+\contentsline {section}{\numberline {5.4}道程に沿った文字列の配置}{96}{section.5.4}
+\contentsline {section}{\numberline {5.5}円周上に沿って文字列が移動するアニメーション}{98}{section.5.5}
 \contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
 \contentsline {chapter}{\numberline {付 録C }JavaScript入門}{付録 9}{appendix.C}
 \contentsline {section}{\numberline {C.1}JavaScriptとは}{付録 9}{section.C.1}
 \contentsline {section}{\numberline {C.2}データの型}{付録 9}{section.C.2}
 \contentsline {subsection}{\numberline {C.2.1}プリミティブデータ型}{付録 9}{subsection.C.2.1}
-\contentsline {paragraph}{Number型}{付録 9}{section*.19}
-\contentsline {paragraph}{String型}{付録 10}{section*.20}
-\contentsline {paragraph}{Bool型}{付録 11}{section*.21}
-\contentsline {paragraph}{\ElmJ {undefined}}{付録 11}{section*.22}
-\contentsline {paragraph}{\texttt {null}}{付録 11}{section*.23}
+\contentsline {paragraph}{Number型}{付録 9}{section*.27}
+\contentsline {paragraph}{String型}{付録 10}{section*.28}
+\contentsline {paragraph}{Bool型}{付録 11}{section*.29}
+\contentsline {paragraph}{\ElmJ {undefined}}{付録 11}{section*.30}
+\contentsline {paragraph}{\texttt {null}}{付録 11}{section*.31}
 \contentsline {subsection}{\numberline {C.2.2}配列}{付録 11}{subsection.C.2.2}
-\contentsline {paragraph}{配列の宣言と初期化}{付録 11}{section*.24}
+\contentsline {paragraph}{配列の宣言と初期化}{付録 11}{section*.32}
 \contentsline {section}{\numberline {C.3}演算子}{付録 11}{section.C.3}
 \contentsline {subsection}{\numberline {C.3.1}代入、四則演算}{付録 11}{subsection.C.3.1}
 \contentsline {subsection}{\numberline {C.3.2}比較演算子}{付録 12}{subsection.C.3.2}
@@ -68,26 +97,26 @@
 \contentsline {subsection}{\numberline {C.4.3}\ElmJ {for}文と\ElmJ {while}文}{付録 14}{subsection.C.4.3}
 \contentsline {section}{\numberline {C.5}関数}{付録 15}{section.C.5}
 \contentsline {subsection}{\numberline {C.5.1}関数の定義と呼び出し}{付録 15}{subsection.C.5.1}
-\contentsline {paragraph}{実行例}{付録 15}{section*.25}
+\contentsline {paragraph}{実行例}{付録 15}{section*.33}
 \contentsline {subsection}{\numberline {C.5.2}仮引数への代入}{付録 16}{subsection.C.5.2}
 \contentsline {subsection}{\numberline {C.5.3}\ElmJ {arguments}について}{付録 17}{subsection.C.5.3}
 \contentsline {section}{\numberline {C.6}変数のスコープと簡単な例}{付録 18}{section.C.6}
 \contentsline {subsection}{\numberline {C.6.1}JavaScriptにおける関数の特徴}{付録 21}{subsection.C.6.1}
-\contentsline {subsubsection}{関数もデータ}{付録 21}{section*.26}
-\contentsline {subsubsection}{無名関数とコールバック関数}{付録 21}{section*.27}
-\contentsline {subsubsection}{自己実行関数}{付録 22}{section*.28}
+\contentsline {subsubsection}{関数もデータ}{付録 21}{section*.34}
+\contentsline {subsubsection}{無名関数とコールバック関数}{付録 21}{section*.35}
+\contentsline {subsubsection}{自己実行関数}{付録 22}{section*.36}
 \contentsline {subsection}{\numberline {C.6.2}クロージャ}{付録 23}{subsection.C.6.2}
-\contentsline {subsubsection}{スコープチェイン}{付録 23}{section*.29}
-\contentsline {subsubsection}{クロージャ}{付録 24}{section*.30}
+\contentsline {subsubsection}{スコープチェイン}{付録 23}{section*.37}
+\contentsline {subsubsection}{クロージャ}{付録 24}{section*.38}
 \contentsline {section}{\numberline {C.7}配列のメソッド}{付録 26}{section.C.7}
 \contentsline {section}{\numberline {C.8}オブジェクト}{付録 29}{section.C.8}
 \contentsline {subsection}{\numberline {C.8.1}配列とオブジェクト}{付録 29}{subsection.C.8.1}
 \contentsline {subsection}{\numberline {C.8.2}コンストラクタ関数}{付録 31}{subsection.C.8.2}
-\contentsline {subsubsection}{\texttt {constructor}プロパティ}{付録 33}{section*.31}
-\contentsline {subsubsection}{\texttt {instanceof}演算子}{付録 34}{section*.32}
+\contentsline {subsubsection}{\texttt {constructor}プロパティ}{付録 33}{section*.39}
+\contentsline {subsubsection}{\texttt {instanceof}演算子}{付録 34}{section*.40}
 \contentsline {subsection}{\numberline {C.8.3}オブジェクトリテラルとJSON}{付録 35}{subsection.C.8.3}
 \contentsline {subsection}{\numberline {C.8.4}ECMAScript5のオブジェクト属性}{付録 36}{subsection.C.8.4}
-\contentsline {subsubsection}{オブジェクト指向言語におけるプロパティとメソッドの属性}{付録 36}{section*.33}
-\contentsline {subsubsection}{プロパティ属性}{付録 37}{section*.34}
+\contentsline {subsubsection}{オブジェクト指向言語におけるプロパティとメソッドの属性}{付録 36}{section*.41}
+\contentsline {subsubsection}{プロパティ属性}{付録 37}{section*.42}
 \contentsline {subsection}{\numberline {C.8.5}エラーオブジェクトについて}{付録 41}{subsection.C.8.5}
 \contentsline {chapter}{\numberline {付 録D }CSSについて}{付録 43}{appendix.D}

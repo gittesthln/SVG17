@@ -1,0 +1,559 @@
+% -*- coding: utf-8 -*-
+%
+%old filename 04-2animation.tex
+%
+\chapter{アニメーション}\label{ChapAnimation}
+%基本的にはグラデーションと同じような定義をします。
+\section{アニメーションにおける属性}
+%このほかに
+SVGでは指定したオブジェクトの属性の値を
+時間の経過とともに変化させる\keyitem{アニメーション}の機能があります。
+アニメーションではオブジェクトの属性値以外に
+開始の時間と終了の時間、開始時と終了時の値、終了時の状態、繰り
+返しの回数などを指定する必要があります(表\ref{ListCommonAnimationAttrib}参照)。
+\ListAttribsF{ListCommonAnimationAttrib}
+      {アニメーションに共通の属性}{|c|m{10em}|l|}
+{{属性名}{\multicolumn{1}{c|}{意味}}
+         {\multicolumn{1}{c|}{とりうる値}}
+{\AttribA{attributeName}{}}{属性名}{属性名なら何でも可}
+{\AttribA{attributeType}{}}{属性値の種類}{\AttribVal{XML}{}または\AttribVal{CSS}{}}
+{\AttribA{from}}{開始時の属性の値}{\relax}
+{\AttribA{to}}{終了時の属性の値}{\relax}
+{\AttribA{dur}}{変化の継続時間}
+       {\texttt{2s}(2秒), \texttt{1m}(1分)}
+{\AttribA{begin}}{開始時間}
+       {時間を与える。例\texttt{2s}(2秒), \texttt{1m}(1分)}
+{\AttribA{fill}}{終了時の属性値の指定}
+    {\multicolumn{1}{m{15em}|}{\AttribAVal{freeze}{}(終了値で固定)\newline
+                \AttribAVal{remove}{}(はじめの値に戻る)}}
+{\AttribA{repeatCount}}{繰り返し回数}
+    {\AttribAVal{indefinite}は無限回の繰り返し}
+{\AttribA{values}}{属性値を複数指定}{セミコロンで区切って値を設定}
+{\AttribA{keyTimes}}{アニメーション全体の時間の割合で
+  \AttribA{values}で指定した値に順次変化}
+  {$0$から$1$の間の値をセミコロンで区切る}
+{\AttribA{calcMode}}{補間方法の指定}
+         {\multicolumn{1}{m{22em}@{}|}{%
+            \AttribAVal{discrete}{} 値が不連続に変わる。\newline
+            \AttribAVal{linear}{}値を一次式で補間
+                \newline\hspace{3em}(\Elm{animateMotion}以外で
+			   %\newline\hspace{3em}
+                          デフォルト)
+               \newline
+            \AttribAVal{paced}{}アニメーション中一定の割合で
+%	    \newline\hspace{3em}
+            変化する
+            \newline\hspace{3em}(\Elm{animatMotion}
+%            \newline\hspace{3em}
+                   のデフォルト)\newline
+            \AttribAVal{spline}{} 3次の\Bezier で値を補間%\newline
+ }}
+}
+%\clearpage
+\section{位置を動かす(\Elm{animateTransform})}
+\paragraph{平行移動}
+%オブジェクトの位置は%属性\AttribO{x}などで指定するものがありますが
+グループ化されたオブジェクト\Elm{g}では属性%でまとめている場合に%は
+\Attrib{transform}を用いて位置の移動ができました。
+属性\Attrib{transform}に対してアニメー
+ションをつけるのには\Elm{animateTransform}を用います。
+
+次の例は二つの長方形をグループ化し、それに平行移動のアニメーションをつけています。
+\ShowFigs{0.3}{ht}{{animation-transform-begin}{animation-transform-end}}
+{平行移動のアニメーション(開始時--左--と終了時--右--)}{animation-transform}
+\SVGListN{図形の平行移動のアニメーション}
+{svg-animation-transform}{svg-animation-transform}
+\ExpList{%
+{%この例では
+\Line{gStart}から\Line{gEnd}で定義されているグループに
+       平行移動のアニメーションをつけています。
+%\LineF{\arabic{chapter}}{svg-animation-transform.svg}{gStart}
+}
+{このグループには\LineR{rect1S}{rect1E}にある長方形と、
+       \LineR{rect2S}{rect2E}にある長方形を$45^{\circ}$回転した
+       もの(\Line{rot45}で定義)の二つの図形が含まれています。}
+{\LineR{animS}{animE}にかけて\Elm{animateTransform}を用い
+       て平行移動のアニメーションを定義しています。このアニメーションで
+       は次の属性を与えています。
+\ExpList{{\AttribA{attributeName}はアニメーションをさせる属性を定義します。
+       ここでは\AttribVal{transform}{}の値が与えられています。}
+{\AttribVal{transform}{}には3種類のタイプがあるのでそれを指定するた
+       めに\AttribA{type}を用います。この値は平行移動の場合
+       \AttribVal{translate}{}となります。}
+{図形の平行移動では\protect\texttt{translate(100,100)}のように指
+       定しますが、アニメーションの開始位置や終了位置を指定する
+       \AttribA{from}や\AttribA{to}では\protect\texttt{100,100}のように
+       括弧をつけません。}
+{{}{}ここでは$(100,100)$(\AttribA{from}での値)から
+       $(200,100)$(\AttribA{to}の値)へ一定の速度で移動します。}
+{アニメーションの継続時間は属性\AttribA{dur}で指定します。ここでは
+       \texttt{10s}なので$10$秒(s)間で上記の移動が行われます。
+       時間の単位としてはこのほかに\texttt{m}(分)などもあります。}
+{アニメーションが終わったときにの状態は\AttribA{fill}で与えます。
+       はじめの状態に戻る\AttribAVal{remove}{}と終了状態のままでいる
+       \AttribAVal{freeze}{}を指定できます。}
+}
+}
+}
+このほかにアニメーションの属性としては繰り返しを指定する
+\AttribA{repeatCount}があります。指定した回数だけアニメーションを繰り返
+すことができます。
+
+なお、長方形ひとつだけを平行移動させるのであれば \AttribO{x} や
+\AttribO{y} にアニメーションを付ける方法もあります。
+\ref{animationbyanimate}を参照してください。
+\ProbwithSol{svg-fick-animation}{フィックの錯視(アニメーション付き)}
+{svg-fick-animation}
+{\keysubE{フィック}{錯視}{の}の錯視\IndexSet{フィックの錯視}{}{}{}{}%
+(図\ref{example-fick})において垂直な線
+ 分が水平な線分の左端から右端へ移動するア
+ ニメーションをつけなさい。そのとき、見え方がどのように変化するかを調べ
+ なさい。}
+
+\paragraph{回転}
+次の例は例\ref{svg-animation-transform}
+における傾いた長方形に回転のアニメーションをつけたものです。
+\ShowFig{0.3}{ht}{animation-rotate}{図形の回転のアニメーション}
+{example-animation-rotate}
+%\NewpageB
+
+\SVGListN{図形の回転のアニメーション}
+{svg-animation-rotate}{svg-animation-rotate}
+\begin{itemize}
+ \item 前のリスト\ref{svg-animation-transform}の
+%\csname CH4/svg-animation-transform.svg-animS\endcsname 行目から
+%\csname CH4/svg-animation-transform.svg-animE\endcsname 行目の部分が
+9行目から12行目の部分が
+この例で9行目から13行目に変わっ
+       ています。
+ \item まず、長方形\Elm{rect}にアニメーションをつけるのでこの要素の開
+       始要素と終了要素が分かれています。10行目の
+       最後が\texttt{>}となり、13行目に長方形の終了要素\texttt{</rect>}
+       があります。
+ \item 回転のアニメーションは\AttribA{type}が\AttribVal{rotate}となり、開
+       始が$0^{\circ}$で終了が$360^{\circ}$となっています。
+% \item
+
+ アニメーションを停止させないために\AttribA{repeatCount}に
+       \AttribAVal{indefinite}{}を指定します(12行目)。
+\end{itemize}
+この例では回転している長方形のアニメーションは
+それを含む図形が始めの$10$秒間平行移
+動しているので、この間は回転と平行移動が同時に起きます。平行移動は$10$秒後
+に停止しますが、回転のアニメーションは動き続けます。
+
+\iffalse
+これらの例では図形が画面に表示されるとすぐにアニメーションが始まります。
+開始時間は\AttribA{begin}を用いて指定することができます。
+%この属性値をコンマで区切ることで開始時間を複数指定することも可能です。
+\fi
+\iffalse
+\ProbwithSol{svg-bourdon-animation}{ブルドンの錯視(アニメーション付き)}
+{svg-bourdon-animation}
+{\keysubE{ブルドン}{錯視}{の}\IndexSet{ブルドンの錯視}{}{}{}{}(図
+ \ref{bourdon})の錯視に回転のアニメーションをつけてどのように見え方が変わるか
+ 調べなさい。}
+\fi
+\begin{Problem}\upshape
+ ミューラー$\cdot$ライヤーの錯視(図\ref{example-muller-lyer})
+の両端にある矢印に反対向きの
+回転のアニメーションをつけ、見え方の変化を観察しなさい。
+\end{Problem}
+\ProbwithFigSol{judd}{0.4}{ht}{ジャッドの錯視}{jud}
+{\OIIdxMC{ジャッド}{66}{}
+という図形です。%ミューラー$\cdot$ライヤーの錯視(図
+%\ref{example-muller-lyer})と違い矢印が同じ方向
+% を向いています。
+線分の中央にある円が左に偏った場所にあるように
+ 見えます。
+\iffalse\begin{enumerate}
+ \item この図を作成しなさい。
+ \item 両端の矢印の間の角度が開く回転のアニメーションをつけ、
+見え方の変化を観察しなさい。
+\end{enumerate}
+\else
+この図を作成し、さらに両端の矢印の間の角度が開く回転のアニメーションをつけ、
+見え方の変化を観察しなさい。%\vspace{-\baselineskip}
+\fi}
+%\CPageB
+\paragraph{拡大縮小}
+図形の拡大縮小する\Attrib{transform}の属性値
+\AttribVal{scale}{}にアニメーションを付ける例が
+%
+図\ref{svg-moveandsizechange-fig}です。%\AttribVal{scale}{}と
+さらに\AttribVal{translate}{}にアニメーションを付けるこ
+とで水平線と垂直線に円は接したまま大きさを変えます。
+
+\ShowFigs{0.27}{ht}{{svg-moveandsizechange-middle}{svg-moveandsizechange-end}}
+{拡大縮小と移動のアニメーション(アニメーション中--左--と終了時--右--)}
+{svg-moveandsizechange-fig}
+
+\SVGListN{拡大縮小と移動のアニメーション}
+{svg-moveandsizechange}{svg-moveandsizechange}
+\begin{itemize}
+ \item \Line{L1}と\Line{L2}ではアニメーションをする円の上端と左端の位置
+       が変わらないことを確認するための直線を引いています。
+ \item 円の大きさを\AttribVal{scale}{}で変化させるために\Elm{circle}を
+       囲む\Elm{g}を用意します(\Line{scale})。
+ \item この要素に\AttribVal{scale}{}の値が
+       \texttt{1}から\texttt{2}へ変化するアニメーションを付けます
+       (\LineR{animS}{animE})。
+ \item \Line{circle}の中心が$(0,0)$なので\AttribVal{scale}{}によりこの
+       ままでは上端と左端の直線から円ははみ出してしまいます。これを避け
+       るため\Line{scale}の\Elm{g}の外側をさらに\Elm{g}で囲み
+       (\Line{translate})、この要素に\AttribVal{translate}{}のアニメー
+       ションを付けています(\Line{anim2S}から\Line{anim2E})
+\end{itemize}
+\ProbwithSolC{rect-with-scale}{長方形が横に伸びる}{svg-rect-with-scale}
+{\AttribVal{scale}{}を用いて長方形が横に伸びるアニメーションを作成しな
+ さい。}
+{何も属性がない\noexpand\Showattrib{g}は\noexpand\Showattrib{scale}のア
+ニメーションを付けるのに必要です。}
+\section{色を変える(\Elm{animateColor})}
+属性にアニメーションを付けるためには\Elm{animateColor}を使用します。
+\footnote{色のアニメーションは\Opera だけがサポートしています。}
+
+図\ref{animation-color}は円の塗り(\AttribO{fill})と縁取り
+(\AttribO{stroke})にそれぞれアニメーションをつけています。
+
+\ShowFigs{0.22}{ht}
+{{animation-color-begin}{animation-color-2}{animation-color-end}}
+{色のアニメーション(開始時--左--、途中(中央)、終了時--右--)}
+{animation-color}
+\SVGListN{色のアニメーション}
+{svg-animation-color}{svg-animation-color}
+
+色の名前は CSS で定義されているので \AttribA{attributeType} の属性値は
+\texttt{CSS} となります。\vspace{-1.\baselineskip}
+\section{道のりに沿ったアニメーション(\Elm{animateMotion})}
+指定した道のりに沿って動くアニメーションでは
+\Elm{animateMotion}を用います。道程は属性\AttribO{path} で指定します。
+\ShowFig{0.4}{ht}{motion-along-path}{道のりに沿って動くアニメーション}
+{motion-along-path}
+\SVGListN{道のりに沿ったアニメーション}{svg-motion-along-path}
+   {svg-motion-along-path}
+\begin{itemize}
+ \item \LineR{pathS}{pathE}でアニメーションで動くパスを定義しています。このパ
+       スは動きがわかるように表示にも使われています(\Lines{path1}{path2})。
+ \item \LineR{item1S}{item1E}ではアニメーションで動く左側の長方形を定義
+       しています。
+       この長方形の内部を塗る\AttribO{fill}が\AttribCVal{currentColor}{}で
+       あることに注意してください。これは上位の環境で定義されている色で
+       塗ることを意味します。ここでは\Line{g1}にある\Elm{g}の属性
+       \AttribO{color}の値(\AttribCVal{red})が利用されます。
+ \item \LineR{anim1S}{anim1E}でこの長方形にアニメーショ
+       ンをつけています。\Elm{defs}のなかで定義された道のりを参照するため
+       に\Elm{mpath}を用いています。
+ \item 右側の長方形についても同様のアニメーションが付きます
+       (\LineR{item2S}{item2E})。このアニメーションには属性\AttribA{rotate}に
+       \AttribAVal{auto}{}を指定しているので道のりに接するように長方形が
+       回転しながら移動します。\AttribAVal{reverse-auto}{}という値も指定
+       できます。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-motion-along-path}においてアニメーションの属性
+ \AttribA{rotate}に\AttribAVal{reverse-auto}{}を設定したときの動きを確認
+ しなさい。
+\end{Problem}
+
+\section{いろいろな属性に動きをつける}
+\subsection{連続した変化をつける(\Elm{animate})}\label{animationbyanimate}
+これ以外の属性に連続的に変化するアニメーションをつけるのには\Elm{animate}を用います。
+\paragraph{長方形の大きさを変える}
+リスト\ref{svg-animation-w-rect}は長方形の幅の属性\AttribO{width}にアニ
+メーションをつけて形を変えています。
+
+\SVGListN{長方形の幅を変えるアニメーション}
+{svg-animation-w-rect}{svg-animation-w-rect}
+\begin{itemize}
+ \item アニメーションは\Line{anim1}から\Line{anim2}の\Elm{animate}でつけ
+       ています。
+ \item アニメーションをつける属性名を\AttribA{attributeName}の属性値に与
+       え、\AttribA{attributeType}に XML を指定します。
+\end{itemize}
+%\ShowGraphicPs{0.40}{ht}{{}}{長方形の幅を変える}{change-width}
+\begin{Problem}\upshape
+ リスト\ref{svg-moveandsizechange}における円のアニメーションのうち
+大きさを変えるアニメーションを半径で行うようにしなさい。それによりアニメー
+ ションの見え方がどのように変わるか調べなさい。
+\end{Problem}
+\begin{Problem}\upshape
+\Elm{animateTransform}の\AttribVal{scale}{}属性にアニメーションをつけて
+例\ref{svg-animation-w-rect}と
+ 同じように長方形の形が変わるアニメーションを作成しなさい。
+また、この方法と例\ref{svg-animation-w-rect}とのアニメーションの違いがあるか
+ どうか検討しなさい。
+\end{Problem}
+\paragraph{図形の形を変える}\Elm{path}の属性
+%\AttribO{d}にアニメーションをつけて図形の形を変えています。
+\AttribO{d}にアニメーションをつけるためには\AttribO{d}の属性値の構造を変
+えてはいけません。\footnote{このアニメーションは\Opera でしか動きません。}
+たとえば、四角形を三角形に変化させるアニメーションでは
+初めに与えた点が4つならば最終の図形の三角形を4つ点で表す必要があります。
+
+%
+
+\ShowFigs{0.25}{ht}
+{{bezier-circle4-square-start}{bezier-circle4-square-2}%
+{bezier-circle4-square-end}}
+{円から正方形へ(開始時--左--、途中、終了時--右--)}
+{bezier-circle4-square} 
+
+リスト\ref{svg-bezier-circle4-square}は円を正方形に変えるアニメーションです。
+%\newpage
+%
+% \ \\[-2\baselineskip]
+\SVGListN{\Elm{path}の属性\AttribO{d}にアニメーションをつける}
+{svg-bezier-circle4-square}{svg-bezier-circle4-square}
+\begin{itemize}
+\ifSummer\else
+ \item 円を近似して描く解説は例\ref{onequartercirclebybezier}を参
+       考にしてください。9行目から12行目までの\AttribA{from}の値はそこ
+       に現れる値を用いています。
+
+       なお、例\ref{onequartercirclebybezier}では曲線の定義に対称な
+       \Bezier 曲線を定義する \texttt{S} を用いていますが、ここでは4つの
+       独立した\Bezier 曲線に直しています。
+\fi
+ \item \AttribO{d}にアニメーションをつけるときは\AttribA{from}で定義した
+       データの形を変えることができないので、\AttribA{to}で示
+       す正方形も\Bezier 曲線で表す必要があります。ここでは途中の制御点
+       を開始点と終了点の中点にしています。
+\end{itemize}
+\begin{Problem}
+ \Elm{path}を用いて長方形を描き、それに形を変える
+ アニメーションをつけなさい。
+\end{Problem}
+
+\paragraph{グラデーションにアニメーションを付ける}
+線形グラデーションで\AttribC{gradientUnits}の値を
+\AttribCVal{userSpaceOnUse}にするとグラデーションの開始位置
+(\AttribC{x1}や\AttribC{y1})や
+終了位置(\AttribC{x2}や\AttribC{y2})を図形とは無関係な位置に指定できます。
+これらの属性にアニメーションをつけるとグラデーションの色が横に流
+れるようにできます(図\ref{anim-gradiation})。
+
+\ShowFigs{0.4}{ht}{{anim-gradiation-1}{anim-gradiation-2}}
+{グラデーションにアニメーションを付ける}{anim-gradiation} 
+
+\SVGListN{グラデーションにアニメーションをつける}
+     {svg-mask}{svg-gradiationwithanimation}
+\begin{itemize}
+ \item \Line{gradS1}から\Line{grad1E}でアニメーションを伴った線形グラディ
+       エーションを定義しています。
+\begin{itemize}
+ \item 線形グラデーションの開始位置を変化させるので
+       \AttribC{gradientUnits}の値は\AttribCVal{userSpaceOnUse}{}にしま
+       す(\Line{gradS1})。
+ \item \Line{gradS2}で塗る範囲を定義しています。\AttribC{x1}と
+       \AttribC{x2}の差が$800$になっています。これは線形グラディエーショ
+       ンを適応する長方形(\Line{rectS}から\Line{rectE})の幅$400$の$2$
+       倍になっていることに注意してください。
+グラデーションが端まで行ったときに連続して変化するように長方形の横幅
+の2倍の大きさを同じパターンで2回繰り返したものを用意することで連続して変
+       化するようにしています。
+
+ \item グラデーションのパターン$赤\Rightarrow 黄\Rightarrow 赤$が2回
+       繰り返されています(\Line{stop1}から\Line{stop5})。
+ \item 線形グラデーションの位置を変更するために\AttribC{x1}と
+       \AttribC{x2}にアニメーションを付けいています(\Line{animx1S}から
+       \Line{animx1E}と\Line{animx2S}から\Line{animx2E})。
+\end{itemize}
+ \item \Line{rectS}から\Line{rectE}でアニメーションが付いた線形グラディ
+       エーションを塗る長方形を定義しています。
+\end{itemize}
+
+\ProbwithSolC{svg-mask2}{\Showattrib{stop}にアニメーションを付ける}
+{svg-mask2}{リスト\ref{svg-gradiationwithanimation}のアニメーションで
+ \AttribC{stop-color}にアニメーションを付けて同じように見えることができ
+ るか検討しなさい。}
+{前のものと二つ並べて同じ動きになることを確認できるようにして
+ います。}
+
+\ProbwithSol{zavagno-animation}{ザバーニョの錯視(アニメーション付き)}
+{svg-zavagno-animation}
+{グラデーションを構成する\Elm{stop}の属性にアニメーションを付けること
+ができます。
+\OIIdxY{ザバーニョ}を構成する長方形の線形グラディエー
+ ションの片方の端の\AttribC{stop-color}にアニメーションを付けて見え方の
+ 変化を調べなさい。}
+
+\subsection{属性値をすぐに変える---\Elm{set}を利用したアニメーション}
+\label{visibility-hidden}
+\Elm{animate}の代わりに\Elm{set}を使うと、途中は
+\AttribA{from}で指定された値のままで
+アニメーションの終了時に\AttribA{to}で指定された
+値に設定されます。
+ここでは図形を表示するかどうかを決める\Attrib{visibility}属性に利用しま
+す。
+%
+色に対して\Elm{set}を利用した例はリスト\ref{svg-signalsimulation}にあり
+ます。%\vspace{\baselineskip}
+
+\SVGListN{図形が7秒後消える}%
+{svg-animation-visibility}{svg-anilmation-visibility}
+アニメーションの属性\AttribA{calcMode}の値を
+\AttribAVal{discrete}{}にすると\Elm{set}と同じ動作をします。
+\section{複数の値を指定する(\AttribA{keyTimes},\AttribA{values})}
+%いままでのアニメーションでは開始と終了の値しか与えら得ませんでした。
+\AttribA{values}を用いるとアニメーションの途中の値を指定することができま
+す。この場合、与えられた値の数でアニメーションの時間が等分に分けられます。
+この値を変更するためには\AttribA{keyTimes}を用います。\AttribA{keyTimes}で
+与える数値はアニメーションが行われる時間に対する割合を指定します。
+
+次の例は\ref{svg-animation-transform}に対し、初めの位置まで戻す動きを付
+け加えたものです%。\newpage
+\SVGListN{初めの位置に戻る}
+{svg-animation-transform-values}{svg-animation-transform-values}
+\begin{itemize}
+ \item \Line{values}にある\AttribA{values}と\AttribA{keyTimes}でアニ
+メーションが定義されています。
+ \item \AttribA{keyTimes}が\texttt{0;0.66;1}となっ
+ているので右へ移動するときの速度が左へ移動する速度に比べて約半分の速度で
+移動します。
+\end{itemize}
+\ProbwithSol{svg-move-square}{正方形の移動}{svg-move-square}
+{ 正方形が同じ速度で$(100,100)$ から $(200,100),$ $(200,200),$
+$(100,200)$ を経て元の位置へ戻るアニメーションを作成しなさい。}
+\ProbwithSol{svg-image-pattern-mask-hidden-anim}
+{問題\ref{prob-image-mixed}の画像を片方づつ表示する}{svg-image-pattern-mask-hidden-anim}
+{ 問題\ref{prob-image-mixed}の画像を初めは両方表示し、一定の期間がたった
+ら一方だけを表示し、さらに時間が経ったらもう一方の画像を表示するアニメー
+ションを付けなさい。}
+%\NewpageB
+\ifSummer\else
+\section{イベントを利用したアニメーション}
+\subsection{イベントとは}
+アプリケーションの実行中にシステムから
+そのアプリケーションに通知される情報をイベントといいます。アプリケーション側では渡
+されたイベントの情報を基にして動作を変更することが可能となります
+(無視することも対応のひとつです)。
+イベントとしては「マウスボタンがクリックされた」、「一定の時間が経過し
+た」、「別のアニメーションが終了した」などがあります。
+%
+\keysubE{イベントを利用}{アニメーション}{した}してアニメー
+ションの開始や終了を指示できます。
+\iffalse
+イベントとしては次のようなものがあります。
+\begin{itemize}
+ \item マウスボタンがクリックされた。
+ \item 一定の時間が経過した。
+ \item 別のアニメーションが終了した。
+\end{itemize}
+\fi
+イベントを利用してより細かく\SVG を制御する方法については
+第\ref{MakeInterractiveSVG}章で解説します。
+
+\subsection{マウスのイベントを利用したアニメーション}
+図\ref{example-stopwatch}では
+下部の黒い長方形の上にマウスを乗せると赤い矢印が回転します。
+そこからマウスを離すと動きが止まります。再びマウスをその場所に
+乗せるとはじめの位置から再び回転します。
+\ShowFig{0.3}{ht}{svg-stopwatch}{ストップウォッチ？}
+{example-stopwatch}
+%\NewpageB
+%\NewpageF
+
+%リスト\ref{svg-stopwatchL}がこの\SVG のものです。
+\SVGListN{ストップウォッチ？}{svg-stopwatch}{svg-stopwatchL}
+\begin{itemize}
+ \item \Line{defS}から\Line{defE}は時計盤の目盛りを描くためのパーツを定
+       義しています。
+\begin{itemize}
+ \item \Line{TickLS}から\Line{TickLE}では$90^{\circ}$ごとに現れる長い目
+       盛りを、%定義しています。
+% \item 
+      \Line{TickSS}から\Line{TickSE}では残りの目盛りを定義しています。
+ \item 長い目盛りを基準に短い目盛りを$30^{\circ}$と$60^{\circ}$回転した
+       ものをひとつのものとしてまとめて定義します(\Line{faceUnitS}から
+       \Line{faceUnitE})。
+\end{itemize}
+ \item \Line{circle}で時計盤の外周を描いています。
+ \item \Line{TicksS}から\Line{TicksE}で\Elm{defs}内で定義した目盛りを
+       $90^{\circ}$ずつ回転したものを4つ使って時計盤の目盛りを作成してい
+       ます。
+ \item \Line{Hands}では\Elm{path}を用いて秒針を作成しています。
+ \item この図形に対し\Line{animS}から\Line{animE}で回転のアニメーション
+       を付けています。
+\begin{itemize}
+ \item このアニメーションは$0$から$360$の値を$60$秒かけて変化させるよう
+       にしているので、ちょうど一分で一回転することになります。
+ \item \AttribA{begin}はアニメーションの開始時を指定する属性で、その値は
+       \texttt{Face.mouseover}です。
+%
+%       \texttt{Face}は
+       \Line{switch}の長方形の属
+       性\Attrib{id}の値が\texttt{Face}なので
+       \texttt{Face.}\AttribAVal{mouseover}{}はこの長方形に「マウスカー
+       ソルが乗ったとき」を意味します。
+ \item \AttribA{end}はアニメーションの終了時を指定する属性です。ここで
+       は\texttt{Face.}\AttribAVal{mouseout}{}となっているのでこの長方形
+       から「マウスカーソルが出たとき」を意味します。
+\end{itemize}
+% \item マウスのイベントではこのほかに\AttribAVal{click},
+%       \AttribAVal{mousedown}, \AttribAVal{mouseup}などがあります。
+\end{itemize}
+\ProbwithSolC{svg-stopwatch-2button}
+{二つのボタンを持つストップウォッチ}{svg-stopwatch-2button}
+{リスト\ref{svg-stopwatchL}に分針をつけたストップウォッチを作成しなさい。また、ボタ
+ ンを2つ置き、片方がクリックされたら動き出し, 他方がクリックされたら停
+ 止するものを作成しなさい。\vspace{-0.5\baselineskip}}
+{「Start」を押すとはじめから動き出すのが欠点です。}
+\ProbwithSol{poggendorf-animation}
+{ポッケンドルフの錯視(アニメーション付き)}{poggendorff-animation}
+{\keysubE{ポッケンドルフ}{錯視}{の}の錯視(図\ref{poggendorf})の中央の長方形
+ に\AttribC{opacity}にアニメーションをつけて、その上にマウスカーソルを載せるとその
+ 長方形がだんだん消えていき、どの直線が左右につながっているかを示すよ
+ うにしなさい。\vspace{-1\baselineskip}
+\IndexSet{ポッケンドルフの錯視}{}{}{}{}}
+%\newpage
+
+%\vspace{-3\baselineskip}\ \\
+\subsection{アニメーション終了のイベントを利用する}
+リスト\ref{svg-signalsimulation}はアニメーションの開始を
+他のアニメーションの終了時に設定することで信号機の明かりの変化を
+シミュレーションしています。
+%アニメーションに\Attrib{id}を付けることでアニメー
+%ションの開始時や終了時を参照することができます。
+
+\ShowFigs{0.23}{ht}{{signal-blue}{signal-yellow}{signal-red}}
+{信号機}{signal} 
+%\newpage
+\SVGListN{信号機のシミュレーション}{svg-signal}{svg-signalsimulation}
+\begin{itemize}
+ \item \Line{unit}で信号機の明かりの大きさをを同一にするため、円を定義し
+       ています。
+ \item \LineR{BaseS}{BaseE}で信号機の全体を示す長方形を定義しています。
+ \item \LineR{red}{redE}で赤色の信号を定義しています。
+%\ListSub{red}{redE}
+\begin{itemize}
+ \item \Attrib{id}で参照するための名前\Showattrib{inRed}を定義しています。
+ \item 明かりの水平方向の位置を\AttribO{x}で定義していることに注意
+       してください。\Elm{use}ではすでに図形が定義されているので
+       \AttribO{cx}では定義できないようです。
+ \item 信号の明かりの色を付いていない状態(\AttribCVal{gray}{})に設定して
+       います。
+ \item \Lines{inRedS}{inRedE}で\AttribO{fill}にアニメーションをつけていま
+       す。
+\begin{itemize}
+ \item 属性\Attrib{id}を\Showattrib{inRed}に設定しています。
+ \item アニメーションの開始を指定する\AttribA{begin}に
+       \Showattrib{0s;inYellow.end}を与えています。この指定により、この
+       SVGファイルの開始時(\Showattrib{0s})と\Showattrib{inYellow}で参
+       照されているアニメー ションの終了時(\Showattrib{end})にこのアニメー
+       ションが開始されます。
+ \item アニメーションの継続時間は\AttribA{dur}で指定しています。
+ \item アニメーションの終了時(\AttribO{end})には元の値に戻す
+       \AttribAVal{remove}{}を指定しています。
+\end{itemize}
+\end{itemize}
+ \item \Lines{yellow}{YellowE}では黄色の、\LineR{blue}{blueE}では青色の
+       信号をそれぞれ定義しています。
+\end{itemize}
+\begin{Problem}\upshape
+リスト\ref{svg-signalsimulation}においてアニメーションの開始、終了を時間
+ で与えるようにしたときと組む手間を比較しなさい。
+\end{Problem}
+\fi
+%
+\input \CH 0480animation-example.tex

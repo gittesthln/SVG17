@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>追いかけっこをする長方形</title>
+  <defs>
+    <pattern id="BackGround" x="0" y="0" patternUnits="userSpaceOnUse"
+      width="40" height="300">
+      <rect x="0" y="0" width="20" height="300">
+        <animate attributeName="fill" dur="10s" calcMode="discrete"
+          values="black;gray;lightgray" repeatCount="indefinite"/>
+      </rect>
+      <rect x="20" y="0" width="20" height="300" fill="lightgray"/>
+    </pattern>
+    <rect id="MoveH" width="40" height="20" fill="currentColor">
+      <animate attributeName="x" attributeType="XML"
+         values="10;560;10" keyTimes="0;0.5;1" dur="25s"
+         repeatCount="indefinite"/>
+    </rect>
+  </defs>
+  <g transform="translate(20,20)">
+    <rect x="0" y="0" width="600" height="120" fill="url(#BackGround)"/>
+    <use xlink:href="#MoveH" y="10" color="lightgray"/>
+    <use xlink:href="#MoveH" y="50" color="gray"/>
+    <use xlink:href="#MoveH" y="90" color="black"/>
+  </g>
+</svg>
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="400" width="400">
+<title>ストップウォッチ？</title>
+<defs><!-- ref="defS" -->
+  <line id="TickL" x1="120" y1="0" x2="150" y2="0" ref1="TickLS"
+       stroke-width="3" stroke="black" ref2="TickLE"/>
+  <line id="TickS" x1="135" y1="0" x2="150" y2="0" ref1="TickSS"
+       stroke-width="3" stroke="black"  ref2="TickSE"/>
+  <g id="Ticks4" ref="faceUnitS">
+    <g transform="rotate(0)"> <use xlink:href="#TickL"/></g>
+    <g transform="rotate(30)"><use xlink:href="#TickS"/></g>
+    <g transform="rotate(60)"><use xlink:href="#TickS"/></g>
+  </g><!--  ref="faceUnitE" -->
+</defs><!-- ref="defE" -->
+<g transform="translate(200,200) rotate(-90)">
+  <circle cx="0" cy="0" r="150" stroke="black" stroke-width="4" fill="none" ref="circle"/>
+  <g transform="rotate(0)">  <use xlink:href="#Ticks4"/></g><!-- ref="TicksS" -->
+  <g transform="rotate(90)"> <use xlink:href="#Ticks4"/></g>
+  <g transform="rotate(180)"><use xlink:href="#Ticks4"/></g>
+  <g transform="rotate(270)"><use xlink:href="#Ticks4"/></g><!-- ref="TicksE" -->
+  <path d="M0,-3 135,-3 135,-8 150,0 135,8 135,3 0,3z" fill="red" ref="Hands">
+    <animateTransform attributeName="transform" ref="animS"
+          attributeType="XML" type="rotate" 
+          from="0" to="360" dur="60s" repeatCount="indefinite"
+          begin="Face.mouseover" end="Face.mouseout" fill="freeze" ref2="animE"/>
+  </path>
+</g>
+  <rect x="175" y="360" width="50" height="20" fill="black" id="Face" ref="switch"/>
+</svg>

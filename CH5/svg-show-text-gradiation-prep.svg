@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?><!-- ref="encoding" -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>文字列をグラデーションで塗る</title>
+<style type="text/css">
+.textStyle {font-size:100px; text-anchor:middle; font-family:Impact;}<!-- ref="css" -->
+</style>
+<defs>
+   <linearGradient id="Gradiation1" gradientUnits="objectBoundingBox" ref1="GradS">
+      <stop stop-color="yellow" offset="0%"/>
+      <stop stop-color="red" offset="100%"/>
+   </linearGradient><!-- ref="GradE" -->
+   <mask id="text" class="textStyle" maskUnits="userSpaceOnUse" ref1="maskS"
+       x="0" y="0" width="800" height="200">
+     <text x="400" y="100" class="textStyle" ref="textS"
+       fill="white" >This is an Example.</text><!-- ref="textE" -->
+   </mask><!--  ref2="maskE" -->
+</defs>
+<g transform="translate(50,0)">
+  <rect x="0" y="0" width="800" height="200" fill="url(#Gradiation1)" ref1="rectS"
+    mask="url(#text)" ref2="rectE"/>
+  <text x="400" y="100"  class="textStyle" fill="none" ref="text2S"
+    stroke-width="4" stroke="black">This is an Example.</text><!-- ref="text2E" -->
+  <line x1="0" y1="0" x2="0" y2="150" stroke-width="1" stroke="black" ref="Line1"/>
+  <line x1="800" y1="0" x2="800" y2="150" stroke-width="1" stroke="black" ref="Line2"/>
+</g>
+</svg>

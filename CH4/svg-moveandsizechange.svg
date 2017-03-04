@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>拡大縮小と移動のアニメーション</title>
+  <g transform="translate(50,50)" ><!-- ref="gStart" -->
+    <line x1="0" y1="0" x2="400" y2="0" stroke-width="4" stroke="gray" ref="L1"/>
+    <line x1="0" y1="0" x2="0" y2="400" stroke-width="4" stroke="gray" ref="L2"/>
+    <g ref="translate">
+      <g ref="scale">
+        <circle cx="0" cy="0" r="100" ref="circle"
+          stroke-width="4" stroke="black" fill="red"/>
+      <animateTransform attributeName="transform" attributeType="XML" ref="animS"
+       type="scale" from="1" to="2" dur="20s" fill="freeze" ref2="animE"/>
+     </g>
+     <animateTransform attributeName="transform" attributeType="XML" ref="anim2S"
+       type="translate" from="100,100" to="200,200" dur="20s" fill="freeze" ref2="anim2E"/>
+    </g>
+  </g><!-- ref="gEnd" -->
+</svg>

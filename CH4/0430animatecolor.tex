@@ -1,0 +1,19 @@
+\section{色を変える(\Elm{animateColor})}
+属性にアニメーションを付けるためには\Elm{animateColor}を使用します。
+しかし、このアニメーションは後で解説する\Elm{animate}でも実現できるので
+将来の規格ではなくなるとの記述があります
+\footnote{\href{https://www.w3.org/TR/SVG/animate.html#AnimateColorElement}
+の最後の部分}。
+
+図\ref{animation-color}は円の塗り(\AttribO{fill})と縁取り
+(\AttribO{stroke})にそれぞれアニメーションをつけています。
+
+\ShowFigs{0.22}{ht}
+{{animation-color-begin}{animation-color-2}{animation-color-end}}
+{色のアニメーション(開始時--左--、途中(中央)、終了時--右--)}
+{animation-color}
+\SVGListN{色のアニメーション}
+{svg-animation-color}{svg-animation-color}
+
+色の名前は CSS で定義されているので \AttribA{attributeType} の属性値は
+\texttt{CSS} となります。\vspace{-1.\baselineskip}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>画像を pattern で使用する</title>
+  <defs>
+    <pattern id="image" width="200" height="200" patternUnits="userSpaceOnUse">
+      <image xlink:href="cyclamen-2.jpg" width="200" height="200"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="1000" height="600" fill="url(#image)"/>
+</svg>

@@ -1,0 +1,151 @@
+\section{いろいろな属性に動きをつける}
+\subsection{一般の属性に変化をつける(\Elm{animate})}\label{animationbyanimate}
+その他の属性にアニメーションをつけるのには\Elm{animate}を用います。
+\paragraph{色の変化}
+\hspace{-0.5em}図\ref{animation-color}は円の塗り(\AttribO{fill})と縁取り
+(\AttribO{stroke})に個別のアニメーションをつけています
+\footnote{色に関する属性にアニメーションを付ける\Elm{animateColor}があり
+ますが、\Elm{animate}で実現できるので
+将来の規格ではなくなるとの記述があります
+(%\href{https://www.w3.org/TR/SVG/animate.html#AnimateColorElement}
+{\Verb+https://www.w3.org/TR/SVG/animate.html\#AnimateColorElement+}
+の最後の部分)。}。
+
+\ShowFigs{0.22}{ht}
+{{animation-color-begin}{animation-color-2}{animation-color-end}}
+{色のアニメーション(開始時--左--、途中(中央)、終了時--右--)}
+{animation-color}
+\SVGListN{色のアニメーション}
+{svg-animation-color}{svg-animation-color}
+
+色の名前は CSS で定義されているので \AttribA{attributeType} の属性値は
+\texttt{CSS} となります。%\vspace{-1.\baselineskip}
+
+\paragraph{長方形の大きさの変化}
+リスト\ref{svg-animation-w-rect}は長方形の幅の属性\AttribO{width}にアニ
+メーションをつけて形を変えています。
+
+\SVGListN{長方形の幅を変えるアニメーション}
+{svg-animation-w-rect}{svg-animation-w-rect}
+\begin{itemize}
+ \item アニメーションは\Line{anim1}から\Line{anim2}の\Elm{animate}でつけ
+       ています。
+ \item アニメーションをつける属性名を\AttribA{attributeName}の属性値に与
+       え、\AttribA{attributeType}に XML を指定します。
+\end{itemize}
+%\ShowGraphicPs{0.40}{ht}{{}}{長方形の幅を変える}{change-width}
+\begin{Problem}\upshape
+ リスト\ref{svg-moveandsizechange}における円のアニメーションのうち
+大きさを変えるアニメーションを半径で行うようにしなさい。それによりアニメー
+ ションの見え方がどのように変わるか調べなさい。
+\end{Problem}
+\begin{Problem}\upshape\Elm{animateTransform}の\AttribVal{scale}{}属性に
+ アニメーションをつけて例\ref{svg-animation-w-rect}と
+ 同じように長方形の形が変わるアニメーションを作成しなさい。
+また、この方法と例\ref{svg-animation-w-rect}とのアニメーションの違いがあるか
+ どうか検討しなさい。
+\end{Problem}
+\paragraph{図形の形の変化}\Elm{path}の属性
+%\AttribO{d}にアニメーションをつけて図形の形を変えています。
+\AttribO{d}にアニメーションをつけるためには\AttribO{d}の属性値の構造を変
+えてはいけません。
+たとえば、四角形を三角形に変化させるアニメーションでは
+初めに与えた点が4つならば最終の図形の三角形を4つ点で表す必要があります。
+
+\ShowFigs{0.25}{ht}
+{{bezier-circle4-square-start}{bezier-circle4-square-2}%
+{bezier-circle4-square-end}}
+{円から正方形へ(開始時--左--、途中、終了時--右--)}
+{bezier-circle4-square} 
+
+リスト\ref{svg-bezier-circle4-square}は円を正方形に変えるアニメーションです。
+%\newpage
+%
+% \ \\[-2\baselineskip]
+\SVGListN{\Elm{path}の属性\AttribO{d}にアニメーションをつける}
+{svg-bezier-circle4-square}{svg-bezier-circle4-square}
+\begin{itemize}
+ \item 円を近似して描く解説は例\ref{onequartercirclebybezier}を参
+       考にしてください。9行目から12行目までの\AttribA{from}の値はそこ
+       に現れる値を用いています。
+
+       なお、例\ref{onequartercirclebybezier}では曲線の定義に対称な
+       \Bezier 曲線を定義する \texttt{S} を用いていますが、ここでは4つの
+       独立した\Bezier 曲線に直しています。
+ \item \AttribO{d}にアニメーションをつけるときは\AttribA{from}で定義した
+       データの形を変えることができないので、\AttribA{to}で示
+       す正方形も\Bezier 曲線で表す必要があります。ここでは途中の制御点
+       を開始点と終了点の中点にしています。
+\end{itemize}
+\begin{Problem}
+ \Elm{path}を用いて長方形を描き、それに形を変える
+ アニメーションをつけなさい。
+\end{Problem}
+
+\paragraph{グラデーションを横に動かす}
+線形グラデーションの\AttribC{gradientUnits}の値を
+\AttribCVal{userSpaceOnUse}にするとグラデーションの開始位置
+(\AttribC{x1}や\AttribC{y1})や
+終了位置(\AttribC{x2}や\AttribC{y2})を図形とは無関係な位置に指定できます。
+これらの属性にアニメーションをつけるとグラデーションの色が横に流
+れます(図\ref{anim-gradiation})。
+
+\ShowFigs{0.4}{ht}{{anim-gradiation-1}{anim-gradiation-2}}
+{グラデーションにアニメーションを付ける}{anim-gradiation} 
+
+\SVGListN{グラデーションにアニメーションをつける}
+     {svg-mask}{svg-gradiationwithanimation}
+\begin{itemize}
+ \item \Line{gradS1}から\Line{grad1E}でアニメーションを伴った線形グラディ
+       エーションを定義しています。
+\begin{itemize}
+ \item 線形グラデーションの開始位置を変化させるので
+       \AttribC{gradientUnits}の値を\AttribCVal{userSpaceOnUse}{}にしま
+       す(\Line{gradS1})。
+ \item \Line{gradS2}で塗る範囲を定義しています。\AttribC{x1}と
+       \AttribC{x2}の差($800$)が線形グラディエーショ
+       ンを適用する長方形(\LineR{rectS}{rectE})の幅($400$)の$2$
+       倍になっていることに注意してください。
+グラデーションが端まで行ったときに連続して変化するように見せるために、同じ
+       パターンを2回繰り返したものを用意しているからです。
+ \item グラデーションのパターン$赤\Rightarrow 黄\Rightarrow 赤$が2回
+       繰り返されています(\LineR{stop1}{stop5})。
+ \item 線形グラデーションの位置を変更するために\AttribC{x1}と
+       \AttribC{x2}にアニメーションをつけいています
+       (\LineR{animx1S}{animx1E}と\LineR{animx2S}{animx2E})。
+\end{itemize}
+ \item \LineR{rectS}{rectE}でアニメーションが付いた線形グラディ
+       エーションを塗る長方形を定義しています。
+\end{itemize}
+
+\ProbwithSolC{svg-mask2}{\Showattrib{stop}にアニメーションを付ける}
+{svg-mask2}{リスト\ref{svg-gradiationwithanimation}のアニメーションで
+ \AttribC{stop-color}にアニメーションを付けて同じように見えることができ
+ るか検討しなさい。}
+{前のものと二つ並べて同じ動きになることを確認できるようにして
+ います。}
+
+\ProbwithSol{zavagno-animation}{ザバーニョの錯視(アニメーション付き)}
+{svg-zavagno-animation}
+{グラデーションを構成する\Elm{stop}の属性にアニメーションを付けること
+ができます。
+\OIIdxY{ザバーニョ}を構成する長方形の線形グラディエー
+ ションの片方の端の\AttribC{stop-color}にアニメーションを付けて見え方の
+ 変化を調べなさい。}
+
+\subsection{属性値をすぐに変える---\Elm{set}を利用したアニメーション}
+\label{visibility-hidden}
+\Elm{animate}の代わりに\Elm{set}を使うと、途中は
+\AttribA{from}で指定された値のままで
+アニメーションの終了時に\AttribA{to}で指定された
+値に設定されます。
+ここでは図形を表示するかどうかを決める\Attrib{visibility}属性に利用しま
+す。
+%
+色に対して\Elm{set}を利用した例はリスト\ref{svg-signalsimulation}にあり
+ます。%\vspace{\baselineskip}
+
+\SVGListN{図形が7秒後消える}%
+{svg-animation-visibility}{svg-anilmation-visibility}
+アニメーションの属性\AttribA{calcMode}の値を
+\AttribAVal{discrete}{}にすると\Elm{set}と同じ動作をします。

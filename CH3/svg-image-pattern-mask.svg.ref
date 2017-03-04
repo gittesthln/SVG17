@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>画像をくりぬく(mask要素)</title>
+  <defs>
+    <mask id="mask1" maskUnits="userSpaceOnUse"
+      x="0" y="0" width="300" height="300">
+      <ellipse cx="150" cy="120" rx="130" ry="100" fill="white"/>
+    </mask>
+    <image id="image" xlink:href="cyclamen-2.jpg" width="300" height="300"/>
+    <pattern id="pattern" width="300" height="300"
+      patternUnits="userSpaceOnUse" >
+      <use xlink:href="#image"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="lightgray"/>
+  <image x="0" y="0" xlink:href="cyclamen-2.jpg" width="300" height="300"
+    mask="url(#mask1)"/>
+  <ellipse cx="450" cy="120" rx="130" ry="100" fill="url(#pattern)"/>
+</svg>

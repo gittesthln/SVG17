@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>道のりに沿って動くアニメーション</title>
+  <defs>
+    <path id="MotionPath" d="M0,0 C0,100 100,200 200,0 z" ref="pathS"
+      stroke-width="3" stroke="black" fill="none" ref2="pathE"/>
+    <rect id="MovingItem" x="0" y="0" width="50" height="20" ref="rectS"
+      fill="currentColor" stroke-width="3" stroke="black" ref2="rectE"/>
+  </defs>
+  <g transform="translate(10,40)" color="red" ref="g1">
+    <use xlink:href="#MotionPath" ref="path1"/>
+    <use xlink:href="#MovingItem" ref="item1S">
+      <animateMotion dur="10s" repeatCount="indefinite" ref="anim1S">
+        <mpath xlink:href="#MotionPath" ref="mpath1"/>
+      </animateMotion><!-- ref="anim1E" -->
+    </use><!-- ref="item1E" -->
+  </g>
+  <g transform="translate(250,40)" color="blue" ref="g2" >
+    <use xlink:href="#MotionPath" ref="path2"/>
+    <use xlink:href="#MovingItem"  ref="item2S">
+      <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" ref="anim2S" >
+        <mpath xlink:href="#MotionPath"/>
+      </animateMotion><!-- ref="anim2E" -->
+    </use><!-- ref="item2E" -->
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>平行移動のアニメーション</title>
+  <g transform="translate(100,50)" ><!-- ref="gStart" -->
+    <rect x="0" y="0" width="100" height="50" ref1="rect1S"
+       stroke-width="5" stroke="black" fill="green" ref2="rect1E"/>
+    <g transform="rotate(45)"><!-- ref="rot45" -->
+      <rect x="0" y="50" width="100" height="50" ref1="rect2S"
+        stroke-width="5" stroke="blue" fill="red" ref2="rect2E"/>
+    </g>
+    <animateTransform attributeName="transform" attributeType="XML" ref="animS"
+       type="translate" from="100,50" to="200,50" dur="10s" fill="freeze" ref2="animE"/>
+  </g><!-- ref="gEnd" -->
+</svg>

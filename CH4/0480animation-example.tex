@@ -1,0 +1,102 @@
+% -*- coding: utf-8 -*-
+\section{アニメーションがついた錯視図形}
+今までに出てきた錯視図形で錯視の原因となる部
+分にアニメーションをつけるこ
+とで見え方の変化を楽しむことができました。今までに出てきた
+ものにアニメーションを付けることができます。
+\begin{itemize}\upshape
+ \item 問題\ref{prob-contrast}で長方形の境界を隠すような図形をアニメ-ショ
+       ンで表示、移動させる。
+ \item \OIIdx{カフェウォール}(\pageref{munsterberg}ページ、図
+       \ref{munsterberg})の細い線に黒から明るい灰色に変化するアニメーショ
+       ンを付ける。
+\SolSVGFile{図}{munsterberg}{カフェウォール錯視にアニメーションをつける}
+{svg-munsterberg-animation}
+\iffalse%\else
+ \item \OIIdxB{色の同化}(\pageref{uniform}ページ、図\ref{uniform})の細
+       い斜線に色のアニメーションを付ける。
+       \label{184629_5Apr08}
+\fi
+\end{itemize}
+%\newpage
+\begin{Problem}\upshape\label{prob-moving-square}
+図\ref{moving-square}は放射状に描かれた直線群のためにその中にあ
+ る正方形が歪んで見えます。この正方形が上下に移動するアニメーショ
+ ンを付けて形が見え方の変化を調べなさい。
+\end{Problem}
+ \ShowFig{0.27}{ht}{moving-square}
+{\OIIdxB{ゆがんだ正方形}}{moving-square}
+\SolSVGFile{問題}{prob-moving-square}{ゆがんだ正方形}
+{svg-move-square-amim}
+%\CPageF
+%次の例はアニメーションによる独自の錯視です。
+\ \\[-3.5\baselineskip]
+\paragraph{追いかけっこをする長方形}
+図\ref{racing-square-1}は背景が黒と明るい灰色(\AttribCVal{lightgrey}{})
+の同じ幅の縦じまで塗られた背景上を明るい灰色、灰色と黒に
+塗られた小さな長方形が等速度で移動するものです。
+
+\ShowFig{0.7}{ht}{racing-square-1}{追いかけっこをする長方形(その1)}
+{racing-square-1}
+
+長方形の両端でその色が背景の色と同じときにはその長方形は動いているよ
+うには見えません(この図では黒の長方形が停止しているように見えます)。
+
+したがって、等速度で移動して見えるものは真ん中にある灰
+色の長方形だけで、残りの二つの色の長方形は止まっている状態から灰色の長方
+形に追いつくというギクシャクした動きに見えます。
+
+
+図\ref{racing-square-2}では背景の黒の部分を灰色に変えています。これによ
+り等速度で動いているように見えるのは黒の長方形になります。
+\ShowFig{0.7}{ht}{racing-square-2}{追いかけっこをする長方形(その2)}
+{racing-square-2}
+
+%\ \\[-2\baselineskip]
+図\ref{racing-square-3}では背景の黒の部分を明るい灰色に変えています。
+\ShowFig{0.7}{ht}{racing-square-3}{追いかけっこをする長方形(その3)}
+{racing-square-3}
+
+%\ \\[-2\baselineskip]
+一番上の長方形は見えなくなり、残りの二つの長方形は等速度で移動するように
+見えます。
+
+リスト\ref{svg-racing-recs}はこれら3つの図を順番に表示するものです。
+\SVGListN{追いかけっこをする長方形}{svg-racing-recs}{svg-racing-recs}
+\begin{itemize}
+ \item \LineR{patternS}{patternE}で背景の作成するためのパターンを定義し
+       ています。
+\begin{itemize}
+ \item \LineR{recCS}{recCE}で黒、灰色、明るい灰色と順番に色を変える長
+       方形を定義しています。
+ \item 色を変えるアニメーションは\LineR{animS}{animE}で定義しています。
+ \item \AttribA{calcMode}が\AttribAVal{discrete}なので指定した時
+       間にこれらの色に断続的に変化します。
+ \item 繰り返しの指定(\AttribA{repeatCount})が\AttribAVal{indefinite}{}
+       なのでアニメーションは停止しません。
+ \item \Line{rect2}では色が変化しない長方形を定義しています。
+\end{itemize}
+ \item \LineR{rectMS}{rectME}では横に移動する長方形の雛形を定義していま
+       す。
+\begin{itemize}
+ \item 塗りつぶしの色(\AttribO{fill})は\AttribCVal{currentColor}{}として
+       いて引用されている先で定義されます。
+ \item \LineR{animRS}{animRE}で横に動く長方形のアニメーションを定義して
+       います。
+ \item ここでは長方形の横位置を示す属性\AttribO{x}にアニメーションを付け
+       ています。
+ \item 右端で戻るように\AttribA{values}の値を
+       \Showattrib{10;560;10}にしています(\Line{animR1})。
+\end{itemize}
+ \item \Line{Back}で背景として長方形を\LineR{patternS}{patternE}で定義し
+       たパターンで塗っています。
+ \item \LineR{recsS}{recsE}で横に動く長方形を3つ定義しています。それぞれ
+       の塗りつぶしの色を\AttribA{color}で指定しています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-racing-recs}について次のことについて調べなさい。
+\begin{enumerate}
+ \item 移動する長方形の塗りつぶしの色を変えても同じように見えるかどうか
+ \item 長方形以外の形でも可能かどうか
+\end{enumerate}
+\end{Problem}

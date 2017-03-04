@@ -1,0 +1,30 @@
+\section{道のりに沿ったアニメーション(\Elm{animateMotion})}
+指定した道のりに沿って動くアニメーションでは
+\Elm{animateMotion}を用います。道程は属性\AttribO{path} で指定します。
+\ShowFig{0.4}{ht}{motion-along-path}{道のりに沿って動くアニメーション}
+{motion-along-path}
+\SVGListN{道のりに沿ったアニメーション}{svg-motion-along-path}
+   {svg-motion-along-path}
+\begin{itemize}
+ \item \LineR{pathS}{pathE}でアニメーションで動くパスを定義しています。このパ
+       スは動きがわかるように表示にも使われています(\Lines{path1}{path2})。
+ \item \LineR{item1S}{item1E}ではアニメーションで動く左側の長方形を定義
+       しています。
+       この長方形の内部を塗る\AttribO{fill}が\AttribCVal{currentColor}{}で
+       あることに注意してください。これは上位の環境で定義されている色で
+       塗ることを意味します。ここでは\Line{g1}にある\Elm{g}の属性
+       \AttribO{color}の値(\AttribCVal{red})が利用されます。
+ \item \LineR{anim1S}{anim1E}でこの長方形にアニメーショ
+       ンをつけています。\Elm{defs}のなかで定義された道のりを参照するため
+       に\Elm{mpath}を用いています。
+ \item 右側の長方形についても同様のアニメーションが付きます
+       (\LineR{item2S}{item2E})。このアニメーションには属性\AttribA{rotate}に
+       \AttribAVal{auto}{}を指定しているので道のりに接するように長方形が
+       回転しながら移動します。\AttribAVal{reverse-auto}{}という値も指定
+       できます。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-motion-along-path}においてアニメーションの属性
+ \AttribA{rotate}に\AttribAVal{reverse-auto}{}を設定したときの動きを確認
+ しなさい。
+\end{Problem}

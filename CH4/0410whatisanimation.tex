@@ -1,0 +1,46 @@
+\section{アニメーションにおける属性}
+%このほかに
+SVGでは指定したオブジェクトの属性の値を
+時間の経過とともに変化させる\keyitem{アニメーション}の機能があります。
+アニメーションではオブジェクトの属性値以外に
+開始の時間と終了の時間、開始時と終了時の値、終了時の状態、繰り
+返しの回数などを指定する必要があります(表\ref{ListCommonAnimationAttrib}参照)。
+\ListAttribsF{ListCommonAnimationAttrib}
+      {アニメーションに共通の属性}{|c|m{10em}|l|}
+{{属性名}{\multicolumn{1}{c|}{意味}}
+         {\multicolumn{1}{c|}{とりうる値}}
+{\AttribA{attributeName}{}}{属性名}{属性名なら何でも可}
+{\AttribA{attributeType}{}}{属性値の種類}{\AttribVal{XML}{}または\AttribVal{CSS}{}}
+{\AttribA{from}}{開始時の属性の値}{\relax}
+{\AttribA{to}}{終了時の属性の値}{\relax}
+{\AttribA{dur}}{変化の継続時間}
+       {\texttt{2s}(2秒), \texttt{1m}(1分)}
+{\AttribA{begin}}{開始時間}
+       {時間を与える。例\texttt{2s}(2秒), \texttt{1m}(1分)}
+{\AttribA{fill}}{終了時の属性値の指定}
+    {\multicolumn{1}{m{15em}|}{\AttribAVal{freeze}{}(終了値で固定)\newline
+                \AttribAVal{remove}{}(はじめの値に戻る)}}
+{\AttribA{repeatCount}}{繰り返し回数}
+    {\AttribAVal{indefinite}は無限回の繰り返し}
+{\AttribA{values}}{属性値を複数指定}{セミコロンで区切って値を設定}
+{\AttribA{keyTimes}}{アニメーション全体の時間の割合で
+  \AttribA{values}で指定した値に順次変化}
+  {$0$から$1$の間の値をセミコロンで区切る}
+{\AttribA{calcMode}}{補間方法の指定}
+         {\multicolumn{1}{m{22em}@{}|}{%
+            \AttribAVal{discrete}{} 値が不連続に変わる。\newline
+            \AttribAVal{linear}{}値を一次式で補間
+                \newline\hspace{3em}(\Elm{animateMotion}以外で
+			   %\newline\hspace{3em}
+                          デフォルト)
+               \newline
+            \AttribAVal{paced}{}アニメーション中一定の割合で
+%	    \newline\hspace{3em}
+            変化する
+            \newline\hspace{3em}(\Elm{animatMotion}
+%            \newline\hspace{3em}
+                   のデフォルト)\newline
+            \AttribAVal{spline}{} 3次の\Bezier で値を補間%\newline
+ }}
+}
+%\clearpage

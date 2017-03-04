@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="300" width="300">
+  <title>円から正方形へ</title>
+  <g transform="translate(150,150)">
+    <path fill="red" stroke-width="5" stroke="black">
+      <animate attributeName="d" attributeType="XML"
+         from="M-100,0
+             C-100,-55.228 -55.228,-100 0,-100
+             C55.228,-100 100,-55.228 100,0
+             C100,55.228 55.228,100 0,100
+             C-55.228,100 -100,55.228 -100,0z"
+         to="M-100,0
+             C-50,-50 -50,-50 0,-100
+             C50,-50 50,-50 100,0
+             C50,50 50,50 0,100
+             C-50,50 -50,50 -100,0z"
+          dur="10s" fill="freeze"/>
+    </path>
+  </g>
+</svg>

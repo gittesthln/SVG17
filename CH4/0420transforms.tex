@@ -1,0 +1,159 @@
+\section{位置を動かす(\Elm{animateTransform})}
+\paragraph{平行移動}
+%オブジェクトの位置は%属性\AttribO{x}などで指定するものがありますが
+グループ化されたオブジェクト\Elm{g}は属性%でまとめている場合に%は
+\Attrib{transform}で位置の移動ができました。
+\Elm{animateTransform}を用いると\Attrib{transform}に対してアニメー
+ションがつきます。
+
+次の例は二つの長方形をグループ化し、それに平行移動のアニメーションをつけています。
+\ShowFigs{0.3}{ht}{{animation-transform-begin}{animation-transform-end}}
+{平行移動のアニメーション(開始時--左--と終了時--右--)}{animation-transform}
+\SVGListN{図形の平行移動のアニメーション}
+{svg-animation-transform}{svg-animation-transform}
+\ExpList{%
+{%この例では
+\Line{gStart}から\Line{gEnd}で定義されているグループに
+       平行移動のアニメーションをつけています。
+%\LineF{\arabic{chapter}}{svg-animation-transform.svg}{gStart}
+}
+{このグループには\LineR{rect1S}{rect1E}にある長方形と、
+       \LineR{rect2S}{rect2E}にある長方形を$45^{\circ}$回転した
+       もの(\Line{rot45}で定義)の二つの図形が含まれています。}
+{\LineR{animS}{animE}にかけて\Elm{animateTransform}を用い
+       て平行移動のアニメーションを定義しています。このアニメーションで
+       は次の属性を与えています。
+\ExpList{{\AttribA{attributeName}はアニメーションをさせる属性を定義します。
+       ここでは\AttribVal{transform}{}の値が与えられています。}
+{\AttribVal{transform}{}には3種類のタイプがあるのでそれを指定するた
+       めに\AttribA{type}を用います。この値は平行移動の場合
+       \AttribVal{translate}{}となります。}
+{図形の平行移動では\protect\texttt{translate(100,100)}のように指
+       定しますが、アニメーションの開始位置や終了位置を指定する
+       \AttribA{from}や\AttribA{to}では\protect\texttt{100,100}のように
+       括弧をつけません。}
+{{}{}ここでは$(100,100)$(\AttribA{from}での値)から
+       $(200,100)$(\AttribA{to}の値)へ一定の速度で移動します。}
+{アニメーションの継続時間は属性\AttribA{dur}で指定します。ここでは
+       \texttt{10s}なので$10$秒(s)間で上記の移動が行われます。
+       時間の単位としてはこのほかに\texttt{m}(分)などもあります。}
+{アニメーションが終わったときにの状態は\AttribA{fill}で与えます。
+       はじめの状態に戻る(\AttribAVal{remove}{})と終了状態のままでいる
+       (\AttribAVal{freeze}{})を指定できます。}
+}
+}
+}
+このほかにアニメーションの属性としては繰り返しを指定する
+\AttribA{repeatCount}があります。指定した回数だけアニメーションを繰り返
+すことができます。
+
+なお、長方形ひとつだけを平行移動させるのであれば \AttribO{x} や
+\AttribO{y} にアニメーションを付ける方法もあります。
+\ref{animationbyanimate}を参照してください。
+\ProbwithSol{svg-fick-animation}{フィックの錯視(アニメーション付き)}
+{svg-fick-animation}
+{\keysubE{フィック}{錯視}{の}の錯視\IndexSet{フィックの錯視}{}{}{}{}%
+(図\ref{example-fick})において垂直な線
+ 分が水平な線分の左端から右端へ移動するア
+ ニメーションをつけなさい。そのとき、見え方がどのように変化するかを調べ
+ なさい。}
+
+\paragraph{回転}
+次の例は例\ref{svg-animation-transform}
+における傾いた長方形に回転のアニメーションをつけたものです。
+\ShowFigs{0.3}{ht}{{animation-rotateS}{animation-rotateE}}{図形の回転のア
+ニメーショ -- 開始時(左)と平行移動終了時(右)}
+{example-animation-rotate}
+%\NewpageB
+
+\SVGListN{図形の回転のアニメーション}
+{svg-animation-rotate}{svg-animation-rotate}
+\begin{itemize}
+ \item 前のリスト\ref{svg-animation-transform}の
+%\csname CH4/svg-animation-transform.svg-animS\endcsname 行目から
+%\csname CH4/svg-animation-transform.svg-animE\endcsname 行目の部分が
+9行目から12行目の部分が
+この例で9行目から13行目に変わっ
+       ています。
+ \item まず、長方形\Elm{rect}にアニメーションをつけるのでこの要素の開
+       始要素と終了要素が分かれています。10行目の
+       最後が\texttt{>}となり、13行目に長方形の終了要素\texttt{</rect>}
+       があります。
+ \item 回転のアニメーションは\AttribA{type}が\AttribVal{rotate}となり、開
+       始が$0^{\circ}$で終了が$360^{\circ}$となっています。
+% \item
+
+ アニメーションを停止させないために\AttribA{repeatCount}に
+       \AttribAVal{indefinite}{}を指定します(12行目)。
+\end{itemize}
+この例では回転している長方形のアニメーションは
+それを含む図形が始めの$10$秒間平行移
+動しているので、この間は回転と平行移動が同時に起きます。平行移動は$10$秒後
+に停止しますが、回転のアニメーションは動き続けます。
+
+\iffalse
+これらの例では図形が画面に表示されるとすぐにアニメーションが始まります。
+開始時間は\AttribA{begin}を用いて指定することができます。
+%この属性値をコンマで区切ることで開始時間を複数指定することも可能です。
+\fi
+\iffalse
+\ProbwithSol{svg-bourdon-animation}{ブルドンの錯視(アニメーション付き)}
+{svg-bourdon-animation}
+{\keysubE{ブルドン}{錯視}{の}\IndexSet{ブルドンの錯視}{}{}{}{}(図
+ \ref{bourdon})の錯視に回転のアニメーションをつけてどのように見え方が変わるか
+ 調べなさい。}
+\fi
+\begin{Problem}\upshape
+ ミューラー$\cdot$ライヤーの錯視(図\ref{example-muller-lyer})
+の両端にある矢印に反対向きの
+回転のアニメーションをつけ、見え方の変化を観察しなさい。
+\end{Problem}
+\ProbwithFigSol{judd}{0.4}{ht}{ジャッドの錯視}{jud}
+{\OIIdxMC{ジャッド}{66}{}
+という図形です。%ミューラー$\cdot$ライヤーの錯視(図
+%\ref{example-muller-lyer})と違い矢印が同じ方向
+% を向いています。
+線分の中央にある円が左に偏った場所にあるように
+ 見えます。
+\iffalse\begin{enumerate}
+ \item この図を作成しなさい。
+ \item 両端の矢印の間の角度が開く回転のアニメーションをつけ、
+見え方の変化を観察しなさい。
+\end{enumerate}
+\else
+この図を作成し、さらに両端の矢印の間の角度が開く回転のアニメーションをつけ、
+見え方の変化を観察しなさい。%\vspace{-\baselineskip}
+\fi}
+%\CPageB
+\paragraph{拡大縮小}
+図形の拡大縮小する\Attrib{transform}の属性値
+\AttribVal{scale}{}にアニメーションを付ける例が
+%
+図\ref{svg-moveandsizechange-fig}です。%\AttribVal{scale}{}と
+さらに\AttribVal{translate}{}にアニメーションを付けるこ
+とで水平線と垂直線に円は接したまま大きさを変えます。
+
+\ShowFigs{0.27}{ht}{{svg-moveandsizechange1}{svg-moveandsizechange2}}
+{拡大縮小と移動のアニメーション}{svg-moveandsizechange-fig}
+
+\SVGListN{拡大縮小と移動のアニメーション}
+{svg-moveandsizechange}{svg-moveandsizechange}
+\begin{itemize}
+ \item \Line{L1}と\Line{L2}ではアニメーションをする円の上端と左端の位置
+       が変わらないことを確認するための直線を引いています。
+ \item 円の大きさを\AttribVal{scale}{}で変化させるために\Elm{circle}を
+       囲む\Elm{g}を用意します(\Line{scale})。
+ \item この要素に\AttribVal{scale}{}の値が
+       \texttt{1}から\texttt{2}へ変化するアニメーションを付けます
+       (\LineR{animS}{animE})。
+ \item \Line{circle}の中心が$(0,0)$なので\AttribVal{scale}{}によりこの
+       ままでは上端と左端の直線から円ははみ出してしまいます。これを避け
+       るため\Line{scale}の\Elm{g}の外側をさらに\Elm{g}で囲み
+       (\Line{translate})、この要素に\AttribVal{translate}{}のアニメー
+       ションを付けています(\Line{anim2S}から\Line{anim2E})
+\end{itemize}
+\ProbwithSolC{rect-with-scale}{長方形が横に伸びる}{svg-rect-with-scale}
+{\AttribVal{scale}{}を用いて長方形が横に伸びるアニメーションを作成しな
+ さい。}
+{何も属性がない\noexpand\Showattrib{g}は\noexpand\Showattrib{scale}のア
+ニメーションを付けるのに必要です。}

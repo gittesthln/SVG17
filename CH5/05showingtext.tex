@@ -1,0 +1,246 @@
+% -*- coding: utf-8 -*-
+\chapter{文字列の表示}\label{ShowText}
+\section{文字列表示の基礎}
+図\ref{showtext}はSVG画像の中に文字列を表示しています。
+
+文字列を\keysubT{表示する}{文字列}{を}には\Elm{text}を用います。
+\ShowFig{0.5}{ht}{svg-showtext}{文字列の表示}{showtext}
+%\newpage
+\SVGListN{文字列の表示}{svg-showtext}{svg-showtext}
+\begin{itemize}
+% \item エンコーディングをUTF-8にしています(\Line{encoding})。
+ \item この表示では文字列がどこに表示されるかをわかりやすくするために
+       $(0,0)$で交わる2直線を書く図形を定義しています(\Line{L1}と\Line{L2})。
+ \item 初めの文字列は属性\AttribO{x}や\AttribO{y}の値から表示する位置は
+       $(0,0)$です。
+ \item 文字列は\AttribO{fill}を指定することで赤で表示されます。
+ \item 表示位置は特別に指定しないので左下が基準になっています。
+ \item 二番目の文字列は日本語を表示しています。文字列の左上が$(0,0)$の
+       位置になります(\Line{T1S}から\Line{T1E})。
+\end{itemize}
+文字の表示のための\keysubT{属性}{文字列}{の}とその属性値を表
+\ref{attrib-text}にまとめておきます。\Opera ではこれらの属性がすべて利用
+できるわけではありません。特に、\AttribFnt{dominant-baseline}はサポート
+されていません。
+
+\iffalse
+各種の属性値の違いをインターラクティブに取り扱うHTMLファイルが
+例\ref{set-textposition}にありますので確かめてください。
+\fi
+\begin{table}[p]
+\caption{文字列表示の属性と属性値}\label{attrib-text}
+\begin{center}
+\begin{tabular}[t]{|c|c|l|}
+ \hline
+属性名&属性値 & \multicolumn{1}{c|}{意味}\\\hline
+\AttribFnt{text-anchor} & \multicolumn{2}{c|}{水平方向の位置} \\ \hline
+ &\AttribFntVal{start}{} & 文字列の開始位置\\
+ &\AttribFntVal{middle}{} & 文字列の中央\\
+ &\AttribFntVal{end}{} & 文字列の終了位置\\ \hline
+\AttribFnt{dominant-baseline}& \multicolumn{2}{c|}{垂直方向の位置}\\\hline
+ &\AttribFntVal{ideographic}{} &文字列の一番下 \\
+ &\AttribFntVal{alphabetic}{} &文字xの下 \\
+ &\AttribFntVal{hanging}{} & 文字列の一番上\\
+ &\AttribFntVal{mathematical}{} & 文字列の中央\\
+ &\AttribFntVal{auto}{} & 自動\\\hline
+\AttribFnt{baseline-shift}&\multicolumn{2}{c|}{文字列の上下の移動}\\\hline
+ & \AttribFntVal{baseline}{}& \\
+ & \AttribFntVal{sub}{}&添え字の位置 \\
+ & \AttribFntVal{super}{}& 上付きの位置\\
+ & 割合\%& \\
+ & 長さ& \\ \hline
+\AttribFnt{font-family} &\multicolumn{2}{c|}{フォントの種類の指定}\\ \hline
+ &\AttribFntVal{font-family}{} & フォント名を指定(漢字は含めない)\\
+ &\AttribFntVal{serif}{} & \\
+ &\AttribFntVal{sans-serif}{} & \\
+ &\AttribFntVal{cursive}{} & \\
+ &\AttribFntVal{fantasy}{} & \\
+ &\AttribFntVal{monospace}{} &文字幅等間隔 \\ \hline
+\AttribFnt{font-style} & \multicolumn{2}{c|}{フォントの形状} \\ \hline
+ &\AttribFntVal{normal}{} & 標準\\
+ &\AttribFntVal{italic}{} & イタリック\\
+ &\AttribFntVal{oblique}{} & 傾けたもの\\
+ \hline
+\AttribFnt{font-stretch} & & \\ \hline
+\AttribFnt{font-size}& 数字& フォントの大きさ\\ \hline
+\AttribFnt{text-decoration} & \multicolumn{2}{c|}{文字列の飾り} \\ \hline
+ &\AttribFntVal{none}{} & なし\\
+ &\AttribFntVal{underline}{} & 下線\\
+ &\AttribFntVal{overline}{} & 上線\\
+ &\AttribFntVal{line-through}{} &打ち消し線 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+SVGは多言語に対応しているので文字列の水平方向の位置が\Showattrib{left},
+\Showattrib{right}ではないことに注意してください。
+\begin{Problem}\upshape
+ \Showattrib{left}や\Showattrib{right}を使わない理由は何か調査しなさい。
+\end{Problem}
+\section{部分的に文字の表示を変える方法}
+前節で述べた\Elm{text}には文字の表現を変えるための属性が定められています。
+横に並んだ文字列の一部だけ文字の表現を変えるためには\Elm{text}だけでは
+変える文字列の先頭位置を指定するのが面倒です。これをするためには
+\Elm{tspan}を用います。
+\ShowFig{0.7}{ht}{svg-text-with-tspan}
+    {部分的に文字の表示を変える}{text-with-tspan}
+\SVGListN{\protect\Elm{tspan}の使用例}{svg-text-with-tspan}{svg-tspan}
+\begin{itemize}
+ \item \Line{tspan}では next の文字を\Elm{tspan} ではさんで色を赤に変えています。
+ \item \Line{underline}では\Elm{tspan}を用いて文字列の下線をつけてい
+       ます。なお、\texttt{<}や\texttt{>}を表示するためにここでは
+\verb+&lt;+ や \verb+&gt;+ というエンティティを用いていることに注意して
+       ください。
+\end{itemize}
+\section{文字をグラデーションで塗る}
+最近の計算機に含まれるフォントは\keyitem{アウトラインフォント}と呼ばれる
+形式で保持されています。アウトラインフォントとは文字の形(グリフ)を輪郭線
+の形で持っているものです。したがって、アウトラインフォントは図形と同等の
+機能を持っているのでマスクのパターンとして利用することができます。
+
+\ShowFig{0.85}{ht}{show-text-gradiation-prep}
+    {文字列をグラデーションで塗る}{show-text-gradiation}
+\SVGListN{文字列をグラデーションで塗る}
+{svg-show-text-gradiation-prep}{svg-show-text-gradiation-prep}
+\begin{itemize}
+ \item \Line{css}で表示する文字列の属性を定義しています。
+\begin{itemize}
+ \item フォントの大きさ(\AttribFnt{font-size})を$100$px
+ \item テキストと水平方向の位置(\AttribFnt{text-anchor})を中央
+       (\AttribFntVal{middle}{})に
+ \item 使用するフォント(\AttribFnt{font-family})を
+       \AttribFntVal{Impact}{}という線の幅が広いフォントに設定
+\footnote{残念ながらこのフォントは日本語フォントではありません。}
+\end{itemize}
+ \item \LineR{GradS}{GradE}でグラデーションを定義しています。
+ \item \LineR{maskS}{maskE}で\Elm{mask}を定義しています。
+\begin{itemize}
+ \item この\Elm{mask}のなかに\Elm{text}があり、中を\AttribCVal{white}{}
+       で塗りつぶしています(\Lines{textS}{textE})。
+ \item 文字の大きさなどはCSSの要素で決定されます(\Line{css})。
+\end{itemize}
+ \item \Lines{rectS}{rectE}で長方形を\LineR{GradS}{GradE}で定義したグラ
+       ディエーション塗りつぶしています。この行にはもうひとつ
+       \Attrib{mask}が指定されているのでこの範囲だけ塗られることになりま
+       す。
+ \item \Line{Line1}と\Line{Line2}は長方形の左と右の位置を示すためのもの
+       です。
+\end{itemize}
+\ProbwithSol{svg-show-text-gradiation}
+{文字列をグラデーションで塗る(アニメーション付き)}
+{svg-show-text-gradiation}
+{図\ref{show-text-gradiation}にグラデーションが横に流れるアニメーションを付けなさい。}
+
+\section{道程に沿った文字列の配置}
+文字列を道程に沿って配置することができます。
+\ShowFig{0.9}{ht}{svg-text-along-path}
+    {道程に沿った文字の表示}{text-along-path}
+		\newpage
+\SVGListN{道程に沿った文字の表示}
+{svg-text-along-path}{svg-text-along-path}
+\begin{itemize}
+ \item \Line{PathS}から\Line{PathE}にかけてテキストを配置する道程を定義
+       しています。こ
+       こでは3次の\Bezier 曲線を利用します。
+ \item この例ではテキストを2通りの方法で配置します。同一のテキストを利
+       用することを強調するために\Line{TextS}から\Line{TextE}にかけてそ
+       の文字列を定義しています。
+ \item \Line{Path1S}から\Line{Path1E}にかけて一つ目の文字列を定義したパ
+       スに沿って配置しています。これは\Elm{text}内に\Elm{textPath}を記述する
+       ことで実現できます。このタグ内で上で定義した道程を属性
+       \Attrib{xlink:href}で引用し、
+       さらに\AttribFnt{font-size}でフォントの大きさを指定しています
+       (\Line{FontSize})。
+% \item \Line{Textref}では以前に定義した文字列を引用するために
+%       \Elm{tref}を用いています。
+ \item \Line{TextPath1}では文字列を配置した道のりを描いています。
+ \item \Line{Path2S}から\Line{Path2E}でも\Line{Path1S}から\Line{Path1E}
+       と同じことをしています。異なるのは\Elm{textPath}の属性
+       \AttribFnt{startOffset}にアニメーションを
+       つけていることです(\Line{animateS}から\Line{animateE})。
+ \item 属性\AttribFnt{startOffset}は指定された文字列を指定された道程のどの
+       位置から配置するのかを決めるものです。長さを指定する数値か, 道程
+       に対する割合を\%を用いて表すかの方法があります。
+ \item ここでは100\%から0\%へ変化するアニメーションをつけているので道程
+       の終了点から道程の開始点へ文字列が移動することになります。
+ \item 文字列の道程から外れた部分は表示されないようです。
+\end{itemize}
+\begin{Problem}
+閉じた道のりに対して文字列が移動するアニメーションを作成し、文字列がどの
+ ように現れるか調べなさい。また、\AttribFnt{startOffset}の値を負にした
+ らどうなるかも調べなさい。
+\end{Problem}
+\section{円周上に沿って文字列が移動するアニメーション}
+道程に沿った文字列の配置では(名称から当然ですが)\Elm{path}で指定さ
+れた道程だけが有効のようです。したがって, 円に沿って文字を配列するために
+は円を\keyitem{\Bezier 曲線}で近似した曲線上に配置する必要があります。
+
+次の例はこの\Bezier 曲線で近似した円周上を
+文字列が移動するアニメーションです。
+\footnote{これだけであれば
+\Attrib{transform}の\AttribVal{rotate}{}にアニメーションをつければすむこ
+とですが後々の拡張もかねて少しトリッキーな方法で実現しました。}
+\ShowFig{0.4}{ht}{svg-moving-text-along-path}
+{円周上を文字列が移動するアニメーション}
+{svg-moving-text-along-path}
+
+このアニメーションは図\ref{text-along-path}と同じように
+\Elm{textPath}の属性\AttribFnt{startOffset}にアニメーションをつけて実現
+しています。しかし、与えられた\Elm{textPath}から外れた部分の文字は表示さ
+れないので単一の円では円周を移動するアニメーションが実現できません。これ
+を解決するための方策として開始位置が異なる二つの\Bezier 曲線で近似した円
+周上を動く文字列のアニメーションをふたつ用意し、文字列の位置によってどち
+らか一方を表示することにします。
+\SVGListN{円周上を文字列が移動するアニメーション}
+{svg-moving-text-along-circle-rev}{moving-text-along-circle}
+\Line{defsS}から\Line{defsE}の\Elm{defs}では開始点が異なる二つの\Bezier
+曲線で近似した円と表示する文字列を定義しています。
+\ListSub{defsS}{defsE}
+\begin{itemize}
+ \item \Line{UpperS}から\Line{UpperE}では中心が$(0,0)$で半径が$100$の円
+       周を定義しています。この円周は点$(-100,0)$から始まり、時計回りに
+       回っています。
+       この値についてはリスト\ref{svg-bezier-circle4}を見てください。
+
+この円周は円周上の右半分から上半分で文字列を表示するために利用されます。
+ \item \Line{LowerS}から\Line{LowerE}でも同様の円周を定義しています。こ
+       の円周は開始点が$(100,0)$となっています。
+
+この円周は円周上の左半分から下半分で文字列を表示するために利用されます。
+% \item \Line{ShowText}では表示する文字列を定義しています。
+\end{itemize}
+\Line{text1S}から\Line{text1E}までは円周上を移動するアニメーションが付い
+た文字列の表示を定義しています。
+\ListSub{text1S}{text1E}
+\begin{itemize}
+ \item \Line{textPathS}では\Line{UpperS}から始まる円周に沿って文字を表
+ 示するように指定しています(\Attrib{xlink:href})。
+ \item \Line{Text}では表示する文字列を直接記述しています。
+ \item \Line{animate1S1}から\Line{animate1E1}では\AttribFnt{startOffset}にア
+ ニメーションをつけています。
+\begin{itemize}
+ \item 位置の値が$50\%\maketitle50\%\emptyset\$$となっているのでアニメーショ
+ ンは\Line{UpperS}で定められている\Elm{path}の中央つまり$(100,0)$の位置
+       から開始されます。
+ \item アニメーションの継続時間は$30$秒ですが、前半は移動が起きていませ
+       ん。
+ \item \LineR{animate1S2}{animate1E2}で定義されているアニメーションは不
+       透明度のものです。前半は値が$0$になっているのでこの文字列は見えま
+       せん。
+\end{itemize}
+ \item \LineR{LoS}{LoE}と\LineR{animate2S2}{animate2E2}でも時間が半分ず
+       れたアニメーションをつけています。
+ \item \Line{Path}では文字列が移動する円周を色を赤で描いています。
+\end{itemize}
+\begin{Problem}\upshape
+リスト\ref{svg-text-along-path}について次のことを確認しなさい。
+\begin{enumerate}
+ \item 円周の半分の長さになるような文字列に対してこのリストがうまく動く
+ かどうか確認しなさい。
+ \item 別の曲線に対しても同じような動作をするアニメーションを作成しなさ
+ い。
+\end{enumerate}
+\end{Problem}
+\iffalse%\else
+\ShowGraphicPT{0.8}{ht}{difference-width}
+    {文字が隠れています}{difference-width}
+\fi

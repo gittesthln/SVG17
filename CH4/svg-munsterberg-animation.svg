@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>カフェウォール錯視にアニメーションをつける</title>
+<defs>
+  <rect id="Line" x="0" y="0" width="100" height="2" fill="red">
+    <animate attributeName="fill" attributeType="CSS"
+      from="black" to="lightgray" dur="10s" fill="freeze"/>
+  </rect>
+  <rect id="Square" x="0" y="0" width="50" height="50" fill="black"/>
+  <pattern id="unit" width="100" height="104" patternUnits="userSpaceOnUse">
+    <use x="0"  y="0"   xlink:href="#Square"/>
+    <use x="0"  y="50"  xlink:href="#Line"/>
+    <use x="25" y="52"  xlink:href="#Square"/>
+    <use x="0"  y="102" xlink:href="#Line"/>
+  </pattern>
+</defs>
+<g transform="translate(20,20)">
+  <rect x="0" y="0" width="500" height="260" fill="url(#unit)"/>
+</g>
+</svg>

@@ -30,32 +30,53 @@
 \BOOKMARK [2][-]{subsection.3.3.2}{3.3.2 座標軸方向へのゆがみ}{section.3.3}% 30
 \BOOKMARK [2][-]{subsection.3.3.3}{3.3.3 一般の線形変換}{section.3.3}% 31
 \BOOKMARK [1][-]{section.3.4}{3.4 SVGパターン}{chapter.3}% 32
-\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGの色名}{}% 33
-\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 34
-\BOOKMARK [0][-]{appendix.C}{付 録C \040JavaScript入門}{}% 35
-\BOOKMARK [1][-]{section.C.1}{C.1 JavaScriptとは}{appendix.C}% 36
-\BOOKMARK [1][-]{section.C.2}{C.2 データの型}{appendix.C}% 37
-\BOOKMARK [2][-]{subsection.C.2.1}{C.2.1 プリミティブデータ型}{section.C.2}% 38
-\BOOKMARK [2][-]{subsection.C.2.2}{C.2.2 配列}{section.C.2}% 39
-\BOOKMARK [1][-]{section.C.3}{C.3 演算子}{appendix.C}% 40
-\BOOKMARK [2][-]{subsection.C.3.1}{C.3.1 代入、四則演算}{section.C.3}% 41
-\BOOKMARK [2][-]{subsection.C.3.2}{C.3.2 比較演算子}{section.C.3}% 42
-\BOOKMARK [1][-]{section.C.4}{C.4 制御構造}{appendix.C}% 43
-\BOOKMARK [2][-]{subsection.C.4.1}{C.4.1 if文}{section.C.4}% 44
-\BOOKMARK [2][-]{subsection.C.4.2}{C.4.2 switch文}{section.C.4}% 45
-\BOOKMARK [2][-]{subsection.C.4.3}{C.4.3 for文とwhile文}{section.C.4}% 46
-\BOOKMARK [1][-]{section.C.5}{C.5 関数}{appendix.C}% 47
-\BOOKMARK [2][-]{subsection.C.5.1}{C.5.1 関数の定義と呼び出し}{section.C.5}% 48
-\BOOKMARK [2][-]{subsection.C.5.2}{C.5.2 仮引数への代入}{section.C.5}% 49
-\BOOKMARK [2][-]{subsection.C.5.3}{C.5.3 argumentsについて}{section.C.5}% 50
-\BOOKMARK [1][-]{section.C.6}{C.6 変数のスコープと簡単な例}{appendix.C}% 51
-\BOOKMARK [2][-]{subsection.C.6.1}{C.6.1 JavaScriptにおける関数の特徴}{section.C.6}% 52
-\BOOKMARK [2][-]{subsection.C.6.2}{C.6.2 クロージャ}{section.C.6}% 53
-\BOOKMARK [1][-]{section.C.7}{C.7 配列のメソッド}{appendix.C}% 54
-\BOOKMARK [1][-]{section.C.8}{C.8 オブジェクト}{appendix.C}% 55
-\BOOKMARK [2][-]{subsection.C.8.1}{C.8.1 配列とオブジェクト}{section.C.8}% 56
-\BOOKMARK [2][-]{subsection.C.8.2}{C.8.2 コンストラクタ関数}{section.C.8}% 57
-\BOOKMARK [2][-]{subsection.C.8.3}{C.8.3 オブジェクトリテラルとJSON}{section.C.8}% 58
-\BOOKMARK [2][-]{subsection.C.8.4}{C.8.4 ECMAScript5のオブジェクト属性}{section.C.8}% 59
-\BOOKMARK [2][-]{subsection.C.8.5}{C.8.5 エラーオブジェクトについて}{section.C.8}% 60
-\BOOKMARK [0][-]{appendix.D}{付 録D \040CSSについて}{}% 61
+\BOOKMARK [1][-]{section.3.5}{3.5 画像の取り込み}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.6}{3.6 画像の一部を見せる}{chapter.3}% 34
+\BOOKMARK [0][-]{chapter.4}{第4章 アニメーション}{}% 35
+\BOOKMARK [1][-]{section.4.1}{4.1 アニメーションにおける属性}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.2}{4.2 位置を動かす\(<animateTransform> 要素\)}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.3}{4.3 道のりに沿ったアニメーション\(<animateMotion> 要素\)}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.4}{4.4 いろいろな属性に動きをつける}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.4.1}{4.4.1 一般の属性に変化をつける\(<animate> 要素\)}{section.4.4}% 40
+\BOOKMARK [2][-]{subsection.4.4.2}{4.4.2 属性値をすぐに変える\204<set> 要素を利用したアニメーション}{section.4.4}% 41
+\BOOKMARK [1][-]{section.4.5}{4.5 複数の値を指定する\(keyTimes,values\)}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.6}{4.6 イベントを利用したアニメーション}{chapter.4}% 43
+\BOOKMARK [2][-]{subsection.4.6.1}{4.6.1 イベントとは}{section.4.6}% 44
+\BOOKMARK [2][-]{subsection.4.6.2}{4.6.2 マウスのイベントを利用したアニメーション}{section.4.6}% 45
+\BOOKMARK [2][-]{subsection.4.6.3}{4.6.3 アニメーション終了のイベントを利用する}{section.4.6}% 46
+\BOOKMARK [1][-]{section.4.7}{4.7 アニメーションがついた錯視図形}{chapter.4}% 47
+\BOOKMARK [0][-]{chapter.5}{第5章 文字列の表示}{}% 48
+\BOOKMARK [1][-]{section.5.1}{5.1 文字列表示の基礎}{chapter.5}% 49
+\BOOKMARK [1][-]{section.5.2}{5.2 部分的に文字の表示を変える方法}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.3}{5.3 文字をグラデーションで塗る}{chapter.5}% 51
+\BOOKMARK [1][-]{section.5.4}{5.4 道程に沿った文字列の配置}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.5}{5.5 円周上に沿って文字列が移動するアニメーション}{chapter.5}% 53
+\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGの色名}{}% 54
+\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 55
+\BOOKMARK [0][-]{appendix.C}{付 録C \040JavaScript入門}{}% 56
+\BOOKMARK [1][-]{section.C.1}{C.1 JavaScriptとは}{appendix.C}% 57
+\BOOKMARK [1][-]{section.C.2}{C.2 データの型}{appendix.C}% 58
+\BOOKMARK [2][-]{subsection.C.2.1}{C.2.1 プリミティブデータ型}{section.C.2}% 59
+\BOOKMARK [2][-]{subsection.C.2.2}{C.2.2 配列}{section.C.2}% 60
+\BOOKMARK [1][-]{section.C.3}{C.3 演算子}{appendix.C}% 61
+\BOOKMARK [2][-]{subsection.C.3.1}{C.3.1 代入、四則演算}{section.C.3}% 62
+\BOOKMARK [2][-]{subsection.C.3.2}{C.3.2 比較演算子}{section.C.3}% 63
+\BOOKMARK [1][-]{section.C.4}{C.4 制御構造}{appendix.C}% 64
+\BOOKMARK [2][-]{subsection.C.4.1}{C.4.1 if文}{section.C.4}% 65
+\BOOKMARK [2][-]{subsection.C.4.2}{C.4.2 switch文}{section.C.4}% 66
+\BOOKMARK [2][-]{subsection.C.4.3}{C.4.3 for文とwhile文}{section.C.4}% 67
+\BOOKMARK [1][-]{section.C.5}{C.5 関数}{appendix.C}% 68
+\BOOKMARK [2][-]{subsection.C.5.1}{C.5.1 関数の定義と呼び出し}{section.C.5}% 69
+\BOOKMARK [2][-]{subsection.C.5.2}{C.5.2 仮引数への代入}{section.C.5}% 70
+\BOOKMARK [2][-]{subsection.C.5.3}{C.5.3 argumentsについて}{section.C.5}% 71
+\BOOKMARK [1][-]{section.C.6}{C.6 変数のスコープと簡単な例}{appendix.C}% 72
+\BOOKMARK [2][-]{subsection.C.6.1}{C.6.1 JavaScriptにおける関数の特徴}{section.C.6}% 73
+\BOOKMARK [2][-]{subsection.C.6.2}{C.6.2 クロージャ}{section.C.6}% 74
+\BOOKMARK [1][-]{section.C.7}{C.7 配列のメソッド}{appendix.C}% 75
+\BOOKMARK [1][-]{section.C.8}{C.8 オブジェクト}{appendix.C}% 76
+\BOOKMARK [2][-]{subsection.C.8.1}{C.8.1 配列とオブジェクト}{section.C.8}% 77
+\BOOKMARK [2][-]{subsection.C.8.2}{C.8.2 コンストラクタ関数}{section.C.8}% 78
+\BOOKMARK [2][-]{subsection.C.8.3}{C.8.3 オブジェクトリテラルとJSON}{section.C.8}% 79
+\BOOKMARK [2][-]{subsection.C.8.4}{C.8.4 ECMAScript5のオブジェクト属性}{section.C.8}% 80
+\BOOKMARK [2][-]{subsection.C.8.5}{C.8.5 エラーオブジェクトについて}{section.C.8}% 81
+\BOOKMARK [0][-]{appendix.D}{付 録D \040CSSについて}{}% 82

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>image の使用例</title>
+  <rect x="0" y="0" width="100%" height="100%" fill="lightgray"/>
+  <image xlink:href="cyclamen-2.jpg" width="200" height="200" x="20" y="20"/>
+  <rect x="20" y="20" width="200" height="200" fill="none"
+        stroke-width="4" stroke="black"/>
+
+  <image xlink:href="cyclamen-2.jpg" width="250" height="200" x="240" y="20"/>
+  <rect x="240" y="20" width="250" height="200" fill="none"
+        stroke-width="4" stroke="black"/>
+
+  <image xlink:href="cyclamen-2.jpg" width="250" height="200" x="510" y="20"
+         preserveAspectRatio="xMaxYMid"/>
+  <rect x="510" y="20" width="250" height="200" fill="none"
+        stroke-width="4" stroke="black"/>
+
+  <image xlink:href="cyclamen-2.jpg" width="250" height="200" x="780" y="20"
+         preserveAspectRatio="none"/>
+  <rect x="780" y="20" width="250" height="200" fill="none" 
+        stroke-width="4" stroke="black"/>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>長方形の幅を変えるアニメーション</title>
+  <g transform="translate(100,50)" >
+    <rect x="0" y="0" width="100" height="50"
+       stroke-width="5" stroke="black" fill="green">
+    <animate attributeName="width" attributeType="XML" ref="anim1"
+       from="100" to="200" dur="10s" fill="freeze" ref2="anim2"/>
+    </rect>
+  </g>
+</svg>

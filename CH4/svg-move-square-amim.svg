@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>ゆがんだ正方形</title>
+  <g transform="translate(20,160)" >
+    <path d="M200,-140 0,0 200,140 
+             M200,-120 0,0 200,120 M200,-100 0,0 200,100
+             M200,-80  0,0 200,80  M200,-60  0,0 200,60
+             M200,-40  0,0 200,40  M200,-20  0,0 200,20
+             M0,0 200,0"
+         stroke-width="1" stroke="black" fill="none"/>
+    <rect x="80" width="80" height="80" 
+      fill="none" stroke-width="2" stroke="black">
+      <animate attributeName="y" attributeType="XML"
+        values="-160;80;-160" dur="20s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

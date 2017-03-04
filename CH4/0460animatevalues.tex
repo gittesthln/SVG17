@@ -1,0 +1,162 @@
+\section{複数の値を指定する(\AttribA{keyTimes},\AttribA{values})}
+%いままでのアニメーションでは開始と終了の値しか与えら得ませんでした。
+\AttribA{values}を用いるとアニメーションの途中の値を指定することができま
+す。この場合、与えられた値の数でアニメーションの時間が等分に分けられます。
+この値を変更するためには\AttribA{keyTimes}を用います。\AttribA{keyTimes}で
+与える数値はアニメーションが行われる時間に対する割合を指定します。
+
+次の例は\ref{svg-animation-transform}に対し、初めの位置まで戻す動きを付
+け加えたものです%。\newpage
+\SVGListN{初めの位置に戻る}
+{svg-animation-transform-values}{svg-animation-transform-values}
+\begin{itemize}
+ \item \Line{values}にある\AttribA{values}と\AttribA{keyTimes}でアニ
+メーションが定義されています。
+ \item \AttribA{keyTimes}が\texttt{0;0.66;1}となっ
+ているので右へ移動するときの速度が左へ移動する速度に比べて約半分の速度で
+移動します。
+\end{itemize}
+\ProbwithSol{svg-move-square}{正方形の移動}{svg-move-square}
+{ 正方形が同じ速度で$(100,100)$ から $(200,100),$ $(200,200),$
+$(100,200)$ を経て元の位置へ戻るアニメーションを作成しなさい。}
+\ProbwithSol{svg-image-pattern-mask-hidden-anim}
+{問題\ref{prob-image-mixed}の画像を片方づつ表示する}{svg-image-pattern-mask-hidden-anim}
+{ 問題\ref{prob-image-mixed}の画像を初めは両方表示し、一定の期間がたった
+ら一方だけを表示し、さらに時間が経ったらもう一方の画像を表示するアニメー
+ションを付けなさい。}
+%\NewpageB
+%\ifSummer\else
+\section{イベントを利用したアニメーション}
+\subsection{イベントとは}
+アプリケーションの実行中にシステムから
+そのアプリケーションに通知される情報をイベントといいます。アプリケーション側では渡
+されたイベントの情報を基にして動作を変更することが可能となります
+(無視することも対応のひとつです)。
+イベントとしては「マウスボタンがクリックされた」、「一定の時間が経過し
+た」、「別のアニメーションが終了した」などがあります。
+%
+\keysubE{イベントを利用}{アニメーション}{した}してアニメー
+ションの開始や終了を指示できます。
+\iffalse
+イベントとしては次のようなものがあります。
+\begin{itemize}
+ \item マウスボタンがクリックされた。
+ \item 一定の時間が経過した。
+ \item 別のアニメーションが終了した。
+\end{itemize}
+\fi
+イベントを利用してより細かく\SVG を制御する方法については
+第\ref{MakeInterractiveSVG}章で解説します。
+
+\subsection{マウスのイベントを利用したアニメーション}
+図\ref{example-stopwatch}では
+下部の黒い長方形の上にマウスを乗せると赤い矢印が回転します。
+そこからマウスを離すと動きが止まります。再びマウスをその場所に
+乗せるとはじめの位置から再び回転します。
+\ShowFig{0.3}{ht}{svg-stopwatch}{ストップウォッチ？}
+{example-stopwatch}
+%\NewpageB
+%\NewpageF
+
+%リスト\ref{svg-stopwatchL}がこの\SVG のものです。
+\SVGListN{ストップウォッチ？}{svg-stopwatch}{svg-stopwatchL}
+\begin{itemize}
+ \item \Line{defS}から\Line{defE}は時計盤の目盛りを描くためのパーツを定
+       義しています。
+\begin{itemize}
+ \item \Line{TickLS}から\Line{TickLE}では$90^{\circ}$ごとに現れる長い目
+       盛りを、%定義しています。
+% \item 
+      \Line{TickSS}から\Line{TickSE}では残りの目盛りを定義しています。
+ \item 長い目盛りを基準に短い目盛りを$30^{\circ}$と$60^{\circ}$回転した
+       ものをひとつのものとしてまとめて定義します(\Line{faceUnitS}から
+       \Line{faceUnitE})。
+\end{itemize}
+ \item \Line{circle}で時計盤の外周を描いています。
+ \item \Line{TicksS}から\Line{TicksE}で\Elm{defs}内で定義した目盛りを
+       $90^{\circ}$ずつ回転したものを4つ使って時計盤の目盛りを作成してい
+       ます。
+ \item \Line{Hands}では\Elm{path}を用いて秒針を作成しています。
+ \item この図形に対し\Line{animS}から\Line{animE}で回転のアニメーション
+       を付けています。
+\begin{itemize}
+ \item このアニメーションは$0$から$360$の値を$60$秒かけて変化させるよう
+       にしているので、ちょうど一分で一回転することになります。
+ \item \AttribA{begin}はアニメーションの開始時を指定する属性で、その値は
+       \texttt{Face.mouseover}です。
+%
+%       \texttt{Face}は
+       \Line{switch}の長方形の属
+       性\Attrib{id}の値が\texttt{Face}なので
+       \texttt{Face.}\AttribAVal{mouseover}{}はこの長方形に「マウスカー
+       ソルが乗ったとき」を意味します。
+ \item \AttribA{end}はアニメーションの終了時を指定する属性です。ここで
+       は\texttt{Face.}\AttribAVal{mouseout}{}となっているのでこの長方形
+       から「マウスカーソルが出たとき」を意味します。
+\end{itemize}
+% \item マウスのイベントではこのほかに\AttribAVal{click},
+%       \AttribAVal{mousedown}, \AttribAVal{mouseup}などがあります。
+\end{itemize}
+\ProbwithSolC{svg-stopwatch-2button}
+{二つのボタンを持つストップウォッチ}{svg-stopwatch-2button}
+{リスト\ref{svg-stopwatchL}に分針をつけたストップウォッチを作成しなさい。また、ボタ
+ ンを2つ置き、片方がクリックされたら動き出し, 他方がクリックされたら停
+ 止するものを作成しなさい。\vspace{-0.5\baselineskip}}
+{「Start」を押すとはじめから動き出すのが欠点です。}
+\ProbwithSol{poggendorf-animation}
+{ポッケンドルフの錯視(アニメーション付き)}{poggendorff-animation}
+{\keysubE{ポッケンドルフ}{錯視}{の}の錯視(図\ref{poggendorf})の中央の長方形
+ に\AttribC{opacity}にアニメーションをつけて、その上にマウスカーソルを載せるとその
+ 長方形がだんだん消えていき、どの直線が左右につながっているかを示すよ
+ うにしなさい。\vspace{-1\baselineskip}
+\IndexSet{ポッケンドルフの錯視}{}{}{}{}}
+%\newpage
+
+%\vspace{-3\baselineskip}\ \\
+\subsection{アニメーション終了のイベントを利用する}
+リスト\ref{svg-signalsimulation}はアニメーションの開始を
+他のアニメーションの終了時に設定することで信号機の明かりの変化を
+シミュレーションしています。
+%アニメーションに\Attrib{id}を付けることでアニメー
+%ションの開始時や終了時を参照することができます。
+
+\ShowFigs{0.23}{ht}{{signal-blue}{signal-yellow}{signal-red}}
+{信号機}{signal} 
+%\newpage
+\SVGListN{信号機のシミュレーション}{svg-signal}{svg-signalsimulation}
+\begin{itemize}
+ \item \Line{unit}で信号機の明かりの大きさをを同一にするため、円を定義し
+       ています。
+ \item \LineR{BaseS}{BaseE}で信号機の全体を示す長方形を定義しています。
+ \item \LineR{red}{redE}で赤色の信号を定義しています。
+%\ListSub{red}{redE}
+\begin{itemize}
+ \item \Attrib{id}で参照するための名前\Showattrib{inRed}を定義しています。
+ \item 明かりの水平方向の位置を\AttribO{x}で定義していることに注意
+       してください。\Elm{use}ではすでに図形が定義されているので
+       \AttribO{cx}では定義できないようです。
+ \item 信号の明かりの色を付いていない状態(\AttribCVal{gray}{})に設定して
+       います。
+ \item \Lines{inRedS}{inRedE}で\AttribO{fill}にアニメーションをつけていま
+       す。
+\begin{itemize}
+ \item 属性\Attrib{id}を\Showattrib{inRed}に設定しています。
+ \item アニメーションの開始を指定する\AttribA{begin}に
+       \Showattrib{0s;inYellow.end}を与えています。この指定により、この
+       SVGファイルの開始時(\Showattrib{0s})と\Showattrib{inYellow}で参
+       照されているアニメー ションの終了時(\Showattrib{end})にこのアニメー
+       ションが開始されます。
+ \item アニメーションの継続時間は\AttribA{dur}で指定しています。
+ \item アニメーションの終了時(\AttribO{end})には元の値に戻す
+       \AttribAVal{remove}{}を指定しています。
+\end{itemize}
+\end{itemize}
+ \item \Lines{yellow}{YellowE}では黄色の、\LineR{blue}{blueE}では青色の
+       信号をそれぞれ定義しています。
+\end{itemize}
+\begin{Problem}\upshape
+リスト\ref{svg-signalsimulation}においてアニメーションの開始、終了を時間
+ で与えるようにしたときと組む手間を比較しなさい。
+\end{Problem}
+%\fi
+%
