@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<defs>
+  <text id="TextD" class="textStyle" x="15">DIFFUSE</text>
+  <text id="TextS" class="textStyle" x="15">SPECULAR</text>
+  <filter id="Lighting0" filterUnits="userSpaceOnUse"
+      x="0" y="0" width="275" height="80">
+    <feDiffuseLighting in="SourceGraphic" lighting-color="white">
+      <feDistantLight azimuth="0" elevation="10"/>
+    </feDiffuseLighting>
+  </filter>
+  <filter id="Lighting1" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="275" height="80">
+    <feDiffuseLighting in="SourceGraphic" lighting-color="white">
+      <feDistantLight azimuth="0" elevation="45"/>
+    </feDiffuseLighting>
+  </filter>
+  <filter id="Lighting2" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="275" height="80">
+    <feDiffuseLighting in="SourceGraphic" lighting-color="white">
+      <feDistantLight azimuth="45" elevation="10"/>
+    </feDiffuseLighting>
+  </filter>
+  <filter id="Lighting3" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="275" height="80">
+    <feDiffuseLighting in="SourceGraphic" lighting-color="white">
+      <feDistantLight azimuth="45" elevation="45" result="deffuseOut0"/>
+    </feDiffuseLighting>
+  </filter>
+  <filter id="LightingS0" filterUnits="userSpaceOnUse"
+      x="0" y="0" width="1000" height="80">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur0"/>
+    <feSpecularLighting in="blur0" surfaceScale="5" specularConstant="0.9"
+       specularExponent="20" lightColor="white" result="specularOut0">
+       <feDistantLight azimuth="0" elevation="10"/>
+    </feSpecularLighting>
+    <feComposite in="SourceGraphic" in2="specularOut0" operator="arithmetic"
+      k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+  <filter id="LightingS1" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="1000" height="80">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur1"/>
+    <feSpecularLighting in="blur1" surfaceScale="5" specularConstant="0.9"
+       specularExponent="20" lighting-color="white" result="specularOut1">
+       <feDistantLight azimuth="0" elevation="45"/>
+    </feSpecularLighting>
+    <feComposite in="SourceGraphic" in2="specularOut1" operator="arithmetic"
+      k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+  <filter id="LightingS2" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="1000" height="80">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur2"/>
+    <feSpecularLighting in="blur2" surfaceScale="5" specularConstant="0.9"
+       specularExponent="20" lighting-color="white" result="specularOut2">
+       <feDistantLight azimuth="45" elevation="10"/>
+    </feSpecularLighting>
+    <feComposite in="SourceGraphic" in2="specularOut2" operator="arithmetic"
+      k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+  <filter id="LightingS3" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="1000" height="80">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur3"/>
+    <feSpecularLight in="blur3" surfaceScale="5" specularConstant="0.9"
+       specularExponent="20" lighting-color="white" result="specularOut3">
+       <feDistantLight azimuth="45" elevation="45"/>
+    </feSpecularLight>
+    <feComposite in="SourceGraphic" in2="specularOut3" operator="arithmetic"
+      k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+</defs>
+<style type="text/css">
+.textStyle {font-size:80px; text-anchor:start; dominant-baseline:hanging;
+            font-family:Impact;stroke:black; stroke-width:2; fill:red;}
+.InfoStyle {font-size:30px; text-anchor:middle; dominant-baseline:mathematical;}
+.InfoNum {font-size:30px; text-anchor:end; dominant-baseline:mathematical;}
+</style>
+  <g transform="translate(240,40)" >
+    <use x="0" xlink:href="#TextD" />
+    <use x="300" xlink:href="#TextS" />
+  </g>
+  <g transform="translate(240,140)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">0</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">10</text>
+    <use xlink:href="#TextD" filter="url(#Lighting0)"/>
+    <use x="300" xlink:href="#TextS" filter="url(#LightingS0)"/>
+  </g>
+  <g transform="translate(240,240)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">0</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">45</text>
+    <use xlink:href="#TextD" filter="url(#Lighting1)"/>
+    <use x="300" xlink:href="#TextS" filter="url(#LightingS1)"/>
+  </g>
+  <g transform="translate(240,340)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">45</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">10</text>
+    <use xlink:href="#TextD" filter="url(#Lighting2)"/>
+    <use x="300" xlink:href="#TextS" filter="url(#LightingS2)"/>
+  </g>
+  <g transform="translate(240,440)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">45</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">45</text>
+    <use xlink:href="#TextD" filter="url(#Lighting3)"/>
+    <use x="300" xlink:href="#TextS" filter="url(#LightingS3)"/>
+  </g>
+</svg>

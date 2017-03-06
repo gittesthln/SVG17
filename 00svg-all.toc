@@ -74,7 +74,7 @@
 \contentsline {section}{\numberline {5.2}部分的に文字の表示を変える方法}{92}{section.5.2}
 \contentsline {section}{\numberline {5.3}文字をグラデーションで塗る}{94}{section.5.3}
 \contentsline {section}{\numberline {5.4}道程に沿った文字列の配置}{96}{section.5.4}
-\contentsline {section}{\numberline {5.5}円周上に沿って文字列が移動するアニメーション}{98}{section.5.5}
+\contentsline {section}{\numberline {5.5}円周上に沿って文字列が移動するアニメーション}{97}{section.5.5}
 \contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
 \contentsline {chapter}{\numberline {付 録C }JavaScript入門}{付録 9}{appendix.C}

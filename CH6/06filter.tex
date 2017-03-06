@@ -1,0 +1,637 @@
+% -*- coding: utf-8 -*-
+\chapter{\keyitem{フィルタ}}
+SVGには与えられた画像にたいしてぼかしたり他の画像と合成したりするフィル
+ターの機能があります。標準で付いてくるフィルタについて解説します。
+\section{フィルターに関する一般的な注意}
+一般にフィルタをある画像に対して行うと得られた画像は元の画像と大きさや
+位置が変わります。このことを考慮しておかないと得られた画像の一部が欠けた
+りする場合があります。
+\begin{itemize}
+ \item フィルタをかける範囲の基準として属性\AttribF{filterUnits}があり
+       ます。この属性値としてはグラデーションやマスクでも利用した
+       \AttribFVal{userSpaceOnUse}{}と\AttribFVal{objectBoundingBox}{}があ
+       ります。
+       後者を用いるとフィルタをかけた画像は元の画像の範囲しか表示され
+       ません。
+ \item フィルタをかけ始める位置を指定する\AttribF{x}{}と
+       \AttribF{y}{}や範囲を指定する\AttribF{width}{}や
+       \AttribF{height}{}でも同じことが言えます。この値の範囲外の
+       部分は表示されません。
+\end{itemize}
+\section{画像をぼかす(\ElmF{feGaussianBlur})}
+画像をぼかす代表的なフィルタとして\ElmF{feGaussianBlur}があります。
+このフィルタはあるピクセルの近くにある一定の範囲のピクセルの色の情報から
+そのピクセルの色を決定します。このとき不透明度も計算されます。
+\ShowFig{0.6}{ht}{svg-filterGauss}
+    {\ElmF{feGaussianBlur}}{filterGauss}
+\SVGListN{GaussianBlurフィルタ}{svg-filterGauss}{svg-filterGauss}
+\begin{itemize}
+ \item \LineR{rectS}{rectE}にかけてフィルタをかける長方形を定義しています。
+ \item \LineR{filter1S}{filter1E}でフィルタをひとつ定義しています。
+\begin{itemize}
+ \item フィルタを定義するには\Elm{filter}を用います。
+ \item フィルタはグラデーションの同様に後でフィルタをかけるオブジェ
+       クトから参照されるので\Attrib{id}で名称をつけます。
+ \item \AttribF{x}と\AttribF{y}でフィルタをかけ始める位置を指定します。負
+       の値は指定できないようです。また、\AttribF{width}と\AttribF{height}
+       で範囲を指定します。
+ \item ここではフィルタをかける単位として\AttribFVal{userSpaceOnUse}{}を用
+       いていますのでフィルタはかけられるオブジェクトが配置される空間が
+       基準となります。
+ \item \Line{gauss1}でぼかしのフィルタを\ElmF{feGaussianBlur}で利用することを宣
+       言しています。
+ \item このフィルタは\AttribF{stdDEviation}でぼかしの度合いを指定できます。
+       0はまったくかけないことを意味します。
+\end{itemize}
+ \item \LineR{filter2S}{filter2E}と\LineR{filter3S}{filter3E}でぼかしの
+       度合いを変えたフィルタを定義しています。
+ \item \LineR{styleS}{styleE}では\Elm{style}による属性値を定義しています。
+  これは各画像の下にぼかしのパラメータの値を表示するテキストを表示の形式
+  を統一するためにCSSによるスタイルを採用しました。ここ
+ で定義できる属性値は\keyitem{CSS}で定義できるものです。
+\begin{itemize}
+ \item \HTML では統一した表現をするために\AttribH{class}で指定された
+ 要素の内容の属性を一括して参照できる仕組みがあります。
+ \item \AttribH{class}で指定された名称は\Elm{style}の中
+ ではその名称の前に\texttt{.}(ピリオド)をつけて定義します。定義の範囲は
+ \{\}の中に書きます。
+ \item 定義の方法は 属性名:属性値; です。
+\end{itemize}
+ \item フィルタを作用させるにはオブジェクトの属性
+ \AttribFVal{filter}{="url()"}の形で引用します
+    (\Line{F1}、\Line{F2}、\Line{F3})。
+ \item ぼかしの効果が下の画像にどのように影響するかを示すために元の画像
+ を幅の半分だけ横に移動した画像のの上にぼかした画像をのせています
+       (\Lines{F4}{F5})。
+ \item ぼかしの中心では不透明度が1であり、外側に行くにしたがって不透明度
+ が下がっていることがわかります。
+\end{itemize}
+\begin{Problem}
+ぼかしの程度や、元の画像の色を変えて見え方がどのように変化するか調べなさ
+ い。
+\end{Problem}
+\begin{Problem}
+ \Elm{feGaussianBlur}の属性 \AttribF{stdDeviation}にアニメーションを付け
+ てぼけている画像から元の画像に変化するようにしなさい。
+\end{Problem}
+図\ref{bergen0}は\OIIdxB{バーゲンのきらめき効果}と呼ばれています
+(\cite[182ページ図17.1]{Ninio})。
+\OIIdxB{ヘルマン格子}の変形です。
+\ShowFig{0.7}{ht}{bergen0}
+    {バーゲンのきらめき効果}{bergen0}
+
+形から見てわかるようにヘルマン格子の場合と異なり交差点の位
+置が黒くなっています。
+交差点の位置に白い斑点がきらきら見えます。
+\SVGListN{バーゲンのきらめき効果}{svg-bergen0}{svg-bergen0}
+\begin{itemize}
+ \item \LineR{filter1S}{filter1E}でフィルタを定義しています。
+ \item \Line{gauss1}でガウスぼかしのパラメータを $5$ に設定しています。
+ \item 全体の図は前と同様に縁取りのある正方形からなるパターンで塗りつぶ
+       します。そのパターンは\LineR{rectS}{rectE}で定義しています。
+ \item \LineR{rectShS}{rectShE}で定義した長方形の内部を上で定義したパター
+       ンで塗りさらにフィルタをかけています。
+\end{itemize}
+\begin{Problem}\upshape
+図\ref{bergen0}のぼかしの程度や、元の画像の色を変えて見え方がどのように
+ 変化するか調べなさい。
+\end{Problem}
+
+\section{影をつける(\ElmF{feOffset}と\ElmF{feMerge})}
+前節の\ElmF{feGaussianBlur}と\ElmF{feOffset}, \ElmF{feMerge} を組み合わ
+せると与えられた画像に影をつけることができます。
+\ShowFig{0.25}{ht}{svg-addshadow}{影をつける}{addshadow}
+%\newpage
+\ \\[-2\baselineskip]
+\SVGListN{画像に影をつける}{svg-addshadow}{svg-addshadow}
+\ExpList{{\LineR{filterS}{filterE}でフィルタを定義しています。}
+{\Line{filterRange}でフィルタの計算をする範囲を定義しています。
+\ExpList{{\Line{gauss}でぼかしのフィルタを定義しています。対象とする画像は
+       \AttribF{in}で指定しています。ここでは\AttribFVal{SourceAlpha}{}
+       となっているのでフィルタを適用する画像の不透明度
+       (アルファチャンネル)を利用します。元の画像では画像のあるところの
+       \keyitem{不透明度}は $1$ で画像のないところが $0$ となっています。
+       この結果の画像は灰色系になります。これ以外に定義されている
+       \AttribF{in}で利用できる値は表\ref{filter-in}を参照してください。
+\par
+       そのようにしてできた画像を後で参照できるようにするために
+       \AttribF{result}の属性値で指定しています。ここでは
+       \Showattrib{shadow}となっています。}
+{ \ElmF{feOffset}は与えられた画像を移動させるフィルタです。移動量は
+       属性\AttribF{dx}と\AttribF{dy}で指定します。
+\par
+       属性値\AttribF{in}に\Showattrib{shadow}が指定されているので
+       \Line{gauss}における結果が利用されます。}
+{ \LineR{femergeS}{femergeE}で画像を重ねるフィルタ\ElmF{feMerge}を
+       が宣言されています。}
+{ 重ねる画像は\ElmF{feMergeNode}で宣言します。画像は他のフィルタを
+       作用させた結果などを\AttribF{in}で指定します。}
+{ ここでは\Line{M1}で影を指定し、その上に\Line{M2}でフィルタをかけ
+       る画像(\AttribF{in}における\AttribFVal{SourceGraphic})を表示させ
+       ています。}}}
+{\LineR{rectS}{rectE}
+%\ref{CH6/svg-addshadow.svg-rectS}行目から
+%       \ref{CH6/svg-addshadow.svg-rectE}行目
+でフィルタをかける元の画像を
+       定義しています。
+       ここでは正方形が指定されています。また、\AttribF{filter}でこの画
+       像にかけるフィルタを指定しています。}}
+\begin{table}[ht]
+\caption{フィルタを適用させるもとの名称}\label{filter-in}
+ \begin{center}
+\begin{tabular}[t]{|c|l|}
+\hline
+名称&\multicolumn{1}{c|}{説明}\\\hline
+\AttribFVal{SourceGraphic}{} & フィルタを適用する画像\\\hline
+\AttribFVal{SourceAlpha}{} & フィルタを適用する画像の不透明度\\ \hline
+\AttribFVal{BackgroundImage}{} & フィルタの適用範囲にある背景画像\\ \hline
+\AttribFVal{BackgroundAlpha}{} & フィルタの適用範囲にある背景画像の
+                              アルファチャンネル\\ \hline
+\AttribFVal{FillPaint}{} & フィルタ要素の\texttt{fill}属性値\\ \hline
+\AttribFVal{StrokePaint}{} & フィルタ要素の\texttt{stroke}属性値\\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\section{画像を合成する(\ElmF{feImage}と\ElmF{feBlend})}
+\ElmF{feImage}は外部のファイルを取り込んだりすでに定義済みの
+画像を取り込むためのフィルタです。また、\ElmF{feBlend}は
+二つの画像を合わせるフィルタです。重ね合わせるときの方法を表
+\ref{feBlendMode}にまとめました。
+\begin{table}[ht]
+ \caption{\ElmF{feBlend}のモード}\label{feBlendMode}
+\begin{center}
+\begin{tabular}[t]{|c|p{28em}|}
+ \hline
+名称& 説明\\\hline
+ \raisebox{-1.5ex}{\AttribFVal{normal}}&
+  \AttribF{in}の部分を\AttribF{in2}で重なった部分が
+ 置き換えられます。アルファチャンネルは両者の積の値になります。 \\ \hline
+ \AttribFVal{multiply}& 各ピクセルごとに(値を$0\sim1$とみて)積がとられます。
+                      \\ \hline
+ \AttribFVal{screen}& 値を反転させたあと\AttribFVal{multiply}をし、その後再び
+                  反転させます。\\ \hline
+ \AttribFVal{darken}& 各チャンネルで小さいほうの値をとります。\\ \hline
+ \AttribFVal{lighten}&各チャンネルで大きいほうの値をとります。 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+このフィルタのモード\AttribFVal{lighten}や\AttribFVal{darken}を用いると
+加色混合や減色混合によるカラーチャート図を作成できます。この例では内部に
+定義した画像を\ElmF{feImage}で取り込み\ElmF{feBlend}で重ねています。
+\ShowFig{0.6}{ht}{svg-colorchart}%
+    {加色混合と減色混合によるカラーチャート図}{colorchart}
+\SVGListN{加色混合と減色混合によるカラーチャート図}
+{svg-colorchart}{svg-colorchart}
+\ExpList{%
+{円の大きさを統一するために\Line{circle}で使用する円を定義していま
+       す。ここで定義している属性は円の中心位置と半径だけです。}
+{この円を用いて\LineR{Red}{Cyan}で\AttribO{fill}の値
+   を設定した6つの円を定義しています。名称は色の名前と同じにしています。
+\Opera で加色混合の図を正しく表示するため、赤の円だけは正方形の黒の長方
+形の上に描いています(LineR{Red}{RedE})。\footnote{\Chrome ではこのようなことをしなくても正しく表示されました。}}
+{\LineR{filterS}{filterE}で左側の図形を書くためのフィルタを定義していま
+す。
+%\ListSub{filterS}{filterE}
+\ExpList{{\Line{moveR}で赤の円を移動するフィルタ(\ElmF{feOffset})をかけ、
+	    結果を\texttt{RedOffset}としています。元の図形を
+	  呼び出すので\ElmF{feOffset}の元画像は
+	  \AttribFVal{SourceGraphic}としています。}
+{\LineR{getBS}{getBE}では青の円を\ElmF{feImage}を用いて
+	  \texttt{BlueImage}という名称で取り込んでいます。}
+{\Line{getBO}では上で取り込んだ図形を\ElmF{feOffset}で移動しています。}
+{\LineR{getGS}{getGE}にかけて緑の円を青と同様の方法で処理しています。}
+{この3つの画像を\Lines{BL1}{BL2}で順次\ElmF{feBlend}を用いて合成
+	  しています。\AttribF{mode}の値が\AttribFVal{lighten}になっている
+	  ので重なった点のRGBの値は両者の図形の大きいほうの値(結果として
+	  その点の位置の明るさが増す)になります。したがって、3つの円が重
+	  なった部分は白になります。}}}
+%\ExpList{%
+{\LineR{filter2S}{filter2E}も同様のフィルタです。ただ、\ElmF{feBlend}の
+       \AttribF{mode}の値が\AttribFVal{darken}{}になっているので重なった
+       点では二つの画像のRGB値の小さいほうになります。したがって、3つの
+       円が重なった部分は黒になります。}
+{\LineR{Fig1}{Fig2}でこれらのフィルタを用いた赤と黄色
+の円を書かせています。}}
+\section{与えられた画像の色を変える}
+与えられた画像に対し別の色に変えるフィルタとして
+\ElmF{feColorMatrix}と\ElmF{feComponentTransfer}があります。
+\subsection{\protect\ElmF{feColorMatrix}}
+\ElmF{feColorMatrix}の属性\AttribF{type}の値として\AttribFVal{matrix}, 
+\AttribFVal{hueRotate}, \AttribFVal{saturate},
+\AttribFVal{luminanceToAlpha} の4つがあります。これらの変換のパラメータ
+は\AttribF{values}で指定します。
+
+%このフィルタが使用する変換式はW3CのSVG(\cite{SVG11})の記述からとりました。
+
+図\ref{colormatrix}はこれらのフィルタがどのように作用するかを示したもの
+です。
+
+\ShowFig{0.6}{ht}{colormatrix}%
+    {\protect\ElmF{feColorMatrix}の例}{colormatrix}%
+%\newpage
+リスト\ref{svg-colormatrix}はこの図のリストです。
+\SVGListN{\protect\ElmF{feColorMatrix}の例}
+{svg-CMatrix}{svg-colormatrix}
+
+\begin{itemize}
+ \item 横に並んだ正方形の雛形を\Line{Base}で定義
+       しています。
+ \item 横に6つ並んだ正方形は\LineR{LinesS}{LinesE}で定義し
+       ています。
+\end{itemize}
+
+各フィルタの解説は次の項で解説します。
+なお、このフィルタが使用する変換式はW3CのSVG(\cite{SVG11})の記述からとりました。
+
+\paragraph{\AttribVal{matrix}{}}
+色の構成要素としては3原色(赤、緑、青)のほかに不透明度(アルファチャンネルと呼ばれ
+ることまあります)があります。この4つの要素を別の要素に変換するための一般
+的な方法が\AttribFVal{matrix}{}です。変換前の成分を $(R,G,B,\alpha)$ 変
+換後の成分を$(R',G',B',\alpha')$ としたとき5行5列の行列により
+\[
+ \left(\begin{array}{c}
+  R'\\G'\\B'\\\alpha'\\1\\
+       \end{array}\right)=
+\left(\begin{array}{ccccc}
+  a_{00} &a_{01}& a_{02} & a_{03} & a_{04} \\
+  a_{10} &a_{11}& a_{12} & a_{13} & a_{14} \\
+  a_{20} &a_{21}& a_{22} & a_{23} & a_{24} \\
+  a_{30} &a_{31}& a_{32} & a_{33} & a_{34} \\
+ 0 & 0 & 0 & 0 & 1
+      \end{array}\right)
+ \left(\begin{array}{c}
+  R\\G\\B\\\alpha\\1\\
+       \end{array}\right)
+\]
+と変換します。この行列の成分を$a_{00}, a_{01}\dots$のように横方向に20個並べたものを
+\AttribF{values}{}に与えます。
+例\ref{colormatrix}では変換の\texttt{values}次のようになっています。
+\begin{center}
+\texttt{0 1 0 0 0, 1 0 0 0 0, 0 0 0.2 0 0, 0 0 0 1 0 }
+
+\end{center}
+%
+%\listinginput{15}{CH6/svg-CMatrix.svg.matrixS-matrixE}
+%\ListSub{matrixS}{matrixE}
+%\ListSub{saturateS}{saturateE}
+
+このリストではわかりやすいように業の終了位置に\texttt{,}を入れてあります。
+これから変換の行列は次のようになっていることがわかります。
+\[
+\left(\begin{array}{ccccc}
+0 & 1 & 0  & 0 & 0\\
+1 & 0 & 0  & 0 & 0\\
+0 & 0 & 0.2& 0 & 0\\
+0 & 0 & 0  & 1 & 0\\
+0 & 0 & 0  & 0 & 1\\
+\end{array}\right) 
+\]
+この変換では赤の成分が緑成分に、緑の成分が赤の成分になります。
+青の成分が0.2倍されています(青が暗くなる)。図\ref{colormatrix}の一番上と
+上記の変換後のRGB値を
+計算すると次のようになります。
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+ \hline
+変換前&\texttt{\#FF0000}&\texttt{\#00FF00}& \texttt{\#0000FF}
+      &\texttt{\#00FFFF}&\texttt{\#FF00FF}& \texttt{\#FFFF00}\\\hline
+変換後&\texttt{\#00FF00}&\texttt{\#FF0000}& \texttt{\#000033}
+      &\texttt{\#FF0033}&\texttt{\#00FF33}& \texttt{\#FFFF00}\\\hline
+\end{tabular}
+\end{center}
+図\ref{colormatrix}にある上から2行目の色がこのようになっていることを確
+認してください。
+\paragraph{\AttribFVal{hueRotate}{}}
+\texttt{hue}とは\keyitem{色相}のことです。
+与えられた色に対し、色相が
+$0^{\circ}$ から $360^{\circ}$ の値が決められます。
+たとえば与えられた色相は赤が$0^{\circ}$,
+黄色が $60^{\circ}$ などとなっています。与えられた色相の値に
+与えられた分だけ角度を加えた色相に変化させるフィルタです。
+\Href{http://www.microsoft.com/japan/msdn/columns/hess/hess08142000.asp}
+{色相についての解説}を参考にしてください。
+
+これを使用した例が図\ref{colormatrix}の3,4,5行目です。
+リスト\ref{svg-colormatrix}の\LineR{hueExS}{hueExE}がこのフィルタの記述
+部分です。
+
+%\listinginput{20}{CH6/svg-CMatrix.svg.hueExS-hueExE}
+\ListSub{hueExS}{hueExE}
+
+このフィルタの変換式は次のようになっています。
+\[
+ \left(\begin{array}{c}
+  R'\\G'\\B'\\\alpha'\\1\\
+       \end{array}\right)=
+\left(\begin{array}{ccccc}
+  a_{00} &a_{01}& a_{02} & 0 & 0 \\
+  a_{10} &a_{11}& a_{12} & 0 & 0 \\
+  a_{20} &a_{21}& a_{22} & 0 & 0 \\
+  0      & 0    & 0      & 1 & 0 \\
+  0      & 0    & 0      & 0 & 1
+      \end{array}\right)
+ \left(\begin{array}{c}
+  R\\G\\B\\\alpha\\1\\
+       \end{array}\right)
+\]
+ここで $\theta$ を\AttribFVal{hueRotate} で与えられた値とすると
+左上の部分の行列は次の式で与えられます。
+\begin{eqnarray*}
+\left(\begin{array}{ccc}
+  a_{00} &a_{01}& a_{02}  \\
+  a_{10} &a_{11}& a_{12}  \\
+  a_{20} &a_{21}& a_{22} 
+      \end{array}\right)&=&\hphantom{+\cos\theta}
+\left(\begin{array}{ccc}
+  +0.213& +0.715& +0.072\\
+  +0.213& +0.715& +0.072\\
+  +0.213& +0.715& +0.072
+      \end{array}\right)\\&&+
+ \cos\theta
+\left(\begin{array}{ccc}
+  +0.787 &-0.715 &-0.072\\
+  -0.213 &+0.285 &-0.072\\
+  -0.213 &-0.715 &+0.928
+      \end{array}\right)\\&&+
+\sin\theta
+\left(\begin{array}{ccc}
+  -0.213 &-0.715 &+0.928\\
+  +0.143 &+0.140 &-0.283\\
+  -0.787 &+0.715 &+0.072
+      \end{array}\right)
+\end{eqnarray*}
+図\ref{hueRotation}は
+赤、緑、青の3原色のそれぞれに$30^{\circ}$ごとのフィルタをかけて基準の色
+が最終的に元来の位置にくるように回転させた色相環の図です。
+\ShowFig{0.9}{ht}{hueRotation}{色相回転の例}{hueRotation}
+
+この図を見ると色相環が完全に作成できていないことがわかります。位相を変換
+したとき、元の画像の明度によって他のところの色に影響が及んでいることがわ
+かります。
+
+この図を描くためのSVGのリストは次のようになっています(赤のみ)。
+
+%\NewpageF
+\SVGListN{色相環}{svg-colorhue-Ex}{svg-colorhue-Ex}
+\begin{itemize}
+ \item \LineR{filterS}{filterE}で各フィルタを定義しています。全部で11種類あります。
+ \item \Line{C}で塗られる円を定義しています。
+ \item \LineR{fundS}{fundE}でこの円を12個並べた図を定義しています。
+ \item \LineR{FigS}{FigE}で実際の図を描いています。ここで\AttribO{fill}の値
+       を\AttribVal{red}に設定し、赤が一番上に来るように画像全体を回転し
+       ています。
+ \item 残りの色の部分も同様に回転させ、色を指定しています。
+\end{itemize}
+\begin{Problem}
+ 黄色を基準色にして同様の図形を作成し、出来上がったものに対して色がどの
+ ようになっているか調べなさい。
+\end{Problem}
+\paragraph{\AttribVal{saturate}{}}
+\texttt{saturate}とは\keyitem{彩度}のことです。
+$s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値とすると
+この変換は次の式で与えられます。
+\[
+ \left(\begin{array}{c}
+  R'\\G'\\B'\\\alpha'\\1\\
+       \end{array}\right)=
+\left(\begin{array}{ccccc}
+0.213+0.787s&  0.715-0.715s&  0.072-0.072s& 0 & 0\\
+0.213-0.213s&  0.715+0.285s&  0.072-0.072s& 0 & 0\\
+0.213-0.213s&  0.715-0.715s&  0.072+0.928s& 0 & 0\\
+     0      &         0    &       0      & 1 & 0 \\
+     0      &         0    &       0      & 0 & 1
+      \end{array}\right)
+ \left(\begin{array}{c}
+  R\\G\\B\\\alpha\\1\\
+       \end{array}\right)
+\]
+この式からわかるように $s=0$ のときは R,G,Bのそれぞれの値が他の色に同じ
+値が設定されるので変換後はグレイスケールになります(SVGリスト
+\ref{svg-colormatrix}の\LineR{saturateS}{saturateE}のフィルタ)。
+
+また、$s=1$ のときは
+変換行列が単位行列になるので図形の色はまったく変化しません(SVGリスト
+\ref{svg-colormatrix}の44行目から47行目のフィルタ)。
+\paragraph{\AttribFVal{luminanceToAlpha}{}}
+\keyitem{輝度}(luminance)を不透明度に変換するフィルタです。次の式で定義
+されます。単独で利用することはないでしょう。
+\[
+ \left(\begin{array}{c}
+  R'\\G'\\B'\\\alpha'\\1\\
+       \end{array}\right)=
+\left(\begin{array}{ccccc}
+  0    &     0    &     0   & 0 & 0\\
+  0    &     0    &     0   & 0 & 0\\
+  0    &     0    &     0   & 0 & 0\\
+ 0.2125&   0.7154 &  0.0721 & 0 & 0 \\
+  0    &     0    &     0   & 0 & 1
+      \end{array}\right)
+ \left(\begin{array}{c}
+  R\\G\\B\\\alpha\\1\\
+       \end{array}\right)
+\]
+
+\subsection{\ElmF{feComponentTransfer}}
+\ElmF{feComponentTransfer}は各色のチャンネルを直接変換する手段を与えます。
+この要素のなかには次の要素を書くことができます。
+\begin{center}
+\ElmFT{feFuncR}, \ElmFT{feFuncG}, \ElmFT{feFuncB}, \ElmFT{feFuncA}
+\end{center}
+これらの要素には\AttribF{type}属性の値により次の属性を指定できます。
+なお、$C$ は与えられたチャンネルの数値です。
+\begin{table}[ht]
+\caption{\Elm{feComponentTransfer}の\AttribF{type}の属性と属性値の種類} 
+\begin{center}
+ \begin{tabular}{|c|c|p{15em}|}
+  \hline
+\AttribF{type}の値&とりうる属性値 &意味 \\ \hline
+\AttribFVal{linear}  &\AttribF{slope},\AttribFVal{intercept} &
+	  $\mbox{\AttribF{slope}}\times C+\mbox{\AttribFVal{intercept}}$\\ \hline
+ \AttribFVal{gamma}&\AttribF{amplitude},\AttribF{exponent},\AttribF{offset} &$
+	  \mbox{\AttribF{amplitude}}\times
+	  C^{\mbox{\AttribF{exponent}}}+\mbox{\AttribF{offset}}$\\ \hline
+ \AttribFVal{identity} & なし&$C$ \\ \hline
+  \raisebox{-1.5ex}{\AttribF{table}}&
+      \raisebox{-1.5ex}{\AttribF{tableValues}}& 与えられた数値の間を直線
+	  で補間する。横軸は等間隔\\ \hline
+  \AttribFVal{discrete}&\AttribF{tableValues} & 与えられた数値の階段関数にす
+	  る。\\ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+なお、属性値の\AttribF{tableValues}は空白またはコンマで区切られた数字の
+列です。このフィルタを使用した例は\cite{SVG11}で見ることができます。
+\section{画像を単一色で塗りつぶす(\ElmF{feFlood})}
+\ElmF{feFlood}は画像を\AttribF{flood-color}で塗りつぶします。また、
+\AttribF{flood-opacity}で不透明度も指定できます。与えられた画像に背景をつ
+けたいときに用いられるようです。
+\ShowFig{0.6}{ht}{feflood}{背景をつける}{feflood}
+%\newpage
+
+%\ \\[-3\baselineskip]
+\SVGListN{\protect\ElmF{feFlood}の例}{svg-feflood}{svg-feflood}
+\begin{itemize}
+ \item \LineR{floodS}{floodE}で元の画像の範囲を含む長方形の範囲を\ElmF{feFoold}
+       を用いて青で塗りつぶしています。
+ \item 塗りつぶした画像に\ElmF{feGaussianBlur}をかけて周囲をぼかします
+       (\LineR{GS}{GE})
+ \item もとの画像と上の画像を\ElmF{feMerge}で重ね合わせます。
+ \item なお、この例では左側に表示するテキストのフォントの大きさなどを
+       \keyitem{CSS}を用いて定義しています(19行目から22行目)。ここで定義
+       された名称は要素のほうでは\Attrib{class}で指定します(25行目)。
+\end{itemize}
+\section{複雑な画像の合成(\ElmF{feComposite})}
+\ElmF{feMerge}のように二つのソースから新しい画像を作成する一般的なものと
+して\ElmF{feComposite}があります。
+\ \\[-2\baselineskip]
+\begin{table}[ht]
+\caption{\Elm{feComposit}の\AttribF{operator}の属性} 
+\begin{center}
+\begin{tabular}{|c|p{25em}|}
+\hline
+\AttribF{operator}の値 & \multicolumn{1}{c|}{意味}\\\hline
+\raisebox{-1.5ex}{\AttribFVal{over}}&\AttribF{in2}で指定された画像の上に
+ \AttribF{in}で指定した画像を重ねる(\ElmF{feMerge}と同じ)。\\\hline
+ \AttribFVal{in}& \AttribF{in2}に含まれる\AttribF{in}の部分\\ \hline
+ \AttribFVal{out}& \AttribF{in2}に含まれない\AttribF{in}の部分\\ \hline
+ \AttribFVal{atop}& \AttribF{in2}に含まれる\AttribF{in}の部分と\AttribF{in}
+     に含まれない\AttribF{in2}の部分\\ \hline
+ \AttribFVal{xor}& \AttribF{in2}に含まれない\AttribF{in}の部分と
+     \AttribF{in}に含まれない\AttribF{in2}の部分\\ \hline
+ \raisebox{-3ex}{\AttribFVal{arithmetic}}& 各ピクセルごとに\AttribF{in}の値を
+     \texttt{A},\AttribF{in2}の値を \texttt{B}としたとき、\AttribF{k1}、
+     \AttribF{k2}、\AttribF{k3}、\AttribF{k4}で指定される値に対して\par
+     $\mbox{\AttribF{k1}}\times\mbox{\Showattrib{A}}\times\mbox{\Showattrib{B}}
+      +\mbox{\AttribF{k2}}\times\mbox{\Showattrib{A}}
+      +\mbox{\AttribF{k3}}\times\mbox{\Showattrib{B}}+\mbox{\AttribF{k4}}$
+     で計算される値。\\ \hline
+\end{tabular}
+\end{center}
+ \end{table}
+
+% \ \\[-2\baselineskip]
+ これらの画像の具体的な処理は下図のようになります。ここでは赤と青の円が
+ それぞれ\AttribF{in}と\AttribF{in2}になっています。
+\ShowFig{0.7}{ht}{svg-feComposite}{\protect\ElmFT{feComposite}の例}
+{feComposite}
+
+\SVGListN{\protect\ElmFT{feComposite}の例}{svg-feComposite}{svg-feComposite}
+\begin{itemize}
+ \item \Line{C}で基準となる円の大きさだけを定義しています。
+ \item \Line{C}で定義した円を用いて赤と青に塗られた円をそれぞれ\Line{CR}
+       と\Line{CB}で定義しています。
+ \item \LineR{overS}{overE}で\AttribF{operator}が\AttribFVal{over}のフィルタ
+       を定義しています(\texttt{id}は\texttt{OpOVER})。
+ \item 以下順にフィルタが定義されています。
+\begin{itemize}
+ \item \AttribF{operator}が\AttribFVal{xor}のフィルタ(\LineR{XORS}{XORE})
+ \item \AttribF{operator}が\AttribFVal{in}のフィルタ(\LineR{INS}{INE})
+ \item \AttribF{operator}が\AttribFVal{out}のフィルタ(\LineR{OUTS}{OUTE})
+ \item \AttribF{operator}が\AttribFVal{atop}のフィルタ(\LineR{ATOPS}{ATOPE})
+ \item \AttribF{operator}が\AttribFVal{arithmetic}のフィルタ
+       (\LineR{ArithS}{ArithE})
+\end{itemize}
+最後のフィルタを除いて\AttribF{operator}の値が異なるだけです。
+ \item \AttribFVal{arithmetic}ではそれそれのチャンネルお値を加える
+      パラメータが指定されています。この場合、塗られている色が赤と青なの
+       で\ElmF{feBlend}の\AttribFVal{lighten}と同じ効果が得られています
+       (図\ref{colorchart}参照)。
+\end{itemize}
+\begin{Problem}
+加色混合のカラーチャート図を\ElmFT{feComposite}で作成しなさい。また、
+\ElmFT{feComposite}を用いて減色
+ 混合のカラーチャート図を作成できるか検討しなさい。
+\end{Problem}
+\iffalse
+\section{光を当てる}
+画像に光を当て3Dのように見せる効果を出すフィルタとして
+\ElmFT{feDiffuseLighting}と\ElmFT{feSpecularLighting}があります。これらの効
+果を使うと画像にこれらのフィルタが使用す
+る光源の種類により効果は異なります。
+次の図\ref{feLight}を見てください\footnote{この図を作成するに当たり
+\Href{http://www.adobe.com/jp/svg/basics/getstarted.html}{Adobe社の
+SVGゾーン\texttt{http://www.adobe.com/jp/svg/basics/getstarted.html}}
+の例にあるフィルタを参考にしました。なお、このページのフィルタ
+で\texttt{lightColor}という属性が使われているようですがこの属性は正しく
+は\texttt{light-color}です。}。なお、この図でもそうですが
+\ElmFT{feSpecularLighting}は単独で使われるものではなくbump map として利
+用され、他の画像と合成されて使用します。
+\ShowFig{0.43}{ht}{svg-feLight}{光を当てる}{feLight}
+\subsection{光源の種類}
+\subsubsection{Distant Light}
+\keyitem{Distant\hspace{0.5em}Light}とは非常に強い遠方の光源のことです。
+\ElmFT{feDistantLight}
+で定義します。属性として水平方向からの角度(右側から図る)\AttribF{azimuth}と
+画面からの角度(水平方向から図る)\AttribF{elevation}があります。人間の目
+の習性からすると左上から光が当たるようにすると飛び出したように見えます。
+図は散乱光を用いたDistant Light の使用例です。
+\subsubsection{Point Light}
+Point Light(\keyitem{点光源})は空間の一点から放射される光源のことです。
+\ElmFT{fePointLight}で定義します。点光源の位置を示す座標の属性
+\AttribF{x},\AttribF{y},\AttribF{z} があります。当然のことなが
+ら\AttribF{z}が大きくなれば光源が遠くなるので効果が少なくなります。
+\subsubsection{Spot Light}
+Spot Light(スポットライト)は点光源と似ていますが舞台でのスポットライトの
+ように光が広がる範囲を制限する\AttribF{limitingConeAngle}やスポットライ
+トが当たる中心の位置を指定する\AttribF{pointsAtX}, \AttribF{pointsAtY},
+\AttribF{pointsAtZ} の属性があります。
+\subsection{\ElmF{feDeffuseLighting}}
+次のリストは図\ref{feLight}の一部を描くためのものです。
+\SVGListN{Distant\hspace{0.5em}Lightによる散乱光の例}{svg-feLight-Ex}{svg-feLight-Ex}
+\subsection{\ElmF{feSpecularLighting}}
+supecular とは鏡面の意味です。
+このフィルタはもとあの画像のアルファチャンネルを bump map(凹凸をつけるた
+めの絵)として利用するものです。このフィルタで利用できる属性は
+\Attrib{surfaceScal}(アルファチャンネルの値の倍数)、
+\AttribF{specularConstant}(全体の強度)、\AttribF{specularExponent}などが
+あります。入力の値のアルファ値をそのピクセルの高さとみなし、
+光が来る方向と曲面の傾きに応じて画像が構成されます。
+最終的には\ElmFT{feComposite}を用いて与えられた画像の上に貼り
+付けて立体感を出すことができます。パラメータの詳しい説明は\cite{SVG11}を見
+てください。
+
+次のリストは図\ref{feLight}の一部を描くためのものです。
+\SVGListN{Distant\hspace{0.5em}Lightによる反射光の例}{svg-feLightS}{svg-feLightS}
+\begin{itemize}
+ \item 元の画像は8行目で定義されているテキストです(27行目で参照していま
+       す)。この画像は全領域でアルファ値が1です。
+ \item この画像のアルファ値に(\texttt{in="SourceAlpha"})アルファ値を変
+       化させるために \ElmF{feGaussianBlur}をかけ
+       ます(11行目)。結果の画像に\texttt{blur2}という名称をつけています。
+ \item \texttt{blur2}に右下上方45度の方向から白色光をあてて
+       \ElmF{feSpecularLightng}をかけます(12行目から15行目)。
+ \item ここで得られた画像を元の絵と加えて(\ElmF{feComposite}の
+       \AttribFVal{arithmetic})最終的な画像を作成しています。
+\end{itemize}
+\fi
+%\section{その他のフィルタ}
+%\subsection{\ElmF{feDisplacementMap}}
+%\subsection{\ElmF{feMorphology}}
+%\subsection{\ElmF{feTurbulence}}
+\section{\ElmF{feTurbulence}}
+このフィルタは人工的なテクスチャを生成します。例を見てください。
+\begin{table}[ht]
+\caption{\ElmF{feTurbulence}の属性一覧}
+\begin{center}
+ \begin{tabular}{|l|p{23em}|}
+\hline
+  \multicolumn{1}{|c|}{属性名}&\multicolumn{1}{c|}{解説} \\\hline
+  \AttribF{type}& \AttribFVal{turbulance}{}または
+  \AttribFVal{fractalNoise}{}が利用可能\\\hline
+  \raisebox{-1.5ex}{\AttribF{baseFrequency}}&
+     値が大きいほど色の変化が大きくなる。正の数でなければならない。 \\ \hline
+  \AttribF{numOctaves}& ノイズ関数の数。デフォルトは1\\ \hline
+\Attrib{seed}  & このフィルタが使う乱数の初期値。デフォルトは1\\ \hline
+ \end{tabular}
+\end{center} 
+\end{table}
+%\newpage
+\ShowFig{0.7}{ht}{filterturbulance}%
+    {\protect\ElmF{feTurbulence}の例}{filterturbulance}
+\SVGListN{\protect\ElmF{feTurbulence}の例}
+{svg-filterturbulance}{svg-filterturbulance}
+\begin{Problem}
+ このフィルタのパラメータ\AttribF{baseFrequency}や\AttribF{numOctaves}を
+ いろいろ変えてどのような図形が作成できるか確かめなさい。
+\end{Problem}

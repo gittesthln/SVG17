@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" 
+     height="100%" width="100%">
+  <title>色相環</title>
+  <defs>
+    <filter id="HRotate30" filterUnits="objectBoundingBox" ref="filterS"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="30" />
+    </filter>
+    <filter id="HRotate60" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="60" />
+    </filter>
+    <filter id="HRotate90" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="90" />
+    </filter>
+    <filter id="HRotate120" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="120" />
+    </filter>
+    <filter id="HRotate150" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="150" />
+    </filter>
+    <filter id="HRotate180" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="180" />
+    </filter>
+    <filter id="HRotate210" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="210" />
+    </filter>
+    <filter id="HRotate240" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="240" />
+    </filter>
+    <filter id="HRotate270" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="270" />
+    </filter>
+    <filter id="HRotate300" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="300" />
+    </filter>
+    <filter id="HRotate330" filterUnits="objectBoundingBox"
+           x="0%" y="0%" width="100%" height="100%">
+       <feColorMatrix in="SourceGraphic" type="hueRotate" values="330" />
+    </filter><!--  ref="filterE" -->
+    <circle id="Base" cx="80" cy="0" r="20" ref="C"/>
+    <g id="Fundamental" ref="FundS">
+      <g transform="rotate(0)">
+        <use xlink:href="#Base" />
+      </g>
+      <g transform="rotate(30)">
+        <use xlink:href="#Base" filter="url(#HRotate30)"/>
+      </g>
+      <g transform="rotate(60)">
+        <use xlink:href="#Base" filter="url(#HRotate60)"/>
+      </g>
+      <g transform="rotate(90)">
+        <use xlink:href="#Base" filter="url(#HRotate90)"/>
+      </g>
+      <g transform="rotate(120)">
+        <use xlink:href="#Base" filter="url(#HRotate120)"/>
+      </g>
+      <g transform="rotate(150)">
+        <use xlink:href="#Base" filter="url(#HRotate150)"/>
+      </g>
+      <g transform="rotate(180)">
+        <use xlink:href="#Base" filter="url(#HRotate180)"/>
+      </g>
+      <g transform="rotate(210)">
+        <use xlink:href="#Base" filter="url(#HRotate210)"/>
+      </g>
+      <g transform="rotate(240)">
+        <use xlink:href="#Base" filter="url(#HRotate240)"/>
+      </g>
+      <g transform="rotate(270)">
+        <use xlink:href="#Base" filter="url(#HRotate270)"/>
+      </g>
+      <g transform="rotate(300)">
+        <use xlink:href="#Base" filter="url(#HRotate300)"/>
+      </g>
+      <g transform="rotate(330)">
+        <use xlink:href="#Base" filter="url(#HRotate330)"/>
+      </g>
+    </g><!-- ref="fundE" -->
+  </defs>
+  <g transform="translate(150,150)">
+    <g transform="rotate(-90)" fill="red" ref="FigS">
+      <use xlink:href="#Fundamental"/>
+    </g><!-- ref="FigE" -->
+    <text font-size="24px" text-anchor="middle" y="150">赤基準</text>
+  </g>
+</svg>

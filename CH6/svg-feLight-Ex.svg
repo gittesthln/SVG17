@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<defs>
+  <text id="Text" class="textStyle" x="15">Lighting FILTER</text>
+  <filter id="Lighting3" filterUnits="userSpaceOnUse"
+          x="0" y="0" width="500" height="80">
+    <feDiffuseLighting in="SourceGraphic" lighting-color="white">
+      <feDistantLight azimuth="45" elevation="45"/>
+    </feDiffuseLighting>
+  </filter>
+</defs>
+<style type="text/css">
+.textStyle {font-size:80px; text-anchor:start; dominant-baseline:hanging;
+            font-family:Impact;stroke:black; stroke-width:2; fill:red;}
+.InfoStyle {font-size:30px; text-anchor:middle; dominant-baseline:mathematical;}
+.InfoNum {font-size:30px; text-anchor:end; dominant-baseline:mathematical;}
+</style>
+  <g transform="translate(240,40)" >
+    <use x="0" xlink:href="#Text" />
+  </g>
+  <g transform="translate(240,140)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">45</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">45</text>
+    <use xlink:href="#Text" filter="url(#Lighting3)"/>
+  </g>
+</svg>
