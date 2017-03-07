@@ -14,8 +14,8 @@
     </feMerge><!-- ref="femergeE" -->
   </filter><!-- ref="filterE" -->
 </defs>
-<g transform="translate(20,20)">
-  <rect  x="40" y="20" width="50" height="50" ref="rectS"
+<g transform="translate(50,20)">
+  <rect  x="40" y="20" width="100" height="100" ref="rectS"
          fill="red" stroke-width="4" stroke="blue" filter="url(#DropShadow)" ref2="rectE"/>
 </g>
 </svg>
