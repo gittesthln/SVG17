@@ -1,0 +1,83 @@
+%-*- coding: utf-8 -*-
+\iffalse
+表\ref{MethodDOM}は DOM のメソッドのリストです。\texttt{document}だけ
+に適用できるものと、すべての要素に適応できるものとがあります。
+
+本書ではこれらのいくつかについて使い方を解説します。
+\fi
+{\setlength{\tabcolsep}{0.2em}
+\begin{longtable}{|c|c|m{20em}|}
+\caption{DOMのメソッド}\label{MethodDOM}
+\\  \hline
+メソッド名  & {使用可能要素}&
+\hspace*{\fill}説{\hfill}明\hspace*{\fill}\rule{0em}{0em}\\ \hline
+\endfirsthead
+\caption{DOMのメソッド(続き)}
+\\  \hline
+メソッド名  & {使用可能要素}&
+\hspace*{\fill}説{\hfill}明\hspace*{\fill}\rule{0em}{0em}\\ \hline
+\endhead
+\hline\multicolumn{3}{r}{次ページへ続く}
+\endfoot
+\endlastfoot
+\DOMM{getElementById}{(id)}&\texttt{document}&
+      属性\texttt{id}の値が引数\texttt{id}である要素を得る。 \\\hline
+\DOMM{getElementsByTagName}{(Name)}&対象要素&
+ 対象要素の子要素で要素名が\texttt{Name}であるもののリストを得る。\\\hline
+\DOMM{getElementsByClassName}{(Name)}&対象要素&
+     属性\texttt{class}の値が\texttt{Name}である要素のリストを得る。 \\\hline
+\DOMM{getElementsByName}{(Name)}&\texttt{document}&
+     属性\texttt{name}が\texttt{Name}である要素のリストを得る。\\\hline
+\DOMM{querySelector}{(selectors)}&対象要素&
+     \texttt{selectors}で指定されたCSSのセレクタに該当する一番初めの要素
+	  を得る。 \\\hline
+\DOMM{querySelectorAll}{(selectors)}&対象要素&
+     \texttt{selectors}で指定されたCSSのセレクタに該当する要素のリストを得る。
+	  \\\hline
+\DOMM{getAttribute}{(Attrib)}&対象要素&
+     対象要素の属性\texttt{Attrib}の値を読み出す。得られる値はすべて文字
+	  列である。\\ \hline
+{\DOMM{setAttribute}{(Attrib,Val)}}  &対象要素&
+     対象要素の属性\texttt{Attrib}の値を\texttt{Val}にする。数を渡しても
+	  文字列に変換される。\\ \hline
+{\DOMM{hasAttribute}{(Attrib)}}  &対象要素&
+     対象要素に属性\texttt{Attrib}がある場合は\texttt{true}を、ない場合
+ は\texttt{false}を返す。\\ \hline
+{\DOMM{removeAttribute}{(Attrib)}}  &対象要素&
+     対象要素の属性\texttt{Attrib}を削除する。\\ \hline
+\DOMM{getNodeName}{()}&対象要素&対象要素の要素名を得る。\\\hline
+\DOMM{createElement}{(Name)} &\texttt{document}&
+     \texttt{Name}で指定した要素を作成する。 \\ \hline
+\DOMM{createElementNS}{(NS,Name)} &\texttt{document}&
+     \keyitem{名前空間}\texttt{NS}で定義されている要素\texttt{Name}を作成
+	  する。 \\ \hline
+\DOMM{createTextNode}{(text)} &\texttt{document}&
+     \texttt{text}を持つテキストノードを作成する。\\ \hline
+{\DOMM{cloneNode}{(bool)}} &対象要素&
+%   対象要素の複製を作る。
+\texttt{bool}が
+  \texttt{true}のときは対象要素の子要素すべてを、%複製する。
+  \texttt{false}のときは対象要素だけの複製を作る。\\ \hline
+{\DOMM{appendChild}{(Elm)}} &対象要素&
+  \texttt{Elm}を対象要素の最後の子要素として付け加える。\texttt{Elm}がすでに
+	  対称要素の子要素のときは元の位置から最後の位置に移動する。 \\ \hline
+{\DOMM{insertBefore}{(newElm, PElm)}} &対象要素&
+   対象要素の子要素\texttt{PElm}の前に\texttt{newElm}を子要素として付け
+  加える。\texttt{Elm}がすでに対称要素の子要素のときは元の位置から指定さ
+	  れた位置に移動する。 \\ \hline
+\DOMM{removeChild}{(Elm)} &対象要素& 対象要素の子要素
+      \texttt{Elm}を取り除く。\\ \hline
+\DOMM{replaceChild}{(NewElm, OldElm)} &対象要素& 対象要素に含まれる子要素
+      \texttt{OldElm}を\texttt{NewElm}で置き換える。\\ \hline
+\DOMM{setValue}{(value)} &\small テキストノード& {対象のテキストノードの値を
+	  \texttt{value}にする。}\\ \hline
+\end{longtable}
+}
+なお、表中の名前空間(Namespace)とは、指定した要素が定義されている規格を指定するもの
+です。一つの文書内で複数の規格を使用する場合、作成する要素がどこで定義
+されているのかを指定します。これにより、異なる規格で同じ要素名が定義されて
+いてもそれらを区別することが可能となります。
+
+また、要素のリストが得られるメソッドの戻り値のの各要素は
+	  配列と同様に\texttt{[ ]}で参照でできます。
+

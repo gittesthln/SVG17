@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>背景をつける</title>
+<defs>
+   <filter id="Flood" filterUnits="userSpaceOnUse" >
+    <feFlood flood-color="blue" flood-opacity="0.5"
+       x="25" y="30" width="450" height="80"
+       in="SourceGraphic" result="flood"/>
+    <feGaussianBlur in="flood" result="floodblur" stdDeviation="10"
+       x="0" y="0" width="600" height="180"/>
+    <feMerge>
+      <feMergeNode in="floodblur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</defs>
+<style type="text/css">
+.textStyle {font-size:80px; text-anchor:middle;
+   font-family:Impact;stroke:black; stroke-width:4; fill:red;}
+</style>
+<g transform="translate(30,20)" >
+  <text x="250" y="100" 
+     class="textStyle" filter="url(#Flood)">FLOOD FILTER</text>
+ </g>
+</svg>

@@ -1,0 +1,189 @@
+% -*- coding: utf-8 -*-
+\subsection{DOM(Docunment Object Model)}
+W3Cの\keyitem{DOM}に関するページ\cite{DOM}に次のような記述があります。
+\begin{quotation}
+The Document Object Model is a platform- and language-neutral interface
+ that will allow programs and scripts to dynamically access and update
+ the content, structure and style of documents. The document can be
+ further processed and the results of that processing can be
+ incorporated back into the presented page. 
+\end{quotation}
+\begin{quotation}
+  Document Object Model はプログラムやスクリプトが文書の内容、構造
+ およびスタイルに動的にアクセスしたりアップデートするようにするプラット
+ フォームや言語に対し中立なインターフェイスである。文書はさらに処理され、
+ その結果は現在のページへと反映させることができる。
+\end{quotation}
+より具体的にいえば DOM は
+XML データをツリー状に表したオブジェクトで、このデータ構造を操作する統一的な手段が
+ W3C の規格として制定されています。
+
+DOMを利用するメリットして次のことが挙げられます。
+\begin{itemize}
+% \item DOMの規格はW3Cが制定したオープンな規格です。
+ \item 最近のブラウザはDOMを標準でサポートしています。したがって、ブラ
+       ウザによりコードを書き分ける必要がなくなります。
+ \item DOM を操作する手段(API -- Application Program Interface)
+       が定義されています。
+ \item API を \JS などの言語から利用して DOM のなかにあるデータを追加や
+       削除、変更をすることでDOM文書が変更できます。
+\end{itemize}
+SVG文書も HTML 文書もともに DOM として取り扱うことができますので、ここで
+紹介する方法は SVG 文書に限らずHTML文書に対しても応用できます。
+
+DOMは文書をツリー状のデータ構造で管理します。
+\begin{itemize}
+ \item \keyitem{ノード}と呼ばれるものの集まりでこれらの間に上位、下位の
+       関係で結んだものです。
+ \item あるノードから見て下位にあるノードを\keyitem{子ノード}
+        \IndexSet{子}{ノード}{E}{}{}、上位にあるノードを
+       を\keyitem{親ノード}\IndexSet{親}{ノード}{E}{}{}と呼びます。
+ \item 子ノードから見ると親ノードはただひとつしかありません。
+ \item 最上位にあるノードを\keyitem{ルートノード}
+       \IndexSet{ルート}{ノード}{E}{}{}と呼びます。
+ \item ノードの種類としては要素を表す\keyitem{要素ノード}とテキストを表
+       す\keyitem{テキストノード}が重要です。\IndexSet{要素}{ノード}{E}{}{}
+       \IndexSet{テキスト}{ノード}{E}{}{}
+\end{itemize}
+図\ref{developertool}は Chrome で「デベロッパーツール」を開いたところで
+す。
+\ShowFig{0.95}{ht}{developertool}
+{Chrome のデベロッパーツールでDOMツリーを表示する(1)}{developertool}
+\begin{itemize}
+ \item 画面の上部にはSVGの画像が表示されていて、背景が水色になっています。
+ \item 画面の下部にはいくつかのタブがあり、一番左のタブが選択されていま
+			 す。
+ \begin{itemize}
+	\item このタブ名は「Elements」です。ここにDOMの構造が示されます。
+	\item ここではこの画像のSVG要素が示され、その前に「」が付いています。
+	\item これはSVG要素の下に子要素があることを示し、それらが畳まれてい
+				る(表示されていない)ことを示しています。エクスプローラなどのフォ
+				ルダの表示と似ていることに注意してください。
+ \end{itemize}
+\end{itemize}
+%\newpage
+図\ref{developertool2}は図\ref{developertool}の「Elements」の中で2番目の
+\texttt{g}要素上にカーソルを置いた状態です。
+
+\ShowFig{0.95}{ht}{developertool2}
+{Opera の開発ツールでDOMツリーを表示する(2)}{developertool2}
+対応した要素の部分の背景が水色になっています。
+
+クリックした要素に対応した要素のところまでDOMツリーが展開され、その要素
+のところの
+
+この画面で\Elm{polyline}の属性\AttribO{width}の属性値を\texttt{20}から
+\texttt{40}に変更した画面が図\ref{opera-dragonfly3}です。
+%\ShowFig{0.95}{ht}{opera-dragonfly3}
+{Opera の開発ツールでDOMツリーを表示する(3)}{opera-dragonfly3}
+
+入力の過程でその値がすぐに反映されるのがわかります。
+
+このほかのタブは左から順に次のような機能を持ちます。
+\begin{itemize}
+ \item スクリプト
+
+\JS のプログラムが表示されます。エラーが起きた行がここでただちに分かるほ
+       か、通常のデバッガーの機能（ブレークポイントの設定など）が用意されています。
+ \item ネットワーク
+
+通常\HTML 文書は自分自身のファイル以外にも画像ファイルなど多数のファイル
+       により構成されています。これらの構成されるファイルの読み込みのタ
+       イミングが示されます。これによりど
+       のファイルの読み込みに時間がかかっているかなどパフォーマンスの向
+       上に役に立ちます。
+ \item リソース
+
+読み込まれたファイルの関係を示します。
+ \item ストレージ
+
+ブラウザのページ間でのデータのやり取りの情報を示します。ここにはさらに
+       「Cookie」「ローカルストレージ」「セッションストレージ」などのタ
+       ブが表示されています。ある\HTML のデー
+       タを別の\HTML に渡すためには従来は「Cookie」を使用するしか方法が
+       ありませんでしたが、HTML5 では新たに「Web ストレージ」という機能
+       が追加されました。Web ストレージには「ローカルストレージ」と「セッ
+       ションストレージ」の2種類があります。
+ \item エラー
+
+\JS の実行時などのエラーがまとめて表示されます。
+ \item コンソール(一番右)
+
+オンラインで\JS の対話型の実行ができる(停止した場所での変数の値の確認な
+       ど)ほか、プログラムからの出力を表示さ
+       せることができます。
+\end{itemize}
+
+\begin{Problem}\upshape
+次の事項について調べなさい。
+\begin{enumerate}
+ \item  今までに作成した\SVG を\Opera で表示し、開発者ツールで図形の属
+	性値を変化させることで表示が変わること
+ \item \SVG のアニメーションの属性値を変えることができるかどうか
+ \item \HTML でも同様のことができること
+ \item 上で説明していないタブの機能を確認すること
+ \item 上にあげたブラウザで同様の機能があること
+\end{enumerate}
+\end{Problem}
+\subsection{DOM のメソッドとプロパティ}
+DOM の構造や属性値の操作をプログラムから可能にするために\DOM で
+は表\ref{MethodDOM}や\ref{PropertyDOM}にある\keyitem{メソッド}や
+\keyitem{プロパティ}が規定されています。
+これらの手段を用いて\DOM をサポートする文書にアクセスができます。
+
+メソッドとはそのオブジェクトに対する操作を意味し、関数の形で記述します。
+プロパティはそのオブジェクトが持つ性質で代入により参照したり書き直したり
+できます。
+%
+これらのメソッドやプロパティの具体的な使用方法はこの後で
+\SVG を操作することで紹介します。
+
+なお、ここでのメソッドやプロパティは DOM文書で使用可能なものです。したがっ
+て、最近のブラウザはすべて\DOM{} をサポートするので同様の方法で\HTML 文
+書も部分的に書き直すことが可能です。
+%\newpage
+\input \CH 07021DOMMethod.tex
+
+表\ref{PropertyDOM}は DOM の要素に対するプロパティです。
+\begin{table}[ht]
+\caption{DOM要素に対するプロパティ}\label{PropertyDOM}
+\begin{center}
+ \begin{tabular}{|c|m{25em}|}
+  \hline
+プロパティ名  &
+ \hspace*{\fill}説{\hfill}明\hspace*{\fill}\rule{0em}{0em}\\ \hline
+\DOMP{firstChild} &指定された要素の先頭にある子要素 \\ \hline
+\DOMP{lastChild} & 指定された要素の最後にある子要素\\ \hline
+\DOMP{nextSibling} & 指定された子要素の次の要素\\ \hline
+\DOMP{previousSibling} & 現在の子要素の前にある要素\\ \hline
+\DOMP{parentNode} & 現在の要素の親要素\\ \hline
+\DOMP{hasChildNodes} &その要素が子要素を持つ場合は\texttt{true}持たない
+      場合は\texttt{false}である。\\ \hline
+\DOMP{nodeName}& その要素の要素名前\\ \hline
+\DOMP{nodeType}& 要素の種類($1$は普通の要素、$3$はテキストノード)\\ \hline
+\DOMP{nodeValue}&(テキスト)ノードの値 \\ \hline
+\DOMP{childNodes}& 子要素の配列\\ \hline
+\DOMP{children}& 子要素のうち通常の要素だけからなる要素の配列
+      (DOM4で定義)\\ \hline
+\DOMP{firstElementChild} &指定された要素の先頭にある通常の要素である子要素(DOM4で定義)\\ \hline
+\DOMP{lastElementChild} & 指定された要素の最後にある通常の要素である子要素(DOM4で定義)\\ \hline
+\DOMP{nextElementSibling} & 指定された子要素の次の通常の要素(DOM4で定義)\\ \hline
+\DOMP{previousElementSibling} & 現在の子要素の前にある通常の要素(DOM4で定義)\\ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+
+なお、
+DOM4\cite{DOM4}とは
+2015年11月19日に Recommendation となった W3Cが定める DOM の規格です。
+DOM の規格は今までに Level 1 から Level 3 までがあります。
+\begin{itemize}
+ \item これらのプロパティのうち、\texttt{nodeValue}を除いてはすべて、読
+			 み取り専用です。
+ \item ある要素に子要素がない場合にはその要素の\texttt{firstChild}や
+\texttt{lastChild}は\texttt{null}となります。
+ \item ある要素に子要素がある
+場合、その\texttt{firstChild.previousSibling}や
+\texttt{lastChild.nextSibling}も\texttt{null}となります。
+       \texttt{firstElementChild}などでも同様です。
+\end{itemize}

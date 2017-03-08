@@ -1,0 +1,27 @@
+\begin{theindex}\small
+\addcontentsline{toc}{section}{\indexnameshort}
+\item {\large\bf B}\nopagebreak[4]
+  \item \ShowElm {BR} \dotfill \hyperpage{7}
+
+  \indexspace
+\item {\large\bf C}\nopagebreak[4]
+  \item \ShowElm {canvas} \dotfill \hyperpage{6}
+  \item \Showattrib {class}(ëÆê´) \dotfill \hyperpage{103}
+
+  \indexspace
+\item {\large\bf H}\nopagebreak[4]
+  \item \ShowElm {HTML} \dotfill \hyperpage{4}
+
+  \indexspace
+\item {\large\bf Çª}\nopagebreak[4]
+  \item ëÆê´
+    \subitem \Showattrib {class} \dotfill \hyperpage{103}
+
+  \indexspace
+\item {\large\bf ÇÊ}\nopagebreak[4]
+  \item óvëf
+    \subitem \ShowElm {BR} \dotfill \hyperpage{7}
+    \subitem \ShowElm {canvas} \dotfill \hyperpage{6}
+    \subitem \ShowElm {HTML} \dotfill \hyperpage{4}
+
+\end{theindex}

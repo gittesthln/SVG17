@@ -64,10 +64,10 @@
   <filter id="LightingS3" filterUnits="userSpaceOnUse"
           x="0" y="0" width="1000" height="80">
     <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur3"/>
-    <feSpecularLight in="blur3" surfaceScale="5" specularConstant="0.9"
+    <feSpecularLighting in="blur3" surfaceScale="5" specularConstant="0.9"
        specularExponent="20" lighting-color="white" result="specularOut3">
        <feDistantLight azimuth="45" elevation="45"/>
-    </feSpecularLight>
+    </feSpecularLighting>
     <feComposite in="SourceGraphic" in2="specularOut3" operator="arithmetic"
       k1="0" k2="1" k3="1" k4="0"/>
   </filter>

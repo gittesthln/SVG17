@@ -29,9 +29,9 @@
 \INPUT{CH3}{03object.tex}
 \INPUT{CH4}{04animation.tex}
 \INPUT{CH5}{05showingtext.tex}
-\iffalse
 \INPUT{CH6}{06filter.tex}
 \INPUT{CH7}{07svg-withjavascript.tex}
+\iffalse
 \INPUT{CH8}{08svgwithserver.tex}
 \fi
 %\backmatter
@@ -48,7 +48,7 @@
 %\INPUT{Appendix}{99browser.tex}
 %\cleardoublepage
 %\backmatter
-\iffalse
+\iffalse\else
 \newcommand\indexnameshort{}
 \renewcommand{\thesection}{}
 \newcommand{\IncludeIndex}[2]{%
@@ -61,7 +61,7 @@
 \IncludeIndex{indexSVG}{SVGの用語}
 \IncludeIndex{indexHTML}{HTMLの用語}
 \IncludeIndex{indexJS}{\JS の用語}
-\IncludeIndex{indexPHP}{PHPの用語}
+%\IncludeIndex{indexPHP}{PHPの用語}
 \IncludeIndex{index}{一般}
 %
 \fi

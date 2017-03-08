@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20001102//EN"
+   "http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<defs>
+  <text id="TextS" class="textStyle" x="15">SPECULAR</text>
+  <filter id="LightingS2" filterUnits="userSpaceOnUse"
+          x="0" y="100" width="360" height="80">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur2"/>
+    <feSpecularLight in="blur2" surfaceScale="5" specularConstant="0.9"
+       specularExponent="20" lighting-color="white" result="specularOut2">
+       <feDistantLight azimuth="45" elevation="10"/>
+    </feSpecularLight>
+    <feComposite in="SourceGraphic" in2="specularOut2" operator="arithmetic"
+      k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+</defs>
+<style type="text/css">
+.textStyle {font-size:80px; text-anchor:start; 
+            font-family:Impact;stroke:black; stroke-width:2; fill:red;}
+.InfoStyle {font-size:30px; text-anchor:middle; }
+.InfoNum {font-size:30px; text-anchor:end; }
+</style>
+  <g transform="translate(240,90)" >
+    <use x="0" xlink:href="#TextS" />
+  </g>
+  <g transform="translate(240,140)">
+    <text class="InfoStyle" x="-150" y="20">azimuth</text>
+    <text class="InfoNum"   x="-20" y="20">45</text>
+    <text class="InfoStyle" x="-150" y="50">elevation</text>
+    <text class="InfoNum"   x="-20" y="50">10</text>
+    <use x="0" xlink:href="#TextS" filter="url(#LightingS2)"/>
+  </g>
+ </svg>

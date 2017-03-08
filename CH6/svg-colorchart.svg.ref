@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>加色混合と減色混合によるカラーチャート図</title>
+<defs>
+  <circle id="Circle" cx="100" cy="100" r="70"/>
+  <g id="Red">
+    <rect x="-70" y="0" width="300" height="270"/>
+    <use xlink:href="#Circle" fill="red"/>
+  </g>
+  <use id="Blue"    xlink:href="#Circle" fill="Blue"/>
+  <use id="Green"   xlink:href="#Circle" fill="lime"/>
+  <use id="Yellow"  xlink:href="#Circle" fill="yellow"/>
+  <use id="Magenta" xlink:href="#Circle" fill="magenta"/>
+  <use id="Cyan" xlink:href="#Circle" fill="cyan"/>
+  <filter id="Lighten" filterUnits="userSpaceOnUse"
+     x="-30" y="0" width="1000" height="1000">
+    <feOffset dx="70" dy="0" in="SourceGraphic" result="RedOffset"/> 
+    <feImage x="0" y="0" width="500" height="500"
+        xlink:href="#Blue" result="BlueImage"/>
+    <feOffset dx="110" dy="69" in="BlueImage" result="BlueOffset"/>
+    <feImage x="0" y="0" width="500" height="500"
+        xlink:href="#Green" result="GreenImage"/>
+    <feOffset dx="30" dy="69" in="GreenImage" result="GreenOffset"/>
+    <feBlend in="RedOffset" in2="BlueOffset" mode="lighten" result="RB"/>
+    <feBlend in="RB" in2="GreenOffset" mode="lighten"/>
+  </filter>
+  <filter id="Darken" filterUnits="userSpaceOnUse"
+     x="0" y="0" width="1000" height="1000">
+    <feOffset dx="320" dy="0" in="SourceGraphic" result="YellowOffset"/> 
+    <feImage x="0" y="0" width="800" height="500"
+        xlink:href="#Magenta" result="MagentaImage"/>
+    <feOffset dx="360" dy="69" in="MagentaImage" result="MagentaOffset"/>
+    <feImage x="0" y="0" width="800" height="500"
+        xlink:href="#Cyan" result="CyanImage"/>
+    <feOffset dx="280" dy="69" in="CyanImage" result="CyanOffset"/>
+    <feBlend in="YellowOffset" in2="MagentaOffset" mode="darken" result="YM"/>
+    <feBlend in="YM" in2="CyanOffset" mode="darken" />
+  </filter>
+</defs>
+  <use xlink:href="#Red" filter="url(#Lighten)"/>
+  <use xlink:href="#Yellow" filter="url(#Darken)"/>
+</svg>
