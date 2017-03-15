@@ -1550,8 +1550,8 @@
 \indexentry{::feDiffuseLighting ふいるたないでのようそ@\Showattrib {feDiffuseLighting}(フィルタ内での要素)::::::::|hyperpage}{120}
 \indexentry{::\Showattrib {feSpecularLighting}::フィルタ内での要素::::::|hyperpage}{120}
 \indexentry{::feSpecularLighting ふいるたないでのようそ@\Showattrib {feSpecularLighting}(フィルタ内での要素)::::::::|hyperpage}{120}
-\indexentry{::\Showattrib {feSpecularLighting}::フィルタ内での要素::::::|hyperpage}{121}
-\indexentry{::feSpecularLighting ふいるたないでのようそ@\Showattrib {feSpecularLighting}(フィルタ内での要素)::::::::|hyperpage}{121}
+\indexentry{::\Showattrib {feSpecularLighting}::フィルタ内での要素::::::|hyperpage}{120}
+\indexentry{::feSpecularLighting ふいるたないでのようそ@\Showattrib {feSpecularLighting}(フィルタ内での要素)::::::::|hyperpage}{120}
 \indexentry{::\Showattrib {feDistantLight}::フィルタ内での要素::::::|hyperpage}{121}
 \indexentry{::feDistantLight ふいるたないでのようそ@\Showattrib {feDistantLight}(フィルタ内での要素)::::::::|hyperpage}{121}
 \indexentry{::\Showattrib {azimuth}::フィルタ::::::|hyperpage}{121}
@@ -1572,12 +1572,12 @@
 \indexentry{::limitingConeAngle ぞくせい(ふぃるた)@\Showattrib {limitingConeAngle}(フィルタ)::::::::|hyperpage}{121}
 \indexentry{::\Showattrib {pointsAtX}::フィルタ::::::|hyperpage}{121}
 \indexentry{::pointsAtX ぞくせい(ふぃるた)@\Showattrib {pointsAtX}(フィルタ)::::::::|hyperpage}{121}
-\indexentry{::\Showattrib {pointsAtY}::フィルタ::::::|hyperpage}{122}
-\indexentry{::pointsAtY ぞくせい(ふぃるた)@\Showattrib {pointsAtY}(フィルタ)::::::::|hyperpage}{122}
-\indexentry{::\Showattrib {pointsAtZ}::フィルタ::::::|hyperpage}{122}
-\indexentry{::pointsAtZ ぞくせい(ふぃるた)@\Showattrib {pointsAtZ}(フィルタ)::::::::|hyperpage}{122}
-\indexentry{::\Showattrib {feDeffuseLighting}::フィルター::::::|hyperpage}{122}
-\indexentry{::feDeffuseLighting ふいるた@\Showattrib {feDeffuseLighting}(フィルター)::::::::|hyperpage}{122}
+\indexentry{::\Showattrib {pointsAtY}::フィルタ::::::|hyperpage}{121}
+\indexentry{::pointsAtY ぞくせい(ふぃるた)@\Showattrib {pointsAtY}(フィルタ)::::::::|hyperpage}{121}
+\indexentry{::\Showattrib {pointsAtZ}::フィルタ::::::|hyperpage}{121}
+\indexentry{::pointsAtZ ぞくせい(ふぃるた)@\Showattrib {pointsAtZ}(フィルタ)::::::::|hyperpage}{121}
+\indexentry{::\Showattrib {feDeffuseLighting}::フィルター::::::|hyperpage}{121}
+\indexentry{::feDeffuseLighting ふいるた@\Showattrib {feDeffuseLighting}(フィルター)::::::::|hyperpage}{121}
 \indexentry{::\Showattrib {feSpecularLighting}::フィルター::::::|hyperpage}{122}
 \indexentry{::feSpecularLighting ふいるた@\Showattrib {feSpecularLighting}(フィルター)::::::::|hyperpage}{122}
 \indexentry{::surfaceScalぞくせい@\Showattrib {surfaceScal}::::::::|hyperpage}{122}
@@ -1595,8 +1595,8 @@
 \indexentry{::feComposite ふいるた@\Showattrib {feComposite}(フィルター)::::::::|hyperpage}{123}
 \indexentry{::\Showattrib {arithmetic}::値--フィルタ::::::|hyperpage}{123}
 \indexentry{::arithmetic あたいふぃるた@\Showattrib {arithmetic}(値--フィルタ)::::::::|hyperpage}{123}
-\indexentry{::\Showattrib {feTurbulence}::フィルター::::::|hyperpage}{124}
-\indexentry{::feTurbulence ふいるた@\Showattrib {feTurbulence}(フィルター)::::::::|hyperpage}{124}
+\indexentry{::\Showattrib {feTurbulence}::フィルター::::::|hyperpage}{123}
+\indexentry{::feTurbulence ふいるた@\Showattrib {feTurbulence}(フィルター)::::::::|hyperpage}{123}
 \indexentry{::\Showattrib {feTurbulence}::フィルター::::::|hyperpage}{124}
 \indexentry{::feTurbulence ふいるた@\Showattrib {feTurbulence}(フィルター)::::::::|hyperpage}{124}
 \indexentry{::\Showattrib {type}::フィルタ::::::|hyperpage}{124}
@@ -1614,13 +1614,11 @@
 \indexentry{::feTurbulence ふいるた@\Showattrib {feTurbulence}(フィルター)::::::::|hyperpage}{124}
 \indexentry{::\Showattrib {feTurbulence}::フィルター::::::|hyperpage}{124}
 \indexentry{::feTurbulence ふいるた@\Showattrib {feTurbulence}(フィルター)::::::::|hyperpage}{124}
-\indexentry{::\Showattrib {baseFrequency}::フィルタ::::::|hyperpage}{125}
-\indexentry{::baseFrequency ぞくせい(ふぃるた)@\Showattrib {baseFrequency}(フィルタ)::::::::|hyperpage}{125}
-\indexentry{::\Showattrib {numOctaves}::フィルタ::::::|hyperpage}{125}
-\indexentry{::numOctaves ぞくせい(ふぃるた)@\Showattrib {numOctaves}(フィルタ)::::::::|hyperpage}{125}
-\indexentry{::\ShowElm {polyline}::要素::::::|hyperpage}{130}
-\indexentry{::polyline (ようそ)@\ShowElm {polyline}::::::::|hyperpage}{130}
-\indexentry{::\Showattrib {width}::図形::::::|hyperpage}{130}
-\indexentry{::width ぞくせい(ずけい)@\Showattrib {width}(図形)::::::::|hyperpage}{130}
-\indexentry{::\ShowElm {コールバック関数}::要素::::::|hyperpage}{付録 26}
-\indexentry{::コールバック関数 (ようそ)@\ShowElm {コールバック関数}::::::::|hyperpage}{付録 26}
+\indexentry{::\Showattrib {baseFrequency}::フィルタ::::::|hyperpage}{124}
+\indexentry{::baseFrequency ぞくせい(ふぃるた)@\Showattrib {baseFrequency}(フィルタ)::::::::|hyperpage}{124}
+\indexentry{::\Showattrib {numOctaves}::フィルタ::::::|hyperpage}{124}
+\indexentry{::numOctaves ぞくせい(ふぃるた)@\Showattrib {numOctaves}(フィルタ)::::::::|hyperpage}{124}
+\indexentry{::\ShowElm {polyline}::要素::::::|hyperpage}{127}
+\indexentry{::polyline (ようそ)@\ShowElm {polyline}::::::::|hyperpage}{127}
+\indexentry{::\Showattrib {width}::図形::::::|hyperpage}{127}
+\indexentry{::width ぞくせい(ずけい)@\Showattrib {width}(図形)::::::::|hyperpage}{127}

@@ -34,8 +34,7 @@
 		\hyperpage{106}
   \item \Showattrib {BackgroundImage}(値--フィルタ) \dotfill 
 		\hyperpage{106}
-  \item \Showattrib {baseFrequency}(フィルタ) \dotfill \hyperpage{124}, 
-		\hyperpage{125}
+  \item \Showattrib {baseFrequency}(フィルタ) \dotfill \hyperpage{124}
   \item \Showattrib {baseline}(値--フォント) \dotfill \hyperpage{93}
   \item \Showattrib {baseline-shift}(フォント) \dotfill \hyperpage{93}
   \item \Showattrib {begin}(アニメーション) \dotfill \hyperpage{73}, 
@@ -114,7 +113,7 @@
   \item \Showattrib {feComposite}(フィルタ内での要素) \dotfill 
 		\hyperpage{118}, \hyperpage{120}, \hyperpage{122}
   \item \Showattrib {feDeffuseLighting}(フィルター) \dotfill 
-		\hyperpage{122}
+		\hyperpage{121}
   \item \Showattrib {feDiffuseLighting}(フィルタ内での要素) \dotfill 
 		\hyperpage{120}
   \item \Showattrib {feDistantLight}(フィルタ内での要素) \dotfill 
@@ -145,10 +144,11 @@
   \item \Showattrib {feSpecularLighting}(フィルター) \dotfill 
 		\hyperpage{122}
   \item \Showattrib {feSpecularLighting}(フィルタ内での要素) \dotfill 
-		\hyperpage{120}, \hyperpage{121}
+		\hyperpage{120}
   \item \Showattrib {feSpecularLightng}(フィルター) \dotfill 
 		\hyperpage{123}
-  \item \Showattrib {feTurbulence}(フィルター) \dotfill \hyperpage{124}
+  \item \Showattrib {feTurbulence}(フィルター) \dotfill 
+		\hyperpage{123}, \hyperpage{124}
   \item \Showattrib {fill}(アニメーション) \dotfill \hyperpage{73}, 
 		\hyperpage{75}
   \item \Showattrib {fill}(図形) \dotfill \hyperpage{19}, 
@@ -294,8 +294,7 @@
   \item \Showattrib {none}(図形) \dotfill \hyperpage{68}
   \item \Showattrib {normal}(値--フィルタ) \dotfill \hyperpage{107}
   \item \Showattrib {normal}(値--フォント) \dotfill \hyperpage{93}
-  \item \Showattrib {numOctaves}(フィルタ) \dotfill \hyperpage{124}, 
-		\hyperpage{125}
+  \item \Showattrib {numOctaves}(フィルタ) \dotfill \hyperpage{124}
 
   \indexspace
 \item {\large\bf O}\nopagebreak[4]
@@ -332,12 +331,12 @@
   \item \Showattrib {points}(図形) \dotfill \hyperpage{39}, 
 		\hyperpage{40}
   \item \Showattrib {pointsAtX}(フィルタ) \dotfill \hyperpage{121}
-  \item \Showattrib {pointsAtY}(フィルタ) \dotfill \hyperpage{122}
-  \item \Showattrib {pointsAtZ}(フィルタ) \dotfill \hyperpage{122}
+  \item \Showattrib {pointsAtY}(フィルタ) \dotfill \hyperpage{121}
+  \item \Showattrib {pointsAtZ}(フィルタ) \dotfill \hyperpage{121}
   \item \ShowElm {polygon} \dotfill \hyperpage{39}, \hyperpage{40}, 
 		\hyperpage{45}
   \item \ShowElm {polyline} \dotfill \hyperpage{39}, \hyperpage{45}, 
-		\hyperpage{130}
+		\hyperpage{127}
   \item \Showattrib {preserveAspectRatio}(図形) \dotfill \hyperpage{68}
 
   \indexspace
@@ -496,7 +495,7 @@
   \item \Showattrib {width}(図形) \dotfill \hyperpage{13}, 
 		\hyperpage{19}, \hyperpage{20}, \hyperpage{61}, 
 		\hyperpage{63}, \hyperpage{70}, \hyperpage{80}, 
-		\hyperpage{130}
+		\hyperpage{127}
   \item \Showattrib {width}(フィルタ) \dotfill \hyperpage{101}, 
 		\hyperpage{102}
 
@@ -749,10 +748,6 @@
 		\hyperpage{32}, \hyperpage{82}
 
   \indexspace
-\item {\large\bf こ}\nopagebreak[4]
-  \item \ShowElm {コールバック関数} \dotfill \hyperpage{付録 26}
-
-  \indexspace
 \item {\large\bf す}\nopagebreak[4]
   \item 図形
     \subitem \Showattrib {color} \dotfill \hyperpage{79}
@@ -806,7 +801,7 @@
     \subitem \Showattrib {width} \dotfill \hyperpage{13}, 
 		\hyperpage{19}, \hyperpage{20}, \hyperpage{61}, 
 		\hyperpage{63}, \hyperpage{70}, \hyperpage{80}, 
-		\hyperpage{130}
+		\hyperpage{127}
     \subitem \Showattrib {x} \dotfill \hyperpage{19}, \hyperpage{22}, 
 		\hyperpage{64}, \hyperpage{70}, \hyperpage{75}, 
 		\hyperpage{87}, \hyperpage{90}, \hyperpage{92}
@@ -823,8 +818,7 @@
   \item フィルタ
     \subitem \Showattrib {amplitude} \dotfill \hyperpage{116}
     \subitem \Showattrib {azimuth} \dotfill \hyperpage{121}
-    \subitem \Showattrib {baseFrequency} \dotfill \hyperpage{124}, 
-		\hyperpage{125}
+    \subitem \Showattrib {baseFrequency} \dotfill \hyperpage{124}
     \subitem \Showattrib {dx} \dotfill \hyperpage{106}
     \subitem \Showattrib {dy} \dotfill \hyperpage{106}
     \subitem \Showattrib {elevation} \dotfill \hyperpage{121}
@@ -845,14 +839,13 @@
     \subitem \Showattrib {limitingConeAngle} \dotfill \hyperpage{121}
     \subitem \Showattrib {mode} \dotfill \hyperpage{108}, 
 		\hyperpage{109}
-    \subitem \Showattrib {numOctaves} \dotfill \hyperpage{124}, 
-		\hyperpage{125}
+    \subitem \Showattrib {numOctaves} \dotfill \hyperpage{124}
     \subitem \Showattrib {offset} \dotfill \hyperpage{116}
     \subitem \Showattrib {operator} \dotfill \hyperpage{118}, 
 		\hyperpage{120}
     \subitem \Showattrib {pointsAtX} \dotfill \hyperpage{121}
-    \subitem \Showattrib {pointsAtY} \dotfill \hyperpage{122}
-    \subitem \Showattrib {pointsAtZ} \dotfill \hyperpage{122}
+    \subitem \Showattrib {pointsAtY} \dotfill \hyperpage{121}
+    \subitem \Showattrib {pointsAtZ} \dotfill \hyperpage{121}
     \subitem \Showattrib {result} \dotfill \hyperpage{106}
     \subitem \Showattrib {slope} \dotfill \hyperpage{116}
     \subitem \Showattrib {specularConstant} \dotfill \hyperpage{122}
@@ -881,7 +874,7 @@
 		\hyperpage{109}, \hyperpage{116}
     \subitem \Showattrib {feComposite} \dotfill \hyperpage{118}, 
 		\hyperpage{123}
-    \subitem \Showattrib {feDeffuseLighting} \dotfill \hyperpage{122}
+    \subitem \Showattrib {feDeffuseLighting} \dotfill \hyperpage{121}
     \subitem \Showattrib {feFlood} \dotfill \hyperpage{116}
     \subitem \Showattrib {feFoold} \dotfill \hyperpage{117}
     \subitem \Showattrib {feGaussianBlur} \dotfill \hyperpage{101}, 
@@ -896,7 +889,8 @@
 		\hyperpage{106}, \hyperpage{108}
     \subitem \Showattrib {feSpecularLighting} \dotfill \hyperpage{122}
     \subitem \Showattrib {feSpecularLightng} \dotfill \hyperpage{123}
-    \subitem \Showattrib {feTurbulence} \dotfill \hyperpage{124}
+    \subitem \Showattrib {feTurbulence} \dotfill \hyperpage{123}, 
+		\hyperpage{124}
   \item フィルタ内での要素
     \subitem \Showattrib {feComposite} \dotfill \hyperpage{118}, 
 		\hyperpage{120}, \hyperpage{122}
@@ -907,8 +901,7 @@
     \subitem \Showattrib {feFuncG} \dotfill \hyperpage{116}
     \subitem \Showattrib {feFuncR} \dotfill \hyperpage{116}
     \subitem \Showattrib {fePointLight} \dotfill \hyperpage{121}
-    \subitem \Showattrib {feSpecularLighting} \dotfill \hyperpage{120}, 
-		\hyperpage{121}
+    \subitem \Showattrib {feSpecularLighting} \dotfill \hyperpage{120}
   \item フォント
     \subitem \Showattrib {baseline-shift} \dotfill \hyperpage{93}
     \subitem \Showattrib {dominant-baseline} \dotfill \hyperpage{92}, 
@@ -964,7 +957,7 @@
     \subitem \ShowElm {polygon} \dotfill \hyperpage{39}, 
 		\hyperpage{40}, \hyperpage{45}
     \subitem \ShowElm {polyline} \dotfill \hyperpage{39}, 
-		\hyperpage{45}, \hyperpage{130}
+		\hyperpage{45}, \hyperpage{127}
     \subitem \ShowElm {radialGradiation} \dotfill \hyperpage{33}
     \subitem \ShowElm {rect} \dotfill \hyperpage{18}, \hyperpage{19}, 
 		\hyperpage{76}
@@ -980,6 +973,5 @@
     \subitem \ShowElm {use} \dotfill \hyperpage{17}, \hyperpage{22}, 
 		\hyperpage{32}, \hyperpage{37}, \hyperpage{63}, 
 		\hyperpage{64}, \hyperpage{87}
-    \subitem \ShowElm {コールバック関数} \dotfill \hyperpage{付録 26}
 
 \end{theindex}

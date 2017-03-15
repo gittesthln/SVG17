@@ -77,7 +77,7 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 図\ref{bergen0}は\OIIdxB{バーゲンのきらめき効果}と呼ばれています
 (\cite[182ページ図17.1]{Ninio})。
 \OIIdxB{ヘルマン格子}の変形です。
-\ShowFig{0.7}{ht}{bergen0}
+\ShowFig{0.65}{ht}{bergen0}
     {バーゲンのきらめき効果}{bergen0}
 
 形から見てわかるようにヘルマン格子の場合と異なり交差点の位
@@ -160,10 +160,10 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 \begin{table}[ht]
  \caption{\ElmF{feBlend}のモード}\label{feBlendMode}
 \begin{center}
-\begin{tabular}[t]{|c|p{28em}|}
+\begin{tabular}[t]{|c|m{28em}|}
  \hline
 名称& 説明\\\hline
- \raisebox{-1.5ex}{\AttribFVal{normal}}&
+{\AttribFVal{normal}}&
   \AttribF{in}の部分を\AttribF{in2}で重なった部分が
  置き換えられます。アルファチャンネルは両者の積の値になります。 \\ \hline
  \AttribFVal{multiply}& 各ピクセルごとに(値を$0\sim1$とみて)積がとられます。
@@ -227,7 +227,7 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 図\ref{colormatrix}はこれらのフィルタがどのように作用するかを示したもの
 です。
 
-\ShowFig{0.6}{ht}{colormatrix}%
+\ShowFig{0.55}{ht}{colormatrix}%
     {\protect\ElmF{feColorMatrix}の例}{colormatrix}%
 %\newpage
 リスト\ref{svg-colormatrix}はこの図のリストです。
@@ -364,7 +364,7 @@ $0^{\circ}$ から $360^{\circ}$ の値が決められます。
 図\ref{hueRotation}は
 赤、緑、青の3原色のそれぞれに$30^{\circ}$ごとのフィルタをかけて基準の色
 が最終的に元来の位置にくるように回転させた色相環の図です。
-\ShowFig{0.9}{ht}{hueRotation}{色相回転の例}{hueRotation}
+\ShowFig{0.8}{ht}{hueRotation}{色相回転の例}{hueRotation}
 
 この図を見ると色相環が完全に作成できていないことがわかります。位相を変換
 したとき、元の画像の明度によって他のところの色に影響が及んでいることがわ
@@ -488,10 +488,10 @@ $s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値
 \begin{table}[ht]
 \caption{\Elm{feComposit}の\AttribF{operator}の属性} 
 \begin{center}
-\begin{tabular}{|c|p{25em}|}
+\begin{tabular}{|c|m{25em}|}
 \hline
 \AttribF{operator}の値 & \multicolumn{1}{c|}{意味}\\\hline
-\raisebox{-1.5ex}{\AttribFVal{over}}&\AttribF{in2}で指定された画像の上に
+{\AttribFVal{over}}&\AttribF{in2}で指定された画像の上に
  \AttribF{in}で指定した画像を重ねる(\ElmF{feMerge}と同じ)。\\\hline
  \AttribFVal{in}& \AttribF{in2}に含まれる\AttribF{in}の部分\\ \hline
  \AttribFVal{out}& \AttribF{in2}に含まれない\AttribF{in}の部分\\ \hline
@@ -499,7 +499,7 @@ $s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値
      に含まれない\AttribF{in2}の部分\\ \hline
  \AttribFVal{xor}& \AttribF{in2}に含まれない\AttribF{in}の部分と
      \AttribF{in}に含まれない\AttribF{in2}の部分\\ \hline
- \raisebox{-3ex}{\AttribFVal{arithmetic}}& 各ピクセルごとに\AttribF{in}の値を
+{\AttribFVal{arithmetic}}& 各ピクセルごとに\AttribF{in}の値を
      \texttt{A},\AttribF{in2}の値を \texttt{B}としたとき、\AttribF{k1}、
      \AttribF{k2}、\AttribF{k3}、\AttribF{k4}で指定される値に対して\par
      $\mbox{\AttribF{k1}}\times\mbox{\Showattrib{A}}\times\mbox{\Showattrib{B}}
@@ -511,8 +511,9 @@ $s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値
  \end{table}
 
 % \ \\[-2\baselineskip]
- これらの画像の具体的な処理は下図のようになります。ここでは赤と青の円が
- それぞれ\AttribF{in}と\AttribF{in2}になっています。
+  図\ref{feComposite}はこれらのフィルタの具体的な処理
+  を示したものです。
+  ここでは赤と青の円がそれぞれ\AttribF{in}と\AttribF{in2}になっています。
 \ShowFig{0.7}{ht}{svg-feComposite}{\protect\ElmFT{feComposite}の例}
 {feComposite}
 
@@ -554,10 +555,10 @@ $s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値
 SVGゾーン\texttt{http://www.adobe.com/jp/svg/basics/getstarted.html}}
 の例にあるフィルタを参考にしました。なお、このページのフィルタ
 で\texttt{lightColor}という属性が使われているようですがこの属性は正しく
-は\texttt{light-color}です。}。なお、この図でもそうですが
-\ElmFT{feSpecularLighting}は単独で使われるものではなくbump map として利
-用され、他の画像と合成されて使用します。
-\ShowFig{0.6}{ht}{svg-feLight}{光を当てる}{feLight}
+は\texttt{light-color}です。}。なお、この図もそうですが
+\ElmFT{feSpecularLighting}は単独で使われなくて bump map として他の画像と
+合成に使用します。
+\ShowFig{0.7}{ht}{svg-feLight}{光を当てる}{feLight}
 \subsection{光源の種類}
 \subsubsection{Distant Light}
 \keyitem{Distant\hspace{0.5em}Light}とは非常に強い遠方の光源のことです。
@@ -614,12 +615,12 @@ supecular とは鏡面の意味です。
 \begin{table}[ht]
 \caption{\ElmF{feTurbulence}の属性一覧}
 \begin{center}
- \begin{tabular}{|l|p{23em}|}
+ \begin{tabular}{|l|l|}
 \hline
   \multicolumn{1}{|c|}{属性名}&\multicolumn{1}{c|}{解説} \\\hline
   \AttribF{type}& \AttribFVal{turbulance}{}または
   \AttribFVal{fractalNoise}{}が利用可能\\\hline
-  \raisebox{-1.5ex}{\AttribF{baseFrequency}}&
+  {\AttribF{baseFrequency}}&
      値が大きいほど色の変化が大きくなる。正の数でなければならない。 \\ \hline
   \AttribF{numOctaves}& ノイズ関数の数。デフォルトは1\\ \hline
 \Attrib{seed}  & このフィルタが使う乱数の初期値。デフォルトは1\\ \hline
@@ -627,7 +628,7 @@ supecular とは鏡面の意味です。
 \end{center} 
 \end{table}
 %\newpage
-\ShowFig{0.7}{ht}{filterturbulance}%
+\ShowFig{0.6}{ht}{filterturbulance}%
     {\protect\ElmF{feTurbulence}の例}{filterturbulance}
 \SVGListN{\protect\ElmF{feTurbulence}の例}
 {svg-filterturbulance}{svg-filterturbulance}

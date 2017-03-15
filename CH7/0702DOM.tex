@@ -47,7 +47,7 @@ DOMは文書をツリー状のデータ構造で管理します。
 \end{itemize}
 図\ref{developertool}は Chrome で「デベロッパーツール」を開いたところで
 す。
-\ShowFig{0.95}{ht}{developertool}
+\ShowFig{0.95}{ht}{developertool1}
 {Chrome のデベロッパーツールでDOMツリーを表示する(1)}{developertool}
 \begin{itemize}
  \item 画面の上部にはSVGの画像が表示されていて、背景が水色になっています。
@@ -66,16 +66,16 @@ DOMは文書をツリー状のデータ構造で管理します。
 \texttt{g}要素上にカーソルを置いた状態です。
 
 \ShowFig{0.95}{ht}{developertool2}
-{Opera の開発ツールでDOMツリーを表示する(2)}{developertool2}
+{Chrome のデベロッパーツールでDOMツリーを表示する(2)}{developertool2}
 対応した要素の部分の背景が水色になっています。
 
 クリックした要素に対応した要素のところまでDOMツリーが展開され、その要素
 のところの
 
 この画面で\Elm{polyline}の属性\AttribO{width}の属性値を\texttt{20}から
-\texttt{40}に変更した画面が図\ref{opera-dragonfly3}です。
-%\ShowFig{0.95}{ht}{opera-dragonfly3}
-{Opera の開発ツールでDOMツリーを表示する(3)}{opera-dragonfly3}
+\texttt{40}に変更した画面が図\ref{developertool3}です。
+\ShowFig{0.95}{ht}{developertool3}
+{Opera の開発ツールでDOMツリーを表示する(3)}{developertool3}
 
 入力の過程でその値がすぐに反映されるのがわかります。
 
@@ -117,7 +117,7 @@ DOMは文書をツリー状のデータ構造で管理します。
 \begin{Problem}\upshape
 次の事項について調べなさい。
 \begin{enumerate}
- \item  今までに作成した\SVG を\Opera で表示し、開発者ツールで図形の属
+ \item  今までに作成した\SVG を Chrome で表示し、開発者ツールで図形の属
 	性値を変化させることで表示が変わること
  \item \SVG のアニメーションの属性値を変えることができるかどうか
  \item \HTML でも同様のことができること

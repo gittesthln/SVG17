@@ -13,12 +13,7 @@
   \indexspace
 \item {\large\bf D}\nopagebreak[4]
   \item Distant\hspace  {0.5em}Light \dotfill \hyperpage{121}
-  \item DOM \dotfill \hyperpage{128}
-
-  \indexspace
-\item {\large\bf E}\nopagebreak[4]
-  \item ECMA \dotfill \hyperpage{付録 9}
-  \item ecmascript \dotfill \hyperpage{付録 9}
+  \item DOM \dotfill \hyperpage{126}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
@@ -27,7 +22,7 @@
 
   \indexspace
 \item {\large\bf J}\nopagebreak[4]
-  \item JavaScript \dotfill \hyperpage{127}
+  \item JavaScript \dotfill \hyperpage{125}
 
   \indexspace
 \item {\large\bf P}\nopagebreak[4]
@@ -74,7 +69,7 @@
   \indexspace
 \item {\large\bf お}\nopagebreak[4]
   \item 同じ色なのに周りの色で見え方が異なる \dotfill \hyperpage{19}
-  \item 親ノード \dotfill \hyperpage{128}
+  \item 親ノード \dotfill \hyperpage{126}
   \item 親要素 \dotfill \hyperpage{14}
   \item 折れ線 \dotfill \hyperpage{39}
 
@@ -98,7 +93,7 @@
 
   \indexspace
 \item {\large\bf こ}\nopagebreak[4]
-  \item 子ノード \dotfill \hyperpage{128}
+  \item 子ノード \dotfill \hyperpage{126}
   \item コフカリング \dotfill \hyperpage{29}
   \item コメント(SVG) \dotfill \hyperpage{11}
   \item 子要素 \dotfill \hyperpage{14}
@@ -181,22 +176,22 @@
   \indexspace
 \item {\large\bf て}\nopagebreak[4]
   \item テキストエディタ \dotfill \hyperpage{7}
-  \item テキストノード \dotfill \hyperpage{129}
+  \item テキストノード \dotfill \hyperpage{127}
   \item デルブーフの錯視 \dotfill \hyperpage{25}
   \item 点光源 \dotfill \hyperpage{121}
 
   \indexspace
 \item {\large\bf な}\nopagebreak[4]
-  \item 名前空間 \dotfill \hyperpage{13}, \hyperpage{133}
+  \item 名前空間 \dotfill \hyperpage{13}, \hyperpage{129}
 
   \indexspace
 \item {\large\bf の}\nopagebreak[4]
-  \item ノード \dotfill \hyperpage{128}
-    \subitem 親\ItemRuler  \dotfill \hyperpage{128}
-    \subitem 子\ItemRuler  \dotfill \hyperpage{128}
-    \subitem テキスト\ItemRuler  \dotfill \hyperpage{129}
-    \subitem 要素\ItemRuler  \dotfill \hyperpage{129}
-    \subitem ルート\ItemRuler  \dotfill \hyperpage{129}
+  \item ノード \dotfill \hyperpage{126}
+    \subitem 親\ItemRuler  \dotfill \hyperpage{126}
+    \subitem 子\ItemRuler  \dotfill \hyperpage{126}
+    \subitem テキスト\ItemRuler  \dotfill \hyperpage{127}
+    \subitem 要素\ItemRuler  \dotfill \hyperpage{127}
+    \subitem ルート\ItemRuler  \dotfill \hyperpage{127}
 
   \indexspace
 \item {\large\bf は}\nopagebreak[4]
@@ -215,12 +210,11 @@
   \item 不透明度 \dotfill \hyperpage{35}, \hyperpage{70}, 
 		\hyperpage{105}
   \item ブルドンの錯視 \dotfill \hyperpage{43}
-  \item プロパティ \dotfill \hyperpage{132}
+  \item プロパティ \dotfill \hyperpage{128}
 
   \indexspace
 \item {\large\bf へ}\nopagebreak[4]
   \item ヘルマン格子 \dotfill \hyperpage{21}, \hyperpage{103}
-  \item 変数のスコープ \dotfill \hyperpage{付録 18}
 
   \indexspace
 \item {\large\bf ほ}\nopagebreak[4]
@@ -237,7 +231,7 @@
 
   \indexspace
 \item {\large\bf め}\nopagebreak[4]
-  \item メソッド \dotfill \hyperpage{132}
+  \item メソッド \dotfill \hyperpage{128}
 
   \indexspace
 \item {\large\bf も}\nopagebreak[4]
@@ -252,11 +246,11 @@
 
   \indexspace
 \item {\large\bf よ}\nopagebreak[4]
-  \item 要素ノード \dotfill \hyperpage{129}
+  \item 要素ノード \dotfill \hyperpage{127}
 
   \indexspace
 \item {\large\bf る}\nopagebreak[4]
-  \item ルートノード \dotfill \hyperpage{129}
+  \item ルートノード \dotfill \hyperpage{127}
   \item ルート要素 \dotfill \hyperpage{13}
 
 \end{theindex}

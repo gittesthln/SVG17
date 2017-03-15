@@ -8,40 +8,30 @@
   <use id="IN"   x="50"  xlink:href="#Circle" fill="red" ref="CR"/>
   <use id="IN2"  x="110" xlink:href="#Circle" fill="Blue" ref="CB"/>
   <filter id="OpOVER" filterUnits="userSpaceOnUse" ref="overS">
-    <feImage x="0" y="0" width="400" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+    <feImage x="0" y="0" width="400" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="over"/>
   </filter><!-- ref="overE" -->
   <filter id="OpXOR" filterUnits="userSpaceOnUse" ref="XORS"
      x="0" y="0" width="300" height="200">
-    <feImage x="0" y="0" width="400" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+    <feImage x="0" y="0" width="400" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="xor"/>
   </filter><!-- ref="XORE" -->
-  <filter id="OpIN" filterUnits="userSpaceOnUse" ref="INS"
-     x="0" y="0" width="300" height="200">
-    <feImage x="0" y="0" width="300" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+  <filter id="OpIN" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="200" ref="INS">
+    <feImage x="0" y="0" width="300" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="in"/>
   </filter><!-- ref="INE" -->
-  <filter id="OpOUT" filterUnits="userSpaceOnUse" ref="OUTS"
-     x="0" y="0" width="300" height="200">
-    <feImage x="0" y="0" width="300" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+  <filter id="OpOUT" filterUnits="userSpaceOnUse" ref="OUTS" x="0" y="0" width="300" height="200">
+    <feImage x="0" y="0" width="300" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="out"/>
   </filter><!-- ref="OUTE" -->
-  <filter id="OpATOP" filterUnits="userSpaceOnUse" ref="ATOPS"
-     x="0" y="0" width="300" height="200">
-    <feImage x="0" y="0" width="300" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+  <filter id="OpATOP" filterUnits="userSpaceOnUse" x="0" y="0" width="300" height="200" ref="ATOPS">
+    <feImage x="0" y="0" width="300" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="atop"/>
   </filter><!-- ref="ATOPE" -->
-  <filter id="OpArith" filterUnits="userSpaceOnUse" ref="ArithS"
-     x="0" y="0" width="300" height="200">
-    <feImage x="0" y="0" width="300" height="200"
-        xlink:href="#IN2" result="IN2Image"/>
+  <filter id="OpArith" filterUnits="userSpaceOnUse" ref="ArithS" x="0" y="0" width="300" height="200">
+    <feImage x="0" y="0" width="300" height="200" xlink:href="#IN2" result="IN2Image"/>
     <feComposite in="SourceGraphic" in2="IN2Image" operator="arithmetic"
-       k1="0" k2="1" k3="1" k4="0"/>
+                 k1="0" k2="1" k3="1" k4="0"/>
   </filter><!-- ref="ArithE" -->
 </defs>
 <style type="text/css">
@@ -68,7 +58,6 @@
   <g transform="translate(500, 250)">
     <use xlink:href="#IN" filter="url(#OpArith)"/>
     <text class="Text" x="180" y="200">arithmetic</text>
-    <text class="Text" x="180" y="230">
-       k1=0 k2=1 k3=1 k4=0</text>
+    <text class="Text" x="180" y="230">k1=0 k2=1 k3=1 k4=0</text>
   </g>
 </svg>

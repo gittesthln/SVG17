@@ -122,22 +122,19 @@
 \indexentry{::CSS::::::::|hyperpage}{117}
 \indexentry{::Distant\hspace  {0.5em}Light::::::::|hyperpage}{121}
 \indexentry{::点光源::::::::|hyperpage}{121}
-\indexentry{::JavaScript::::::::|hyperpage}{127}
-\indexentry{::DOM::::::::|hyperpage}{128}
-\indexentry{::ノード::::::::|hyperpage}{128}
-\indexentry{::子ノード::::::::|hyperpage}{128}
-\indexentry{::子::ノード::E::::|hyperpage}{128}
-\indexentry{::親ノード::::::::|hyperpage}{128}
-\indexentry{::親::ノード::E::::|hyperpage}{128}
-\indexentry{::ルートノード::::::::|hyperpage}{129}
-\indexentry{::ルート::ノード::E::::|hyperpage}{129}
-\indexentry{::要素ノード::::::::|hyperpage}{129}
-\indexentry{::テキストノード::::::::|hyperpage}{129}
-\indexentry{::要素::ノード::E::::|hyperpage}{129}
-\indexentry{::テキスト::ノード::E::::|hyperpage}{129}
-\indexentry{::メソッド::::::::|hyperpage}{132}
-\indexentry{::プロパティ::::::::|hyperpage}{132}
-\indexentry{::名前空間::::::::|hyperpage}{133}
-\indexentry{::ECMA::::::::|hyperpage}{付録 9}
-\indexentry{::ecmascript::::::::|hyperpage}{付録 9}
-\indexentry{::変数のスコープ::::::::|hyperpage}{付録 18}
+\indexentry{::JavaScript::::::::|hyperpage}{125}
+\indexentry{::DOM::::::::|hyperpage}{126}
+\indexentry{::ノード::::::::|hyperpage}{126}
+\indexentry{::子ノード::::::::|hyperpage}{126}
+\indexentry{::子::ノード::E::::|hyperpage}{126}
+\indexentry{::親ノード::::::::|hyperpage}{126}
+\indexentry{::親::ノード::E::::|hyperpage}{126}
+\indexentry{::ルートノード::::::::|hyperpage}{127}
+\indexentry{::ルート::ノード::E::::|hyperpage}{127}
+\indexentry{::要素ノード::::::::|hyperpage}{127}
+\indexentry{::テキストノード::::::::|hyperpage}{127}
+\indexentry{::要素::ノード::E::::|hyperpage}{127}
+\indexentry{::テキスト::ノード::E::::|hyperpage}{127}
+\indexentry{::メソッド::::::::|hyperpage}{128}
+\indexentry{::プロパティ::::::::|hyperpage}{128}
+\indexentry{::名前空間::::::::|hyperpage}{129}
