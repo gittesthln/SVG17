@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="100%" width="100%" onload="init()">
+  <title>ドラッグして描く直線の色を変える</title>
+  <script type="text/ecmascript">
+//<![CDATA[
+  var svgNS ="http://www.w3.org/2000/svg";
+  var StrokeColor ="black"
+  var NewLine = null, R;
+  function init() {
+    document.getElementsByTagName("g").item(0).addEventListener("click",click, false);
+    R = document.getElementById("Rect");
+    R.addEventListener("mousedown",mdown, false);
+    R.addEventListener("mouseup",mup, false);
+  }
+  function mdown(E) {
+    NewLine = document.createElementNS(svgNS, "line");
+    NewLine.setAttribute("x1",E.clientX);
+    NewLine.setAttribute("y1",E.clientY);
+    NewLine.setAttribute("x2",E.clientX);
+    NewLine.setAttribute("y2",E.clientY);
+    NewLine.setAttribute("stroke",StrokeColor);
+    NewLine.setAttribute("stroke-width","4");
+    R.parentNode.insertBefore(NewLine,R);
+    R.addEventListener("mousemove",mmove, false);
+  }
+  function click(E) {
+    StrokeColor = E.target.getAttribute("fill");
+  }
+  function mmove(E) {
+      NewLine.setAttribute("x2",E.clientX);
+      NewLine.setAttribute("y2",E.clientY);
+  }
+  function mup(E) {
+    R.removeEventListener("mousemove",mmove, false);
+  }
+//]]></script>
+  <rect x="0" y="0" width="100%" height="100%" id="Rect" opacity="0" ref="rect" />
+  <g transform="translate(10,10)">
+    <rect x="0" y="0" width="20" height="20" fill="black" />
+    <rect x="0" y="30" width="20" height="20" fill="red" />
+  </g>
+</svg>

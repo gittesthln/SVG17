@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" onload="init()" >
+  <title>numOctavesの操作するボタンを追加する</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  var DragObj1, DragObj2, OffsetX, FilterObj, BFVal, BF, NumOVal=1, NumO, Base;
+  function init(event) {//// ref="initS"
+    Base= document.getElementById("base");
+    Base.addEventListener("mouseup",endDrag,true);
+    BFVal = document.getElementById("BFValue");
+    FilterObj = document.getElementById("FilterfeTurbulence");
+    DragObj1 = document.getElementById("Fbar");
+    DragObj1.addEventListener("mousedown",beginDrag,false);
+    NumO = document.getElementById("numOct");
+    DragObj2 = document.getElementById("Nbar");
+    DragObj2.addEventListener("mousedown",beginDrag,false);
+    setBF(150);
+    FilterObj.setAttribute("baseFrequency", BF);
+  }//// ref="initE"
+  function beginDrag(event) {//// ref="dragBeginS"
+    Base.addEventListener("mousemove",Dragging,true);
+    OffsetX = event.target.getAttribute("x")-event.clientX;
+  }
+  function Dragging(event) {
+    var PS = event.clientX+OffsetX;
+    if(PS<=0) PS =0;
+    if(PS >300) PS = 299;
+    if(event.target.getAttribute("id") == "Fbar"){
+      setBF(PS);
+    } else {
+      NumOVal = Math.floor(1+PS/20);
+      DragObj2.setAttribute("x", PS);
+      NumO.firstChild.nodeValue=NumOVal;
+    }
+  }
+  function setBF(x) {
+    BF = Math.exp((-3+x/150.)*Math.LN10);
+    DragObj1.setAttribute("x", x);
+    BFVal.firstChild.nodeValue=BF.toFixed(4);
+  }
+  function endDrag(event) {
+    FilterObj.setAttribute("baseFrequency", BF);
+    FilterObj.setAttribute("numOctaves", NumOVal);
+    Base.removeEventListener("mousemove",Dragging,true);
+  }
+//  ]]></script>
+  <title> Scroll Bar </title>
+<defs>
+  <filter id="Filter" filterUnits="objectBoundingBox"
+          x="0%" y="0%" width="100%" height="100%">
+     <feTurbulence type="turbulence" id="FilterfeTurbulence"
+                  baseFrequency="0.005" numOctaves="1"/>
+  </filter>
+  <style type="text/css">
+    text { font-size:20px;}
+  </style>
+</defs>
+<g id="base"><!-- ref="figS" -->
+  <rect  width="100%" height="100%" fill="white"/>
+  <rect x="30" y="30" width="800" height="400" filter="url(#Filter)"/>
+  <g transform="translate(281,450)">
+    <rect x="0" y="0" width="325" height="20" fill="blue"/>
+    <rect id="Fbar" x="21" y="0" width="25" height="20" fill="red"/>
+    <text  y="40" >baseFrequency: </text>
+    <text id="BFValue" x="300" y="40" text-anchor="end"> </text>
+    <rect x="0" y="60" width="325" height="20" fill="blue"/>
+    <rect id="Nbar" x="21" y="60" width="25" height="20" fill="red"/>
+    <text  y="100" >numOctave: </text>
+    <text id="numOct" x="300" y="100" text-anchor="end"> </text>
+  </g>
+</g>
+</svg>

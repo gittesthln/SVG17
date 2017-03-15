@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>クリックするとメッセージボックスが表示(改良版)</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  window.onload = function() {
+    var Cs = document.getElementById("Canvas");
+    Cs.addEventListener("click",click, false);//// ref="addEvent"
+  }
+  function click(event) {
+    alert("Circle " +event.target.getAttribute("fill")+" clicked.");//// ref="showMessage"
+  }
+//  ]]></script>
+  <g id="Canvas"> <!-- ref="TopObject" -->
+    <circle cx="50" cy="50" r="20" fill="red"/>
+    <circle cx="100" cy="50" r="20" fill="blue"/>
+    <circle cx="150" cy="50" r="20" fill="green"/>
+  </g> <!-- ref="TopObjectEnd" -->
+</svg>

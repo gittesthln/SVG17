@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="100%" width="100%"><!-- ref="onload" -->
+  <title>画面上に直線を引く</title>
+  <script type="text/ecmascript">
+//<![CDATA[
+  var svgNS ="http://www.w3.org/2000/svg";//// ref="SVGNS"
+  var C, NewLine = null;
+  window.onload = function() {//// ref="initS"
+    C = document.getElementById("Canvas");//// ref="Canvas"
+    C.addEventListener("mousedown",mdown, false);//// ref="mousedownEvent"
+    C.addEventListener("mouseup",mup, false);//// ref="mouseupEvent"
+  }//// ref="initE"
+  function mdown(E) {//// ref="mdownS"
+    NewLine = document.createElementNS(svgNS, "line");//// ref="createLine"
+    NewLine.setAttribute("x1",E.clientX);//// ref="setAttribsPosS"
+    NewLine.setAttribute("y1",E.clientY);
+    NewLine.setAttribute("x2",E.clientX);
+    NewLine.setAttribute("y2",E.clientY);//// ref="setAttribsPosE"
+    NewLine.setAttribute("stroke","red");//// ref="setAttribsS"
+    NewLine.setAttribute("stroke-width","4");//// ref="setAttribsE"
+    C.appendChild(NewLine);//// ref="appendChild"
+    C.addEventListener("mousemove",mmove, false);//// ref="mousemoveEvent"
+  }//// ref="mdownE"
+  function mmove(E) {//// ref="mmoveS"
+    NewLine.setAttribute("x2",E.clientX);
+    NewLine.setAttribute("y2",E.clientY);
+  }//// ref="mmoveE"
+  function mup(E) {//// ref="mupS"
+    C.removeEventListener("mousemove",mmove, false);
+  }//// ref="mupE"
+//]]></script>
+  <g id="Canvas">
+    <rect x="0" y="0" width="100%" height="100%" fill="white" ref="rect"/>
+  </g>
+</svg>

@@ -1,0 +1,732 @@
+% -*- coding: utf-8 -*-
+\section{\JS による\SVG のマウスイベントの処理}
+ユーザー側から\SVG の図形にアクセスするきっかけとしては図形上でマウスのク
+リックやドラッグ、あるいはキーボードのあるキーが押された場合が主なものと
+して考えられます。SVGファイルの中に\JS を記述するためには\ElmH{script}内
+に書きます。具合的な記述方法はこの後を参考にしてください。
+\subsection{マウスに関するイベント処理}
+\subsubsection{マウスイベントオブジェクトについて}
+マウスに関するイベントが発生すると、システムはマウスイベントオブジェクト
+を作成し、それをイベント処理関数の引数として渡します。
+表\ref{mouseeventprop}はマウスイベントオブジェクトのメソッドとプロパティ
+をまとめたものです。
+\newcommand{\ShowRaw}[4]{#2&#3&#4&#1\\\hline}
+%\begin{minipage}[t]{\textwidth}
+\begin{table}[p]
+ \caption{\keyitem{マウスイベントのプロパティとメソッド}}\label{mouseeventprop}
+\begin{center}\ \\[-2.em]
+\begin{tabular}[t]{|c|c|c|m{4.9cm}|}
+ \hline
+\ShowRaw{\multicolumn{1}{c|}{意味}}{プロパティ}{メソッド}{型}
+\ShowRaw{イベントが発生したオブジェクト}{\DOMP{target}}{
+	 \DOMM{getTarget}{()}}{\texttt{EventTarget}}
+\ShowRaw{イベントを処理しているオブジェクト}{\DOMP{currentTarget} }{
+	 \DOMM{getCurrentTarget}{()}}{\texttt{EventTarget} }
+\ShowRaw{マウスポインタの画面における$x$座標}
+    {\DOMP{screenX} }{\DOMM{getScreenX}{()}}{\texttt{long}}
+\ShowRaw{マウスポインタの画面における$y$座標 }
+    {\DOMP{screenY} }{\DOMM{getScreenY}{()}}{\texttt{long}}
+\ShowRaw{マウスポインタのクライアント領域における相対的な$x$座標(スク
+ ロールしている場合には\DOMP{pageXOffset}を加える必要があります) }
+     {\DOMP{clientX} }{\DOMM{getclientX}{()} }{\texttt{long}}
+\ShowRaw{マウスポインタのクライアント領域における相対的な$y$座標(スク
+ ロールしている場合には\DOMP{pageYOffset}を加える必要があります) }
+     {\DOMP{clientY} }{\DOMM{getclientY}{()} }{\texttt{long}}
+\ShowRaw{\texttt{cntrl}キーが押されているか }
+   {\DOMP{ctrlKey} }{ \DOMM{getCntrlKey}{()}}{\texttt{boolean} }
+\ShowRaw{\texttt{shift}キーが押されているか }
+   {\DOMP{shiftKey} }{ \DOMM{getShiftKey}{()}}{ \texttt{boolean} }
+\ShowRaw{\texttt{alt}キーが押されているか }
+   {\DOMP{altKey} }{ \DOMM{getAltKey}{()}}{\texttt{boolean} }
+\ShowRaw{\texttt{meta}キーが押されているか }
+   {\DOMP{metaKey} }{ \DOMM{getMetaKey}{()}}{\texttt{boolean} }
+\ShowRaw{マウスボタンの種類、$0$は左ボタン、$1$は中ボタン、$2$は右ボタン
+ を表します。\footnote{} }{\DOMP{button} }{
+ \DOMM{getButton}{()}}{\texttt{unsigned short}}
+\ShowRaw{イベント伝播の現在の段階を表す。\newline
+\ElmJ{Event.CAPUTURING\_PHASE}($1$)、
+\ElmJ{Event.AT\_TARGET}($2$)、\ElmJ{Event.BUBBLING\_PHASE}($3$)の値をとる
+}
+      {\DOMP{eventPhase}}{}{\texttt{unsigned short}}
+\ShowRaw{デフォルトの動作を実行しないようにする}{}{\DOMM{preventDefault}{()}}{}
+\ShowRaw{イベントの伝播を中止する}{}{\DOMM{stopPropagation}{()}}{}
+\end{tabular}
+ \end{center}
+\end{table}
+\footnotetext{通常は右ボタンが押されるとコンテキストメニューが表示されま
+ す。このイベントを利用するためには\JS のプログラムで制御する必要があり
+ ます。}
+\subsubsection{クリックされたオブジェクトの属性値を表示する}
+与えられたオブジェクトの上でマウスボタンが押されたことを検知する
+\SVG を書いてみましょう。ここでは3つの色の違う円があり、クリックされた円の
+\AttribO{fill}の値をメッセージボックスで表示します。
+
+\IndexSet{くりっくのしょり@クリックの処理(\JS)}{}{}{}{}{}{}{}{}
+図\ref{svg-js-click}は3つの円のうち、一番左の円をクリックした後のとき
+のものです。
+\ShowFig{0.9}{ht}{svg-js-click}
+{クリックするとメッセージボックスが表示されます}{svg-js-click}
+
+\SVGListN{マウスのクリックを検出するSVG(その1)}
+    {svg-js-click}{js-click}
+\begin{itemize}
+ \item 3つの円は\Line{circle1}から\Line{circle3}に定義されています。
+ \item こららの円には\Attrib{onclick}があり、すべてが\texttt{click(evt)}
+ となっています。該当するオブジェクトの上でクリックされる(というイベントが発生
+ する)と\JS 内にかかれた関数\texttt{click(evt)}が呼び出されます。
+
+ここで\texttt{evt}は\texttt{MouseEvent}という型のオブジェクトになります。この
+オブジェクトには次のようなプロパティとメソッドがあります
+(表\ref{mouseeventprop}と\cite[AppendixC]{DOM2Event}を参照)。なお、プロ
+       パティはすべて読み出しのみ可能です。
+
+ \item ここに現れた変数\texttt{evt}\IndexSet{evtへんすう@\texttt{evt}変数}{}{}{}{}
+はシステムが用意している変数でこのときに発生し
+ たイベントの各種情報を格
+ 納しています。イベントは常に発生していますので発生時のイベントの情報を
+ 参照するために引数として必ず渡します。
+ \item 上で呼ばれている関数は\JS で書かれています。このプログラムは
+       \Line{scriptstart}から\Line{scriptend}に書かれています。この部分
+       は\Elm{script}の中に書きます。
+ \item \Elm{script}のプログラムがどのように書かれているかを定義するのが
+ \Attrib{type}です。ここでは\texttt{text/ecmascript}となっています
+       \footnote{\texttt{ecmascript} は \JS の国際的な規格のもとです。
+       \texttt{text/javascript} としてもかまいません。}。
+ \item \JS 内で\texttt{<}が要素の開始とブラウザに解釈されないための対
+       策としてプログラムは\verb+<![CDATA+と\verb+]]>+内に書きます。
+%      \IndexSet{\string{CDATA@\texttt{<![CDATA}}}{}{}{}
+       \footnote{XML の規格では \texttt{CDATA}セクションと呼ばれます。}
+       この行が\JS として解釈されることを防ぐために \texttt{//}で注釈
+       しています。現在のブラウザではこの対策はしなくてもよいようです。 
+ \item \Line{declareFunc}が関数の宣言です。\ElmJ{function}が先頭に付きま
+       す。関数名とその後にある\texttt{()}内に仮引数名を書きます。
+ \item \Line{alert}の\ElmJ{alert}は画面上に\keyitem{メッセージボックス}
+       を表示するメソッドです
+ (オブジェクト名が省略されています。このオブジェクトは\HTMLO{window}です。
+       したがって、正式には\texttt{window.alert(...)}
+ と書きます)。引数の値をメッセージボックスに表示します。
+ \item 渡された引数は
+       \verb#"Circle " +event.target.getAttribute("fill")+" clicked."#
+      です。ここで\ElmJ{\texttt{+}}は文字列を
+       \keysubT{つなげる}{文字列}{を}演算子です。文字列と数字を
+       \texttt{+}でつなげると\JS では数字を文字列に直してからつなげます。
+ \item \DOMP{target}{}は\texttt{event}が発生したオブジェクトです。
+ \item \DOMM{getAttribute}{()}はオブジェクトの指定された属性(ここでは
+ \AttribO{fill})の値を返すメソッドです。したがって、ここではクリックされ
+ た色の名称が得られ、これがメッセ−ジボックスに表示されます。
+\end{itemize}
+\begin{Problem}\upshape
+ \AttribO{fill}を\texttt{\upshape red}のかわりに\verb+#FF0000+(赤)と定義した場合
+ にはどのような表示になるか確認しなさい。
+\end{Problem}
+\begin{Problem}
+ いろいろな図形を用意してクリックしたときに別の属性値を表示しなさい。
+\end{Problem}
+%\clearpage
+%\end{minipage}
+%\clearpage
+
+次のリストは各オブジェクトにイベント処理の属性を定義しないで
+開始時にイベントの処理を設定する方法です。最近のプログラムスタイルではこ
+のような形式が推奨されています。
+\SVGListN{マウスのクリックを検出するSVG(その2) -- イベントハンドラの登録}
+    {svg-js-click-rev}{js-click-all}
+\begin{itemize}
+ \item 一番の違いは\Line{circle1}から\Line{circle3}で定義されている
+       \Elm{circle}のオブジェクトに\Attrib{onclick}が定義されていないことです。
+ \item その代わりに\Attrib{onload}のイベントを処理する関数が
+ 定義されています(\LineR{init-start}{init-end})。\Attrib{onload}のイベントは\SVG がすべて読み込まれた後、呼び出されます。
+  \item まず、\Elm{circle}を持つオブジェクトのリストを得ます
+       (\Line{getElements})。
+   \DOMM{getElementsByTagName}がそのメソッドです。これはオブジェクトのコレ
+   クションを返します。コレクション内のオブジェクトの数は\JSM{length}プ
+       ロパティで得られます。
+ \item このコレクションのメンバーに対して\texttt{click}イベントに対する
+ 関数を割り当てます(\Line{EventListener})。そのメソッドが
+       \DOMM{addEventListner}です。
+引数は「イベント名」、呼び出されるイベント処理関数名と
+\keyitem{イベントバブリング}を制御するフラッグです。イベントバブリングに
+       ついては\pageref{eventbubling}ページ以降で詳しく解説します。
+ \item \DOMM{addEventListner}で割り当てられたイベント処理関数はイベント情
+ 報をその引数で得ることができます(\Line{click})。その引数を用いて処理するのは
+ 前と同じです。
+\end{itemize}
+
+\subsubsection{クリックされたオブジェクトの属性値を変える}
+前の例でSVGのオブジェクトの属性値を\DOMM{getAttribute}{()}メソッドを用い
+て読み出すことができました。\DOMM{getAttribute}{()}メソッドの
+代わりに \DOMM{setAttribute}{()}メソッドを用いると属性値を設定できます。
+
+\ShowFig{0.35}{ht}{svg-js-click2}
+{クリックするとその円が移動します}{svg-js-click2}
+\newpage
+\SVGListN{マウスのクリックを検出するSVG(その3)}{svg-js-click2}
+{js-click2}
+この例ではマウスをクリックするとクリックした円が下方に移動し、再び同じ円
+をクリックすると元の位置に戻るようになっています。
+リスト\ref{js-click-all}と異なるのは\Attrib{onload}を処理する関数の指
+定法と\Line{startFunc}から始まる\texttt{click}関数の処理内
+容だけです。
+\begin{itemize}
+ \item \LineR{onload}{onload-end}で\Event{onload}イベントが発生したときに
+       呼び出される関数を定義しています。ここでは、リスト\ref{js-click}
+       と同様に、3つの円に\Event{click}イベント処理関数を定義しています。
+ \item \Line{getVal}で変数\texttt{Y}を宣言すると同時に、クリックのイベン
+       トがおきたオブジェクトの新しい $y$ 座標を計算しています。
+ \item まず、\Line{getVal}で\DOMM{getAttribute}{("cy")}メソッドでクリッ
+       クされた円の中心の $y$ 座標の値を取得します。
+ \item この値は文字列なので、\JS の関数\ElmJ{parseInt}で文字列を整数値に
+       変換します。前の演算子が\texttt{-}なのでこの場合には不要です
+       が、いつも整数で計算するのであれば必ず変換が行われるように記述し
+       たほうがよいでしょう。
+
+開始時の値が $20$ なので初めにクリックされるとこの値は $150-20=130$ にな
+       り、次にクリックされると呼び出される値が $130$ なので
+       $150-130=20$ と初めの値に戻ります。
+ \item \Line{setVal}では計算結果の数値を属性\AttribO{cy}に
+       \DOMM{setAttribute}{()} 
+% {"cy",Y.toString}
+       メソッドを用いてその値を設定しています。属性値は数値ではなく文字
+       列ですが、設定するときは数値を文字列に自動的に変換するようです。
+\end{itemize}
+
+\subsubsection{他のオブジェクトの属性値を変える}
+次の例では円の外でマウスをクリックするとその位置に中心が移動します。
+この例ではマウスのクリックした位置を取得する方法が問題になります。
+%\newpage
+\ShowFigs{0.35}{ht}{{svg-js-click3-1}{svg-js-click3-2}}
+{クリックした位置に円が移動します}{svg-js-click3}
+\SVGListN{マウスのクリックを検出するSVG(その3)}{svg-js-click3}{js-click3}
+\begin{itemize}
+ \item 前の例ではイベントが起きたオブジェクトの属性値を変更していました
+       が、今回のはイベントの起きたオブジェクトと操作するオブジェクトが
+       異なることに注意してください。
+ \item このために、操作されるオブジェクトに\Attrib{id}で名前をつけていま
+       す(\Line{object})。
+ \item また、イベントを捕らえるためこのオブジェクトとして\Elm{rect}を用
+       意しています(\Line{Canvas})。
+ \item この長方形に\Line{rectEvent}で\texttt{click}イベントを処理する関
+       数を割り当てています。\\\DOMM{getElementById}{("Canvas")}で得られた
+       結果はオブジェクトなので、そのあとに直接、\\\DOMM{addEventListener}
+       を記述して、そのオブジェクトにイベント処理関数の設定をしています。
+ \item \texttt{click}イベントが発生したときに
+移動させるオブジェクトには\texttt{Circle}という名前が
+       ついていますので(\Line{object}の\texttt{id})これを手がかりにSVGのノード
+       を\DOMM{getElementById}{("Circle")}で得て、変数
+       \texttt{T}にセットします。この操作はイベントが発生するごとに、実
+			 行されます。
+ \item このオブジェクトにマウスがクリックされた $x$ 座標を求め
+       (\DOMP{clientX}{})その値を属性値\texttt{"cx"}に
+       \DOMM{setAttribute}{()}を用いて設定しています(\Line{setX})。
+ \item "cy" も同様に設定しています(\Line{setY})。
+\end{itemize}
+%\SVGList{マウスのクリックを検出するSVG(その
+%4)}{svg-js-click4}{svg-js-click4}
+ 例\ref{js-click3}では円上でクリックした場合は円の移動が起きません。
+円上でも動くようにするためには円に対しても
+クリックイベントの処理関数を定義するなどの対策が必要となります。より簡単
+な方法については次の問を考えてください。
+\begin{Problem}\upshape
+リスト\ref{js-click3}で次のことを確かめなさい。
+\begin{enumerate}
+ \item 円上でクリックしても円が移動しない。
+ \item \Line{Canvas}の長方形の属性\texttt{fill}の値を\texttt{none}にすると円
+       が移動しない。
+ \item \Line{Canvas}と\Line{object}を交換して、\Elm{rect}の属性とし
+       て\texttt{fill-opacity="0"}を追加すると、円の上でクリックしたとき
+       も円が移動する。
+ \item 長方形を取り除いて\Elm{svg}にイベント処理関数を割り当てたらどうな
+       るか確かめる。
+\end{enumerate}
+\end{Problem}
+
+\subsubsection{クリックした位置をSVG内に表示する}
+図\ref{svg-js-showclickpos}はクリックした位置に円が移動するだけではな
+く、その位置がSVG内に表示されます。
+\ShowFigs{0.35}{ht}{{svg-js-showclickpos-1}{svg-js-showclickpos-2}}
+{クリックした位置をSVG内に表示する}{svg-js-showclickpos}
+
+リスト\ref{svg-js-showclickposL}は図\ref{svg-js-showclickpos}のソー
+スコードです。
+\SVGListN{クリックした位置をSVG内に表示する}
+{svg-js-showclickpos}{svg-js-showclickposL}
+\begin{itemize}
+ \item クリックした位置を表示するためにラベルとして2つと $x$ 座標と $y$ 座標
+       の値を表示する\Elm{text}を作成しています(\Line{text1}から
+       \Line{text2})。この
+       \Elm{text}において値を表示する部分に空白がひとつ入っていることに
+       注意してください。\label{NoteTextNode}
+ \item また、文字の表示を統一するためにCSSを用いてフォントの大きさや位置
+       を指定しています(\Line{css1}から\Line{css2})。
+ \item 画面上でクリックすると\Line{Rect}で定義されている長方形上で
+       \texttt{click}イベントが発生します。この長方形は不透明度が $0$ なの
+       で下にあるオブジェクトはすべて見えます。
+ \item この長方形には\texttt{onload}イベントで\texttt{click}イベントを処
+       理する関数を割り当てています(\Line{addEvent})。
+ \item \Line{setX}と\Line{setY}でそれぞれ $x$ 座標と $y$ 座標の値を先ほ
+       どの\Elm{text}
+       に設定しています。\Elm{text}の属性としてではなく子のノードとして
+       設定するために最初の子のノードを指定する\DOMP{firstChild}プロパティ
+       のノードの値(\texttt{nodeValue})に位置の値を設定しています。
+ \item \Line{textX}と\Line{text2}の\Elm{text}に空白が入っていないと
+       これらの要素に\DOMP{firstChild}がないことになり設定が失敗に終わります。
+\label{nofirstChild}
+\end{itemize}
+\begin{Problem}\upshape
+ \Line{textX}と\Line{text2}の\Elm{text}内の空白を取り除くと値が表示でき
+ ないことを確認しなさい。
+\end{Problem}
+これを避けるには次のように\DOMP{firstChild}がない場合
+(値が\ElmJ{null})には新しいノードを付け加える操作が必要になります。
+\SVGListN{クリックした位置をSVG内に表示する(改良版)}
+{svg-js-showclickpos2}{svg-js-showclickpos2}
+\begin{itemize}
+ \item リスト\ref{svg-js-showclickposL}とは異なり、\Line{textNode1}と
+       \Line{textNode2}の開始タグと終了タグには空白がありません。
+ \item この例では値の表示などを関数\texttt{SetText()}で行っています
+       (\Line{setText1}と\Line{setText2})。
+  \item この関数は\Line{setTexts}から\Line{setTexte}で定義されています。
+この関数は次のことを行います。
+\begin{itemize}
+ \item 属性名\texttt{id}の属性値、円の要素の属性名と数値を
+       引数に取ります。
+ \item 属性名\texttt{id}の属性値で指定された要素の子要素として与えられた
+       数値を表示します。
+ \item 円の属性値を与えられた値に設定します。
+\end{itemize}
+ \item まず\Line{setCreateText}で\DOMM{createTextNode}メソッドで
+       表示するための\keyitem{テキストノード}を作成しています。
+ \item \Line{setCreateText2}で指定されたノードを得ています。
+ \item このノードに子ノードがある(\Line{existsChildNode}の
+       \texttt{newElement.firstChild}が\texttt{null}にならない)場合には
+       その\texttt{newElement.firstChild}を\DOMM{replaceChild}メソッドを
+       用いて先ほど作成したノードと置き換えます(\Line{existsChildNodeE})。
+ \item 子ノードがない場合には先ほど作成したノードを\DOMM{appendChild}メ
+       ソッドを用いて子ノードを付け加えます(\Line{existsChildNodeA})。
+\end{itemize}
+\Line{textNode1}の
+\texttt{  <text class="textStyle" id="XP" x="100" y="50"></text>}を\\
+\texttt{  <text class="textStyle" id="XP" x="100" y="50" />}としても
+動作することも確認してください。
+
+\subsection{イベントの処理の詳細}\label{eventbubling}
+\subsubsection{DOM Level 2 のイベント処理モデル}
+DOM Level 2 のイベント処理モデルではあるオブジェクトの上でイベントが発生
+すると次の順序で各オブジェクトにイベントの発生が伝えられます。
+\begin{enumerate}
+ \item 発生したオブジェクトを含む最上位のオブジェクトにイベントの発生が
+       伝えられます。このオブジェクトにイベント処理関数が定義されていな
+       ければなにも起きません。
+ \item 以下順に DOM ツリーに沿ってイベントが発生したオブジェクトの途中に
+       あるオブジェクトにイベントの発生が伝えられます。
+ \item イベントが発生したオブジェクトまでイベントの発生が伝えられます。
+ \item その後、
+       DOM ツリーに沿ってこのオブジェクトを含む最上位のオブジェクトま
+       で再びイベントの発生が伝えられます。
+\end{enumerate}
+DOM Level 2 のモデルではイベントが発生したオブジェクトはイベントの
+\DOMP{target}プロパティで、イベントを処理しているオブジェクトは
+\DOMP{currentTarget}で参照できます。
+
+このイベント処理の前半部分である最上位のオブジェクトからイベントが発生し
+たオブジェクトにイベントの発生が伝播する段階を
+\keyitem{イベントキャプチャリング}といい、後半の部分のイベントが発生し
+たオブジェクトから最上位のオブジェクトへ伝播する段階を
+\keyitem{イベントバブリング}と呼ばれます
+\footnote{バブルは泡のことです。泡は下から上に上がっていくのでこう呼ばれています。}。
+
+\DOMM{addEventListner}の3番目の引数で\ElmJ{false}にするとイベント処理はイ
+ベントバブリングの段階で呼び出されます。また、\ElmJ{true}にするとイベン
+ト処理はイベントキャプチャリングの段階で呼び出されます。
+
+\subsubsection{リスト\ref{js-click-all}の改良}
+リスト\ref{js-click-all}では3つの円にそれぞれイベント処理の関数を付けました
+が実は一番上のオブジェクトにだけイベント処理関数を付ければ十分であること
+がイベントキャプチャリングなどイベント処理の手順からわかります。
+
+次のリストはそのように改良したものです。
+\SVGListN{マウスのクリックを検出するSVG(その1)の改良}
+    {svg-js-click-rev2}{js-click-all-rev}
+\begin{itemize}
+ \item \Line{TopObject}から\Line{TopObjectEnd}で3つの円を含む\Elm{g}を用
+       意します。
+ \item \Line{addEvent}でこの\Elm{g}に\AttribVal{click}{}のイベントハンド
+       ラーを結び付けています。
+ \item \Line{showMessage}でクリックされた要素名を
+       \texttt{event.target.tagName}から得ています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{js-click-all-rev}について次のことをしなさい。
+\begin{enumerate}
+ \item リスト\ref{js-click-all-rev}がリスト\ref{js-click-all}と同じ
+       動作をすることを確認しなさい。
+ \item \Line{TopObject}から始まる\Elm{g}の代わりに\Elm{svg}にイベントハ
+       ンドラーをつけたときの動作を確認しなさい。
+\end{enumerate}
+\end{Problem}
+\iffalse
+\subsubsection{イベントバブリングとイベントキャプチャリングを確認する}
+\label{checkEventCapture}
+図\ref{event-check}はイベントバブリングとイベントキャプチャリン
+グを確認するための例です。
+\ShowFig{0.75}{ht}{event-check}
+{イベントバブリングとイベントキャプチャリングの確認}{event-check}
+
+円の部分と円内の傾いた正方形をクリックするとイベント処理関数が順に呼ば
+れます。%リスト\ref{svg-event-check}
+%\newpage
+\SVGListN{イベントバブリングとイベントキャプチャリングの確認}
+    {svg-event-check}{svg-event-check}
+\begin{itemize}
+ \item \Line{top}に全体を平行移動するために\Attrib{id}が
+       \AttribVal{top}{}である\Elm{g}を定義しています。この
+       オブジェクトには\Line{topCapture}でイベントキャプチャリングの、
+       \Line{topBubbling}でイベントバブリングの処理関数\texttt{mclick}を
+       割り当てています。
+ \item \Line{C}で赤く塗りつぶされた円を定義しています。この円にはイベン
+       ト処理関数が定義されていません。
+ \item 図形を$45^\circ$傾けるために、\Attrib{id}が
+       \AttribVal{next}{}である\Elm{g}を定義しています。この
+       オブジェクトには\Line{nextCapture}でイベントキャプチャリングの、
+       \Line{nextBubbling}でイベントバブリングの処理関数\texttt{mclick}を
+       割り当てています。
+ \item この中には\Line{rect}から\Line{rectE}で定義された正方形があります。
+       正方形には\Line{rectTarget}でイベント処理関数\texttt{mclick}を
+       割り当てています。
+ \item クリックのイベントを処理する関数はすべて同じ関数\texttt{mclick}で、
+       \Line{mclick}から始まります。ここではメッセージボックスでイベント
+       オブジェクトの\DOMP{target}の\Attrib{id}の値(\Line{targetID})、
+       \DOMP{currentTarget}の\Attrib{id}の値(\Line{ctargetID})、イベント
+       の伝播の状態\DOMP{eventPhase}(\Line{eventPhase})を表示します。
+ \item \Lines{eq}{stopProp}では\DOMP{currentTarget}の属性\Attrib{id}が
+       \texttt{"next"}であるときに\texttt{event.stopPropagation()}を実行
+       するようにしています。この関数の役割につては後で説明します。
+ \item ここでの”文字列が等しい”ことをチェックするために "===" を用いて
+       います。"==" の間違いではありません。\JS では型が異なる値に対して
+       演算を行うときには、一定の規則で型を合わせて計算します。 "===" は
+       型まで含めて等しいときに\texttt{true}になります。"==" は使わない
+       ようにしましょう。
+\end{itemize}
+円の上でクリックすると次のような表示をもつメッセージボックス(図
+\ref{event-check-2}参照)が順に表示されます。
+\ShowFig{0.75}{ht}{check-event-2}
+{リスト\ref{svg-event-check}で表示されるメッセージボックス}{event-check-2}
+\begin{enumerate}
+ \item \texttt{target=circle currentTarget=top eventPhase=1}
+ \item \texttt{target=circle currentTarget=circle eventPhase=2}
+ \item \texttt{target=circle currentTarget=top eventPhase=3}
+\end{enumerate}
+また、傾いた正方形の上をクリックすると次の順に表示されます。
+\begin{enumerate}
+ \item \texttt{target=rect currentTarget=top eventPhase=1}
+ \item \texttt{target=rect currentTarget=next eventPhase=1}
+ \item \texttt{target=rect currentTarget=rect eventPhase=2}
+ \item \texttt{target=rect currentTarget=next eventPhase=3}
+\end{enumerate}
+\DOMP{eventPhase}の値は表\ref{mouseeventprop}のなかにある
+\ElmJ{Event.CAPUTURING\_PHASE}などの定数ではなく数字で表示されていること
+に注意してください。これによりイベントが上位のオブジェクトからイベントが
+発生したオブジェクトへ伝播し、発生したオブジェクトまで行くとまた上のほう
+へ戻っていくことがわかります。\Elm{circle}の上でクリックす
+ると\DOMP{eventPhase}が$3$であるメッセージボックスが一つしか表示されないこ
+とを確認してください。これは、\Lines{eq}{eqE}の条件で、メッセージボック
+スを表示後、\texttt{id}が\texttt{"next"}でイベントバブリングの状態のとき、
+イベントの伝達(\texttt{Propagation})をしない
+(\texttt{stopPropagation()})ように設定しているからです。これにより、
+
+\texttt{target=rect currentTarget=top eventPhase=3}
+
+であるイベント処理が呼び出されません。
+\begin{Problem}\upshape
+リスト\ref{svg-event-check}に対して次のことを確認しなさい。
+\begin{enumerate}
+ \item \Lines{eq}{stopProp}の部分をコメントアウトすると
+
+\texttt{target=rect currentTarget=top eventPhase=3}
+
+であるメッセージボックスが表示されること
+ \item いくつかのイベント処理関数をコメ
+       ントアウトすると目的の処理が行われないこと
+ \item 新しくクリックイベントを処理する関数を定義して付け加えるとその処
+       理が両方とも呼び出されること
+\end{enumerate}
+\end{Problem}
+\fi
+\iffalse
+\subsubsection{イベントの伝播のキャンセル}
+DOM Level 2 のイベントモデルではイベントの発生がDOMの構造を伝わってオブ
+ジェクトに伝えられます。構造が複雑になればシステムに負担がかかります。こ
+のイベントの発生の伝播を途中で打ち切るのが\DOMM{stopPropagation}{()}です。
+リスト\ref{svg-event-check}の\Line{stopProp}のコメントをはずすとイベント
+の伝播がキャンセルされるのでメッセージボックスはひとつしか開きません。
+
+より役立つ具体的な例は次の節で示します。
+\fi
+\subsection{マウスのドラッグを処理する}
+\subsubsection{ドラッグとは}
+ドラッグとはあるオブジェクト上でマウスボタンを押したままマウスポインター
+を動かしてそのオブジェクトを移動させることです。この間、ユーザーは次の動
+作をしています()内はその間に起こるイベントです。
+\IndexSet{どらっぐのしょり@ドラッグの処理(\JS)}{}{}{}{}{}{}{}
+
+\begin{itemize}
+ \item オブジェクト上でマウスボタンを押す(\Event{mousedown}イベントが
+ 発生する)。
+ \item ボタンを押したままマウスポインタを動かす(\Event{mousemove}イベントが
+ 発生する)。
+ \item オブジェクト上でマウスボタンをはなす(\Event{mouseup}イベントが
+ 発生する)。
+\end{itemize}
+ドラッグの操作中に()内のイベントを処理する必要があります。ここで注意して欲しい
+のは\Event{mousemove}イベントはボタンが押されているいないにかかわらず
+発生していることです。したがって、一連の処理は次のようになります。
+\begin{itemize}
+ \item マウスボタンが押されたオブジェクトを記録する。
+ \item 押された状態のまま\Event{mousemove}が発生し
+ている間、そのオブジェクトを動かす。
+ \item \Event{mouseup}イベントが発生したらオブジェクトの記録をなくす。
+\end{itemize}
+という処理手順になります。なお、マウスボタンが押されたままの状態とはマウ
+スボタンが押されてから\Event{mouseup}イベントが発生していない間である
+ことに注意してください。
+
+なお、\Event{click}イベントとは\Event{mousedown}と\Event{mouseup}
+という一連の操作です。実際には\Event{mousedown}と\Event{mouseup}の
+イベントの後に\Event{click}イベントが発生します。
+\subsubsection{オブジェクトのドラッグ処理の例}
+図\ref{svg-drag}はオブジェクトをドラッグするサンプルです。
+\ShowFigs{0.3}{ht}{{svg-drag-1}{svg-drag-2}}{3つの円がそれぞれドラッグで
+移動可能(右：初期状態、左：３つの円を移動したとき)}{svg-drag}
+この図のリストはリスト\ref{svg-js-drag}です。
+%
+\newpage
+\SVGListN{ドラッグの例}{svg-js-drag}{svg-js-drag}
+\begin{itemize}
+ \item この例は例\ref{svg-js-click}と同様に3つの円を\Line{circle1}から
+       \Line{circle3}の間で定義しています。
+ \item \Elm{svg}のオブジェクトを\DOMM{getElementsByTagName}を用いて求め
+       ています(\Line{GetRootelm})。このメソッドは要素のリストが得られる
+       ので(この場合は一つです)、\texttt{[0]}でルート要素への
+       参照となります。
+ \item このオブジェクトに対して\Event{mousedown}, %\Event{mousemove},
+       \Event{mouseup} のイベントに対する関数を定義しています%
+       (\Lines{mousedown}{mouseup})。
+ \item \Event{mousedown}イベントに対してはマウスが押されたオブジェクト
+       をグローバル変数\texttt{inDragging}変数に保存しています
+       (\Line{save})。また、\Line{mousemove}で画像全体に
+       \Event{mousemove}のイベント処理関数を割り当てています。
+ \item \Event{mouseup}イベントに対してはグローバル変数
+       \Event{mousemove}のｓっ歩ｒ関数を取り除いています
+       (\Line{reset})。したがって、イベントハンドラ-はドラッグして
+       いる間だけ処理が行われます。
+ \item \Line{moves}から\Line{moveE}で\Event{mousemove}の処理をしています。
+ \item まず、グローバル変数\texttt{inDragging}が\ElmJ{null}でない場合
+       (\Line{indragging})はドラッグ中なのでイベントが発生したマウスポイ
+       ンタの位置をドラッグ中の円の中心位置に設定しています(\Line{setcx}
+       と\Line{setcy})。
+ \item なお、\Event{mousemove}イベントはいつもドラッグ中の円で起こって
+       いるわけではありません。二つの円が重なった場合、上に表示されてい
+       るほうの円で起こっています。イベントを処理する関数が\Elm{svg}で定
+       義されているのでイベントが拾えています。
+\end{itemize}
+なお、このリストでは円の数を増やしてもプログラムの部分は変える必要があり
+ません。
+\begin{Problem}\upshape\label{check-drag-prob}
+ リスト\ref{svg-js-drag}で次のことを行いなさい。
+\begin{enumerate}
+ \item 円の数を増やしなさい。
+ \item ドラッグする図形に楕円を付け加えなさい。
+ \item ドラッグする図形に正方形を付け加えなさい。要素は\Elm{rect}でなく
+       てもかまいません。
+ \end{enumerate}
+\end{Problem}
+
+リスト\ref{svg-js-drag}ではドラッグ中の図形が他の図形の下に隠れるとい
+う使い勝手が悪い点があります。また、処理が手抜いている部分もあります。
+
+リスト\ref{svg-js-drag-rev}ではこ
+の点を改良するとともに次のようなコードの改定を行っています。
+
+\begin{itemize}
+ \item \Event{mousemove}が割り当てられるのは円上で\Event{mousedown}が起
+       きたときだけにします。
+ \item \Event{mouseup}のイベント処理中に\Event{mousedown}を処理する関数
+       を取り除きます。
+ \item 操作している図形が常に最上位に来るように処理を変更しています。
+\end{itemize}
+\SVGListN{ドラッグ処理の改良}
+    {svg-js-drag-rev}{svg-js-drag-rev}
+\begin{itemize}
+ \item \Line{svg}でルートのオブジェクトを求め、グローバル変数\texttt{G}に保存し
+       ています(\Line{getelm})。
+ \item \Line{addEventListener1}と\Line{addEventListener2}で
+       それぞれ\Event{mousedown}と\Event{mouseup}を処理する関数を
+       \texttt{G}に割り当てています。
+ \item \LineR{mdownS}{mdownE}では\Event{mousedown}を処理する関数
+       \texttt{mdown}を定義しています。
+\begin{itemize}
+ \item オブジェクトが\Elm{svg}でない場合(\Line{checkObject})に変数
+       \texttt{inDragging}にイベントが起きたオブジェクトを格納します
+	  (\Line{saveObject})。演算子\verb+!==+に注意してください。
+    \item \Line{changePos}ではドラッグが開始されたオブジェクトを親オブジェ
+	  クトの最後の子要素にします。メソッド\DOMM{appendChild}は、新規
+	  の子オブジェクトを追加するメソッドですが、すでに子要素になってい
+	  るものに対しては子要素のリストの最後に移動します。したがって、
+	  一番上に表示されることになります。これにより移動中のオブジェク
+	  トが他のオブジェクトの下に来るという問題点を解消できます。
+    \item グローバル変数\texttt{G}に保存したオブジェクト(\Elm{svg})に
+	  \Event{mousemove}を処理する関数を割り当てています
+	  (\Line{addEventListener3})。
+\end{itemize}
+ \item \Event{mousemove}イベントを処理する関数は\Line{move}から始まりま
+       す。ドラッグ中のオブジェクトの中心位置を変えた後、イベントが他の
+       オブジェクトに伝播しないように\DOMM{stopPropagation}{()}を実行して
+       います(\Line{stopProp})。
+ \item \Event{mouseup}のイベント処理ではグローバル変数\texttt{G}に割り当
+       てられた\Event{mousemove}の処理関数を取り除くための
+     \DOMM{removeEventListener}{()}メソッドを呼び出しています
+       (\Line{removeEventListener})。
+\end{itemize}
+
+図\ref{filterturbulance-interactive}は
+図\ref{filterturbulance}の下部にスクロールバーを
+付けて\AttribF{baseFrequency}の値をインターラクティブに変更できるように
+したものです。なお、このフィルターは表示するのに時間がかかるので
+スクロールバーを移動している間は図形を表示しなおず、ドラッグが終了後に図
+を表示するように
+しています。また、\AttribF{baseFrequency}の値はドラッグしている間も変化
+しています。
+\ShowFig{0.8}{ht}{filter-scroll}
+{\ElmF{feTurbulance}フィルタのパラメータをスクロールバーで設定する}
+{filterturbulance-interactive}
+\SVGListN{\ElmF{feTurbulance}フィルタのパラメータをスクロールバーで設定する}
+{svg-filterturbulance-interactive}{svg-filterturbulance-interactive}
+\begin{itemize}
+ \item \LineR{initS}{initE}は\SVG が表示終了後に呼び出される初期化の関数
+       です。図形のオブジェクトへの参照を変数に格納し、
+       \Event{mousedown}のイベント処理関数をスクロールバーの位置を示す小さな長方
+       形に付けています。
+ \item \LineR{dragBeginS}{dragBeginE}はスクロールバーの位置を示す小さな長方
+       形上で\Event{mousedown}が発生したときに呼び出される関数です。画面
+       全体に\Event{mousemove}のイベント処理関数を割り当て、イベントが発
+       生した位置とスクロールバーの位置を示す小さな長方形の\AttribO{x}の
+       値との差を格納します。
+ \item \LineR{draggingS}{draggingE}は\Event{mousemove}のイベント処理関数
+       です。スクロールバーの動く範囲を$0$ から $299$の間に設定するよう
+       にしたあと、それに対応する\AttribF{baseFrequency}の値を計算する関
+       数(\texttt{SetBF()})を呼び出します。
+ \item \LineR{CalcBFS}{CalcBFE}は\AttribF{baseFrequency}の値を計算するた
+       めの関数です。この値は指数的に変化させるほうが図形の変化が良くわ
+       かるので、スクロールバーの位置をもとに$10^{-3}$から$10^{-1}$まで
+       変化するようにしています(\Line{Change})。このあたりの数値で図形が
+       十分に細かくなってしまいます。スクロールバーの長さが
+       $325$($300+小さな長方形の幅$)なので$10^{-3+位置/150}$で計算してい
+       ます。
+
+       式に出てくる\ElmJ{Math.pow(x,y)}は$x^y$ を求める関数です。ここで
+       は $10^{x}$ を計算していることになります。\ElmJ{Math}オブジェクト
+       のメソッドについては表\ref{JSMath}を参照してください。
+ \item 図の部分は次のようになっています。
+\ListSub{figS}{figE}
+\begin{itemize}
+ \item \Event{mousemove}を画面全体で拾えるように、全体を白で塗った長方形
+       を用意します(\Line{region})。このイベント自体は\Line{figS}で定義
+       している\Elm{g}が受け取るようにしています。
+ \item フィルターで塗りつぶした長方形を用意します(\Line{rec-w-filter})。
+ \item 画面の下部にスクロールバーが乗る長方形をおきます(\Line{back})
+ \item その上に小さな長方形を置きます(\Line{move})。
+ \item 値を表示するために\Elm{text}を用意します(\Line{text})。\\
+       この中に
+       空白の文字列を置くことにより、テキストノードが置かれることになり
+       ます。これにより
+       \Line{refresh}で\texttt{BFVal.firstChild.nodeValue}が正しく動作し
+       ます。
+\end{itemize}
+\end{itemize}
+\input \CH07201Math.tex
+\ProbwithFigSol%
+{filter-scroll-pushbutton}
+{0.7}{ht}
+{\texttt{feTurbulance}に\texttt{numOctaves}の操作するボタンを追加する}
+{svg-filterturbulance-interactive-2}
+{図\ref{filterturbulance-interactive}に
+\AttribF{numOctaves}の値を設定するボタンを追加したものです。
+\AttribF{numOctaves}の値は整数しか意味がないようなのでこのようにしました。
+}
+%\clearpage
+\subsection{オブジェクトを追加する}
+リスト\ref{svg-js-drag}を応用すると2点の間をドラッグして直線を引くSVG
+ファイルが作成できます。
+
+複数の直線を引くためには直線のオブジェクトが複数
+必要になります。いくつ必要になるかを前もってわかりませんので、実行時にオ
+ブジェクトを作成する必要があります。新しい要素を作成する DOM のメソッド
+は\DOMM{createElement}です。
+このメソッドは\ElmJ{document}におけるメソッドです。
+\DOMM{createElement}の代わりに新規作成する要素が定義されている
+\keyitem{名前空間}を指定して新しい要素を定義する\DOMM{createElementNS}を
+用います。
+
+図\ref{add-lines}はいくつかの直線を引いた後のものです。
+\ShowFig{0.45}{ht}{add-lines}
+{画面上に直線を引く}{add-lines}
+%\newpage
+\SVGListN{画面上に直線を引く}
+{svg-js-add-lines}{svg-js-add-linesL}
+\begin{itemize}
+ \item SVGのロードが終了した後、ここで指定された関数が呼び出さ
+       れます(\LineR{initS}{initE})。
+\begin{itemize}
+ \item 変数\texttt{C}に\Attrib{id}が\Showattrib{Canvas}である\Elm{g}への
+       参照を格納します(\Line{Canvas})。
+ \item このオブジェクトに\Event{mousedown}と\Event{mouseup}のイベントの
+       処理関数を割り当てます(\Lines{mousedownEvent}{mouseupEvent})。
+\end{itemize}
+ \item 白で塗られた長方形が画面全体にあるので
+       (\Line{rect})\Event{mousedown}のイベントが発生するとこの長方形の
+       親要素である\Showattrib{Canvas}で割り当てられたイベント処理関数
+       \Showattrib{mdown}が呼び出されます(\LineR{mdownS}{mdownE})。
+\begin{itemize}
+ \item \Line{createLine}で\Elm{line}を新規に作成します。 \Elm{line}はSVG
+       の要素なので\keyitem{名前空間}にSVGの名前
+       空間\texttt{"http://www.w3.org/2000/svg"}を指定します。
+ \item この\Elm{line}に、直線の開始位置や終了位置をイベントが発生した
+       位置に設定します(\LineR{setAttribsPosS}{setAttribsPosE})。これら
+       の位置はイベントオブジェクトのプロパティ\DOMP{clientX}や
+       \Event{clientY}で取得できます。
+ \item 線幅と色を設定します(\Lines{setAttribsS}{setAttribsE})。
+ \item 作成した\Elm{line}を付け加えます(\Line{appendChild})。
+ \item この親要素に\Event{mousemove}のイベント処理関数を割り当てます。
+\end{itemize}
+ \item \Line{mmoveS}から\Line{mmoveE}はドラッグ中の処理です。マウスカー
+       ソルの位置を、追加している直線の終端の点の位置として設定しています。
+ \item ドラッグが終了した場合の処理は\Line{mupS}から\Line{mupE}で定義し
+       ています。イベント処理関数を取り除いています。
+\end{itemize}
+\ProbwithSolC{Prob-add-objects}{直線の色を変える}{svg-js-add-lines-color}
+{次のことを確かめたり、上記のSVG文書の改良を行いなさい。
+\begin{enumerate}
+ \item いくつか直線を引いた後でSVGの上で右クリックした場合、ソースは元の
+       ものと変わっているか調べなさい。
+ \item Chrome で要素が追加されていることを確認しなさい。
+ \item Chrome の DOMパネルをエクスポートボタン(図
+       \ref{add-lines-check}の赤丸で囲まれた部分)をクリックすると起
+       こることを報告しなさい\footnote{これ以外のブラウザでは要素の上で
+       右クリックすると「Edit as HTML」のような選択ができます。}。
+%\ShowFig{0.65}{ht}{add-lines-check}
+%{Opera DragonFly のDOMパネルをエクスポートボタンの位置}{add-lines-check}
+ \item SVGの画面に色が異なる長方形をいくつか置き、そのうちのひとつをクリッ
+       クした後で直線を引くとその直前にクリックした長方形の色で直線が引
+       けるようにしなさい(図\ref{svg-js-add-lines-color}参照)。
+\ShowFig{0.4}{ht}{svg-js-add-lines-color}{色を変えて直線を引く}
+{svg-js-add-lines-color}
+ \item 長方形が描けるようにしなさい。\AttribO{width}や\AttribO{height}を負
+ の値にすると図形が表示されないのでこれを避けるためにチェックが必要です。
+\end{enumerate}
+}{ここでは色が二つ選べるようにしています。}
+\ProbwithSolC{prob-fick-interactive}
+{フィックの錯視図形をインターラクティブに操作する}
+{svg-fick-interactive}
+{\OIIdxY{フィック}の垂直の直線の長さをマウスのドラッグで変えるものを
+作成しなさい。}
+{終了時に長さがどれ位になったかを表示するようにしています。}

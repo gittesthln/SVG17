@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>円をドラッグで移動する</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  var G, inDragging;
+  window.onload = function() {
+    G = document.getElementsByTagName("svg")[0];//// ref="GetRootElm"
+    G.addEventListener("mousedown",mdown, false);//// ref="mousedown"
+    G.addEventListener("mouseup",mup, false);//// ref="mouseup"
+  }
+  function mdown(event) {
+    inDragging = event.target;//// ref="save"
+    G.addEventListener("mousemove",mmove, false);//// ref="mousemove"
+  }
+  function mmove(event) {//// ref="moves"
+    inDragging.setAttribute("cx",event.clientX);//// ref="setcx"
+    inDragging.setAttribute("cy",event.clientY);//// ref="setcy"
+  }//// ref="moveE"
+  function mup(event) {//// ref="up"
+    G.removeEventListener("mousemove", mmove, false);//// ref="reset"
+  }
+//    ]]></script>
+  <circle cx="50" cy="50" r="20" fill="red" ref="circle1"/>
+  <circle cx="100" cy="50" r="20" fill="blue"/>
+  <circle cx="150" cy="50" r="20" fill="green" ref="circle3"/>
+</svg>

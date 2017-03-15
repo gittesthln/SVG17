@@ -1,0 +1,54 @@
+% -*- coding: utf-8 -*-
+\section{\keyitem{イベント}}
+\subsection{イベント概説}
+イベントとはプログラムに対して働きかける動作を意味します。Windowsで動く
+プログラムにはマウスボタンが押された(\keyitem{クリック})
+\IndexSet{クリック}{イベント}{}{}{}などのユーザからの要求に対
+し反応する必要があります。このような要求を一般にイベントと呼びます。プロ
+グラムに対する要求はすべてイベントです。一定時間たったことをシステムから
+教えてもらうタイマーイベント、プログラムを中断することを知らせるものなど
+ありとあらゆる行為がイベントという概念で処理されます。プログラムが開始さ
+れたということ自体イベントです。このイベントは初期化をするために利用され
+ます。
+
+イベントの発生する順序はあらかじめ決まっていないのでそれぞれのイベント
+を処理するプログラムは独立している必要があります。このようにイベントの発
+生を順次処理していく
+プログラムのモデルを\keyitem{イベントドリブン}なプログラムといいます。
+\subsection{\SVG や HTML における代表的なイベント}
+\SVG や\HTML で発生する代表的なイベントを表\ref{event-list}に掲げました。
+これらのイベントは各要素内の属性として現れます。属性に対して関数を属性値
+にすることでイベントの処理が行われます。
+\iffalse
+イベントの情報は残念ながら\IE と
+\FF や \Opera では異なっています。すべてのブラウザに対して動くようなコー
+ドを書くこともできます(クロスブラウザ対策とよばれます)が、後で別の
+方法でこれらのイベントを処理する方法を解説します。したがって、この形で処
+理されるイベントは原則としてSVGのファイルがロードされた後に発生する
+\Event{onload}だけにします。\footnote{\Event{onload}も属性として書かない
+方法もあります。}
+\fi
+
+表\ref{event-list}は代表的なイベントの例です。いくつかは SVG に固有のも
+のもありますが、\HTML でも共通に使えるものもあります。
+\begin{table}[ht]
+ \caption{イベントの例}\label{event-list}
+\begin{center}
+\begin{tabular}[t]{|c|c|}
+ \hline
+イベントの発生条件& イベントの属性名%&
+%\multicolumn{1}{c|}{対応するSVGでのイベント}
+\\\hline
+ファイルのロード終了時  &\Event{onload} \\ \hline
+ボタンがクリックされた &\Event{onclick}  \\ \hline
+ボタンが押された &\Event{onmousedown}  \\ \hline
+マウスカーソルが移動した&\Event{onmousemove}  \\ \hline
+マウスボタンが離された&  \Event{onmouseup} \\ \hline
+マウスカーソルが範囲に入った&\Event{onmouseover}  \\ \hline
+マウスカーソルが範囲から出た&\Event{onmouseout}  \\ \hline
+値が変化した& \Event{onchange}\\ \hline
+SVGのアニメーションが開始された &\Event{onbegin}  \\ \hline
+SVGのアニメーションが終了した&\Event{onend}   \\ \hline
+\end{tabular} 
+\end{center}
+\end{table}

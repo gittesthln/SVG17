@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="100%" width="100%" onload="init()">
+<script type="text/ecmascript">
+//<![CDATA[
+var Vertical, Base, OrgPos, L, Text;
+function init() {//// ref="init"
+  Base = document.getElementById("Base");
+  Text = document.getElementById("text");
+  Vertical = document.getElementById("vertical");
+  Base.addEventListener("mousedown",mdown,false);
+  Base.addEventListener("mouseup",mup,false);
+}
+function mdown(E) {
+  Base.addEventListener("mousemove",mmove,false);
+  OrgPos = E.clientY;
+  L = Vertical.getAttribute("y2");
+}
+function mmove(E) {
+  Vertical.setAttribute("y2",L-(OrgPos-E.clientY));
+}
+function mup(E) {
+var T = document.createTextNode("Length:"+Vertical.getAttribute("y2"));
+  Text.replaceChild(T, Text.firstChild);
+  Base.removeEventListener("mousemove",mmove,false);
+}
+//]]>
+</script>
+<style type="text/css">
+  line {stroke-width:8; stroke-linecap:round; stroke:black;}
+</style>
+<g id="Base">
+  <rect x="0" y="0" width="100%" height="100%" fill="white"/>
+  <text id="text" x="20" y="20" font-size="20px" fill="black">Length</text>
+  <g transform="translate(200,300)">
+    <path d="M-100,-50 100,-50 M-100,-100 100,-100 M-100,-150 100,-150"
+      stroke-width="1" stroke="black" opacity="0" />
+    <line x1="-100" y1="0" x2="100" y2="0" />
+    <line id="vertical" x1="0" y1="0" x2="0" y2="-200" />
+  </g>
+</g>
+</svg>

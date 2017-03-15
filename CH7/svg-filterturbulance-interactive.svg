@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>feTurbulanceフィルタのパラメータをスクロールバーで設定する</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  var DragObj, OffsetX, FilterObj, BFVal, BF, Base;
+  window.onload = function(event) {//// ref="initS"
+    Base= document.getElementById("base");
+    Base.addEventListener("mouseup",endDrag,true);
+    BFVal = document.getElementById("BFValue");
+    FilterObj = document.getElementById("FilterfeTurbulence");
+    DragObj = document.getElementById("Fbar");
+    DragObj.addEventListener("mousedown",beginDrag,false);
+    setBF(150);
+    FilterObj.setAttribute("baseFrequency", BF);
+  }//// ref="initE"
+  function beginDrag(event) {//// ref="dragBeginS"
+    Base.addEventListener("mousemove",Dragging,true);
+    OffsetX = DragObj.getAttribute("x")-event.clientX;
+  }//// ref="dragBeginE"
+  function Dragging(event) {//// ref="draggingS"
+    var PS = event.clientX+OffsetX;
+    if(PS<=0) PS =0;
+    if(PS >300) PS = 300;
+    setBF(PS);
+  }//// ref="draggingE"
+  function setBF(x) {//// ref="CalcBFS"
+    BF = Math.pow(10,-3+x/150.);//// ref="Change"
+    DragObj.setAttribute("x", x);
+    BFVal.firstChild.nodeValue=BF.toFixed(4);//// ref="refresh"
+  }//// ref="CalcBFE"
+  function endDrag(event) {//// ref="endDragS"
+    FilterObj.setAttribute("baseFrequency", BF);
+    Base.removeEventListener("mousemove",Dragging,true);
+  }//// ref="endDragE"
+//  ]]></script>
+  <title> Scroll Bar </title>
+<defs>
+  <filter id="Filter" filterUnits="objectBoundingBox"
+          x="0%" y="0%" width="100%" height="100%">
+     <feTurbulence type="turbulence" id="FilterfeTurbulence"
+                  baseFrequency="0.005" numOctaves="1"/>
+  </filter>
+  <style type="text/css">
+    text { font-size:20px;}
+  </style>
+</defs>
+<g id="base"><!-- ref="figS" -->
+  <rect  width="100%" height="100%" fill="white" ref="region"/>
+  <rect x="30" y="30" width="800" height="400" filter="url(#Filter)" ref="rec-w-filter"/>
+  <g transform="translate(281,450)">
+    <rect x="0" y="0" width="325" height="20" fill="blue" ref="back"/>
+    <rect id="Fbar" x="21" y="0" width="25" height="20" fill="red" ref="move" />
+    <text  y="40" >baseFrequency: </text>
+    <text id="BFValue" x="300" y="40" text-anchor="end"> </text><!-- ref="text" -->
+  </g>
+</g><!-- ref="figE" -->
+</svg>

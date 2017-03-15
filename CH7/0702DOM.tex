@@ -45,8 +45,8 @@ DOMは文書をツリー状のデータ構造で管理します。
        す\keyitem{テキストノード}が重要です。\IndexSet{要素}{ノード}{E}{}{}
        \IndexSet{テキスト}{ノード}{E}{}{}
 \end{itemize}
-図\ref{developertool}は Chrome で「デベロッパーツール」を開いたところで
-す。
+図\ref{developertool}は\pageref{linejoin}ページにある図\ref{linejoin}の\SVG 
+をChrome で「デベロッパーツール」を開いたところです。
 \ShowFig{0.95}{ht}{developertool1}
 {Chrome のデベロッパーツールでDOMツリーを表示する(1)}{developertool}
 \begin{itemize}
@@ -55,27 +55,37 @@ DOMは文書をツリー状のデータ構造で管理します。
 			 す。
  \begin{itemize}
 	\item このタブ名は「Elements」です。ここにDOMの構造が示されます。
-	\item ここではこの画像のSVG要素が示され、その前に「」が付いています。
+	\item ここではこの画像のSVG要素が示され、その前に「$\blacktriangleright$」が付いています。
 	\item これはSVG要素の下に子要素があることを示し、それらが畳まれてい
 				る(表示されていない)ことを示しています。エクスプローラなどのフォ
 				ルダの表示と似ていることに注意してください。
  \end{itemize}
 \end{itemize}
-%\newpage
+%
+\newpage
 図\ref{developertool2}は図\ref{developertool}の「Elements」の中で2番目の
 \texttt{g}要素上にカーソルを置いた状態です。
 
 \ShowFig{0.95}{ht}{developertool2}
 {Chrome のデベロッパーツールでDOMツリーを表示する(2)}{developertool2}
-対応した要素の部分の背景が水色になっています。
+カーソル上にある要素に対応した要素の部分の背景が水色になっています。
 
-クリックした要素に対応した要素のところまでDOMツリーが展開され、その要素
-のところの
+この要素の前にある「$\blacktriangleright$」をクリックするとその要素の子要
+素までDOMツリーが展開されます。
+
+\ShowFig{0.95}{ht}{developertool3}
+{Chrome の開発ツールでDOMツリーを表示する(3)}{developertool3}
+
+\newpage
+この画面で\Elm{polyline}の属性\AttribO{width}の属性値を示すところをクリッ
+クして、属性値を変更しようとしている画面が図\ref{developertool4}です。
+\ShowFig{0.95}{ht}{developertool4}
+{Chrome の開発ツールでDOMツリーを表示する(4)}{developertool4}
 
 この画面で\Elm{polyline}の属性\AttribO{width}の属性値を\texttt{20}から
-\texttt{40}に変更した画面が図\ref{developertool3}です。
-\ShowFig{0.95}{ht}{developertool3}
-{Opera の開発ツールでDOMツリーを表示する(3)}{developertool3}
+\texttt{40}に変更した画面が図\ref{developertool5}です。
+\ShowFig{0.95}{ht}{developertool5}
+{Chrome の開発ツールでDOMツリーを表示する(5)}{developertool5}
 
 入力の過程でその値がすぐに反映されるのがわかります。
 

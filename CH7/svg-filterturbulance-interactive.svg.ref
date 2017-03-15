@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" >
+  <title>feTurbulanceフィルタのパラメータをスクロールバーで設定する</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  var DragObj, OffsetX, FilterObj, BFVal, BF, Base;
+  window.onload = function(event) {
+    Base= document.getElementById("base");
+    Base.addEventListener("mouseup",endDrag,true);
+    BFVal = document.getElementById("BFValue");
+    FilterObj = document.getElementById("FilterfeTurbulence");
+    DragObj = document.getElementById("Fbar");
+    DragObj.addEventListener("mousedown",beginDrag,false);
+    setBF(150);
+    FilterObj.setAttribute("baseFrequency", BF);
+  }
+  function beginDrag(event) {
+    Base.addEventListener("mousemove",Dragging,true);
+    OffsetX = DragObj.getAttribute("x")-event.clientX;
+  }
+  function Dragging(event) {
+    var PS = event.clientX+OffsetX;
+    if(PS<=0) PS =0;
+    if(PS >300) PS = 300;
+    setBF(PS);
+  }
+  function setBF(x) {
+    BF = Math.pow(10,-3+x/150.);
+    DragObj.setAttribute("x", x);
+    BFVal.firstChild.nodeValue=BF.toFixed(4);
+  }
+  function endDrag(event) {
+    FilterObj.setAttribute("baseFrequency", BF);
+    Base.removeEventListener("mousemove",Dragging,true);
+  }
+//  ]]></script>
+  <title> Scroll Bar </title>
+<defs>
+  <filter id="Filter" filterUnits="objectBoundingBox"
+          x="0%" y="0%" width="100%" height="100%">
+     <feTurbulence type="turbulence" id="FilterfeTurbulence"
+                  baseFrequency="0.005" numOctaves="1"/>
+  </filter>
+  <style type="text/css">
+    text { font-size:20px;}
+  </style>
+</defs>
+<g id="base">
+  <rect  width="100%" height="100%" fill="white"/>
+  <rect x="30" y="30" width="800" height="400" filter="url(#Filter)"/>
+  <g transform="translate(281,450)">
+    <rect x="0" y="0" width="325" height="20" fill="blue"/>
+    <rect id="Fbar" x="21" y="0" width="25" height="20" fill="red" />
+    <text  y="40" >baseFrequency: </text>
+    <text id="BFValue" x="300" y="40" text-anchor="end"> </text>
+  </g>
+</g>
+</svg>
