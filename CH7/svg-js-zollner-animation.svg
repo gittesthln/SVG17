@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%" onload="init()">
+<script type="text/ecmascript" xlink:href="./make-svg-elm.js" />
+<script type="text/ecmascript">
+//    <![CDATA[
+var Canvas;
+var W  = 1, WCol = "black";
+var sW = 1, sWCol = "black", sL = 50/2, Ang=30, Step = 20;
+var X1 = 50, Y1=50, X2 = 300, Y2 = 100;
+function init() {
+  var G1, G2, Tmp, i;
+  Canvas = document.getElementById("canvas");
+  MKSVGElm(Canvas, "line", 
+      ["x1", X1, "y1", Y1, "x2", X2, "y2", Y1, 
+       "stroke-width", W, "stroke", WCol], []);
+  MKSVGElm(Canvas, "line", 
+      ["x1", X1, "y1", Y2, "x2", X2, "y2", Y2, 
+       "stroke-width", W, "stroke", WCol], []);
+  G1 = MKSVGElm(null, "g",[], []);
+  G2 = MKSVGElm(G1, "g",[], []);
+  MKSVGElm(G2, "line",          
+      ["x1", -sL, "y1", 0, "x2", sL, "y2", 0, 
+       "stroke-width", sW, "stroke", sWCol],[]);
+  SetAttributes(G2,["transform","rotate("+Ang+")"]);
+  MKSVGElm(G2, "animateTransform",["attributeName","transform",
+               "attributeType", "XML",
+               "type", "rotate", "from", "0", "to", "180", "dur", "10s"],[]);
+  for(i=X1+10; i<X2-10; i+= Step) {
+    Tmp = G1.cloneNode(true);
+    SetAttributes(Tmp,["transform","translate("+i+"," + Y1 +")"]);
+    Canvas.appendChild(Tmp);
+  }
+  SetAttributes(G2,["transform","rotate("+(-Ang)+")"]);
+  SetAttributes(G2.lastChild,["to","-180"]);
+  for(i=X1+10; i<X2-10; i+= Step) {
+    Tmp = G1.cloneNode(true);
+    SetAttributes(Tmp,["transform","translate("+i+"," + Y2 +")"]);
+    Canvas.appendChild(Tmp);
+  }
+}
+//    ]]></script>
+  <g id="canvas"/>
+</svg>

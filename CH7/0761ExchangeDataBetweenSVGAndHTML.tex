@@ -1,0 +1,190 @@
+% -*- coding: utf-8 -*-
+\newcommand{\HTMLSVG}{HTMLと{\HS}SVG{\HS}DOM{\HS}の間でのデータ交換}
+\newcommand{\HS}{\hspace{0.5em}}
+%\subsection{クリックした位置をHTML内のオブジェクトに表示し、HtMLからSVG
+%  文書内の属性値を操作する}
+\label{ExchangeDatabetweenSVGandHTML}
+HTML文書はXML文書としての類似性があり、DOMで操作することが可能です。こ
+の節ではHTML文書も今までに学んできた\SVG のようにDOMの操作が可能である
+ことを示します。
+
+図\ref{ShowSetClickPos}は左の部分にあるSVGを用いて表示された画面上をクリッ
+クするしたときの位置を\HTML の部分に表示し、またその逆にテキストボックス
+などで指定した値をSVGの画像に反映できることを示すものです。
+\begin{itemize}
+ \item この図は右側のメニューをクリックした状態です。
+ \item 左側のSVG上の部分でクリックするとその場所に円の中心が移動し、クリッ
+       クした位置の座標をSVGの画像の中だけではなく右のHTMLの要素であるテ
+       キストボックスにその位置を表示します。
+ \item テキストボックスに値を入れたり、メニューの中から色を選んだ後、下
+の設定ボタンを押すと、指定された位置に円が移動します。また、指定した色に
+変わります。
+\end{itemize}
+
+\ShowFig{0.6}{ht}{ShowSetClickPos2}
+{クリック位置をHTMLで表示し、HTMLのデータからSVGの図形を動かす}{ShowSetClickPos}
+%
+\HTMLListMN{クリック位置をHTMLで表示し、HTMLのデータからSVGの図形を動かす}%
+{ShowSetClickPos4}{ShowSetClickPosL}
+
+いくつか注意する点を述べておきます。
+\ListSub{XML}{InitS}
+\begin{itemize}
+ \item \Line{XML}がHTML5における\texttt{DOCTYPE} 宣言
+\IndexSet{DOCTYPEせんげん@\protect\texttt{DOCTYPE} 宣言}{}{}{}{HTML}
+です。以前のものに比べ記述が格段に簡単になっています。
+\iffalse%\else
+ \item \Line{NS}の\Elm{html}でこの文書の\keyitem{名前空間}を
+\texttt{http://www.w3.org/1999/xhtml}と宣言しています。
+\fi
+  \item HTMLでは\HTML のいろいろな情報は\ElmH{head}内の\ElmH{meta}で記
+	述します。ここでは\Line{CHARSET}でこの文書の文字コードがUTF-8で
+	あることを宣言しています。
+ \item \Line{InitS}でこのプログラムで必要なグローバル変数を定義していま
+       す。
+% \item 
+\end{itemize}
+\ListSub{OnLoad}{InitOptE}
+\begin{itemize}
+ \item \Line{OnLoad}から\HTML がすべて読み終えたときに実行する関数の定義
+       の始まりです。
+  \item ここでは色を選択するリストボックスの設定をおこなっています。
+ \item まず、色の選択をする選択リストへの参照を得ます(\Line{Setcolor})。
+  \item 色を指定するリストボックスの内容をDOMの技法を用いて設定し
+       ます。
+ \item HTML文書の中に\ElmH{select}がありますので、この子
+       要素\ElmH{option}を付け加えることをします。\ElmH{option}は次のよ
+       うな形になります\footnote{HTML文書を作成したことがある人は
+       \texttt{</option>}はいらないのではと思うかもしれません。HTML文書
+       をXMLの規格に合わせるXHTMLという規格では要素の開始タグに対応する
+       終了タグは必ず記述する必要があります。}。
+\begin{verbatim}
+	<option value="red">赤</option>
+	<option value="yellow">黄色</option>
+\end{verbatim}
+ \item \LineR{InitOptS}{InitOptE}で属性値となる色の名称と日本語による表示のための文
+       字列を\keysub{オブジェクトリテラル}{\JS}
+       \IndexSet{{\JS}}{オブジェクトリテラル}{E}{における}{}
+       として定義しています。オブジェクトリテラルでは配列の引数に文字列をとることが
+       できます。左側にある文字列は\keysub{キー}{オブジェクトリテラル}{の}と呼
+       ばれます。\texttt{:}をはさんだ右側はこのキーにおける値であり、こ
+       こには任意の\JS のオブジェクトを記述できます。値は「オブジェクト
+       名[キー]」の
+       形で取り扱うことができます(\Line{createTextNode}参照)。
+ \item このデータを用いて\LineR{makeOptS}{InitOptE}で
+       \AttribH{name}属性が\texttt{SetColor}のリストボックスの内容を作
+       成しています。
+ \item オブジェクトリテラルのすべての要素にアクセスする方法は\ElmJ{for}\texttt{( 変
+       数名 in オブジェクト名)}です(\Line{makeOptS})。この変数に配列の引数がセッ
+       トされます。ここでは英語の文字列が値として代入されます。
+ \item \Line{createOption}で\ElmH{option}要素を作成し、
+       \Line{setValue}\AttribH{value}に
+       色名(ここでは\ElmJ{for}内の変数であるキーの値\texttt{Color})を設
+       定してい ます。この値は英語における色名になっているので円の色名を
+       設定するためにそのまま利用できます。
+ \item \ElmH{option}に表示する文字列を設定するために
+       \Line{createTextNode}でテキストノードを作成しています。この文字列
+       はオブジェクトリテラルの値のほうを用います。
+ \item \Line{appendTextNode}でこのテキストノードを\ElmH{option}要素の子
+       ノードとして付け加えています。
+ \item 作成された要素をリストボックスの子ノードとして付け加えます
+       (\Line{appendChild})。
+\end{itemize}
+\ListSub{getObjectS}{CorrectE}
+\begin{itemize}
+ \item \LineR{getObjectS}{getObjectE}で\HTML 内のオブジェクトを参照するための
+       変数の値を定義しています。
+ \item その後、表示されている円の座標をテキストボックスに反映させていま
+       す(\Lines{GetX}{GetY})。
+  \item \Line{setEventListner}で定義されている関数\texttt{click(event)}は
+       \SVG 上でマウスがクリックされたときに呼び出されます。イベントリス
+       ナーの定義は\LineR{ClickS}{ClickE}で定義されています。
+ \item \Line{Set}では「設定」ボタンがクリックしたとき(\Event{onclick})に
+       呼び出される関数を「\texttt{refresh}」に定義しています。
+       \ElmJ{function}で定義された関数名はそのままグローバル変数として使
+       用できることに注意してください。
+ \item この XML文書上でクリックするとそのクリックされた位置は文書全体の位置
+       になり、SVG文書内での位置とは異なります。要素が配置された位置を得
+       るための関数が\ElmJ{getBoundingClientRect}です(\Line{CorrectS})。
+ \item 実際にクリックできる範囲は\Elm{svg}の中で下、右にそれぞれ$5$ピク
+			 セル移動していますので、その分も配置からずらします
+			 (\Lines{SetOffset1}{SetOffset2})。
+
+			 なお、これらの値は状況によっては整数とはならないので、小数点以下
+			 を切り捨てています。
+\ListSub{ClickS}{ClickE}
+ \item \LineR{ClickS}{ClickE}でクリックされたときのイベント処理関数が定
+       義されています。ここではクリックされた位置から
+       \Lines{SetOffset1}{SetOffset2}で求めた補正値を引いてそれぞれのテキス
+       トボックスに表示させています。
+ \item \Line{CSSS}で\HTML での各構成要素のスタイルを決める CSS ファイル
+       を読み込むように指定しています。
+\ListSub{bodyS}{HTMLE}
+ \item \Line{bodyS}以降の部分にHTML文書の本体が記述されています。
+ \item 全体は\ElmH{div}を用いて要素が入れ子の形になっています。
+%これが       HTML5における標準です。
+ \item \ElmH{div}要素についている\AttribH{class}は要素を表の形に表したと
+       きのどの部分に当たるのかを示しています。
+\begin{itemize}
+ \item \texttt{class}の値が\texttt{table}であるものは表の開始を示します。
+       HTML4 で使われた \ElmH{table}に相当します。ここでは\texttt{class}に対
+       応する{セレクタ}なので\texttt{.table}になっています。\CSS{display}の値を
+       \CSSVal{table}に設定することで表の開始を指示しています。
+ \item 同様にクラス名\texttt{Row}では表の横1行分を(\CSS{display}の値を
+       \CSSVal{table-row}に設定)、クラス名\texttt{Cell}では各項目を
+       て(\CSS{display}の値を\CSSVal{table-cell}に設定)示すことにしてい
+       ます。これらの指定はそれぞれ\ElmH{tr}と\ElmH{td}に対応します。
+ \item 画面右のテキストボックスやプルダウンメニューに関するCSSは
+       \AttribH{id}を用いています(この場合の{セレクタ}は\texttt{id}
+       の前に\texttt{\#}を付けたものになります)。
+\end{itemize}
+ \item SVGに関する要素名が直接記述されています(\LineR{SVGS}{SVGE})。
+       HTML5ではHTML要素のようにSVGの要素が記述できます(インラインSVG)。
+       この部分はリスト\ref{svg-js-showclickposL}と同じです。
+% \item 
+\end{itemize}
+この読み込まれるCSSファイルは次のようになっています。
+\CSSListN{基本的なCSSファイル}{HTML}{HTML}
+\iffalse
+リスト\ref{showandclickposSVG}は\SVG 内の初期化とクリックしたときの処理
+を行う関数のリストです。
+\JSListN{\SVG の初期化と実行時の処理関数}
+{SSClickposSVG}{showandclickposSVG}
+\begin{itemize}
+ \item \LineR{initSVGS}{initSVGE}では次のことを行っています。
+\begin{itemize}
+ \item SVG の画像の範囲にイベント処理関数を割り当てる(\Line{event})。
+ \item 移動させる円のオブジェクトへの参照を設定する(\Line{C})。
+ \item SVGの画面の中の位置の表示部への参照を設定する(\Lines{X}{Y})。
+ \item 円の中心の位置をフォームのなかのテキストボックスに表示する
+       (\Lines{XP}{YP})。
+\end{itemize}
+ \item \LineR{refreshS}{refreshS}では現在の円の中心位置を\SVG 内に表示す
+       る(\Lines{setTextX}{setTextY})ことと円の塗りつぶしの色を設定しま
+       す\Line{setTextCol}。
+ \item 円の中心位置を設定するために\LineR{setTextS}{setTextE}で定義され
+       ている関数\texttt{SetText}を呼び出しています。
+ \item この関数は\texttt{Element}で参照される要素の子要素に与えられた値
+       \texttt{Value}を設定します。起動時にはこの子要素がないので
+       \DOMM{appendChild}が利用できます(\Line{append})が、2回目以降は子
+       ノードを取り替える(\DOMM{replaceChild})方法で表示する必要がありま
+       す(\Line{replace})。
+ \item また、\texttt{attrib}で指定された円の属性を\texttt{value}
+       に設定しています(\Line{attrib})。
+\end{itemize}
+\fi
+\begin{Problem}\upshape
+ リスト\ref{ShowSetClickPosL}について次のことを行いなさい。
+\begin{enumerate}
+ \item 表題のフォントの大きさを変えてもクリックする位置は正しく求められ
+       ることを確認しなさい。
+ \item 起動後、ウィンドウの幅を狭くして(または広くして)表題の部分の行数を変化さ
+       せるとクリックした位置と円が設定される場所が異なることを確認しな
+       さい。\label{correctError}
+ \item \ref{correctError}の不具合を直しなさい
+\end{enumerate}
+\end{Problem}
+\begin{Problem}
+ 今までに示された錯視図形のパラメータを外部から設定するように書き直しな
+ さい。
+\end{Problem}

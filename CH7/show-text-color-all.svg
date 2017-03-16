@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>文字の表示色と文字名が異なる</title>
+<script type="text/ecmascript" xlink:href="make-svg-elm.js"></script>
+<style type="text/css">
+ .textstyle { font-size:30px; text-anchor:middle;}
+</style>
+<script type="text/ecmascript">
+//<![CDATA[
+var Data = [//// ref="dataS"
+   ["あか","赤","red"],
+   ["くろ","黒","black"],
+   ["みどり","緑","green"],
+   ["あお","青","blue"],
+   ["きいろ","黄","yellow"],
+   ["むらさき","紫","violet"]
+];//// ref="dataE"
+var Type = 0;//// ref="paramType"
+var xUnit = 150, xInit = 30, xMax = 4;//// ref="paramX"
+var yUnit =  50, yInit = 20, yMax = 7;//// ref="paramY"
+var Max = 10, k, Doc, textNode;//// ref="Globals"
+var PosList = [];//// ref="globalsPos"
+window.onload = function() {//// ref="initS"
+var i, j;
+  if( Max > xMax * yMax) {//// ref="checkS"
+    alert("パラメータの設定が違っています") ;
+    return 0;
+  }//// ref="checkE"
+  for(i=0; i<xMax; i++) {//// ref="initPosS"
+    for(j=0; j<yMax; j++) {
+      PosList.push([i,j]);//// ref="initPosPush"
+    }
+  }//// ref="initPosE"
+  k = Max;//// ref="initK"
+  Doc = document.getElementById("Doc");//// ref="initDoc"
+  ShowProb();//// ref="Callfunction"
+}//// ref="initE"
+function ShowProb() {//// ref="ShowProbS"
+var x, y, i, j, p;
+var T;
+  while(k>0) {//// ref="Checkend"
+    i = getRand(0, Data.length);//// ref="setParami"
+    j = getRand(0, Data.length);//// ref="setParamj"
+    p = getRand(0, PosList.length);//// ref="setParamPos1"
+    T = PosList.splice(p,1)[0];//// ref="setParamPos2"
+    x = xInit+xUnit * T[0];//// ref="setParamPos3"
+    y = yInit + yUnit * T[1];//// ref="setParamPos4"
+    if( true ||k == Max ) {//// ref="checkFirsttimeS"
+      textNode = MKSVGElm(Doc,"text",//// ref="createTextNodeS"
+        {"x": x, "y": y,"class":"textstyle","fill":Data[i][2]},{});//// ref="createTextNodeE"
+      textNode.appendChild(document.createTextNode(Data[j][Type]));//// ref="createText"
+    } else {
+      SetAttributes(textNode,{"x": x, "y": y,"fill":Data[i][2]});//// ref="changeAtribS"
+      textNode.replaceChild(document.createTextNode(Data[j][Type]),//// ref="changeTextS"
+                            textNode.firstChild);//// ref="changeTextE"
+    }//// ref="checkFirsttimeS"
+    k--;//// ref="setNext"
+    window.setTimeout(ShowProb,1000);//// ref="callNext"
+  }
+}//// ref="ShowProbE"
+function getRand(min, max) {//// ref="makeRandS"
+  return Math.floor(min+(max-min)*Math.random());
+}//// ref="makeRandE"
+//]]>
+</script>
+<g transform="translate(40,40)" id="Doc" ref="Doc"/>
+</svg>

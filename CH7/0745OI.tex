@@ -1,0 +1,211 @@
+% -*- coding: utf-8 -*-
+\subsection{SVGのオブジェクトを操作するための関数}
+\iffalse
+錯視の図形は数学的に規則正しい図形が多くあります。
+SVG文書の開始時の\Event{onload}の処理関数で要素を追加すれば
+今まで、手でSVGの個々の要素を指定していた図形がより簡単に描けます。
+\fi
+
+今後はSVGの要素を新規に作成したり、すでに存在する要素の属性をまとめて設
+定しなおす必要があるのでそれらを処理する関数を作成しておくことにします。
+
+このような関数(ヘルパー関数)を提供するライブラリーとしては
+\ElmJ{jQuery.js}が有名で
+す。\texttt{jQuery.js}はブラウザの対応の違いも吸収してくれる有用な
+ライブラリですが、DOM の操作に慣れるという観点から独自の関数群を用意する
+ことにします\footnote{この後でSVG要素をHTML文書内に直接書くときに、
+jQueryでは対応できない場合があります。}。
+
+リスト\ref{make-svg-elm}は DOM の要素を新規に作成したり属性を設定する
+関数群のファイルのリストです。今後のプログラムではこのファイルを
+\texttt{make-svgelm.js}という名前でこれから作成する \SVG と同じフォルダ
+に保存します。
+
+この関数群は次のものからなります。
+\ExpList{%
+{新規にHTML要素を作成する関数\texttt{MKHTMLElm}}
+{新規にSVG要素を作成する関数\texttt{MKSVGElm}}
+{すでに存在するDOM要素の属性をいくつかまとめて設定する\texttt{SetAttributes}関数}
+{すでに存在するDOM要素にイベントをいくつかまとめて設定する\texttt{AddEvents}関数}
+{すでに存在するDOM要素からイベントをいくつかまとめて取り除く\texttt{RemoveEvents}関数}
+}
+
+
+\JSListN{DOM要素を新規作成し、属性を設定する関数群}
+    {make-svg-elm}{make-svg-elm}
+\ExpList{%
+%{\Line{SVGNS}と\Line{HTMLNS}でそれぞれ\SVG とHTML の名前空間の参照場所を
+%    宣言しています。}
+{\texttt{MKHTMLElm}は新規にHTML要素を作成する関数です。
+\ListSub{MKHTMLElmS}{MKHTMLElmE}
+引数は次の通りです。
+\ExpList{{\texttt{P} 作成する要素の親要素。\ElmJ{null}のときは親要素がな
+    いことを示します。}
+    {\texttt{Elm} 作成する要素名}
+    {\texttt{attribs} 作成する要素の属性名と属性値が交互に並んだ配列です。}
+    {\texttt{events}  作成する要素に付けるイベント名、イベント処理関数
+    名、イベントバブリングかどうかの論理値が順に並んだ配列です。}}
+この関数は与えられた引数の前に名前空間を指定して関数\texttt{MakeElement}を
+    呼び出してその戻り値を返しているだけです(\Line{MKHTMLElmM})。
+名前空間の値は直接、引数に書くことも可能ですが、ここではローカルな変数に
+    定義して(\Line{HTMLNS})、その値を渡しています。
+    なお、HTML5の名前空間については次のサイトを見てください。
+\begin{center}
+\url{http://www.w3.org/TR/2011/WD-html5-20110525/namespaces.html\#namespaces}\end{center}
+}
+{\texttt{MKSVGElm}は新規にSVG要素を作成する関数です。
+引数の意味や動作は関数\texttt{MKHTMLElm}と同じです。
+\ListSub{MKSVGElmS}{MKSVGElmE}
+}
+{\texttt{MKSVGElm}は新規にDOM要素を作成する関数です。
+\ListSub{MKElmS}{MKElmE}
+\ExpList{{与えられた名前空間を用いて\DOMM{createElementNS}メソッド
+    でオブジェクトを作成します(\Line{NS})。}
+   {既存の要素に属性をまとめて設定する関数\texttt{SetAttributes}を
+    呼び出します(\Line{Attribs})。}
+   {既存の要素にイベントをまとめて設定する関数\texttt{AddEvents}を
+    呼び出します(\Line{Events})。}
+   {最後に、親要素が\ElmJ{null}でないときにはこの要素を子要素として付け
+    加えます(\Line{Parent})。}
+}
+}
+{\texttt{SetAttributes}はすでに存在するDOM要素の属性をいくつかまとめて設
+定する関数です。
+属性とその属性値が組になったオブジェクトを利用して
+    (\Line{setAttribFor})指定された要素に属性値を設定します
+    \footnote{最近のライブラリーではオブジェクトリテラルを利用していろい
+    ろなオブジェクトの属性を定義しているのを真似ました。}。
+    (\Line{setAttribM})。
+\ListSub{setAttribsS}{setAttribsE}
+}
+{\texttt{SetEvents}はすでに存在するDOM要素のイベントをまと
+めて設定する関数です。
+\ListSub{addEventsS}{addEventsE}
+イベント名とイベント処理関数
+    名、イベントバブリングかどうかの論理値が並んだ配列のオブジェクトを利用して設定
+    します(\Line{addEventsM})。}
+{\texttt{RemoveAttributes}はDOM要素のイベント処理をまと
+めて解除する関数です。
+\texttt{SetEvents}と同様の配列を基にして与えられた要素からイベント処理関
+    数を取り除きます。
+\ListSub{removeEventsS}{removeEventsE}
+}
+}
+\subsection{ツェルナーの錯視図形}
+図\ref{zollner}は古典的な\OIIdxM{ツェルナー}図形
+です\cite[58ページ]{OIHandbook}。横にある2本の直線は平行なのですが斜線の
+があるために平行に見えないというものです。
+\ShowFig{0.5}{ht}{zollner}{ツェルナーの錯視図形}{zollner}
+
+前の節の関数を用いて図\ref{zollner}を表示するSVG文書を作成します。
+%\NewpageF\ \\[-2.2\baselineskip]
+\SVGListN{ツェルナーの錯視}{svg-js-zollner}{svg-js-zollner}
+\ExpList{{ HTML文書で外部の\JS ファイルを読み込むとき、ファイル名は
+       \texttt{src}属性で指定しますが、SVG文書では\Attrib{xlink:href}属
+       性を用います(\Line{readJSfile})。
+			 リスト\ref{make-svg-elm}を\texttt{make-svg-elm.js}として
+       保存し、このファイルと同じフォルダーにおいたことを思い出してくだ
+       さい。}
+{ツェルナーの錯視の図の大きさや線の間隔などを修正しやす
+       くするためにこれらの値を変数として定義しています
+       (\Line{paramsFigS}から\Line{paramsFigE})。ここでの変数の意味は次のと
+       おりです。
+\begin{center}\hfill
+\setlength{\tabcolsep}{0.1em}
+\begin{tabular}[t]{ll}
+ \texttt{W:}& 水平線の線幅\\
+ \texttt{WCol:}&水平線の色 \\
+ \texttt{X1:}& 水平線の左位置\\
+ \texttt{X2:}& 水平線の右位置
+\end{tabular}
+\hfill
+\begin{tabular}[t]{ll}
+ \texttt{Y1:}& 上の水平線の縦位置\\
+ \texttt{Y2:}& 下の水平線の縦位置\\
+ \texttt{sW:}& 補助線の線幅\\
+ \texttt{sWCol:}& 補助線の色
+\end{tabular}
+\hfill
+\begin{tabular}[t]{ll}
+ \texttt{SL:}& 補助線の長さの半分\\
+ \texttt{Ang:}& 補助線が交わる角度\\
+ \texttt{Step:}& 補助線の間隔
+\end{tabular}
+\hspace*{\fill}
+\end{center}}
+{まず、\Line{canvas}で定義されている図形を保持するオブジェクトの位置を得
+       ます(\Line{getcanvas})。}
+{\Line{setUpperLineS}から\Line{setUpperLineE}と
+ \Line{setLowerLineS}から\Line{setLowerLineE}で上下の水平線を図形を保持
+ するオブジェクトの子ノードとしてセットします。}
+{補助線は位置と傾きを決めるので別々の\Elm{g}でそれぞれセットするこ
+       ととします。オブジェクトが複雑になるので雛形を作ることにします
+       (\LineR{makeslantLineS}{makeslantLineE})。
+\ExpList{{\texttt{G1}に\Elm{g}を作成し(\Line{makeslantLineS})、その子ノードとして\texttt{G2}で作成した\Elm{g}を設定します(\Line{makeslantLine1})。}
+ {\texttt{G2}の子ノードに補助線を設定します
+       (\Lines{makeslantLine2}{makeslantLine3})。引数
+       \texttt{[ ]}は空の配列です。}}
+}
+{\texttt{G2}に上の補助線を傾けるための属性値を設定します
+       (\Line{makeslantLine3})。これをコピー
+       した要素に別の角度を後でつけるために傾ける角度は指定していません。}
+{\Line{addUpperSlantLinesS}から\Line{addUpperSlantLinesE}が上の直線に斜
+       線を付ける部分です。
+\ExpList{{\texttt{G1}に作成した要素のコピーを作成します
+       (\Line{addUpperSlantLines1})。}
+      {この要素を平行移動するために\Attrib{transform}を設定します
+       (\Line{addUpperSlantLines2})。}
+      {表示するために一番外側の要素の子要素に設定します
+       (\Line{addUpperSlantLines3})。}}}
+{下の部分の補助線も同様に設定します(\Line{addLowerSlantLinesS}から
+       \Line{addLowerSlantLinesE})。}
+{\Line{addLowerSlantLinesS}で\texttt{(-Ang)}という記述がありますが、この
+       部分は数値として計算されていることに注意してください。} 
+}
+\begin{Problem}\upshape
+ \Opera の Dragonfly を用いて解説のとおりSVGの
+ DOMができているかどうかを確認しなさい。
+\end{Problem}
+\ProbwithSol{zollner-animation}{ツェルナーの錯視(アニメーション付き)}
+{svg-js-zollner-animation}
+{図\ref{zollner}の補助線に対して回転のアニメーションを付けなさい。
+\footnote{このために上記のリストで補助線を個別の要素としました。}}
+%
+\ProbwithSol{svg-js-add-lines-rev2}
+{画面に直線を追加する(関数群で書き直す)}{svg-js-add-lines-rev2}
+{リスト\ref{svg-js-add-linesL}をここの関数群を用いて書き直しなさい。}
+\ProbwithFigSol{neckress-ring}{0.4}{ht}{ネックレスの糸}
+{svg-neckress-string}
+{\OIIdxB{ネックレスの糸}とよばれる錯視図形です
+ (\cite[60ページ図6.6右]{Ninio}参照)。\par
+この図を作成しなさい。}
+%\subsection{バインジオ$\bullet$ピンナの錯視図形}
+次の図形は\OIIdxM{バインジオ$\bullet$ピンナ}図形
+(\cite[カラー図版 9]{Ninio}参照)とよばれる錯視図形です。曲がった輪郭線の
+間にうっすらと色がついて見えます。
+\footnote{これと同じ現象は直線群の間隔が狭い場合で
+も起こります。身近な例は方眼紙です。工学の測定値を表すための対数方眼紙で
+は間隔が狭いところでは色がつき、間隔が広いところでは白く見えます。}
+%\newpage
+\ShowFig{0.8}{ht}{pinna}
+{バインジオ$\bullet$ピンナの錯視図形}{pinna}
+\SVGListN{バインジオ$\bullet$ピンナの錯視}{svg-pinna}{svg-pinna}
+\ExpList{{このSVG文書では左右の図をそれぞれ描くための関数を呼び出していま
+す(\Line{init2}と\Line{init3}の\texttt{DrawFigs}関数)。
+  この関数は\Elm{g}の\Attrib{id}{}を指定し外側と内側の色を指定します。
+}
+{この\texttt{DrawFigs}関数はそれぞれの曲線を描く関数(\texttt{DrawFigure})
+をパラメータを変えて6回呼び出します(\Line{DrawFig1}から\Line{DrawFig2})。}
+{\Line{DrawFigureS}から\Line{DrawFigureE}で定義されている関数
+\texttt{DrawFigure}は短い直線をつなげて曲線を描きます。}
+{その位
+       置は $\theta$ の方向で次の式で計算されます(\Line{dist})。
+\[
+ R_0 = R+R_1\cos(W_1\theta)\cos(W_2\theta)
+\]
+}
+{$R$は基準の半径で、$R_1$はそれに変化させる幅で
+       す。$R_1$ が $0$ であれば(計算が無駄ですが)半径 $R$ の円となりま
+       す。}
+{{}{}ここで計算させた位置を文字列としてつないで\Elm{path}の属性
+       \AttribO{d}{}に設定して戻ります(\Line{pos})。}}

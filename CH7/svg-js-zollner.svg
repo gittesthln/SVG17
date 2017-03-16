@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>ツェルナーの錯視図形</title>
+<script type="text/ecmascript" xlink:href="./make-svg-elm.js" />//// ref="readJSfile"
+<script type="text/ecmascript">
+//    <![CDATA[
+window.onload = function init() {
+  var W  = 1, WCol = "black";//// ref="paramsFigS"
+  var sW = 1, sWCol = "black", sL = 50/2, Ang=30, Step = 20;
+  var X1 = 50, Y1=50, X2 = 300, Y2 = 100; //// ref="paramsFigE"
+  var G1, G2, Tmp, i;
+  var Canvas = document.getElementById("canvas"); //// ref="getcanvas"
+  MKSVGElm(Canvas, "line", //// ref="setUpperLineS"
+      {"x1": X1, "y1": Y1, "x2": X2, "y2": Y1, 
+       "stroke-width": W, "stroke": WCol}, {});//// ref="setUpperLineE"
+  MKSVGElm(Canvas, "line", //// ref="setLowerLineS"
+      {"x1": X1, "y1": Y2, "x2": X2, "y2": Y2, 
+       "stroke-width": W, "stroke": WCol}, {});//// ref="setLowerLineE"
+  G1 = MKSVGElm(null, "g",{}, {});//// ref="makeslantLineS"
+  G2 = MKSVGElm(G1, "g",{}, {});//// ref="makeslantLine1"
+  MKSVGElm(G2, "line",          //// ref="makeslantLine2"
+      {"x1": -sL, "y1": 0, "x2": sL, "y2": 0, 
+       "stroke-width": sW, "stroke": sWCol},{});//// ref="makeslantLine3"
+  SetAttributes(G2,{"transform":"rotate("+Ang+")"});//// ref="makeslantLineE"
+  for(i=X1+10; i<X2-10; i+= Step) {//// ref="addUpperSlantLinesS"
+    Tmp = G1.cloneNode(true);//// ref="addUpperSlantLines1"
+    SetAttributes(Tmp,{"transform":"translate("+i+"," + Y1 +")"});//// ref="addUpperSlantLines2"
+    Canvas.appendChild(Tmp);//// ref="addUpperSlantLines3"
+  }//// ref="addUpperSlantLinesE"
+  SetAttributes(G2,{"transform":"rotate("+(-Ang)+")"});//// ref="addLowerSlantLinesS"
+  for(i=X1+10; i<X2-10; i+= Step) {
+    Tmp = G1.cloneNode(true);
+    SetAttributes(Tmp,{"transform":"translate("+i+"," + Y2 +")"});
+    Canvas.appendChild(Tmp);
+  }//// ref="addLowerSlantLinesE"
+}
+//    ]]></script>
+  <g id="canvas"/><!-- ref="canvas" -->
+</svg>

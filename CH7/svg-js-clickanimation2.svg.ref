@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>10秒後に色が変わります</title>
+  <script type="text/ecmascript">
+//    <![CDATA[
+  var timeOut, Circle;
+  window.onload = function() {
+    Circle = document.getElementById("CircleRed");
+    Circle.addEventListener("click",resetColor,false);
+    timeOut = window.setTimeout(changeColor,10000);
+  }
+  function changeColor() {
+    Circle.setAttribute("fill","blue");
+    Circle.removeEventListener("click",resetColor,false);
+  }
+  function resetColor() {
+    Circle.removeEventListener("click",resetColor,false);
+    Circle.setAttribute("fill","green");
+    window.clearTimeout(timeOut);
+  }
+//    ]]></script>
+  <circle id="CircleRed" cx="50" cy="50" r="20" fill="red"/>
+</svg>

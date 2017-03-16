@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+<title>文字の表示色と文字名が異なる</title>
+<script type="text/ecmascript" xlink:href="make-svg-elm.js"></script>
+<style type="text/css">
+ .textstyle { font-size:30px; text-anchor:middle;}
+</style>
+<script type="text/ecmascript">
+//<![CDATA[
+var Data = [
+   ["あか","赤","red"],     ["くろ","黒","black"],
+   ["みどり","緑","green"], ["あお","青","blue"],
+   ["きいろ","黄","yellow"],["むらさき","紫","violet"]
+];
+var Type = 0;
+var xUnit = 150, xInit = 30, xMax = 6;
+var yUnit =  50, yInit = 20, yMax = 8;
+var Max = 10, k, Doc, textNode;
+var PosList = [];
+window.onload = function() {
+var i, j;
+  for(i=0; i<xMax; i++) {
+    for(j=0; j<yMax; j++) {
+      PosList.push([i,j]);
+    }
+  }
+  k = Max;
+  Doc = document.getElementById("Doc");
+  ShowProb();
+}
+function ShowProb() {
+var x, y, i, j, p;
+var T;
+  if(k>0) {
+    i = getRand(0, Data.length);
+    j = getRand(0, Data.length);
+    p = getRand(0, PosList.length);
+    T = PosList.splice(p,1)[0];
+    x = xInit+xUnit * T[0];
+    y = yInit + yUnit * T[1];
+    if( k == Max ) {
+      textNode = MKSVGElm(Doc,"text",
+        {"x": x, "y": y,"class": "textstyle","fill":Data[i][2]},{});
+      textNode.appendChild(document.createTextNode(Data[j][Type]));
+    } else {
+      SetAttributes(textNode,{"x": x, "y": y,"fill":Data[i][2]});
+      textNode.replaceChild(document.createTextNode(Data[j][Type]),
+                            textNode.firstChild);
+    }
+    k--;
+    window.setTimeout(ShowProb,1000);
+  }
+}
+function getRand(min, max) {
+  return Math.floor(min+(max-min)*Math.random());
+}
+//]]>
+</script>
+<g transform="translate(40,40)" id="Doc"/>
+</svg>

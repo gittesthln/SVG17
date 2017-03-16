@@ -1,0 +1,58 @@
+% -*- coding: utf-8 -*-
+\subsection{任意の形の曲線を描く}\label{SVGwithJavascript}
+図\ref{cycloid}は直線上を円が滑らずに回転していくとき、その円周上に固定
+された点が描く軌跡です。この曲線は\keyitem{サイクロイド}とよばれています。
+
+\ShowFig{0.65}{ht}{cycloid}{サイクロイド}{cycloid}
+半径 $r$ の円周上に固定された点が回転する直線上に初めにあ
+るとき、角 $\theta$ だけ円が回転したときの点の位置は
+\begin{equation}
+\left\{
+\begin{array}{rcl}
+ x &=& r(\theta-\sin\theta)\\
+ y &=& r(1-\cos\theta)
+\end{array}\label{cycloid-formula}
+\right.
+\end{equation}
+で与えられます。サイクロイドを描くためにはこの式で計算した点
+を結ぶ直線で近似することにします。これらの座標をそのままSVGの中に直接記
+述するのは面倒なので、\JS のプログラムで計算してその結果を \Elm{path}の
+属性 \AttribO{d}に設定することにします。
+
+%\newpage\ \\[-3\baselineskip]
+\SVGListN{サイクロイドを描く}{svg-cycloid}{svg-cycloid}
+\begin{itemize}
+ \item 描く図形は円が転がっていく直線(\Line{base})とサイクロイドの図形
+       (\Line{path})です。
+ \item 転がる直線の$y$座標は$0$になっています。
+ \item \Line{R}で回転する円の半径を保持する変数の値を設定します。
+ \item \Line{init}から\SVG がロード終了後に呼び出される関数を定義しています。
+ \item \Line{initvar}で必要な変数の宣言をしています。サイクロイドの道の
+       りのデータを格納する変数\texttt{d}は\texttt{"M"}で初期化して
+       います。
+ \item \Line{start}から\Line{end}でサイクロイドの点の座標を計算します。ここで
+は$0^{\circ}$から$1^{\circ}$単位で$360^{\circ}$まで計算します。
+角度の単位がラジアンでないのはこのあの
+リスト\ref{svg-cycloid-animation}で回転する円
+を表示するアニメーションが付いた図形をSVGの\texttt{rotate}を用いて描くた
+めです。
+ \item \Line{changetoRad}で角度の単位をラジアンに直します。\JS では円周
+       率の値を\ElmJ{Math.PI}で利用できます。
+ \item \Line{getX}と\Line{getY}で式(\ref{cycloid-formula})に基づいて点の
+       位置を計算しています。
+       \keyitem{正弦関数}($\sin{x}$)
+       \IndexSet{sinx@$\protect\sin{x}$(正弦関数)}{}{}{}{}{}{}
+       と\keyitem{余弦関数}($\cos{x}$)
+       \IndexSet{cosx@$\protect\sin{x}$(余弦関数)}{}{}{}{}{}{}{}
+			 は\JS ではそれぞれ\ElmJ{Math.sin(x)}と\ElmJ{Math.cos(x)}で利用できます。
+
+       なお、ここではSVGの座標系の関係から$y$座標の値は符号を逆にしてい
+       ます。
+ \item \Line{appendPath}で今までに求めた道のりのデータの後に新しく得られ
+       た点の座標を付け加えています。
+ \item \Line{setpath}で道のりのデータを書き直しています。
+\end{itemize}
+\begin{Problem}\upshape
+ リスト\ref{svg-cycloid}を参考にして正6角形を描くSVGファイルを作成しなさ
+ い。
+\end{Problem}

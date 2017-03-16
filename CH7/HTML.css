@@ -1,0 +1,21 @@
+.display {
+  font-size:25px;
+}
+.textStyle {
+  font-size:30px;
+  text-anchor:end;
+}
+.Cell {           /* ref="CellS" */
+  font-size:30px;
+  display:inline-block; /* ref="Cell" */
+  vertical-align:middle; /* ref="Middle" */
+  padding-left:5px; /* ref="Padding" */
+}  /* ref="CellE" */
+#XP, #YP{
+  font-size:25px;
+  text-align: right;
+}
+#SetColor, #SelectColor {
+  font-size:25px;
+  text-align:center;
+}

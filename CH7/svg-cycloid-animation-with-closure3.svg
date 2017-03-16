@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     height="100%" width="100%" >
+<script type="text/ecmascript">
+//<![CDATA[
+window.onload = function () {
+  var C =document.getElementById("cycliod");//// ref="GlobalS"
+  var T =document.getElementById("translate");
+  var Rot =document.getElementById("rotate");
+  var R = 50, Current = 1, Step=2, d =["M0,0"];//// ref="GlobalE"
+  (function (){//// ref="ClosureS"
+      var Next = Current + Step, rad;
+      if(Current<=360) {
+        for( ; Current< Next; Current++) {
+          rad = Current/180*Math.PI;
+          pX = R*(rad-Math.sin(rad));
+          pY = R*(-1+Math.cos(rad));
+          d.push(pX,pY);//// ref="push"
+        }
+        C.setAttribute("d",d.join(" "));//// ref="join"
+        T.setAttribute("transform","translate(" + (R*rad) + ",-50)");
+        Rot.setAttribute("transform", "rotate("+Next+")");
+        setTimeout(arguments.callee,100);//// ref="callee"
+      }
+    })()//// ref="ClosureE"
+}
+//]]>
+</script>
+<g transform="translate(100,200)">
+  <line x1="-50" y1="0" x2="400" y2="0" stroke-width="2" stroke="black"/>
+  <path id="cycliod" fill="none" stroke="black" stroke-width="3"/>
+  <g id="translate" transform="translate(0,-50)">
+    <g id="rotate"> 
+      <circle cx="0" cy="0" r="50" stroke-width="3" stroke="black" fill="none"/>
+      <line x1="0" y1="0" x2="0" y2="50" stroke-width="2" stroke="black" />
+      <circle cx="0" cy="50" r="5" fill="black"/>
+    </g>
+  </g>
+</g>
+</svg>

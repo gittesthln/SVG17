@@ -1,0 +1,205 @@
+% -*- coding: utf-8 -*-
+\subsection{一定時間経過後に関数をよびだす(自前でアニメーションを作成す
+る)}
+SVGではオブジェクトの属性にいろいろなアニメーションがつけられることはす
+でに見てきました。しかしながら次のようなことはできなかったり制限があった
+りします。
+\begin{itemize}
+ \item \Elm{path}のデータの並びがまったく同じ場合でない\AttribO{d}にアニ
+       メーションをつける。
+ \item アニメーションを途中で中断して、そこから新しいアニメーションを続
+       けて始めること
+\end{itemize}
+
+次の例は赤い円が初めに表示されています。何もしないと画像が表示されてから
+10秒後に円の色が青に色が変わり。すでに述べた
+アニメーションを使えば簡単に実現できますがここでは指定した時間後に指定し
+た関数を実行するようにしています。この方法を繰り返して利用して少しずつ
+図を変化させればアニメーションができることになります。
+
+この例では青に変わる前に円の部分をクリックすると色は緑に変わり、そ
+の後、10秒経過しても青にはなりません。また、青に変わってからクリックして
+も緑になりません。
+
+%\newpage
+\SVGListN{10秒後に色が変わります}
+{svg-js-clickanimation2}{svg-js-animation2}
+\begin{itemize}
+ \item SVGのファイルがロードされたイベントを処理するために
+			 \LineR{onloadS}{onloadE}で処理関数を定義しています。
+	\begin{itemize}
+	 \item \Line{getC}で変数\texttt{Circle}に\Elm{circle}への参照を代入しています。
+	 \item \Line{click}でこの円上でのマウスのクリックを処理する関数を割り当
+       てています。
+	 \item \Line{setTimeout}で、指定した経過時間後に指定した関数
+       \texttt{changeColor}を呼び出すことを設定しています。
+       \footnote{何秒後かに別のページに飛ぶようになっ
+       ているホームページではこのメソッドを利用して実現しています。}この
+       関数は円の色を青にします。
+	 \item これを設定するメソッドは\DOMO{window}の
+       \ElmJ{setTimeout()}です。第1の引数が起動する関
+       数です。この関数に引数が必要な場合には3番目以降の引数で与えます。
+         2番目の引数が実行までに要する経過時間で、単位はmsです。ここでは
+         $10000ms = 10秒$に設定しています。
+	 \item このメソッドの戻り値は設定した
+       \ElmJ{setTimeout()}{}をキャンセルするときの引数に用います。キャンセ
+       ルするための関数は\ElmJ{clearTimeout}{}です。この関数は
+       \Line{clearTimeout}に現れています。
+ \item したがって、円をクリックすると関数\texttt{resetColor}が呼び出され
+       て色が\AttribCVal{green}{}に変わり、10秒後には\AttribCVal{blue}{}
+       に変わるように設定されたことになります。
+			 \end{itemize}
+ \item 関数\texttt{resetColor}では、色を\AttribCVal{blue}{}に変え
+       (\Line{change1})、円上でのクリックを無効にするため、イベント処理
+       関数を取り除いています(\Line{change2})。したがって、色が変わった
+       後ではクリックしても色は\AttribCVal{green}{}に変わりません。
+ \item \Line{reset1}から\Line{resetE}で円がクリックされたときによ
+       び出される関数を定義しています。
+ \item 円上でのクリックの処理を止め(\Line{reset2})、色を
+       \AttribCVal{green}{}に変え
+       (\Line{reset3})、経過時
+       間に実行を予約してあった関数の実行をキャンセルしています
+       (\Line{clearTimeout})。
+			 \end{itemize}
+\begin{Problem}\upshape
+$5$  秒後、$10$ 秒後に円の色が順に変化するアニメーションを作成しなさい。
+\end{Problem}
+この方法を使うとリスト\ref{svg-cycloid}の\keyitem{サイクロイド}を回転す
+る円とその円周上の定点をアニメーションで表示しながらサイクロイドを描く
+\SVG が作成できます。
+\ShowFig{0.7}{ht}{cycloid-animation}
+{サイクロイドを描く --- アニメーション版}{cycloid-animation}
+\SVGListN{サイクロイドを描く --- アニメーション版}
+    {svg-cycloid-animation}{svg-cycloid-animation}
+\begin{itemize}
+ \item 円周上の点が回転して描く軌跡を明示するために、円周上の点と、その
+       点までの半径を表示しています(\Lines{circleS}{cricleE})。
+ \item この図形に回転と平行移動を付けるために\Lines{GlobalsS}{GlobalsE}
+       で大域変数にオブジェクトを代入しています。
+ \item サイクロイドの図形を一定間隔の時間で描くためには現在どこまで書い
+       たのかを記憶しておく変数が必要です。それらの変数の初期化を含めで
+       \Line{Params}で定義しています。
+ \item 関数\texttt{drawCurve}は曲線の一部を描く関数です。
+ \item \Line{Next}で次の描く範囲までの位置を求め、その範囲の曲線の一部を
+       付け足しています。描く範囲を除けば、式はリスト\ref{svg-cycloid}と同じものです。
+ \item \Line{transform}で回転した図形を平行移動させています。
+ \item \Line{rotate}では図形を回転させています。
+\end{itemize}
+\ProbwithSol{svg-cycloid-animation-start-click}
+{サイクロイドを描く --- クリックでアニメーションを開始}
+{svg-cycloid-animation-start-click}
+{リスト\ref{svg-cycloid-animation}におけるアニメーションの開始時期を画面
+ 上でクリックしたときに変更したものを作成しなさい。}
+
+図\ref{show-text-color}は表示されている色名の文字列と表示色が異なるため、
+表示色を読むときに脳が混乱するというものです。
+
+\ShowFig{0.55}{ht}{show-text-color}
+{文字の表示色と文字名が異なる}{show-text-color}
+
+このリストのかわりに表示される文字列は一時期にはひとつだけ表示されるよう
+に改造したプログラムのリストで説明します。
+\newpage
+\SVGListN{文字の表示色と文字名が異なる--- ノートレ版}
+    {show-text-color}{svg-show-text-color}
+\begin{itemize}
+ \item \LineR{dataS}{dataE}で出題する文字列とその色を配列として定義しま
+       す。問題は漢字でもひらがなでも出題できるように配列として定義して
+       います。
+ \item \Variable{Type}は出題する文字列を漢字、ひらがな、英語のどれ
+       にするかをきめる値を保持します。初期値はひらがな($0$)です。
+ \item 文字を画面にランダムに配置するため画面を区域に区切ってその中にひ
+       とつだけ表示するようにします。\Line{paramX}では横方向の大きさと領
+       域の数を定義しています。縦方向は\Line{paramY}で定義しています。
+ \item \Line{Globals}では大域変数を定義しています。
+ \item \Line{globalsPos}では同じ位置に問題文が2つ表示されないようにするた
+       めの情報をしまう配列を用意しています。初期化は関数
+       \Showattrib{init()}で行われます。
+ \item \Lines{initS}{initE}は\Showattrib{onload}イベントで呼び出される関
+       数を定義しています。
+\ListSub{initS}{initE}
+\begin{itemize}
+ \item \Lines{initPosS}{initPosE}ではどの位置にまだ問題文を配置していな
+       いかのリストを保持する\Array{PosList}を初期化しています。
+       この値は縦と横の位置を配列の値とする配列になります。
+ \item 配列の最後に新しい要素を追加する手段として\JSM{push()}メソッドを
+       用いています(\Line{push})。
+ \item \Line{initK}では表示する問題数を管理する\Variable{k}を
+       初期化しています。
+ \item \Line{initDoc}では表示画面である\Elm{g}を\Variable{Doc}に格
+       納しています。
+ \item これで準備が整ったので問題を作成して表示する\Func{ShowProb}を呼び
+       出します(\Line{Callfunction})。
+\end{itemize}
+ \item \Lines{ShowProbS}{ShowProbE}は問題を作成して表示する関数です。一
+       定の数を出題していない場合にはもう一度この関数が呼び出されます。
+%\ListSub{ShowProbS}{ShowProbE}
+\begin{itemize}
+ \item \Func{getRand}は与えられた二つの引数の間(最小値は含み、
+       最大値は含まない)の整数の乱数を与える関数です。
+ \item \Variable{i}と\Variable{j}はそれぞれ問題文の色と表示の位
+       置を与えます。これらの値は問題の種類を保持している\Variable{Data}
+       の配列の添え字として用いられます
+       (\Line{setParami}と\Line{setParamj})。
+ \item 表示する位置は\Array{Postlist}からランダムに選びます
+       (\Line{setParamPos1})。
+ \item 選ばれた位置は\Array{Postlist}から取り除く必要があります。
+       これを実現するために配列のメソッド\ElmJA{splice}を用います。
+       \JSM{splice}は引数の数によりいろいろなパターンが生じますが、ここ
+       では\Array{Postlist}の与えられた位置(\Variable{p})からひ
+       とつ要素を取り除き \
+       (\JSM{splice}の2番目の引数が$1$)ます。除かれた要素がこのメソッド
+       の戻り値なのでこれを\Variable{T}にしまいます。
+ \item この変数の一番目の要素が横方向に位置、2番目の要素が縦方向の要素の
+       位置なのでこれから問題の文字列を表示する位置を計算します
+       (\Line{setParamPos3}と\Line{setParamPos4})。
+ \item \Variable{k}の値が\Variable{Max}と同じであれば問題文を表示するた
+       めのオブジェクトがまだ生成されていないので、問題文を表示するため
+       のオブジェクトを生成します。
+ \item \Lines{createTextNodeS}{createTextNodeE}では\Elm{text}を生成してい
+       ます。属性\AttribO{fill}には乱数で選べれた色(\texttt{Data[i][2]})
+       を設定しています。
+ \item 表示する文字列はこの要素のテキストノードとして設定します
+       (\Line{createText})。テキストノードを作成(\DOMM{createTextNode})
+       し、それを\Lines{createTextNodeS}{createTextNodeE}で作成した
+       \Elm{text}の子要素として登録(\DOMM{appendChild})します。
+ \item 2回目以降にこの関数が呼び出されている場合は
+       \Lines{createTextNodeS}{createTextNodeE}で作成した\Elm{text}の属
+       性値を変えます(\Line{changeAtribS})。
+ \item 表示するテキストはテキストノードを作成してから、元のノードを置き
+       換えます(\DOMM{replaceChild}{})。
+ \item \Variable{k}の値をひとつ減らします(\Line{setNext})。
+ \item 次の問題文を表示するために$1$秒待機します(\Line{callNext})。この
+       ために\HTMLM{setTimeout}を用います。
+\end{itemize}
+ \item \Lines{makeRandS}{makeRandE}では与えられた範囲での乱数を生成する
+       関数を定義しています。
+\begin{itemize}
+ \item $0$から$1$の間の乱数の生成には関数\ElmJ{Math.random()}を用います。
+ \item この値が$0$から$1$なので最小値を初めの引数に、最大値を2番目の引数
+       にするために
+\begin{center}
+ \texttt{(min+(max-min)*Math.random()}
+\end{center}
+で計算しています。
+ \item 与えられた実数を整数にするために切り捨ての関数\ElmJ{Math.floor()}
+       を用います。
+\end{itemize}
+\end{itemize}
+\iffalse\else
+\begin{Problem}\upshape\label{prob-random}
+図\ref{random}は円の色、大きさ、位置をランダムに決めた円を表示するもので
+ す。
+\ShowFig{0.5}{ht}{random}
+{色と大きさと位置をランダム決めた円を表示する}{random}
+
+このプログラムは次のものが変化しています。
+\begin{itemize}\upshape
+ \item 円の色 --- 5色のうちから選択
+ \item 大きさ --- 面積比で $1$ から $5$ まで
+ \item 表示間隔 --- \ElmJ{setTimeout()}の間隔を変えています。
+\end{itemize}
+このような図形を作成しなさい。
+\SolSVGFile{問題}{prob-random}{色と大きさと位置をランダム決めた円を表示する}{random}
+\end{Problem}
+\fi
