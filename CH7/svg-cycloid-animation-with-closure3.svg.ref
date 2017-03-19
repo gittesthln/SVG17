@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg"
-     height="100%" width="100%">
+     height="100%" width="100%" >
 <script type="text/ecmascript">
 //<![CDATA[
-window.onload = function() {
-  var C =document.getElementById("cycliod");//// ref="GlobalS"
+window.onload = function () {
+  var C =document.getElementById("cycliod");
   var T =document.getElementById("translate");
   var Rot =document.getElementById("rotate");
-  var R = 50, Current = 1, Step=2, d ="M0,0 ";//// ref="GlobalE"
-  var drawCurve = function (){//// ref="ClosureS"
+  var R = 50, Current = 1, Step=2, d =["M0,0"];
+  (function DrawNext(){
       var Next = Current + Step, rad;
       if(Current<=360) {
         for( ; Current< Next; Current++) {
           rad = Current/180*Math.PI;
           pX = R*(rad-Math.sin(rad));
           pY = R*(-1+Math.cos(rad));
-//          d += pX+","+pY+" ";//// ref="concat"
-          d =[d,pX,pY].join(" ");//// ref="join"
+          d.push(pX,pY);
         }
-        C.setAttribute("d",d);
+        C.setAttribute("d",d.join(" "));
         T.setAttribute("transform","translate(" + (R*rad) + ",-50)");
         Rot.setAttribute("transform", "rotate("+Next+")");
-        setTimeout(drawCurve,100);
+        setTimeout(DrawNext,100);
       }
-    }//// ref="returnFuncE"
-  drawCurve();
+    })()
 }
 //]]>
 </script>

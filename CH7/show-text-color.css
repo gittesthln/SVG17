@@ -1,0 +1,14 @@
+.textstyle {
+    font-size:50px;
+    text-anchor:middle;}
+input {
+    font-size: 30px;
+}
+#Buttons input {
+    width: 160px;
+}
+.Cell {           /* ref="CellS" */
+  display:inline-block; /* ref="Cell" */
+  vertical-align:middle; /* ref="Middle" */
+  padding-left:5px; /* ref="Padding" */
+}  /* ref="CellE" */

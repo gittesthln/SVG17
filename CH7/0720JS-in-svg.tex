@@ -494,7 +494,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
 という一連の操作です。実際には\Event{mousedown}と\Event{mouseup}の
 イベントの後に\Event{click}イベントが発生します。
 \subsubsection{オブジェクトのドラッグ処理の例}
-図\ref{svg-drag}はオブジェクトをドラッグするサンプルです。
+図\ref{svg-drag}はオブジェクトをドラッグする例です。
 \ShowFigs{0.3}{ht}{{svg-drag-1}{svg-drag-2}}{3つの円がそれぞれドラッグで
 移動可能(右：初期状態、左：３つの円を移動したとき)}{svg-drag}
 この図のリストはリスト\ref{svg-js-drag}です。
@@ -516,18 +516,20 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
        (\Line{save})。また、\Line{mousemove}で画像全体に
        \Event{mousemove}のイベント処理関数を割り当てています。
  \item \Event{mouseup}イベントに対してはグローバル変数
-       \Event{mousemove}のｓっ歩ｒ関数を取り除いています
+       \Event{mousemove}の設定関数を取り除いています
        (\Line{reset})。したがって、イベントハンドラ-はドラッグして
        いる間だけ処理が行われます。
- \item \Line{moves}から\Line{moveE}で\Event{mousemove}の処理をしています。
- \item まず、グローバル変数\texttt{inDragging}が\ElmJ{null}でない場合
-       (\Line{indragging})はドラッグ中なのでイベントが発生したマウスポイ
+ \item \Lines{moves}{moveE}で\Event{mousemove}の処理をしています。
+ \item イベントが発生したマウスポイ
        ンタの位置をドラッグ中の円の中心位置に設定しています(\Line{setcx}
        と\Line{setcy})。
  \item なお、\Event{mousemove}イベントはいつもドラッグ中の円で起こって
        いるわけではありません。二つの円が重なった場合、上に表示されてい
-       るほうの円で起こっています。イベントを処理する関数が\Elm{svg}で定
-       義されているのでイベントが拾えています。
+       るほうの円で起こっています。イベントを処理する関数が\Elm{svg}につ
+       いているので円からマウスカーソルが離れてもイベントが拾えます。
+ \item \Lines{up}{upE}ではマウスが離されたときの処理を定義しています。こ
+       こでは登録された\Event{mousemove}イベント処理関数を取り除いていま
+       す(\Line{reset})。
 \end{itemize}
 なお、このリストでは円の数を増やしてもプログラムの部分は変える必要があり
 ません。
@@ -541,53 +543,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
  \end{enumerate}
 \end{Problem}
 
-リスト\ref{svg-js-drag}ではドラッグ中の図形が他の図形の下に隠れるとい
-う使い勝手が悪い点があります。また、処理が手抜いている部分もあります。
-
-リスト\ref{svg-js-drag-rev}ではこ
-の点を改良するとともに次のようなコードの改定を行っています。
-
-\begin{itemize}
- \item \Event{mousemove}が割り当てられるのは円上で\Event{mousedown}が起
-       きたときだけにします。
- \item \Event{mouseup}のイベント処理中に\Event{mousedown}を処理する関数
-       を取り除きます。
- \item 操作している図形が常に最上位に来るように処理を変更しています。
-\end{itemize}
-\SVGListN{ドラッグ処理の改良}
-    {svg-js-drag-rev}{svg-js-drag-rev}
-\begin{itemize}
- \item \Line{svg}でルートのオブジェクトを求め、グローバル変数\texttt{G}に保存し
-       ています(\Line{getelm})。
- \item \Line{addEventListener1}と\Line{addEventListener2}で
-       それぞれ\Event{mousedown}と\Event{mouseup}を処理する関数を
-       \texttt{G}に割り当てています。
- \item \LineR{mdownS}{mdownE}では\Event{mousedown}を処理する関数
-       \texttt{mdown}を定義しています。
-\begin{itemize}
- \item オブジェクトが\Elm{svg}でない場合(\Line{checkObject})に変数
-       \texttt{inDragging}にイベントが起きたオブジェクトを格納します
-	  (\Line{saveObject})。演算子\verb+!==+に注意してください。
-    \item \Line{changePos}ではドラッグが開始されたオブジェクトを親オブジェ
-	  クトの最後の子要素にします。メソッド\DOMM{appendChild}は、新規
-	  の子オブジェクトを追加するメソッドですが、すでに子要素になってい
-	  るものに対しては子要素のリストの最後に移動します。したがって、
-	  一番上に表示されることになります。これにより移動中のオブジェク
-	  トが他のオブジェクトの下に来るという問題点を解消できます。
-    \item グローバル変数\texttt{G}に保存したオブジェクト(\Elm{svg})に
-	  \Event{mousemove}を処理する関数を割り当てています
-	  (\Line{addEventListener3})。
-\end{itemize}
- \item \Event{mousemove}イベントを処理する関数は\Line{move}から始まりま
-       す。ドラッグ中のオブジェクトの中心位置を変えた後、イベントが他の
-       オブジェクトに伝播しないように\DOMM{stopPropagation}{()}を実行して
-       います(\Line{stopProp})。
- \item \Event{mouseup}のイベント処理ではグローバル変数\texttt{G}に割り当
-       てられた\Event{mousemove}の処理関数を取り除くための
-     \DOMM{removeEventListener}{()}メソッドを呼び出しています
-       (\Line{removeEventListener})。
-\end{itemize}
-
+   
 図\ref{filterturbulance-interactive}は
 図\ref{filterturbulance}の下部にスクロールバーを
 付けて\AttribF{baseFrequency}の値をインターラクティブに変更できるように
@@ -597,7 +553,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
 しています。また、\AttribF{baseFrequency}の値はドラッグしている間も変化
 しています。
 \ShowFig{0.8}{ht}{filter-scroll}
-{\ElmF{feTurbulance}フィルタのパラメータをスクロールバーで設定する}
+{\ElmF{feTurbulance}フィルタのパラメータをスクロールバーで設定}
 {filterturbulance-interactive}
 \SVGListN{\ElmF{feTurbulance}フィルタのパラメータをスクロールバーで設定する}
 {svg-filterturbulance-interactive}{svg-filterturbulance-interactive}
@@ -722,6 +678,25 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
  の値にすると図形が表示されないのでこれを避けるためにチェックが必要です。
 \end{enumerate}
 }{ここでは色が二つ選べるようにしています。}
+
+リスト\ref{svg-js-drag}ではドラッグ中の図形が他の図形の下に隠れるとい
+う使い勝手が悪い点があります。リスト\ref{svg-js-drag-rev}ではこ
+の点を改良しています。
+
+\SVGListN{ドラッグ処理の改良}
+    {svg-js-drag-rev}{svg-js-drag-rev}
+ \Line{changePos}ではドラッグが開始されたオブジェクトを親オブジェ
+	  クトの最後の子要素にします。メソッド\DOMM{appendChild}は、新規
+	  の子オブジェクトを追加するメソッドですが、すでに子要素になってい
+	  るものに対しては子要素のリストの最後に移動します。したがって、
+	  一番上に表示されることになります。これにより移動中のオブジェク
+	  トが他のオブジェクトの下に来るという問題点を解消できます。
+
+\ShowFig{0.3}{ht}{svg-drag-rev}
+    {3つの円がそれぞれドラッグで移動可能(改良版)}{svg-drag-rev}
+
+円の表示順序が変わっていることに注意してください。
+
 \ProbwithSolC{prob-fick-interactive}
 {フィックの錯視図形をインターラクティブに操作する}
 {svg-fick-interactive}

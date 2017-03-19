@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>オブジェクトリテラル</title>
+<script type="text/ecmascript">
+var Point = {//// ref="ObjS"
+  "x": 10,   //// ref="x"
+  "y": 20,   //// ref="y"
+  "setPos": function(x,y) {//// ref="methodS"
+     this.x = x;//// ref="ChangeX"
+     this.y = y;//// ref="ChangeY"
+  }//// ref="methodE"
+}; //// ref="ObjE"
+console.log(Point["x"]);//// ref="ShowX1"
+console.log(Point["y"]);//// ref="ShowY1"
+console.log(Point.x);//// ref="ShowX2"
+console.log(Point.y);//// ref="ShowY2"
+Point.setPos(-10,25);//// ref="ChangeProp"
+console.log(Point["x"]);//// ref="ShowX3"
+console.log(Point["y"]);//// ref="ShowY3"
+console.log(Point.x);//// ref="ShowX4"
+console.log(Point.y);//// ref="ShowY4"
+Point.setPos = function(){console.log("Changed");};//// ref="ChangeMethod"
+Point.setPos();//// ref="CheckFunc"
+</script>
+</head>
+<body>
+</body>
+</html>

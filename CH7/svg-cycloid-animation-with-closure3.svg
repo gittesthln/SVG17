@@ -8,7 +8,7 @@ window.onload = function () {
   var T =document.getElementById("translate");
   var Rot =document.getElementById("rotate");
   var R = 50, Current = 1, Step=2, d =["M0,0"];//// ref="GlobalE"
-  (function (){//// ref="ClosureS"
+  (function DrawNext(){//// ref="ClosureS"
       var Next = Current + Step, rad;
       if(Current<=360) {
         for( ; Current< Next; Current++) {
@@ -20,7 +20,7 @@ window.onload = function () {
         C.setAttribute("d",d.join(" "));//// ref="join"
         T.setAttribute("transform","translate(" + (R*rad) + ",-50)");
         Rot.setAttribute("transform", "rotate("+Next+")");
-        setTimeout(arguments.callee,100);//// ref="callee"
+        setTimeout(DrawNext,100);//// ref="callee"
       }
     })()//// ref="ClosureE"
 }

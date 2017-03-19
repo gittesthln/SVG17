@@ -1,0 +1,17 @@
+.display {
+  font-size:25px;
+}
+.Cell {           /* ref="CellS" */
+  font-size:30px;
+  display:inline-block; /* ref="Cell" */
+  vertical-align:middle; /* ref="Middle" */
+  padding-left:5px; /* ref="Padding" */
+}  /* ref="CellE" */
+#color1, #color2 {
+  font-size:25px;
+  text-align: right;
+}
+#SetColor{
+  font-size:25px;
+  text-align:center;
+}

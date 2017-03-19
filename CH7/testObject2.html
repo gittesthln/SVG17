@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>オブジェクの生成(1)</title>
+<script type="text/ecmascript">
+function Point(x,y){//// ref="ObjS"
+  this.x = x;//// ref="ChangeX"
+  this.y = y;//// ref="ChangeY"
+  this.setPos = function(x,y) {//// ref="methodS"
+     this.x = x;//// ref="ChangeX"
+     this.y = y;//// ref="ChangeY"
+  }//// ref="methodE"
+}; //// ref="ObjE"
+var P1 = new Point(10,20);//// ref="New"
+console.log(P1["x"]);//// ref="ShowX2"
+console.log(P1.x);//// ref="ShowX2"
+console.log(P1.y);//// ref="ShowY2"
+P1.setPos(-10,25);//// ref="ChangeProp"
+console.log(P1.x);//// ref="ShowX4"
+console.log(P1.y);//// ref="ShowY4"
+var P2 = new Point(-1,-5);//// ref="New2"
+console.log(P2.x);//// ref="ShowX3"
+console.log(P2.y);//// ref="ShowY3"
+
+P1.setPos = function(){console.log("Changed");};//// ref="ChangeMethod"
+P1.setPos();//// ref="CheckFunc"
+P2.setPos(2,2);//// ref="CheckFunc2"
+console.log(P2.x);//// ref="ShowX5"
+console.log(P2.y);//// ref="ShowY5"
+</script>
+</head>
+<body>
+</body>
+</html>

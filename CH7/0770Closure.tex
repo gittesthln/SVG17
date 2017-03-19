@@ -18,17 +18,17 @@
 {svg-cycloid-animation-with-closure3}
 {svg-cycloid-animation-with-closure}
 \begin{itemize}
- \item すべてのグローバル変数を初期化\Func{init()}内に移動しています
+ \item すべてのグローバル変数を\Event{onload}後に実行する関数内に移動しています
        (\LineR{GlobalS}{GlobalE})。
- \item \Func{init()}内でロカールな関数を定義しています
+ \item その関数内でロカールな関数を定義しています
 			 (\LineR{ClosureS}{ClosureE})。
 \begin{itemize}
- \item 関数は無名関数となっています(\Line{ClosureS})。
+ \item 関数名は\Func{DrawNext}となっています(\Line{ClosureS})。
  \item \ElmJ{function}の前に\texttt{(}がついています。これに対応する
 			 \texttt{)}は\Line{ClosureE}にあります。
  \item そのあとの\texttt{()}はこの関数の引数リストをを示します(ここでは
 			 引数がないので空です)。
- \item これにより無名関数を定義してその場で実行できます。
+ \item これにより関数を定義してその場で実行できます。
  \item 関数の定義位置が変わっただけで、残りのコードはほとんど同じです。
  \item 一番の違いは\Attrib{d}で必要となる座標データを配列として保存している
 			 ことです(\Line{GlobalE})。
@@ -37,9 +37,11 @@
  \item \Line{join}の\ElmJ{join}は配列の要素を、引数の文字列をはさんでつ
        なげるメソッドです。配列内の文字列の連接を連接演算子\texttt{+}を
        用いるよりも簡単に記述できます。
- \item \Line{callee}ではこの関数の引数のリストが参照できる
-			 \ElmJ{arguments}のメンバー\ElmJ{callee}を用いて、自分自身がこの後、
-			 呼び出せるように設定しています。
+ \item \Line{callee}ではこの関数自身がこの後、
+			 呼び出せるように設定しています\footnote{関数の引数のリストを参照
+			 する\ElmJ{arguments}のメンバー\ElmJ{callee}を用いると、無名関数を
+			 参照できます。最新版の\JS では非推奨となっているので無名関数にし
+			 ません。}。
 \end{itemize}
 
 \end{itemize}
@@ -171,3 +173,8 @@
        います。
 \end{itemize}
 \fi
+\subsection{配列のメソッドを使う}
+\JS の配列には便利なメソッドが存在します。そのメソッドを用いて、\JS リス
+ト\ref{pinna.js}を書き直したものが\JS リスト\ref{pinna-rev.js}です。
+
+\JSListN{リスト\ref{pinna.html}で読み込む\JS ファイル--改良版}{pinna-rev}{pinna-rev.js}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+  <script type="text/ecmascript" src="make-svg-elm.js"></script>
+  <script type="text/ecmascript" src="Point.js"></script>
+  <script type="text/ecmascript">
+//    <![CDATA[
+    window.onload = function() {
+      var canvas = document.getElementById("canvas");
+      var Points = document.getElementById("Points");
+      var Ox, Oy, DragPoint, No;
+      var Ps = [
+        new Point(canvas, Points, 100, 100, "#f00",5),
+        new Point(canvas, Points, 200, 200, "#0f0",5)];
+      function mdown(evt) {
+        DragPoint = evt.target;
+        if(DragPoint.nodeName === "rect") return false;
+        canvas.appendChild(DragPoint);
+        Ox = DragPoint.getAttribute("cx")-evt.clientX;
+        Oy = DragPoint.getAttribute("cy")-evt.clientY;
+        canvas.addEventListener("mousemove", Dragging, true);
+        No = evt.target.getAttribute("id")-1;//alert(No);
+      };
+      function mup(evt) {
+        canvas.removeEventListener("mousemove", Dragging, true);
+      };
+      function Dragging(evt) {
+        evt.stopPropagation();
+        Ps[No].movePos(Ox+evt.clientX, Oy+evt.clientY);
+      }
+      AddEvents(canvas,{"mousedown":[mdown,true],"mouseup":[ mup,true]});
+      document.getElementById("Set").onclick = 
+        function() {
+          var i;
+          for(i=0;i<Ps.length; i++) {
+            Ps[i].setPos();
+          }
+        };
+    }
+//  ]]></script>
+<style type="text/css">
+.Cell {
+  font-size:30px;
+  display:inline-block;
+  vertical-align:middle;
+  padding-left:5px;
+}
+input, button{
+  font-size:30px;
+  text-align:right;
+}
+</style>
+<title>オブジェクト指向JavaScript</title>
+</head>
+<body>
+  <h1>オブジェクト指向JavaScript</h1>
+  <div class="Cell">
+    <svg width="700" height="500" id="canvas">
+      <rect x="0" y="0" width="700" height="500" stroke-width="3"
+            stroke= "black" fill="grey"/>
+    </svg>
+  </div>
+  <div class="Cell">
+    <div><button id="Set">設定</button></div>
+    <div id="Points" class="table"></div>
+  </div>
+</body>
+</html>

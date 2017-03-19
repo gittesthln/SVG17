@@ -28,27 +28,54 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
 {ShowSetClickPos4}{ShowSetClickPosL}
 
 いくつか注意する点を述べておきます。
-\ListSub{XML}{InitS}
+%\ListSub{XML}{InitS}
 \begin{itemize}
  \item \Line{XML}がHTML5における\texttt{DOCTYPE} 宣言
 \IndexSet{DOCTYPEせんげん@\protect\texttt{DOCTYPE} 宣言}{}{}{}{HTML}
 です。以前のものに比べ記述が格段に簡単になっています。
-\iffalse%\else
- \item \Line{NS}の\Elm{html}でこの文書の\keyitem{名前空間}を
-\texttt{http://www.w3.org/1999/xhtml}と宣言しています。
-\fi
+ \item \HTML の\ElmH{htaml} は\HTML のルート要素です。その属性として
+       \texttt{svg}と\texttt{xlink}の名前空間を使用することを宣言してい
+       ます(\Line{SVGNS}と\Lines{XLINKNS})。
   \item HTMLでは\HTML のいろいろな情報は\ElmH{head}内の\ElmH{meta}で記
 	述します。ここでは\Line{CHARSET}でこの文書の文字コードがUTF-8で
-	あることを宣言しています。
- \item \Line{InitS}でこのプログラムで必要なグローバル変数を定義していま
-       す。
-% \item 
+        あることを宣言しています。
+        \begin{itemize}
+         \item \Line{ReadJSFile}では外部の\JS ファイル
+               (\texttt{SSClickPos.js})を読み込みます。
+         \item \Line{CSSS}では外部のCSS ファイル
+               (\texttt{HTML.css})を読み込みます。
+        \end{itemize}
+ \item \Line{bodyS}以降の部分にHTML文書の本体が記述されています。
+ \item \Line{H1}の\ElmH{h1}は最上部の表題を記述しています。
+ \item 全体は\ElmH{div}が2つ並んだ形になっています。これらには
+       \AttribH{class}属性が定義され、ともに\texttt{Cell}となっています。
+ \item \Lines{SVGS}{SVGE}は SVG の画像を表示しています。
+       \begin{itemize}
+        \item SVGに関する要素名が直接記述されています。
+              HTML5ではHTML要素のようにSVGの要素が記述できます(インラインSVG)。
+        \item 記述の内容はリスト\ref{svg-js-showclickposL}を利用していま
+              す。
+        \item \Line{field}の\Elm{g}は以前のものにはありません。後で見る
+              ようにこの要素に\Event{click}イベントの処理関数を付けます。
+        \item この中に長方形を置いて、\Event{click}イベントが拾えるよう
+              にしています。
+        \item また、\Line{path}で外枠をつけています。この部分は
+              \Lines{fieldS}{fieldE}の外にあるので、この上のクリックイベ
+              ントは拾えません。
+       \end{itemize}
+ \item 画面右のテキストボックスやプルダウンメニューに関するCSSは
+       \AttribH{id}を用いています(この場合の{セレクタ}は\texttt{id}
+       の前に\texttt{\#}を付けたものになります)。
 \end{itemize}
-\ListSub{OnLoad}{InitOptE}
+% \item 
+リスト\ref{SSClickPos.js}はリスト\ref{ShowSetClickPosL}から読み込まれる
+\JS ファイルです。
+\JSListN{リスト\ref{ShowSetClickPosL}から読み込まれる\JS ファイル}{SSClickPos}{SSClickPos.js}
+%\ListSub{OnLoad}{InitOptE}
 \begin{itemize}
  \item \Line{OnLoad}から\HTML がすべて読み終えたときに実行する関数の定義
        の始まりです。
-  \item ここでは色を選択するリストボックスの設定をおこなっています。
+  \item ここでは色を選択するリストボックスを作成しています。
  \item まず、色の選択をする選択リストへの参照を得ます(\Line{Setcolor})。
   \item 色を指定するリストボックスの内容をDOMの技法を用いて設定し
        ます。
@@ -58,19 +85,22 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
        \texttt{</option>}はいらないのではと思うかもしれません。HTML文書
        をXMLの規格に合わせるXHTMLという規格では要素の開始タグに対応する
        終了タグは必ず記述する必要があります。}。
-\begin{verbatim}
+\begin{Verbatim}
 	<option value="red">赤</option>
 	<option value="yellow">黄色</option>
-\end{verbatim}
+\end{Verbatim}
  \item \LineR{InitOptS}{InitOptE}で属性値となる色の名称と日本語による表示のための文
        字列を\keysub{オブジェクトリテラル}{\JS}
        \IndexSet{{\JS}}{オブジェクトリテラル}{E}{における}{}
        として定義しています。オブジェクトリテラルでは配列の引数に文字列をとることが
-       できます。左側にある文字列は\keysub{キー}{オブジェクトリテラル}{の}と呼
+       できます。
+\iffalse
+       左側にある文字列は\keysub{キー}{オブジェクトリテラル}{の}と呼
        ばれます。\texttt{:}をはさんだ右側はこのキーにおける値であり、こ
        こには任意の\JS のオブジェクトを記述できます。値は「オブジェクト
        名[キー]」の
        形で取り扱うことができます(\Line{createTextNode}参照)。
+\fi
  \item このデータを用いて\LineR{makeOptS}{InitOptE}で
        \AttribH{name}属性が\texttt{SetColor}のリストボックスの内容を作
        成しています。
@@ -89,9 +119,9 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
        ノードとして付け加えています。
  \item 作成された要素をリストボックスの子ノードとして付け加えます
        (\Line{appendChild})。
-\end{itemize}
-\ListSub{getObjectS}{CorrectE}
-\begin{itemize}
+%\end{itemize}
+%\ListSub{getObjectS}{CorrectE}
+%\begin{itemize}
  \item \LineR{getObjectS}{getObjectE}で\HTML 内のオブジェクトを参照するための
        変数の値を定義しています。
  \item その後、表示されている円の座標をテキストボックスに反映させていま
@@ -112,67 +142,14 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
 
 			 なお、これらの値は状況によっては整数とはならないので、小数点以下
 			 を切り捨てています。
-\ListSub{ClickS}{ClickE}
+%\ListSub{ClickS}{ClickE}
  \item \LineR{ClickS}{ClickE}でクリックされたときのイベント処理関数が定
        義されています。ここではクリックされた位置から
        \Lines{SetOffset1}{SetOffset2}で求めた補正値を引いてそれぞれのテキス
        トボックスに表示させています。
- \item \Line{CSSS}で\HTML での各構成要素のスタイルを決める CSS ファイル
-       を読み込むように指定しています。
-\ListSub{bodyS}{HTMLE}
- \item \Line{bodyS}以降の部分にHTML文書の本体が記述されています。
- \item 全体は\ElmH{div}を用いて要素が入れ子の形になっています。
-%これが       HTML5における標準です。
- \item \ElmH{div}要素についている\AttribH{class}は要素を表の形に表したと
-       きのどの部分に当たるのかを示しています。
-\begin{itemize}
- \item \texttt{class}の値が\texttt{table}であるものは表の開始を示します。
-       HTML4 で使われた \ElmH{table}に相当します。ここでは\texttt{class}に対
-       応する{セレクタ}なので\texttt{.table}になっています。\CSS{display}の値を
-       \CSSVal{table}に設定することで表の開始を指示しています。
- \item 同様にクラス名\texttt{Row}では表の横1行分を(\CSS{display}の値を
-       \CSSVal{table-row}に設定)、クラス名\texttt{Cell}では各項目を
-       て(\CSS{display}の値を\CSSVal{table-cell}に設定)示すことにしてい
-       ます。これらの指定はそれぞれ\ElmH{tr}と\ElmH{td}に対応します。
- \item 画面右のテキストボックスやプルダウンメニューに関するCSSは
-       \AttribH{id}を用いています(この場合の{セレクタ}は\texttt{id}
-       の前に\texttt{\#}を付けたものになります)。
-\end{itemize}
- \item SVGに関する要素名が直接記述されています(\LineR{SVGS}{SVGE})。
-       HTML5ではHTML要素のようにSVGの要素が記述できます(インラインSVG)。
-       この部分はリスト\ref{svg-js-showclickposL}と同じです。
-% \item 
 \end{itemize}
 この読み込まれるCSSファイルは次のようになっています。
 \CSSListN{基本的なCSSファイル}{HTML}{HTML}
-\iffalse
-リスト\ref{showandclickposSVG}は\SVG 内の初期化とクリックしたときの処理
-を行う関数のリストです。
-\JSListN{\SVG の初期化と実行時の処理関数}
-{SSClickposSVG}{showandclickposSVG}
-\begin{itemize}
- \item \LineR{initSVGS}{initSVGE}では次のことを行っています。
-\begin{itemize}
- \item SVG の画像の範囲にイベント処理関数を割り当てる(\Line{event})。
- \item 移動させる円のオブジェクトへの参照を設定する(\Line{C})。
- \item SVGの画面の中の位置の表示部への参照を設定する(\Lines{X}{Y})。
- \item 円の中心の位置をフォームのなかのテキストボックスに表示する
-       (\Lines{XP}{YP})。
-\end{itemize}
- \item \LineR{refreshS}{refreshS}では現在の円の中心位置を\SVG 内に表示す
-       る(\Lines{setTextX}{setTextY})ことと円の塗りつぶしの色を設定しま
-       す\Line{setTextCol}。
- \item 円の中心位置を設定するために\LineR{setTextS}{setTextE}で定義され
-       ている関数\texttt{SetText}を呼び出しています。
- \item この関数は\texttt{Element}で参照される要素の子要素に与えられた値
-       \texttt{Value}を設定します。起動時にはこの子要素がないので
-       \DOMM{appendChild}が利用できます(\Line{append})が、2回目以降は子
-       ノードを取り替える(\DOMM{replaceChild})方法で表示する必要がありま
-       す(\Line{replace})。
- \item また、\texttt{attrib}で指定された円の属性を\texttt{value}
-       に設定しています(\Line{attrib})。
-\end{itemize}
-\fi
 \begin{Problem}\upshape
  リスト\ref{ShowSetClickPosL}について次のことを行いなさい。
 \begin{enumerate}
@@ -184,6 +161,18 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
  \item \ref{correctError}の不具合を直しなさい
 \end{enumerate}
 \end{Problem}
+図\ref{pinna.html.fig}は図\ref{pinna}において\HTML から色を設定できるように
+したものです。
+\ShowFig{0.6}{ht}{pinna.html}
+{バインジオ$\bullet$ピンナの錯視図形をテキストボックスから設定}{pinna.html.fig}
+
+図形の右側に曲線を構成する色を入力するテキストボックスと、設定を図に反映
+させるボタンがあります。
+\HTMLListMN{バインジオ$\bullet$ピンナの錯視図形の色をテキストボックスから設
+定}{pinna}{pinna.html}
+
+\CSSListN{リスト\ref{pinna.html}で読み込むCSSファイル}{pinna}{pinna.css}
+\JSListN{リスト\ref{pinna.html}で読み込む\JS ファイル}{pinna}{pinna.js}
 \begin{Problem}
  今までに示された錯視図形のパラメータを外部から設定するように書き直しな
  さい。

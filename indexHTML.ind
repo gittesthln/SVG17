@@ -6,22 +6,75 @@
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
   \item \ShowElm {canvas} \dotfill \hyperpage{6}
-  \item \Showattrib {class}(属性) \dotfill \hyperpage{103}
+  \item \Showattrib {class}(属性) \dotfill \hyperpage{103}, 
+		\hyperpage{177}
+
+  \indexspace
+\item {\large\bf D}\nopagebreak[4]
+  \item \ShowElm {div} \dotfill \hyperpage{177}
+  \item \texttt {DOCTYPE} 宣言 \dotfill \hyperpage{176}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
+  \item \ShowElm {h1} \dotfill \hyperpage{177}
+  \item \ShowElm {head} \dotfill \hyperpage{176}
+  \item \ShowElm {htaml} \dotfill \hyperpage{176}
   \item \ShowElm {HTML} \dotfill \hyperpage{4}
+
+  \indexspace
+\item {\large\bf I}\nopagebreak[4]
+  \item \Showattrib {id}(属性) \dotfill \hyperpage{177}
+
+  \indexspace
+\item {\large\bf M}\nopagebreak[4]
+  \item \ShowElm {meta} \dotfill \hyperpage{176}
+
+  \indexspace
+\item {\large\bf N}\nopagebreak[4]
+  \item \Showattrib {name}(属性) \dotfill \hyperpage{178}
+
+  \indexspace
+\item {\large\bf O}\nopagebreak[4]
+  \item \ShowElm {option} \dotfill \hyperpage{178}, \hyperpage{179}
+
+  \indexspace
+\item {\large\bf S}\nopagebreak[4]
+  \item \ShowElm {script} \dotfill \hyperpage{134}
+  \item \ShowElm {select} \dotfill \hyperpage{178}
+  \item \Showattrib {setTimeout}(オブジェクトのメソッド ) \dotfill 
+		\hyperpage{174}
+
+  \indexspace
+\item {\large\bf V}\nopagebreak[4]
+  \item \Showattrib {value}(属性) \dotfill \hyperpage{179}
+
+  \indexspace
+\item {\large\bf お}\nopagebreak[4]
+  \item オブジェクトのメソッド 
+    \subitem \Showattrib {setTimeout} \dotfill \hyperpage{174}
 
   \indexspace
 \item {\large\bf そ}\nopagebreak[4]
   \item 属性
-    \subitem \Showattrib {class} \dotfill \hyperpage{103}
+    \subitem \Showattrib {class} \dotfill \hyperpage{103}, 
+		\hyperpage{177}
+    \subitem \Showattrib {id} \dotfill \hyperpage{177}
+    \subitem \Showattrib {name} \dotfill \hyperpage{178}
+    \subitem \Showattrib {value} \dotfill \hyperpage{179}
 
   \indexspace
 \item {\large\bf よ}\nopagebreak[4]
   \item 要素
     \subitem \ShowElm {BR} \dotfill \hyperpage{7}
     \subitem \ShowElm {canvas} \dotfill \hyperpage{6}
+    \subitem \ShowElm {div} \dotfill \hyperpage{177}
+    \subitem \ShowElm {h1} \dotfill \hyperpage{177}
+    \subitem \ShowElm {head} \dotfill \hyperpage{176}
+    \subitem \ShowElm {htaml} \dotfill \hyperpage{176}
     \subitem \ShowElm {HTML} \dotfill \hyperpage{4}
+    \subitem \ShowElm {meta} \dotfill \hyperpage{176}
+    \subitem \ShowElm {option} \dotfill \hyperpage{178}, \hyperpage{179}
+    \subitem \ShowElm {script} \dotfill \hyperpage{134}
+    \subitem \ShowElm {select} \dotfill \hyperpage{178}
 
 \end{theindex}

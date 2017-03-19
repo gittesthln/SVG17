@@ -1,4 +1,95 @@
 % -*- coding: utf-8 -*-
+\subsection{\JS のオブジェクト}
+配列はいくつかのデータをまとめて一つの変数に格納しています。各データを利
+用するためには数による添え字を使います。これに対し、オブジェクトはキーと
+値のペアの集まりです。
+
+次の例はあるオブジェクトを定義して、その各データにアクセスする方法を示し
+ています。ここで\texttt{>}で始まる行はデベロッパーツールにおける入力行を
+表します。
+\begin{Verbatim}
+var person = {
+  name : "foo",
+  birthday :{
+    year : 2001,
+    month : 4,
+    day : 1
+  },
+  "hometown" : "神奈川",
+}
+\end{Verbatim}
+\begin{itemize}
+ \item オブジェクトは全体を \Verb+{}+ で囲みます。
+ \item 各要素はキーと値の組で表されます。両者の間は \Verb+:+ で区切りま
+			 す。
+ \item キーは任意の文字列でかまいません。キー全体を \Verb+""+ で囲わなく
+			 てもかまいません。
+ \item 値は\JS で取り扱えるデータなあらば何でもかまいません。上の例ではキー
+       \Verb+birthday+ の値がまたオブジェクトとなっています。
+ \item 各要素の値を取り出す方法は2通りあります。
+
+一つは\Verb+.+演算子を用いてオブジェクトのキーをそのあとに書きます。もう一つ
+       は配列と同様に\Verb+[]+内にキーを文字列として指定する方法です。
+\begin{Verbatim}
+>person.name;
+"foo"
+>person["name"];
+"foo"
+\end{Verbatim}
+オブジェクトの中にあるキーをすべて網羅するようなループを書く場合や変数名
+       として利用できないキーを参照する場合には後者
+       の方法が利用されます。
+ \item キーの値が再びオブジェクトであれば、前と同様の方法で値を取り出せ
+       ます。
+\begin{Verbatim}
+>person.birthday;
+Object {year: 2001, month: 4, day: 1}
+>person.birthday.year;
+2001
+>person.birthday["year"];
+2001
+\end{Verbatim}
+この例のように取り出し方は混在しても問題ありません。
+ \item キーの値は代入して変更できます。
+\begin{Verbatim}
+>person.hometown;
+"神奈川"
+>person.hometown="北海道";
+"北海道"
+>person.hometown;
+"北海道"
+\end{Verbatim}
+ \item 存在しないキーを指定すると値として\Verb+undefined+が返ります。
+\begin{Verbatim}
+>person.mother;
+undefined
+\end{Verbatim}
+ \item 存在しないキーに値を代入すると、キーが自動で生成されます。
+\begin{Verbatim}
+>person.mother = "aaa";
+"aaa"
+>person.mother;
+"aaa"
+\end{Verbatim}
+ \item オブジェクトのキーをすべて渡るループは \verb+for-in+で実現できま
+			 す。
+\begin{itemize}
+ \item \Verb+for( v in obj)+ の形で使用します。変数 \Verb+v+ はループ内で
+       キーの値が代入される変数、\Verb+obj+ はキーが走査されるオブジェク
+       トです。
+ \item キーの値は \Verb+obj[v]+ で得られます。
+\end{itemize}
+\begin{Verbatim}
+>for(i in person) { console.log(i+" "+person[i]);};
+name foo
+birthday [object Object]
+hometown 北海道
+mother aaa
+undefined
+\end{Verbatim}
+最後の\Verb+undefined+は\Verb+for+ループの戻り値です。
+\end{itemize}
+
 \subsection{SVGのオブジェクトを操作するための関数}
 \iffalse
 錯視の図形は数学的に規則正しい図形が多くあります。
@@ -42,9 +133,9 @@ jQueryでは対応できない場合があります。}。
 \ExpList{{\texttt{P} 作成する要素の親要素。\ElmJ{null}のときは親要素がな
     いことを示します。}
     {\texttt{Elm} 作成する要素名}
-    {\texttt{attribs} 作成する要素の属性名と属性値が交互に並んだ配列です。}
-    {\texttt{events}  作成する要素に付けるイベント名、イベント処理関数
-    名、イベントバブリングかどうかの論理値が順に並んだ配列です。}}
+    {\texttt{attribs} 作成する要素の属性名と属性値のペアのオブジェクトです。}
+    {\texttt{events}  作成する要素に付けるイベント名をキーに、値をイベント処理関数
+    名、イベントバブリングかどうかの論理値が並んだ配列であるオブジェクトです。}}
 この関数は与えられた引数の前に名前空間を指定して関数\texttt{MakeElement}を
     呼び出してその戻り値を返しているだけです(\Line{MKHTMLElmM})。
 名前空間の値は直接、引数に書くことも可能ですが、ここではローカルな変数に
@@ -72,9 +163,7 @@ jQueryでは対応できない場合があります。}。
 {\texttt{SetAttributes}はすでに存在するDOM要素の属性をいくつかまとめて設
 定する関数です。
 属性とその属性値が組になったオブジェクトを利用して
-    (\Line{setAttribFor})指定された要素に属性値を設定します
-    \footnote{最近のライブラリーではオブジェクトリテラルを利用していろい
-    ろなオブジェクトの属性を定義しているのを真似ました。}。
+    (\Line{setAttribFor})指定された要素に属性値を設定します。
     (\Line{setAttribM})。
 \ListSub{setAttribsS}{setAttribsE}
 }
@@ -163,7 +252,7 @@ jQueryでは対応できない場合があります。}。
        部分は数値として計算されていることに注意してください。} 
 }
 \begin{Problem}\upshape
- \Opera の Dragonfly を用いて解説のとおりSVGの
+ Chrome の デベロッパーツールを用いて解説のとおりSVGの
  DOMができているかどうかを確認しなさい。
 \end{Problem}
 \ProbwithSol{zollner-animation}{ツェルナーの錯視(アニメーション付き)}
