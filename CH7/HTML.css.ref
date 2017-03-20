@@ -1,10 +1,10 @@
-.display {
+.display {           
   font-size:25px;
-}
-.textStyle {
+}           
+.textStyle {          
   font-size:30px;
   text-anchor:end;
-}
+}          
 .Cell {           
   font-size:30px;
   display:inline-block; 

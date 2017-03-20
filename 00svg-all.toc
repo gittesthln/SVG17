@@ -126,9 +126,9 @@
 \contentsline {subsection}{\numberline {7.4.4}ツェルナーの錯視図形}{163}{subsection.7.4.4}
 \contentsline {subsection}{\numberline {7.4.5}一定時間経過後に関数をよびだす(自前でアニメーションを作成する)}{167}{subsection.7.4.5}
 \contentsline {section}{\numberline {7.5}HTML文書とその中にある SVG DOM の間でのデータ交換する方法}{175}{section.7.5}
-\contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{182}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}クロージャの利用によるグローバル変数の個数の減少}{182}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}配列のメソッドを使う}{184}{subsection.7.6.2}
+\contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{184}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}クロージャの利用によるグローバル変数の個数の減少}{184}{subsection.7.6.1}
+\contentsline {subsection}{\numberline {7.6.2}配列のメソッドを使う}{185}{subsection.7.6.2}
 \contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
 \contentsline {chapter}{索引}{付録 9}{appendix*.43}

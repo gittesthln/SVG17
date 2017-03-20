@@ -35,7 +35,7 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
 です。以前のものに比べ記述が格段に簡単になっています。
  \item \HTML の\ElmH{htaml} は\HTML のルート要素です。その属性として
        \texttt{svg}と\texttt{xlink}の名前空間を使用することを宣言してい
-       ます(\Line{SVGNS}と\Lines{XLINKNS})。
+       ます(\Line{SVGNS}と\Line{XLINKNS})。
   \item HTMLでは\HTML のいろいろな情報は\ElmH{head}内の\ElmH{meta}で記
 	述します。ここでは\Line{CHARSET}でこの文書の文字コードがUTF-8で
         あることを宣言しています。
@@ -67,7 +67,42 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
        \AttribH{id}を用いています(この場合の{セレクタ}は\texttt{id}
        の前に\texttt{\#}を付けたものになります)。
 \end{itemize}
-% \item 
+この読み込まれるCSSファイルは次のようになっています。
+\CSSListN{基本的なCSSファイル}{HTML}{HTML.css}
+\begin{itemize}
+ \item \ElmH{h1}には\AttribH{class}属性があり、その値が\texttt{display}と
+       なっています。これに対応するCSSのセレクタは\AttribH{class}属性の
+       値の前に\texttt{.}(ピリオド)をつけたものになります。
+
+       CSSファイルの\Lines{displayS}{displayE}がその部分になります。ここ
+       ではフォントの大きさ(\CSS{font-size})を指定しています。この値には
+       単位が必要です。
+ \item SVG内の\Elm{text}には\AttribH{class}属性で\texttt{textStyle}が指
+       定されています。
+
+       CSSファイルの\Lines{textStyleS}{textStyleE}がその部分になります。ここ
+       ではフォントの大きさ(\CSS{font-size})とテキストの表示位置
+       (\AttribFnt{text-anchor}\footnote{これはSVGにおける位置指定で
+       す。})を指定しています。
+ \item SVGの画像とボタン群を横に並べるために、それらを含む\ElmH{div}
+       に\AttribH{class}属性で\texttt{Cell}がしていられています。
+
+       CSSファイルの\Lines{CellS}{CellE}がその部分になります。ここではフォ
+       ントの大きさを30px、表示形式(\CSS{display})を
+       \CSSVal{inline-block}(\ElmH{div}を一つの文字のように取り扱う)、
+       縦方向の表示位置(\CSS{vertical-align})を\CSSVal{middle}(中央)、
+       左方向の空白(\CSS{padding-left})を5pxに設定しています。
+ \item 右側のテキストボックスには\AttribH{id}が設定されています。この属
+       性値の前に\texttt{\#}をつけるとそれらの要素に対してのセレクタにな
+       ります。
+
+       \Lines{idS}{idE}がその部分になります。ここでは\ElmH{input}で
+       \AttribH{type}が\AttribHVal{text}に対して右寄せになるように
+       \CSS{text-align}を\CSSVal{right}に設定しています。SVGの場合と異な
+       ることに注意してください。また、色を選択するプルダウンメニュー
+       (\ElmH{id}が\texttt{SelectColor})と設定ボタン(\ElmH{id}が
+       \texttt{SetColor})に対しても同様の設定をしています。
+\end{itemize}
 リスト\ref{SSClickPos.js}はリスト\ref{ShowSetClickPosL}から読み込まれる
 \JS ファイルです。
 \JSListN{リスト\ref{ShowSetClickPosL}から読み込まれる\JS ファイル}{SSClickPos}{SSClickPos.js}
@@ -148,8 +183,6 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
        \Lines{SetOffset1}{SetOffset2}で求めた補正値を引いてそれぞれのテキス
        トボックスに表示させています。
 \end{itemize}
-この読み込まれるCSSファイルは次のようになっています。
-\CSSListN{基本的なCSSファイル}{HTML}{HTML}
 \begin{Problem}\upshape
  リスト\ref{ShowSetClickPosL}について次のことを行いなさい。
 \begin{enumerate}
@@ -170,10 +203,42 @@ HTML文書はXML文書としての類似性があり、DOMで操作すること�
 させるボタンがあります。
 \HTMLListMN{バインジオ$\bullet$ピンナの錯視図形の色をテキストボックスから設
 定}{pinna}{pinna.html}
+リスト\ref{svg-pinna}では一つのファイルにまとめてありましたが、ここでは
+CSSファイルと\JS ファイルは外部ファイルとしています。
 
+この\HTML は本質的にリスト\ref{ShowSetClickPosL}と同じです。図形を描いて
+いる部分がなく、座標を移動する\Elm{g}があるだけです。
+
+次のリストはリスト\ref{pinna.html}で読み込むCSSファイルです。
 \CSSListN{リスト\ref{pinna.html}で読み込むCSSファイル}{pinna}{pinna.css}
+これもリスト\ref{HTML.css}とほとんど変わりません。
 \JSListN{リスト\ref{pinna.html}で読み込む\JS ファイル}{pinna}{pinna.js}
-\begin{Problem}
+\begin{itemize}
+ \item このリストでは図形を作成して表示する関数\texttt{DrawFigs()}とそレ
+       から6回呼び出される関数\texttt{Drawfigure()}の基本的なアルゴリズ
+       ムは全く同じです。
+ \item すべてのファイルが呼び込まれた後に発生するイベントの処理関数
+       \texttt{window.onload}が\Lines{init1}{init2}で定義されています。
+       \begin{itemize}
+        \item \Line{getElm1}と\Line{getElm2}で設定されたいろがある要素を
+              変数に格納しています。
+        \item 図形を構成する4つの要素を作成して、配列に格納しています
+              (\Lines{createPathsS}{createPathsE})。これは、後で色を設定
+              しなおすときの処理を簡単にするためです。
+        \item \Line{setInitialVal1}と\Line{setInitialVal2}でテキストボッ
+              クスの初期値を設定しています。
+        \item \Line{addEvent}ではボタンが押されたときの処理関数を定義し
+              ています。
+        \item \Line{draw}で初期値を用いて図形を表示します。
+       \end{itemize}
+ \item \Lines{DrawFigureS}{DrawFigureE}で図形を表示する関数を定義しています。
+       色はテキストボックスから読むので、仮引数が必要でなくなっています。
+ \item \Lines{DrawFig1}{DrawFig2}で一周分の図形を描く関数
+       \texttt{DrawFigure}を呼びだしています。以前と異なり、何番目の図形
+       なのかを示す引数が追加されています。
+ \item この仮引数を使って、計算された図形の形と色を設定しています(\Line{setFig})。
+\end{itemize}
+ \begin{Problem}
  今までに示された錯視図形のパラメータを外部から設定するように書き直しな
  さい。
-\end{Problem}
+ \end{Problem}
