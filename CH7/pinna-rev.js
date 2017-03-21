@@ -17,8 +17,8 @@ window.onload = function(){//// ref="init1"
      [80, 20, W1, W2, Color1],  [86.5, 20, W1, W2, Color2],
      [14, 20, 0, 0, Color1],    [10, 20, 0, 0, Color2]].forEach(//// ref="forEachE"
       function(Param, No) {
-        var R=Param[0], sR = Param[1], W = Param[2],
-            W2 = Param[3], Color = Param[4];
+        var R=Param[0], sR = Param[1], W = Param[2],//// ref="paramSetS"
+            W2 = Param[3], Color = Param[4];        //// ref="paramSetE"
         var d = "M", i, Ang, R0;
         for(i=0;i<720;i++) {
           Ang= Math.PI*i/180/2;
