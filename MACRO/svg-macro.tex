@@ -199,7 +199,7 @@ bookmarkstype=toc]{hyperref}
   label={\large{\bfseries #5 リスト}\csname the#4\endcsname: #1},
   frame=single, framerule=0mm, framesep=0.8em, fontsize=\small,
   labelposition=topline,
-  numbers=left,firstnumber=1, numbersep=6pt]{#2.ref}
+  numbers=left,firstnumber=1, numbersep=6pt]{#2.ref}\ \\[-2.5\baselineskip]\par
   \gdef\CurrentFile{#2}
   \xdef\Tmp{\CurrentFile}
   \xdef\CurrentFileN{\expandafter\RemoveSep\Tmp\relax}
@@ -211,7 +211,7 @@ bookmarkstype=toc]{hyperref}
 %  \IMM\write\listout{\Tmp} 
   \IMM\write\listout{#2}
 %
-  \addcontentsline{lll}{list}{#5::\csname the#4\endcsname::#1::#2}
+  \addcontentsline{lll}{list}{#5::\csname the#4\endcsname::#1::#2}%
   }
 
 \newcommand{\SelI}[4]{#1}
