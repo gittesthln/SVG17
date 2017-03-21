@@ -1,0 +1,195 @@
+%\section{配列のメソッド}
+\label{arrayMethod}
+配列には表\ref{MethodArray}のようなメソッドやプロパティが定義されています。
+%いくつかを具体的な例で示します。
+\newcommand{\NL}{\newline\hspace*{0.5zw}}
+\begin{longtable}{|m{10.5zw}|m{29zw}|}
+ \caption{配列のメソッド}\label{MethodArray}\\
+ \hline
+\multicolumn{1}{|c|}{メンバー}&\multicolumn{1}{c|}{説明} \\\hline
+\endfirsthead
+ \caption{配列のメソッド(続き)}\\
+ \hline
+ \multicolumn{1}{|c|}{メンバー}&\multicolumn{1}{c|}{説明} \\\hline
+\endhead
+\multicolumn{2}{r}{次ページへ続く}
+\endfoot
+ \hline
+\endlastfoot
+ \ElmJA{length} &配列の要素の数。このメンバーに値を代入すると配列の大き
+      さが変えられる。\\ \hline
+ \ElmJA{fill}\NL\hspace*{-0.8zw}\Verb+(value[,start[,end]])+&与えられた
+ 配列の\Verb+start+(デフォルトは0)から
+ \Verb+end+(デフォルトは配列の長さでこのインデックスは含まない)を\Verb+value+の値で設定する。\\ \hline
+  \ElmJA{join}\Verb+(separator)+& 配列を文字列に変換する。\Verb+separator+はオプ
+      ションの引数で、省略された場合はカンマ\verb+,+である。\\ \hline
+\ElmJA{concat}\Verb+(i1,i2,...)+&指定した引数の値をもとの配列に付け加え
+ た配列を新たに作成する。引数が配列の場合は配列の要素を付け加える。元の
+ 配列は変化しない。\\\hline
+ \ElmJA{sort}\Verb+([func])+&配列の要素をアルファベット順に並べ替える。
+ \verb+func+は並べ替えを指定するための関数である。\\\hline
+  \ElmJA{indexOf}\NL\Verb+(value[,start])+&\Verb+start+以降(指定しない場合は
+      \verb+0+)の要素で\Verb+value+の値と等しい(\Verb+===+)最初のインデ
+      クッスを返す。見つからない場合は\verb+-1+。\\ \hline
+  \ElmJA{lastIndexOf}\NL\Verb+(value[,start])+&\verb+start+以前(指定しない場合は
+      配列の最後)の要素で\Verb+value+の値と等しい(\Verb+===+)最初のインデ
+      クッスを返す。見つからない場合は\verb+-1+。\\ \hline
+  \ElmJA{pop}\verb+()+& 配列の最後の要素を削除し、その値を返す。配列をスタックと
+      して利用できる。\\ \hline
+  \ElmJA{push}\verb+(i1,[i2,...])+& 引数で渡された要素を配列の最後に付け加える。配
+      列をスタックやキューとして利用できる。\\ \hline
+  \ElmJA{shift}\verb+()+&配列の最初の要素を削除し、その値を返す。配列をキューと
+      して利用できる。\\ \hline
+  \ElmJA{unshift}\verb+(i1[,i2,...])+&引数で渡された要素を配列の最初の要素とする。\\ \hline
+  \ElmJA{reverse}\verb+()+&与えられた配列の要素を逆順に並べ替えたものに
+ 変更する。\\ \hline
+ \ElmJA{slice}\verb+(start[,end])+&\verb+start+から\verb+end+の前の位置に
+ ある要素を取り出した配列を返す。\verb+end+がないときは配列の最後までを
+ 指定したことになる。元の配列は変化しない。\\ \hline
+  \ElmJA{splice}\NL\verb+(from,No,i1,i2,...)+&与えられた配列の
+ \verb+from+の位置から \verb+No+個の要素を取り除き、その位置に
+ \verb+i1,i1,...+以下の要素を付け加える。\\\hline
+  \ElmJA{forEach}\verb+(func)+&引数\verb+func+に与えられた関数を配列の各要素に対
+      して実行する。関数の引数は配列の値、配列の\verb+index+、配列の順と
+      なる。与えられた関数の戻り値は無視される。途中でループの処理を中断
+      できない。\\\hline
+  \ElmJA{map}\verb+(func)+&引数に与えられた関数を配列の各要素に対して実行し、関数の戻
+      り値からなる新しい配列を作成する。引数として与えられた関数の引数は
+      \verb+forEach+と同じである。\\ \hline
+  \ElmJA{reduce}\NL\verb+(func[,initial])+&\verb+func+は2つの仮引数をとる関数。
+      \verb+initial+がないときは\verb+func+が初めて呼び出されるときは配
+      列の1番目と2番目の要素が引数として与えられる。2回目以降の呼び出し
+      では1番目の引数はその前に呼び出された関数の戻り値が使用される。
+      \verb+initial+があるときは初めての呼び出しで1番目の引数として使わ
+      れる。\\ \hline
+  \ElmJA{reduceRight}\NL\verb+(func[,initial])+&\verb+reduce+と同様のメソッド。
+      配列の要素のアクセスが大きい方から小さい方になる。\\ \hline
+ \ElmJA{every}\verb+(func)+&\verb+func()+を各配列の要素に順に適用し、どこかで\ElmJ{false}のときにはそこで実行が打ち切られ、\ElmJ{false}の値が返る。すべて
+ が\ElmJ{true}と解釈される値のとき、\ElmJ{true}を返す。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+ \ElmJA{some}\verb+(func)+&\verb+func()+を各配列の要素に順に適用し、どこ
+ かで\ElmJ{true}と解釈される値のときにはそこで実行が打ち切られ、
+ \ElmJ{true}を返す。
+ すべての結果が\ElmJ{false}のときは\ElmJ{false}となる。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+ \ElmJA{filter}\verb+(func)+&関数\verb+func+の戻り値が
+ \ElmJ{true}に変換される要素を集めて新しい配列を作成する。\verb+func+の引数は
+ \ElmJA{forEach}と同じである。\\\hline
+\end{longtable}
+\ElmJA{slice}と\ElmJA{splice}は似たメソッドですが、引数の意味が異なる
+ところがあるので注意が必要です。
+\begin{Verbatim}[numbers=left,firstnumber=1, numbersep=6pt]
+>A=[1,2,3,4,5,6,7,8,9];
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>A.slice(2,4)
+[3, 4]
+>A;
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+>A.splice(2,4)
+[3, 4, 5, 6]
+>A;
+[1, 2, 7, 8, 9]
+>A.splice(2,0,"a","b")
+[]
+>A;
+[1, 2, "a", "b", 7, 8, 9]
+\end{Verbatim}
+\begin{itemize}
+  \item \ElmJA{slice}の引数は配列から取り出す開始位置と終了位置の直後ま
+        でを指定します。したがって、3行目の例では2番目と3番目の要素が切り
+        出されます。また、5行目の実行例からも元の配列が変化していないこ
+        とがわかります。
+  \item \ElmJA{splice}の1番目の引数は配列から取り出す開始位置で、2番目の
+        引数は\ElmJA{slice}とは異なり、取り出す個数です(7、8行目参照)。
+ \item \ElmJA{splice}を行った配列は戻り値の部分が取り除かれています(9、
+       10行目)。
+ \item \ElmJA{splice}は追加の引数で取り除いた位置に挿入する要素を指定で
+       きます。
+ \end{itemize}
+ \ElmJA{forEach}と\ElmJA{map}の引数で与えられる関数は3つの引数
+       \verb+value+、\verb+index+と\verb+array+をとることができます。
+したがって、次の関係が成立します。
+\begin{Verbatim}
+  array[index] = value
+\end{Verbatim}
+%
+元の配列の要素を変更しないのであれば、3つ目の引数\verb+array+は必要ありません。
+
+\begin{Verbatim}
+>A=[1,2,3];
+A.forEach(function(V, i, AA) {AA[i] = V*V;});
+>A;
+[1, 4, 9]
+\end{Verbatim}
+この例では、元の配列の各要素を2乗して元の配列に格納しています。
+
+これに対し、\verb+map+では新しい配列を作成します。
+\begin{Verbatim}
+>A=[1,2,3];
+[1, 2, 3]
+>A.map(function(V) {return V*V;});
+[1, 4, 9]
+>A;
+[1, 2, 3]
+\end{Verbatim}
+
+次の例は\ElmJA{reduce}の実行例です。
+\begin{Verbatim}
+>[1,2,3].reduce(function(x,y){return x+y;});
+6
+\end{Verbatim}
+与えられた関数は引数の和を求めているので、全体としては配列の中の要素の和
+が求められています。
+\begin{Problem}\upshape
+ 次のプログラムを実行したときの結果を述べなさい。
+\begin{Verbatim}
+A=[3,1,4,5,8,10]
+A.filter(function(X) {return X%2;});
+A.reduce(function(x,y){ return x+y%2;});
+A.reduce(function(x,y){ return x+y%2;},0);
+\end{Verbatim}
+\end{Problem}
+\iffalse
+\ref{argumentsSum}で\ElmJ{arguments}の総和をとる関数を作成しています。
+この部分を\ElmJA{reduce}で置き換えるとうまくいきません。
+\begin{Verbatim}
+>function sum() {return arguments.reduce(function(x,y){return x+y;})}
+undefined
+>sum(1,2,3);
+VM510:2 Uncaught TypeError: arguments.reduce is not a function(…)
+\end{Verbatim}
+「\ElmJ{arguments}には\ElmJA{reduce}という関数がない」というメッセージが
+表示されています。これからも、\ElmJ{arguments}は配列のようなものだけれど
+も配列とは違うことがわかります。
+
+これを解決するにはオブジェクトのメソッドとして関数を呼び出す\ElmJ{call}
+を使用します。
+\begin{Verbatim}
+>function sum(){return Array.prototype.reduce.call(arguments,function(x,y){return x+y;})}
+undefined
+>sum(1,2,3);
+6
+\end{Verbatim}
+\ElmJA{reduce}は\ElmJ{Array}オブジェクトの\ElmJ{prototype}で定義されてい
+る関数です。それを\ElmJ{arguments}のメソッドとして呼び出すために
+\ElmJ{call}を用いています。
+\ElmJ{reduce}の引数として関数を必要としますので、それを無名関数として2番
+目の引数に与えています。
+
+\verb+document.getElemensByTagName+などで得られた
+配列のようなものに対して\ElmJA{forEach}などを利用したい場合にもこの手法
+が利用できます。
+\else
+なお、\verb+document.getElemensByTagName+などで得られたものは
+配列のようにアクセスできますが、配列オブジェクトではないので
+\ElmJA{forEach}などは直接利用できません。次のような形で利用します。
+
+\begin{Verbatim}
+A = document.getElementsBytagName("input");
+Array.prototype.forEach.call(A,function(){...});
+\end{Verbatim}
+\ElmJA{forEach}は\ElmJ{Array}オブジェクトの\ElmJ{prototype}で定義されてい
+る関数です。それを\texttt{A}(HTMLコレクション)のメソッドとして呼び出すために
+\ElmJ{call}を用いています。
+\ElmJ{forEach}の引数として関数を必要としますので、それを無名関数として2番
+目の引数に与えています。

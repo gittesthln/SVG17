@@ -2,7 +2,7 @@ window.onload = function(){
   var Canvas = document.getElementById("Canvas");
   var C1 = document.getElementById("color1");
   var C2 = document.getElementById("color2");
-  var Paths = [1,1,1,1,1,1].map(function() {
+  var Paths = new Array(6).fill(1).map(function() {
     return MKSVGElm(Canvas, "path", {"stroke-width": 6, "fill": "none"},{});
   });
   C1.value = "red";

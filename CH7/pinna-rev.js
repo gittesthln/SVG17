@@ -2,7 +2,7 @@ window.onload = function(){//// ref="init1"
   var Canvas = document.getElementById("Canvas");
   var C1 = document.getElementById("color1");
   var C2 = document.getElementById("color2");
-  var Paths = [1,1,1,1,1,1].map(function() {
+  var Paths = new Array(6).fill(1).map(function() {//// ref="Array.fill"
     return MKSVGElm(Canvas, "path", {"stroke-width": 6, "fill": "none"},{});
   });
   C1.value = "red";
@@ -13,9 +13,9 @@ window.onload = function(){//// ref="init1"
     var W1=8, W2=4;
     var Color1 = C1.value;  
     var Color2 = C2.value;  
-    [[150, 30, W1, W2, Color1], [144, 30, W1, W2, Color2],
+    [[150, 30, W1, W2, Color1], [144, 30, W1, W2, Color2],//// ref="forEachS"
      [80, 20, W1, W2, Color1],  [86.5, 20, W1, W2, Color2],
-     [14, 20, 0, 0, Color1],    [10, 20, 0, 0, Color2]].forEach(
+     [14, 20, 0, 0, Color1],    [10, 20, 0, 0, Color2]].forEach(//// ref="forEachE"
       function(Param, No) {
         var R=Param[0], sR = Param[1], W = Param[2],
             W2 = Param[3], Color = Param[4];

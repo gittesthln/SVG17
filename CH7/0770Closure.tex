@@ -1,5 +1,7 @@
 % -*- coding: utf-8 -*-
 \section{より進んだ \JS プログラミング}
+\subsection{配列のメソッドを使う}
+\input JavaScript/2005ArrayMethod.tex
 \subsection{クロージャの利用によるグローバル変数の個数の減少}
 いままでの\JS のプログラムでは、他の関数とデータのやり取りにグローバル変
 数を多用してきました。グローバル変数を多用することは、複数人でプログラム
@@ -26,17 +28,19 @@
  \item 関数名は\Func{DrawNext}となっています(\Line{ClosureS})。
  \item \ElmJ{function}の前に\texttt{(}がついています。これに対応する
 			 \texttt{)}は\Line{ClosureE}にあります。
- \item そのあとの\texttt{()}はこの関数の引数リストをを示します(ここでは
+			 %
+  そのあとにある\texttt{()}はこの関数の引数リストです(ここでは
 			 引数がないので空です)。
- \item これにより関数を定義してその場で実行できます。
+			 
+  これにより関数を定義してその場で実行できます。
  \item 関数の定義位置が変わっただけで、残りのコードはほとんど同じです。
  \item 一番の違いは\Attrib{d}で必要となる座標データを配列として保存している
 			 ことです(\Line{GlobalE})。
  \item また、\Line{push}で新たに計算した座標をこの配列に追加しています
 			 (\ElmJ{push}メソッド)。
  \item \Line{join}の\ElmJ{join}は配列の要素を、引数の文字列をはさんでつ
-       なげるメソッドです。配列内の文字列の連接を連接演算子\texttt{+}を
-       用いるよりも簡単に記述できます。
+       なげるメソッドです。配列内の文字列の連接
+       を連接演算子\texttt{+}を用いるよりも簡単に記述できます。
  \item \Line{callee}ではこの関数自身がこの後、
 			 呼び出せるように設定しています\footnote{関数の引数のリストを参照
 			 する\ElmJ{arguments}のメンバー\ElmJ{callee}を用いると、無名関数を
@@ -173,8 +177,26 @@
        います。
 \end{itemize}
 \fi
-\subsection{配列のメソッドを使う}
-\JS の配列には便利なメソッドが存在します。そのメソッドを用いて、\JS リス
+
+\JS の配列のメソッドを用いて、\JS リス
 ト\ref{pinna.js}を書き直したものが\JS リスト\ref{pinna-rev.js}です。
 
 \JSListN{リスト\ref{pinna.html}で読み込む\JS ファイル--改良版}{pinna-rev}{pinna-rev.js}
+\begin{itemize}
+ \item \Line{Array.fill}で長さが6の配列に図形の構成要素の\Elm{path}を代
+			 入しています。
+			 \begin{itemize}
+				\item \Verb+new Array(6)+は長さが6の配列が作成されますが、値は
+							\ElmJ{undefined}で初期化されます。
+				\item 値が\JSVal{undefined}の要素に対しては\ElmJA{map}などは適用され
+							ません。
+				\item したがって、\ElmJA{fill}で1に初期化し、その配列に対して
+							\Elm{path}を代入しています。
+			 \end{itemize}
+ \item それぞれの\Elm{path}を構成するところにはそれぞれのパラメタを一つ
+			 の配列にし、それらを集めて長さが6の配列にしたもの
+			 (\Lines{forEachS}{forEachE})に対して\ElmJA{forEach}を適用していま
+			 す。
+ \item 前の例と同じにするために配列の成分を借り引数の名前と同じ変数に代
+			 入しています(\Lines{paramSetS}{paramSetE})
+\end{itemize}
