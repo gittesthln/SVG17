@@ -3,6 +3,42 @@
 \subsection{配列のメソッドを使う}
 \input JavaScript/2005ArrayMethod.tex
 \subsection{クロージャの利用によるグローバル変数の個数の減少}
+\subsubsection{変数のスコープと仮引数への値の渡し方}
+\ElmJ{変数のスコープ}とは使用する変数がどの範囲で参照できるか概念です。
+\begin{itemize}
+ \item \JS は変数は宣言しなくても使用可能です。最近の\JS の仕様では宣言
+			 しない変数は使えないモードを宣言できます。
+ \item 関数などの外で宣言されたり、宣言がない変数はどこからでも参照が可
+			 能な変数(\ElmJ{グローバル変数})になります。
+ \item 関数内で宣言された変数はそれ以下の関数内で参照可能です。
+\end{itemize}
+関数の引数に対して、単純な変数は値渡し、配列は参照渡しとなります。
+\begin{Verbatim}[numbers=left, fontsize=\small,
+	commandchars=\\//,codes={\catcode`$=3\catcode`^=7}]
+>foo =function(X,Y,Z) {
+    X = X*2;
+    Y[0] *= 2;
+    Z.x *=2;}
+function (X,Y,Z) {
+    X = X*2;
+    Y[0] *= 2;
+    Z.x *=2;}
+>A=1
+1
+>B=[2,3]
+$\blacktriangleright$[2, 3]
+>C={x:10,y:20};
+$\blacktriangleright$Object {x: 10, y: 20}
+>foo(A,B,C);
+undefined
+>A;
+1
+>B;
+$\blacktriangleright$[4, 3]
+>C;
+$\blacktriangleright$Object {x: 20, y: 20}
+\end{Verbatim}
+\subsubsection{クロージャ}
 いままでの\JS のプログラムでは、他の関数とデータのやり取りにグローバル変
 数を多用してきました。グローバル変数を多用することは、複数人でプログラム
 を開発するときなどに変数名の衝突がおき、それによってバグが発生する可能性
@@ -200,3 +236,4 @@
  \item 前の例と同じにするために配列の成分を借り引数の名前と同じ変数に代
 			 入しています(\Lines{paramSetS}{paramSetE})
 \end{itemize}
+\subsection{WebStorage}

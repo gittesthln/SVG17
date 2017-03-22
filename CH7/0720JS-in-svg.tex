@@ -505,7 +505,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
  \item この例は例\ref{svg-js-click}と同様に3つの円を\Line{circle1}から
        \Line{circle3}の間で定義しています。
  \item \Elm{svg}のオブジェクトを\DOMM{getElementsByTagName}を用いて求め
-       ています(\Line{GetRootelm})。このメソッドは要素のリストが得られる
+       ています(\Line{GetRootElm})。このメソッドは要素のリストが得られる
        ので(この場合は一つです)、\texttt{[0]}でルート要素への
        参照となります。
  \item このオブジェクトに対して\Event{mousedown}, %\Event{mousemove},
@@ -519,7 +519,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
        \Event{mousemove}の設定関数を取り除いています
        (\Line{reset})。したがって、イベントハンドラ-はドラッグして
        いる間だけ処理が行われます。
- \item \Lines{moves}{moveE}で\Event{mousemove}の処理をしています。
+ \item \LineR{moves}{moveE}で\Event{mousemove}の処理をしています。
  \item イベントが発生したマウスポイ
        ンタの位置をドラッグ中の円の中心位置に設定しています(\Line{setcx}
        と\Line{setcy})。
@@ -527,7 +527,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
        いるわけではありません。二つの円が重なった場合、上に表示されてい
        るほうの円で起こっています。イベントを処理する関数が\Elm{svg}につ
        いているので円からマウスカーソルが離れてもイベントが拾えます。
- \item \Lines{up}{upE}ではマウスが離されたときの処理を定義しています。こ
+ \item \LineR{up}{upE}ではマウスが離されたときの処理を定義しています。こ
        こでは登録された\Event{mousemove}イベント処理関数を取り除いていま
        す(\Line{reset})。
 \end{itemize}
@@ -579,7 +579,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
        $325$($300+小さな長方形の幅$)なので$10^{-3+位置/150}$で計算してい
        ます。
 
-       式に出てくる\ElmJ{Math.pow(x,y)}は$x^y$ を求める関数です。ここで
+       式に出てくる\ElmJ{Math.pow(x, y)}は$x^y$ を求める関数です。ここで
        は $10^{x}$ を計算していることになります。\ElmJ{Math}オブジェクト
        のメソッドについては表\ref{JSMath}を参照してください。
  \item 図の部分は次のようになっています。

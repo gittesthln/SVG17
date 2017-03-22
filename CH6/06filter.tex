@@ -377,7 +377,7 @@ $0^{\circ}$ から $360^{\circ}$ の値が決められます。
 \begin{itemize}
  \item \LineR{filterS}{filterE}で各フィルタを定義しています。全部で11種類あります。
  \item \Line{C}で塗られる円を定義しています。
- \item \LineR{fundS}{fundE}でこの円を12個並べた図を定義しています。
+ \item \LineR{FundS}{fundE}でこの円を12個並べた図を定義しています。
  \item \LineR{FigS}{FigE}で実際の図を描いています。ここで\AttribO{fill}の値
        を\AttribVal{red}に設定し、赤が一番上に来るように画像全体を回転し
        ています。
@@ -408,11 +408,11 @@ $s$ をこのフィルタのパラメータ\AttribF{values}で与えられた値
 \]
 この式からわかるように $s=0$ のときは R,G,Bのそれぞれの値が他の色に同じ
 値が設定されるので変換後はグレイスケールになります(SVGリスト
-\ref{svg-colormatrix}の\LineR{saturateS}{saturateE}のフィルタ)。
+\ref{svg-colormatrix}の32行目から35行目のフィルタ)。
 
 また、$s=1$ のときは
 変換行列が単位行列になるので図形の色はまったく変化しません(SVGリスト
-\ref{svg-colormatrix}の44行目から47行目のフィルタ)。
+\ref{svg-colormatrix}の40行目から43行目のフィルタ)。
 \paragraph{\AttribFVal{luminanceToAlpha}{}}
 \keyitem{輝度}(luminance)を不透明度に変換するフィルタです。次の式で定義
 されます。単独で利用することはないでしょう。

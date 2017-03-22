@@ -21,7 +21,7 @@
   }//// ref="moveE"
   function mup(event) {//// ref="up"
     G.removeEventListener("mousemove", mmove, false);//// ref="reset"
-  }
+  }//// ref="upE"
 //    ]]></script>
   <circle cx="50" cy="50" r="20" fill="red" ref="circle1"/>
   <circle cx="100" cy="50" r="20" fill="blue"/>

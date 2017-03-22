@@ -1,5 +1,6 @@
 % -*- coding: utf-8 -*-
-\subsection{\JS のオブジェクト}
+\subsection{\JS のオブジェクトとJSON}
+\subsubsection{\JS のオブジェクト}
 配列はいくつかのデータをまとめて一つの変数に格納しています。各データを利
 用するためには数による添え字を使います。これに対し、オブジェクトはキーと
 値のペアの集まりです。
@@ -26,6 +27,7 @@ var person = {
 			 てもかまいません。
  \item 値は\JS で取り扱えるデータなあらば何でもかまいません。上の例ではキー
        \Verb+birthday+ の値がまたオブジェクトとなっています。
+ \item このようなおぶじぇくをの表記をオブジェクトリテラルと呼びます。
  \item 各要素の値を取り出す方法は2通りあります。
 
 一つは\Verb+.+演算子を用いてオブジェクトのキーをそのあとに書きます。もう一つ
@@ -41,7 +43,7 @@ var person = {
        の方法が利用されます。
  \item キーの値が再びオブジェクトであれば、前と同様の方法で値を取り出せ
        ます。
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
 >person.birthday;
 Object {year: 2001, month: 4, day: 1}
 >person.birthday.year;
@@ -51,7 +53,7 @@ Object {year: 2001, month: 4, day: 1}
 \end{Verbatim}
 この例のように取り出し方は混在しても問題ありません。
  \item キーの値は代入して変更できます。
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
 >person.hometown;
 "神奈川"
 >person.hometown="北海道";
@@ -60,12 +62,12 @@ Object {year: 2001, month: 4, day: 1}
 "北海道"
 \end{Verbatim}
  \item 存在しないキーを指定すると値として\Verb+undefined+が返ります。
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
 >person.mother;
 undefined
 \end{Verbatim}
  \item 存在しないキーに値を代入すると、キーが自動で生成されます。
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
 >person.mother = "aaa";
 "aaa"
 >person.mother;
@@ -79,7 +81,7 @@ undefined
        トです。
  \item キーの値は \Verb+obj[v]+ で得られます。
 \end{itemize}
-\begin{Verbatim}
+\begin{Verbatim}[fontsize=\small]
 >for(i in person) { console.log(i+" "+person[i]);};
 name foo
 birthday [object Object]
@@ -89,7 +91,40 @@ undefined
 \end{Verbatim}
 最後の\Verb+undefined+は\Verb+for+ループの戻り値です。
 \end{itemize}
-
+\subsubsection{JSON}
+\ElmJ{JSON}(JavaScript Object Notation)とはオブジェクトリテラル形式で書かれた
+文字列です。最近ではXMLに代わるデータ交換のフォーマットとして利用されて
+います。\JS のオブジェクトをJSON形式に直すためには\ElmJ{JSON.stringify}
+メソッドを利用します。なお、JSONではオブジェクトの値が通常のデータだけし
+か取り扱えませんのでオブジェクトの値が関数(そのオブジェクトのメソッド)の
+場合は変換されません。また、JSON形式の文字列を\JS のオブジェクトに変換す
+るためには\ElmJ{JSON.parse}メソッドが利用できます。次の例を見てください。
+\begin{Verbatim}[numbers=left, fontsize=\small,
+	commandchars=\\\{\},
+	codes={\catcode`$=3\catcode`^=7}]
+>A=\{x:10,y:20,add:function()\{return(this.x+this.y);\}\}
+Object \{x: 10, y: 20\}
+>A.add()
+30
+>B=JSON.stringify(A);
+"\{"x":10,"y":20\}"
+>typeof B;
+"string"
+>JSON.parse(B);
+$\blacktriangledown$ Object
+	x: 10
+	y: 20
+	$\blacktriangleright$__proto__: Object
+\end{Verbatim}
+\begin{itemize}
+ \item 1行目でオブジェクトを定義しています。メソッドとして\Verb+add()+が
+			 あり、2つのメンバー\Verb+x+ と\Verb+y+ を加えた値を返します(３行
+			 目)
+ \item 5行目でオブジェクトをJSON形式に変換しています。この中にはメソッド
+			 の\Verb+add+が含まれていません。
+ \item ７行目では変換されたものが文字列であることを確認しています。
+ \item 9行目では変換後の文字列をオブジェクトに変換しています。
+\end{itemize}
 \subsection{SVGのオブジェクトを操作するための関数}
 \iffalse
 錯視の図形は数学的に規則正しい図形が多くあります。
@@ -104,7 +139,7 @@ SVG文書の開始時の\Event{onload}の処理関数で要素を追加すれば
 \ElmJ{jQuery.js}が有名で
 す。\texttt{jQuery.js}はブラウザの対応の違いも吸収してくれる有用な
 ライブラリですが、DOM の操作に慣れるという観点から独自の関数群を用意する
-ことにします\footnote{この後でSVG要素をHTML文書内に直接書くときに、
+ことにします\footnote{この後でSVG要素をHTML文書内に直接生成するときに、
 jQueryでは対応できない場合があります。}。
 
 リスト\ref{make-svg-elm}は DOM の要素を新規に作成したり属性を設定する

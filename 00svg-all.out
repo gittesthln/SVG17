@@ -80,18 +80,19 @@
 \BOOKMARK [2][-]{subsection.7.3.4}{7.3.4 オブジェクトを追加する}{section.7.3}% 80
 \BOOKMARK [1][-]{section.7.4}{7.4 起動時にJavaScriptで要素を作成する}{chapter.7}% 81
 \BOOKMARK [2][-]{subsection.7.4.1}{7.4.1 任意の形の曲線を描く}{section.7.4}% 82
-\BOOKMARK [2][-]{subsection.7.4.2}{7.4.2 JavaScriptのオブジェクト}{section.7.4}% 83
+\BOOKMARK [2][-]{subsection.7.4.2}{7.4.2 JavaScriptのオブジェクトとJSON}{section.7.4}% 83
 \BOOKMARK [2][-]{subsection.7.4.3}{7.4.3 SVGのオブジェクトを操作するための関数}{section.7.4}% 84
 \BOOKMARK [2][-]{subsection.7.4.4}{7.4.4 ツェルナーの錯視図形}{section.7.4}% 85
 \BOOKMARK [2][-]{subsection.7.4.5}{7.4.5 一定時間経過後に関数をよびだす\(自前でアニメーションを作成する\)}{section.7.4}% 86
-\BOOKMARK [1][-]{section.7.5}{7.5 HTML文書とその中にある SVG DOM の間でのデータ交換する方法}{chapter.7}% 87
+\BOOKMARK [1][-]{section.7.5}{7.5 HTML文書とその中にある SVG 要素の間でデータ交換する}{chapter.7}% 87
 \BOOKMARK [1][-]{section.7.6}{7.6 より進んだ JavaScriptプログラミング}{chapter.7}% 88
 \BOOKMARK [2][-]{subsection.7.6.1}{7.6.1 配列のメソッドを使う}{section.7.6}% 89
 \BOOKMARK [2][-]{subsection.7.6.2}{7.6.2 クロージャの利用によるグローバル変数の個数の減少}{section.7.6}% 90
-\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGの色名}{}% 91
-\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 92
-\BOOKMARK [0][-]{appendix*.43}{索引}{}% 93
-\BOOKMARK [1][-]{section*.44}{SVGの用語}{appendix*.43}% 94
-\BOOKMARK [1][-]{section*.44}{HTMLの用語}{appendix*.43}% 95
-\BOOKMARK [1][-]{section*.44}{JavaScriptの用語}{appendix*.43}% 96
-\BOOKMARK [1][-]{section*.44}{一般}{appendix*.43}% 97
+\BOOKMARK [2][-]{subsection.7.6.3}{7.6.3 WebStorage}{section.7.6}% 91
+\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGの色名}{}% 92
+\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 93
+\BOOKMARK [0][-]{appendix*.47}{索引}{}% 94
+\BOOKMARK [1][-]{section*.48}{SVGの用語}{appendix*.47}% 95
+\BOOKMARK [1][-]{section*.48}{HTMLの用語}{appendix*.47}% 96
+\BOOKMARK [1][-]{section*.48}{JavaScriptの用語}{appendix*.47}% 97
+\BOOKMARK [1][-]{section*.48}{一般}{appendix*.47}% 98
