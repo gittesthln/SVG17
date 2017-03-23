@@ -2510,3 +2510,7 @@
 \indexentry{::path (ようそ)@\ShowElm {path}::::::::SVG::|hyperpage}{191}
 \indexentry{::\Showattrib {forEach}::Arrayのメソッド::::::JS::|hyperpage}{191}
 \indexentry{::forEach Arrayのめそっど@\Showattrib {forEach}(Arrayのメソッド)::::::::JS::|hyperpage}{191}
+\indexentry{::Web Storage@\Showattrib {Web Storage}::::::::JS::|hyperpage}{191}
+\indexentry{::sessionStorage@\Showattrib {sessionStorage}::::::::JS::|hyperpage}{191}
+\indexentry{::localStorage@\Showattrib {localStorage}::::::::JS::|hyperpage}{191}
+\indexentry{::localStorage@\Showattrib {localStorage}::::::::JS::|hyperpage}{192}

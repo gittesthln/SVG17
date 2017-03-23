@@ -43,7 +43,7 @@
   \item \Showattrib {bevel}(値--図形) \dotfill \hyperpage{41}
   \item \Showattrib {black}(値--色) \dotfill \hyperpage{14}, 
 		\hyperpage{70}
-  \item \Showattrib {blue}(値--色) \dotfill \hyperpage{168}
+  \item \Showattrib {blue}(値--色) \dotfill \hyperpage{169}
   \item \Showattrib {butt}(値--図形) \dotfill \hyperpage{14}
 
   \indexspace
@@ -54,7 +54,7 @@
 		\hyperpage{83}, \hyperpage{90}
   \item \ShowElm {circle} \dotfill \hyperpage{22}, \hyperpage{55}, 
 		\hyperpage{56}, \hyperpage{77}, \hyperpage{138}, 
-		\hyperpage{168}
+		\hyperpage{169}
     \subitem \ItemRuler の属性 \dotfill \hyperpage{23}
   \item \Showattrib {class} \dotfill \hyperpage{117}
   \item \Showattrib {click}(値) \dotfill \hyperpage{146}
@@ -73,7 +73,7 @@
 \item {\large\bf D}\nopagebreak[4]
   \item \Showattrib {d}(図形) \dotfill \hyperpage{43}, \hyperpage{45}, 
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{80}, 
-		\hyperpage{81}, \hyperpage{156}, \hyperpage{167}
+		\hyperpage{81}, \hyperpage{156}, \hyperpage{168}
   \item \Showattrib {darken}(値--フィルタ) \dotfill \hyperpage{106}, 
 		\hyperpage{107}, \hyperpage{109}
   \item \ShowElm {defs} \dotfill \hyperpage{17}, \hyperpage{18}, 
@@ -88,7 +88,7 @@
 		\hyperpage{75}, \hyperpage{87}
   \item \Showattrib {dx}(フィルタ) \dotfill \hyperpage{106}
   \item \Showattrib {dy}(フィルタ) \dotfill \hyperpage{106}
-  \item \Showattrib {d} \dotfill \hyperpage{188}
+  \item \Showattrib {d} \dotfill \hyperpage{189}
 
   \indexspace
 \item {\large\bf E}\nopagebreak[4]
@@ -165,7 +165,7 @@
 		\hyperpage{70}, \hyperpage{78}, \hyperpage{79}, 
 		\hyperpage{87}, \hyperpage{90}, \hyperpage{92}, 
 		\hyperpage{108}, \hyperpage{115}, \hyperpage{134}, 
-		\hyperpage{137}, \hyperpage{173}
+		\hyperpage{137}, \hyperpage{174}
   \item \Showattrib {fill-opacity}(図形) \dotfill \hyperpage{36}, 
 		\hyperpage{37}
   \item \Showattrib {fill-rule}(図形) \dotfill \hyperpage{40}
@@ -198,7 +198,7 @@
 		\hyperpage{17}, \hyperpage{18}, \hyperpage{32}, 
 		\hyperpage{74}, \hyperpage{77}, \hyperpage{78}, 
 		\hyperpage{145}, \hyperpage{146}, \hyperpage{151}, 
-		\hyperpage{154}, \hyperpage{164}, \hyperpage{167}, 
+		\hyperpage{154}, \hyperpage{165}, \hyperpage{167}, 
 		\hyperpage{173}, \hyperpage{177}, \hyperpage{182}
   \item \Showattrib {gamma}(値--フィルタ) \dotfill \hyperpage{116}
   \item \Showattrib {gradientUnits}(色) \dotfill \hyperpage{26}, 
@@ -206,7 +206,7 @@
 		\hyperpage{82}
   \item \Showattrib {gray}(値--色) \dotfill \hyperpage{14}, 
 		\hyperpage{87}
-  \item \Showattrib {green}(値--色) \dotfill \hyperpage{168}
+  \item \Showattrib {green}(値--色) \dotfill \hyperpage{169}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
@@ -340,7 +340,8 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{156}, \hyperpage{167}, \hyperpage{189}
+		\hyperpage{156}, \hyperpage{168}, \hyperpage{190}, 
+		\hyperpage{191}
   \item \Showattrib {path}(図形) \dotfill \hyperpage{77}
   \item \ShowElm {pattern} \dotfill \hyperpage{61}, \hyperpage{62}, 
 		\hyperpage{66}, \hyperpage{68--70}
@@ -453,7 +454,7 @@
   \item \Showattrib {super}(値--フォント) \dotfill \hyperpage{93}
   \item \Showattrib {surfaceScal} \dotfill \hyperpage{122}
   \item \ShowElm {svg} \dotfill \hyperpage{13}, \hyperpage{14}, 
-		\hyperpage{141}, \hyperpage{146--148}, \hyperpage{180}
+		\hyperpage{141}, \hyperpage{146--148}, \hyperpage{181}
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
@@ -464,7 +465,7 @@
   \item \ShowElm {text} \dotfill \hyperpage{42}, \hyperpage{91}, 
 		\hyperpage{92}, \hyperpage{95}, \hyperpage{97}, 
 		\hyperpage{142}, \hyperpage{143}, \hyperpage{151}, 
-		\hyperpage{173}, \hyperpage{174}, \hyperpage{178}
+		\hyperpage{174}, \hyperpage{178}
   \item \Showattrib {text-anchor}(フォント) \dotfill \hyperpage{93}, 
 		\hyperpage{95}, \hyperpage{178}
   \item \Showattrib {text-decoration}(フォント) \dotfill \hyperpage{93}
@@ -476,7 +477,7 @@
   \item \Showattrib {transform} \dotfill \hyperpage{13}, 
 		\hyperpage{17}, \hyperpage{25}, \hyperpage{40}, 
 		\hyperpage{56}, \hyperpage{60}, \hyperpage{74}, 
-		\hyperpage{76}, \hyperpage{97}, \hyperpage{164}
+		\hyperpage{76}, \hyperpage{97}, \hyperpage{165}
     \subitem \ItemRuler の属性値 \dotfill \hyperpage{13}
   \item \Showattrib {translate}(値) \dotfill \hyperpage{13}, 
 		\hyperpage{56}, \hyperpage{60}, \hyperpage{75--77}
@@ -537,7 +538,7 @@
 		\hyperpage{32}, \hyperpage{81}, \hyperpage{82}
   \item \Showattrib {x2}(図形) \dotfill \hyperpage{14}
   \item \Showattrib {xlink:href} \dotfill \hyperpage{17}, 
-		\hyperpage{97}, \hyperpage{99}, \hyperpage{164}
+		\hyperpage{97}, \hyperpage{99}, \hyperpage{165}
   \item \Showattrib {xMaxYMid}(値--図形) \dotfill \hyperpage{68}
   \item \Showattrib {XML}(値) \dotfill \hyperpage{73}
   \item \Showattrib {xmlns:xlink} \dotfill \hyperpage{13}
@@ -607,12 +608,12 @@
     \subitem \Showattrib {spline} \dotfill \hyperpage{73}
   \item 値--色
     \subitem \Showattrib {black} \dotfill \hyperpage{14}, \hyperpage{70}
-    \subitem \Showattrib {blue} \dotfill \hyperpage{168}
+    \subitem \Showattrib {blue} \dotfill \hyperpage{169}
     \subitem \Showattrib {currentColor} \dotfill \hyperpage{78}, 
 		\hyperpage{90}
     \subitem \Showattrib {evenodd} \dotfill \hyperpage{40}
     \subitem \Showattrib {gray} \dotfill \hyperpage{14}, \hyperpage{87}
-    \subitem \Showattrib {green} \dotfill \hyperpage{168}
+    \subitem \Showattrib {green} \dotfill \hyperpage{169}
     \subitem \Showattrib {lightgrey} \dotfill \hyperpage{88}
     \subitem \Showattrib {none} \dotfill \hyperpage{12}, 
 		\hyperpage{34}, \hyperpage{42}, \hyperpage{45}
@@ -783,7 +784,7 @@
     \subitem \Showattrib {cy} \dotfill \hyperpage{23}, \hyperpage{140}
     \subitem \Showattrib {d} \dotfill \hyperpage{43}, \hyperpage{45}, 
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{80}, 
-		\hyperpage{81}, \hyperpage{156}, \hyperpage{167}
+		\hyperpage{81}, \hyperpage{156}, \hyperpage{168}
     \subitem \Showattrib {end} \dotfill \hyperpage{87}
     \subitem \Showattrib {fill-opacity} \dotfill \hyperpage{36}, 
 		\hyperpage{37}
@@ -795,7 +796,7 @@
 		\hyperpage{70}, \hyperpage{78}, \hyperpage{79}, 
 		\hyperpage{87}, \hyperpage{90}, \hyperpage{92}, 
 		\hyperpage{108}, \hyperpage{115}, \hyperpage{134}, 
-		\hyperpage{137}, \hyperpage{173}
+		\hyperpage{137}, \hyperpage{174}
     \subitem \Showattrib {height} \dotfill \hyperpage{13}, 
 		\hyperpage{18}, \hyperpage{20}, \hyperpage{61}, 
 		\hyperpage{63}, \hyperpage{70}, \hyperpage{155}
@@ -965,7 +966,7 @@
     \subitem \ShowElm {animatMotion} \dotfill \hyperpage{73}
     \subitem \ShowElm {circle} \dotfill \hyperpage{22}, \hyperpage{55}, 
 		\hyperpage{56}, \hyperpage{77}, \hyperpage{138}, 
-		\hyperpage{168}
+		\hyperpage{169}
     \subitem \ShowElm {defs} \dotfill \hyperpage{17}, \hyperpage{18}, 
 		\hyperpage{25}, \hyperpage{26}, \hyperpage{61}, 
 		\hyperpage{79}, \hyperpage{86}, \hyperpage{99}
@@ -978,7 +979,7 @@
 		\hyperpage{17}, \hyperpage{18}, \hyperpage{32}, 
 		\hyperpage{74}, \hyperpage{77}, \hyperpage{78}, 
 		\hyperpage{145}, \hyperpage{146}, \hyperpage{151}, 
-		\hyperpage{154}, \hyperpage{164}, \hyperpage{167}, 
+		\hyperpage{154}, \hyperpage{165}, \hyperpage{167}, 
 		\hyperpage{173}, \hyperpage{177}, \hyperpage{182}
     \subitem \ShowElm {image} \dotfill \hyperpage{67}, \hyperpage{70}
     \subitem \ShowElm {line} \dotfill \hyperpage{14}, \hyperpage{154}
@@ -990,7 +991,8 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{156}, \hyperpage{167}, \hyperpage{189}
+		\hyperpage{156}, \hyperpage{168}, \hyperpage{190}, 
+		\hyperpage{191}
     \subitem \ShowElm {pattern} \dotfill \hyperpage{61}, 
 		\hyperpage{62}, \hyperpage{66}, \hyperpage{68--70}
     \subitem \ShowElm {polygon} \dotfill \hyperpage{39}, 
@@ -1006,11 +1008,11 @@
 		\hyperpage{83}
     \subitem \ShowElm {style} \dotfill \hyperpage{103}
     \subitem \ShowElm {svg} \dotfill \hyperpage{13}, \hyperpage{14}, 
-		\hyperpage{141}, \hyperpage{146--148}, \hyperpage{180}
+		\hyperpage{141}, \hyperpage{146--148}, \hyperpage{181}
     \subitem \ShowElm {text} \dotfill \hyperpage{42}, \hyperpage{91}, 
 		\hyperpage{92}, \hyperpage{95}, \hyperpage{97}, 
 		\hyperpage{142}, \hyperpage{143}, \hyperpage{151}, 
-		\hyperpage{173}, \hyperpage{174}, \hyperpage{178}
+		\hyperpage{174}, \hyperpage{178}
     \subitem \ShowElm {textPath} \dotfill \hyperpage{97}
     \subitem \ShowElm {tspan} \dotfill \hyperpage{92}, \hyperpage{94}
     \subitem \ShowElm {use} \dotfill \hyperpage{17}, \hyperpage{22}, 

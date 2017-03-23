@@ -237,3 +237,37 @@ $\blacktriangleright$Object {x: 20, y: 20}
 			 入しています(\Lines{paramSetS}{paramSetE})
 \end{itemize}
 \subsection{WebStorage}
+Web ページ上で作成したデータをそのままブラウザが動作しているコンピュータ
+上に保存することはセキュリティ上できません。しかし、ブラウザが管理する領
+域に保存することは可能です。この節ではそれらの方法につい
+て簡単な解説をします。
+
+\ElmJ{Web Storage}とは HTML5 で導入された、Webページ間のデータの共有する仕組みで
+す。HTML5以前の方法ではクッキーと呼ばれるデータをクライアントとサーバー
+の間で共有してサーバー側からデータの共有をサポートする仕組みがありました。
+クッキーでは小さなデータしか扱えず、サーバーとクライアントとのやりがある
+たびに送られるのでセキュリティや速度の面で問題がありました。
+
+HTML5ではこれに代わる方法としてブラウザーのあるページ以降のページにだけ
+存在する\ElmJ{sessionStorage}とページが閉じられてもデータが存続できる
+\ElmJ{localStorage}が提案されています。なお、これらの値はすべて文字列で
+しか保存できません。
+
+リスト\ref{pinna-storage.js}はリスト
+\ref{pinna.html}(\pageref{pinna.html}ページ)
+において最後に設定した色をStorageに保存しておくように\JS ファイルを書き
+直したものです。
+\JSListN{Storageを利用する}{pinna-storage}{pinna-storage.js}
+このリストは\texttt{Storage}に対応する部分が追加されているだけです。
+\begin{itemize}
+ \item \Line{storage}で変数\texttt{Storage}に
+       \texttt{window.localStorage}を代入しています。これは後で
+       \ElmJ{localStorage}に書き直すのを簡単にするためです。
+ \item \Line{setFromStorage1}ではテキストボックス「色1」の初期値を
+       \texttt{Storage.C1}が定義されていたらその値を、そうでない場合には
+       \texttt{''red''}に設定しています。
+ \item 「色2」の方も同様です。
+ \item 「設定」ボタンが押されたときに呼び出される関数\texttt{DrawFigs}で
+       は色の情報を対応する\texttt{Storage}に格納しています
+       (\Lines{saveFromStorage1}{saveFromStorage2})。
+\end{itemize}
