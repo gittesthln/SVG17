@@ -102,13 +102,13 @@
 \contentsline {subsubsection}{JavaScriptとは}{125}{section*.33}
 \contentsline {subsection}{\numberline {7.1.2}DOM(Docunment Object Model)}{126}{subsection.7.1.2}
 \contentsline {subsection}{\numberline {7.1.3}DOM のメソッドとプロパティ}{131}{subsection.7.1.3}
-\contentsline {section}{\numberline {7.2}イベント}{132}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}イベント概説}{132}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}{\upshape SVG} 文書や HTML における代表的なイベント}{133}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.2}イベント}{133}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}イベント概説}{133}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}{\upshape SVG} 文書や HTML における代表的なイベント}{134}{subsection.7.2.2}
 \contentsline {section}{\numberline {7.3}JavaScriptによる{\upshape SVG} 文書のマウスイベントの処理}{134}{section.7.3}
 \contentsline {subsection}{\numberline {7.3.1}マウスに関するイベント処理}{134}{subsection.7.3.1}
 \contentsline {subsubsection}{マウスイベントオブジェクトについて}{134}{section*.34}
-\contentsline {subsubsection}{クリックされたオブジェクトの属性値を表示する}{134}{section*.35}
+\contentsline {subsubsection}{クリックされたオブジェクトの属性値を表示する}{136}{section*.35}
 \contentsline {subsubsection}{クリックされたオブジェクトの属性値を変える}{138}{section*.36}
 \contentsline {subsubsection}{他のオブジェクトの属性値を変える}{140}{section*.37}
 \contentsline {subsubsection}{クリックした位置をSVG内に表示する}{141}{section*.38}
@@ -134,11 +134,11 @@
 \contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{188}{section*.45}
 \contentsline {subsubsection}{クロージャ}{189}{section*.46}
 \contentsline {subsection}{\numberline {7.6.3}WebStorage}{191}{subsection.7.6.3}
-\contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
+\contentsline {chapter}{\numberline {付 録A }SVGで利用できる色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
-\contentsline {chapter}{\numberline {付 録C }CSSについて}{付録 11}{appendix.C}
-\contentsline {chapter}{索引}{付録 14}{Item.81}
-\contentsline {section}{SVGの用語}{付録 14}{section*.48}
-\contentsline {section}{HTMLの用語}{付録 21}{section*.48}
-\contentsline {section}{JavaScriptの用語}{付録 23}{section*.48}
-\contentsline {section}{一般}{付録 26}{section*.48}
+\contentsline {chapter}{\numberline {付 録C }CSSについて}{付録 9}{appendix.C}
+\contentsline {chapter}{索引}{付録 12}{Item.81}
+\contentsline {section}{SVGの用語}{付録 12}{section*.48}
+\contentsline {section}{HTMLの用語}{付録 19}{section*.48}
+\contentsline {section}{JavaScriptの用語}{付録 21}{section*.48}
+\contentsline {section}{一般}{付録 24}{section*.48}

@@ -10,9 +10,14 @@
 \newcommand{\RGB}[2]{}
 \setlength{\fboxrule}{0.1mm}
 \setlength{\fboxsep}{0mm}
-\chapter{SVGの色名}\label{SVGColor}\setcounter{page}{1}
-次の表は\cite{SVG11}にあるSVGで利用できる色名とその\texttt{rbg}値の一覧表
-です。
+\chapter{SVGで利用できる色名}\label{SVGColor}\setcounter{page}{1}\vspace*{-1em}
+次の表はSVGで利用できる色名とその\texttt{rbg}値の一覧表
+です\cite{SVG11}\footnote{
+\texttt{\#} で始まる3桁の16進表示は個々の数値を繰り返した16進表示と同じです。たと
+えば\protect\texttt{\#fb8}は\texttt{\#ffbb88}を意味します%
+(\href{https://www.w3.org/TR/2011/REC-SVG11-20110816/types.html\#DataTypeColor}
+{https://www.w3.org/TR/2011/REC-SVG11-20110816/types.html\#DataTypeColor}
+)。}。
 {\small
 \begin{longtable}{|c|c|c|c|}
 \hline
