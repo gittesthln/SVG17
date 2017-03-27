@@ -1,0 +1,22 @@
+\JS の配列のメソッドを用いて、\JS リス
+ト\ref{pinna.js}を書き直したものが\JS リスト\ref{pinna-rev.js}です。
+
+\JSListN{リスト\ref{pinna.html}で読み込む\JS ファイル--改良版}{pinna-rev}{pinna-rev.js}
+\begin{itemize}
+ \item \Line{Array.fill}で長さが6の配列に図形の構成要素の\Elm{path}を代
+			 入しています。
+			 \begin{itemize}
+				\item \Verb+new Array(6)+は長さが6の配列が作成されますが、値は
+							\ElmJ{undefined}で初期化されます。
+				\item 値が\JSVal{undefined}の要素に対しては\ElmJA{map}などは適用され
+							ません。
+				\item したがって、\ElmJA{fill}で1に初期化し、その配列に対して
+							\Elm{path}を代入しています。
+			 \end{itemize}
+ \item それぞれの\Elm{path}を構成するところにはそれぞれのパラメタを一つ
+			 の配列にし、それらを集めて長さが6の配列にしたもの
+			 (\Lines{forEachS}{forEachE})に対して\ElmJA{forEach}を適用していま
+			 す。
+ \item 前の例と同じにするために配列の成分を借り引数の名前と同じ変数に代
+			 入しています(\Lines{paramSetS}{paramSetE})
+\end{itemize}

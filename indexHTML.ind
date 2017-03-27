@@ -41,7 +41,7 @@
   \item \ShowElm {id} \dotfill \hyperpage{179}
   \item \Showattrib {id}(属性) \dotfill \hyperpage{178}
   \item \Showattrib {inline-block}(CSSの値) \dotfill \hyperpage{178}
-  \item \ShowElm {input} \dotfill \hyperpage{179}
+  \item \ShowElm {input} \dotfill \hyperpage{179}, \hyperpage{194}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
@@ -74,9 +74,10 @@
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
-  \item \Showattrib {text}(値) \dotfill \hyperpage{179}
+  \item \Showattrib {text}(値) \dotfill \hyperpage{179}, \hyperpage{194}
   \item \Showattrib {text-align}(CSSプロパティ) \dotfill \hyperpage{179}
-  \item \Showattrib {type}(属性) \dotfill \hyperpage{179}
+  \item \Showattrib {type}(属性) \dotfill \hyperpage{179}, 
+		\hyperpage{194}
 
   \indexspace
 \item {\large\bf V}\nopagebreak[4]
@@ -87,7 +88,8 @@
   \indexspace
 \item {\large\bf あ}\nopagebreak[4]
   \item 値
-    \subitem \Showattrib {text} \dotfill \hyperpage{179}
+    \subitem \Showattrib {text} \dotfill \hyperpage{179}, 
+		\hyperpage{194}
 
   \indexspace
 \item {\large\bf お}\nopagebreak[4]
@@ -101,7 +103,8 @@
 		\hyperpage{177}, \hyperpage{178}
     \subitem \Showattrib {id} \dotfill \hyperpage{178}
     \subitem \Showattrib {name} \dotfill \hyperpage{180}
-    \subitem \Showattrib {type} \dotfill \hyperpage{179}
+    \subitem \Showattrib {type} \dotfill \hyperpage{179}, 
+		\hyperpage{194}
     \subitem \Showattrib {value} \dotfill \hyperpage{180}
 
   \indexspace
@@ -115,7 +118,7 @@
     \subitem \ShowElm {htaml} \dotfill \hyperpage{177}
     \subitem \ShowElm {HTML} \dotfill \hyperpage{4}
     \subitem \ShowElm {id} \dotfill \hyperpage{179}
-    \subitem \ShowElm {input} \dotfill \hyperpage{179}
+    \subitem \ShowElm {input} \dotfill \hyperpage{179}, \hyperpage{194}
     \subitem \ShowElm {meta} \dotfill \hyperpage{177}
     \subitem \ShowElm {option} \dotfill \hyperpage{180}
     \subitem \ShowElm {script} \dotfill \hyperpage{134}

@@ -130,14 +130,15 @@
 \contentsline {section}{\numberline {7.5}HTML文書とその中にある SVG 要素の間でデータ交換する}{175}{section.7.5}
 \contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{184}{section.7.6}
 \contentsline {subsection}{\numberline {7.6.1}配列のメソッドを使う}{184}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}クロージャの利用によるグローバル変数の個数の減少}{187}{subsection.7.6.2}
-\contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{187}{section*.45}
-\contentsline {subsubsection}{クロージャ}{188}{section*.46}
+\contentsline {subsection}{\numberline {7.6.2}クロージャの利用によるグローバル変数の個数の減少}{188}{subsection.7.6.2}
+\contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{188}{section*.45}
+\contentsline {subsubsection}{クロージャ}{189}{section*.46}
 \contentsline {subsection}{\numberline {7.6.3}WebStorage}{191}{subsection.7.6.3}
 \contentsline {chapter}{\numberline {付 録A }SVGの色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
-\contentsline {chapter}{索引}{付録 10}{appendix*.47}
-\contentsline {section}{SVGの用語}{付録 10}{section*.48}
-\contentsline {section}{HTMLの用語}{付録 17}{section*.48}
-\contentsline {section}{JavaScriptの用語}{付録 19}{section*.48}
-\contentsline {section}{一般}{付録 22}{section*.48}
+\contentsline {chapter}{\numberline {付 録C }CSSについて}{付録 11}{appendix.C}
+\contentsline {chapter}{索引}{付録 14}{Item.81}
+\contentsline {section}{SVGの用語}{付録 14}{section*.48}
+\contentsline {section}{HTMLの用語}{付録 21}{section*.48}
+\contentsline {section}{JavaScriptの用語}{付録 23}{section*.48}
+\contentsline {section}{一般}{付録 26}{section*.48}

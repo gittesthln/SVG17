@@ -1,0 +1,82 @@
+\subsubsection{変数のスコープと仮引数への値の渡し方}
+\ElmJ{変数のスコープ}とは使用する変数がどの範囲で参照できるか概念です。
+\begin{itemize}
+ \item \JS は変数は宣言しなくても使用可能です。最近の\JS の仕様では宣言
+			 しない変数は使えないモードを宣言できます。
+ \item 関数などの外で宣言されたり、宣言がない変数はどこからでも参照が可
+			 能な変数(\ElmJ{グローバル変数})になります。
+ \item 関数内で宣言された変数はそれ以下の関数内で参照可能です。
+\end{itemize}
+関数の引数に対して、単純な変数は値渡し、配列は参照渡しとなります。
+\begin{Verbatim}[numbers=left, fontsize=\small,
+	commandchars=\\//,codes={\catcode`$=3\catcode`^=7}]
+>foo =function(X,Y,Z) {
+    X = X*2;
+    Y[0] *= 2;
+    Z.x *=2;}
+function (X,Y,Z) {
+    X = X*2;
+    Y[0] *= 2;
+    Z.x *=2;}
+>A=1
+1
+>B=[2,3]
+$\blacktriangleright$[2, 3]
+>C={x:10,y:20};
+$\blacktriangleright$Object {x: 10, y: 20}
+>foo(A,B,C);
+undefined
+>A;
+1
+>B;
+$\blacktriangleright$[4, 3]
+>C;
+$\blacktriangleright$Object {x: 20, y: 20}
+\end{Verbatim}
+\subsubsection{クロージャ}
+いままでの\JS のプログラムでは、他の関数とデータのやり取りにグローバル変
+数を多用してきました。グローバル変数を多用することは、複数人でプログラム
+を開発するときなどに変数名の衝突がおき、それによってバグが発生する可能性
+が増大します。これを避ける方法の一つとして%前節で示したような
+関数の中で別の関数オブジェクトを作成する方法があります。
+関数の中で新しく関数を定義すると、新しい関数ではその関数を定義する関数内
+のローカル変数を参照できます。関数が実行されるときの環境を含めた状態を
+\keyitem{クロージャ}と呼びます。
+
+リスト\ref{svg-cycloid-animation-with-closure}はリスト
+\ref{svg-cycloid-animation}(\pageref{svg-cycloid-animation}ページ)を改造
+して、グローバル変数をまったく使わない
+サイクロイドをアニメーションで描くものです。
+\SVGListN{サイクロイドを描く --- アニメーション版(グローバル変数なし)}
+{svg-cycloid-animation-with-closure3}
+{svg-cycloid-animation-with-closure}
+\begin{itemize}
+ \item すべてのグローバル変数を\Event{onload}後に実行する関数内に移動しています
+       (\LineR{GlobalS}{GlobalE})。
+ \item その関数内でロカールな関数を定義しています
+			 (\LineR{ClosureS}{ClosureE})。
+\begin{itemize}
+ \item 関数名は\Func{DrawNext}となっています(\Line{ClosureS})。
+ \item \ElmJ{function}の前に\texttt{(}がついています。これに対応する
+			 \texttt{)}は\Line{ClosureE}にあります。
+			 %
+  そのあとにある\texttt{()}はこの関数の引数リストです(ここでは
+			 引数がないので空です)。
+			 
+  これにより関数を定義してその場で実行できます。
+ \item 関数の定義位置が変わっただけで、残りのコードはほとんど同じです。
+ \item 一番の違いは\Attrib{d}で必要となる座標データを配列として保存している
+			 ことです(\Line{GlobalE})。
+ \item また、\Line{push}で新たに計算した座標をこの配列に追加しています
+			 (\ElmJ{push}メソッド)。
+ \item \Line{join}の\ElmJ{join}は配列の要素を、引数の文字列をはさんでつ
+       なげるメソッドです。配列内の文字列の連接
+       を連接演算子\texttt{+}を用いるよりも簡単に記述できます。
+ \item \Line{callee}ではこの関数自身がこの後、
+			 呼び出せるように設定しています\footnote{関数の引数のリストを参照
+			 する\ElmJ{arguments}のメンバー\ElmJ{callee}を用いると、無名関数を
+			 参照できます。最新版の\JS では非推奨となっているので無名関数にし
+			 ません。}。
+\end{itemize}
+
+\end{itemize}

@@ -51,7 +51,7 @@
 		\hyperpage{181}
   \item \Showattrib {onend}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onload}(イベント) \dotfill \hyperpage{134}, 
-		\hyperpage{139}, \hyperpage{189}
+		\hyperpage{139}, \hyperpage{190}
   \item \Showattrib {onmousedown}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onmousemove}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onmouseout}(イベント) \dotfill \hyperpage{134}
@@ -104,7 +104,7 @@
 		\hyperpage{181}
     \subitem \Showattrib {onend} \dotfill \hyperpage{134}
     \subitem \Showattrib {onload} \dotfill \hyperpage{134}, 
-		\hyperpage{139}, \hyperpage{189}
+		\hyperpage{139}, \hyperpage{190}
     \subitem \Showattrib {onmousedown} \dotfill \hyperpage{134}
     \subitem \Showattrib {onmousemove} \dotfill \hyperpage{134}
     \subitem \Showattrib {onmouseout} \dotfill \hyperpage{134}
@@ -156,7 +156,7 @@
   \item クリック \dotfill \hyperpage{132}
   \item クリックの処理(JavaScript) \dotfill \hyperpage{134}
   \item クレイク・オブライエン効果 \dotfill \hyperpage{35}
-  \item クロージャ \dotfill \hyperpage{188}
+  \item クロージャ \dotfill \hyperpage{189}
 
   \indexspace
 \item {\large\bf こ}\nopagebreak[4]

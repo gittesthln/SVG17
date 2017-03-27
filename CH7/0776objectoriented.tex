@@ -1,0 +1,125 @@
+%\JS にはクラスという概念はありません。
+\JS の連想配列を定義する右辺の表し
+方は正式には\keyitem{オブジェクトリテラル}と呼ばれます。このキーに対する
+値として関数を与えれば、あたかもメソッドのように取り扱うことができます。
+
+図\ref{objectliteral}はリスト\ref{objectliteralL}のオブジェクトリテラル
+の説明のための\JS のプログラムの実行結果です。
+
+\ShowFig{0.7}{ht}{objectliteral}{オブジェクトリテラルの実行例}{objectliteral}
+\HTMLListN{オブジェクトリテラルの実行例}{testObject1}{objectliteralL}
+
+\begin{itemize}
+ \item \LineR{ObjS}{ObjE}で変数\texttt{Point}にオブジェクトを定義してい
+       ます。
+ \item このオブジェクトには3つの要素が定義されています。これらの要素のう
+       ち\Lines{x}{y}は数値を、\LineR{methodS}{methodE}では関数を与えて
+       います。
+ \item \texttt{setPos}では引数で指定された値をオブジェクトのメンバー
+       \texttt{x}と\texttt{y}に設定しています。\ElmJ{this}は自分自身を指
+       すオブジェクトです。
+ \item \Lines{ShowX1}{ShowY1}では連想配列の形でメンバーの値を表示させて
+       います。
+ \item \Lines{ShowX2}{ShowY2}では通常のオブジェクトのメンバーを指定する
+       方法を用いています。このほうがよりわかりやすい形になっていま
+       すので、場面により使い分けることができます。\footnote{連想配列形
+       式を利用すると\ElmJ{for}を用いてすべてのメンバーの情報を調べるこ
+       とができます。これは情報が少ない、新しいオブジェクトを解析するとき
+       に役立ちます。}
+ \item \Line{ChangeProp}では\texttt{setPos}を用いてオブジェクトのメンバー
+       の\texttt{x}と\texttt{y}の値を変更しています。実際に値が変更され
+       ているのが確認できます。
+ \item \Line{ChangeMethod}ではメソッド\texttt{setPos}を書き換えています。
+       \JS はインタープリタ言語なので実行時に変更を行うことが可能です。
+       \Line{CheckFunc}で結果を確認しています。       
+\end{itemize}
+ここで示した例では、同じようなオブジェクトを複数必要とする場合には同じ内
+容を何度も書くことになります。これを避けるためには関数を定義してそれに
+\ElmJ{new} キーワードを付けて呼び出すことで、オブジェクトのコンストラク
+タとすることができます。図\ref{objectliteral2}がその例の実行結果です。
+\ShowFig{0.7}{ht}{object2}{コンストラクタの実行例}{objectliteral2}
+\HTMLListN{コンストラクタの実行例}{testObject2}{objectliteralL2}
+\begin{itemize}
+ \item \LineR{ObjS}{ObjE}で\texttt{Point}オブジェクトのコンストラクタを
+       定義しています。このコンストラクタは2つの引数を持ちます。
+\begin{itemize}
+ \item \Lines{ChangeX}{ChangeY}でオブジェクトのメンバー\texttt{x}と
+       \texttt{y}に引数の値を設定しています。
+ \item \LineR{methodS}{methodE}でメソッド\texttt{setPos}を定義しています。
+\end{itemize}
+ \item \Line{New}で\texttt{Point}のインスタンスを作成し、変数\texttt{P1}に保存して
+       います。
+ \item \LineR{ShowX2}{ShowY4}でまえと同様に動作を確認しています。
+ \item \Line{New2}で別のインスタンスを作成しています。
+ \item \Line{ChangeMethod}で初めのインスタンスのメソッド\texttt{setPos}
+       を変更しています。
+ \item この変更が有効であることと、別のインスタンスには影響がないことを
+       \LineR{CheckFunc}{ShowY5}で確認しています。
+\end{itemize}
+この例ではインスタンスのメソッドが同じコンストラクタから生成されたインス
+タンスの間で共有されていないことを示します。同じコンストラクタから生成さ
+れたインスタンスの間で共有したいデータはコンストラクタ関数の
+\ElmJ{prototype}に定義します。
+
+図\ref{objectliteral3}が\ElmJ{prototype}に共通のメソッドを定義した例です。
+\ShowFig{0.7}{ht}{object3}{\texttt{prototype}の利用の実行例}{objectliteral3}
+\HTMLListN{\texttt{prototype}の利用の実行例}{testObject3}{objectliteralL3}
+このリストでは、\texttt{setPos}が\ElmJ{prototype}の関数として定義されて
+います(\LineR{methodS}{methodE})。また、\Line{ChangeMethod}でメソッドを
+変更し、それらのインスタンスすべてに変更が有効であることを確認しています
+(\Lines{CheckFunc}{CheckFunc2})。
+\subsection{オブジェクト指向の例}
+図\ref{ShowSetClickPos}をオブジェクトを用いて書き直してみます。ただし、
+ここでは複数の円を表示するので円の移動はクリックではなくドラッグで行いま
+す。図\ref{interactive-object}がその画面です。
+\ShowFig{0.9}{ht}{interactive-object}{オブジェクトを用いたHTML文
+書}{interactive-object}
+
+ここではSVG内の円と右側の円の中心位置の情報の表示を一つのオブジェクトと
+して構成しています。リスト\ref{Point}がそのオブジェクトのリストです。こ
+のファイル名は\texttt{Point.js}とします。
+\JSListN{オブジェクトの定義}{Point}{Point}
+\begin{itemize}
+ \item 1行目から18行目で\texttt{Point}のコンストラクタ関数を定義していま
+       す。
+\begin{itemize}
+ \item このコンストラクタは図形を表示するための親要素(\texttt{PFig})、中
+       心位置を表示するための親要素(\texttt{PText})、円に関する情報の中心位置
+       (\texttt{cx}と\texttt{cy})、塗りつぶしの色(\texttt{fill})と半径
+       (\texttt{r})を引数に持ちます。
+ \item このコンストラクタは生成された順番に番号を付けます(4行目)。そのた
+       めに\ElmJ{prototype}に\texttt{No}というメンバーを定義しています
+       (19行目)
+ \item 7行目から8行目で図形の要素を定義してます。
+ \item 9行目から16行目で円の中心位置を表示する要素を定義してそれぞれメン
+       バーとして保存しています。
+\end{itemize}
+ \item 19行目では通し番号の初期化をしています。
+ \item 20行目から24行目ではテキストボックスの値から円の位置を設定するメ
+       ソッドを定義しています。
+ \item 25行目から29行目では与えられた位置に円を移動させるメソッドを定義
+       しています。この関数は主にドラッグ中に呼び出されます。
+ \item 30行目から34行目では与えられた情報に基づいて表示を変更するメソッ
+       ドを定義しています。
+\end{itemize}
+リスト\ref{interact-objectL}が図\ref{interactive-object}のリストです。
+\HTMLListN{インターラクティブなオブジェク
+ト}{interact-object}{interact-objectL}
+
+このリストは\texttt{Point.js}以外にリスト7.14の\texttt{make-svg-elm.js}
+も利用しています。
+\begin{itemize}
+ \item 9行目から40行目がで文書がロード完了後に呼び出される
+関数を定義しています。ここでの\JS はこの関数だけです。
+ \item 13行目から15行目で生成するインスタンスのリストを作成しています。
+ \item 16行目から24行目でマウスボタンが押されたときの処理を定義していま
+       す。ここでは現在設定されている円の中心位置とイベントが通知された
+       ときの位置の差を保存していることに注意してください。
+ \item 25行目から27行目ではマウスボタンが離されたときの処理を定義してい
+       ます。
+ \item 28行目から31行目ではドラッグ中の処理を定義してます。
+ \item 32行目ではマウスボタンが押されたときと離されたときの処理をSVGの図
+       形全体に登録しています。
+ \item 33行目から39行目は、「設定」ボタンが押されたときの処理を定義して
+       います。
+\end{itemize}

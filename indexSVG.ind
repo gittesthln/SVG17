@@ -88,7 +88,7 @@
 		\hyperpage{75}, \hyperpage{87}
   \item \Showattrib {dx}(フィルタ) \dotfill \hyperpage{106}
   \item \Showattrib {dy}(フィルタ) \dotfill \hyperpage{106}
-  \item \Showattrib {d} \dotfill \hyperpage{189}
+  \item \Showattrib {d} \dotfill \hyperpage{190}
 
   \indexspace
 \item {\large\bf E}\nopagebreak[4]
@@ -340,8 +340,7 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{156}, \hyperpage{168}, \hyperpage{190}, 
-		\hyperpage{191}
+		\hyperpage{156}, \hyperpage{168}, \hyperpage{188}
   \item \Showattrib {path}(図形) \dotfill \hyperpage{77}
   \item \ShowElm {pattern} \dotfill \hyperpage{61}, \hyperpage{62}, 
 		\hyperpage{66}, \hyperpage{68--70}
@@ -991,8 +990,7 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{156}, \hyperpage{168}, \hyperpage{190}, 
-		\hyperpage{191}
+		\hyperpage{156}, \hyperpage{168}, \hyperpage{188}
     \subitem \ShowElm {pattern} \dotfill \hyperpage{61}, 
 		\hyperpage{62}, \hyperpage{66}, \hyperpage{68--70}
     \subitem \ShowElm {polygon} \dotfill \hyperpage{39}, 

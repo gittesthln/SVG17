@@ -1,0 +1,79 @@
+Web ページ上で作成したデータをそのままブラウザが動作しているコンピュータ
+上に保存することはセキュリティ上できません。しかし、ブラウザが管理する領
+域に保存することは可能です。この節ではそれらの方法につい
+て簡単な解説をします。
+
+\ElmJ{Web Storage}とは HTML5 で導入された、Webページ間のデータの共有する仕組みで
+す。HTML5以前の方法ではクッキーと呼ばれるデータをクライアントとサーバー
+の間で共有してサーバー側からデータの共有をサポートする仕組みがありました。
+クッキーでは小さなデータしか扱えず、サーバーとクライアントとのやりがある
+たびに送られるのでセキュリティや速度の面で問題がありました。
+
+HTML5ではこれに代わる方法としてブラウザーのあるページ以降のページにだけ
+存在する\ElmJ{sessionStorage}とページが閉じられてもデータが存続できる
+\ElmJ{localStorage}が提案されています。なお、これらの値はすべて文字列で
+しか保存できません。
+
+リスト\ref{pinna-storage.js}はリスト
+\ref{pinna.html}(\pageref{pinna.html}ページ)
+において最後に設定した色をStorageに保存しておくように\JS ファイルを書き
+直したものです。
+\JSListN{Storageを利用する}{pinna-storage}{pinna-storage.js}
+このリストは\texttt{Storage}に対応する部分が追加されているだけです。
+\begin{itemize}
+ \item \Line{storage}で変数\texttt{Storage}に
+       \texttt{window.localStorage}を代入しています。これは後で
+       \ElmJ{sessionStorage}に書き直すのを簡単にするためです。
+ \item \Line{setFromStorage1}ではテキストボックス「色1」の初期値を
+       \texttt{Storage.C1}が定義されていたらその値を、そうでない場合には
+       \texttt{"red"}に設定しています。
+ \item 「色2」の方も同様です。
+ \item 「設定」ボタンが押されたときに呼び出される関数\texttt{DrawFigs}で
+       は色の情報を対応する\texttt{Storage}に格納しています
+       (\Lines{saveFromStorage1}{saveFromStorage2})。
+\end{itemize}
+図\ref{pinna-storage.html}はデベロッパーツールで\ElmJ{localStorage}の
+値の確認をしているところです。
+\ShowFig{0.8}{ht}{pinna-storage}
+{\protect\texttt{sessionStorage}の値の確認}{pinna-storage.html}
+\begin{Problem}\upshape
+ リスト\ref{pinna-storage.js}について次のことを確認しなさい。
+ \begin{itemize}
+  \item \ElmJ{localStorage}の値上でダブルクリックする(または右クリック)
+        と値が直接書き直せます。また、キーの削除もできます。
+        別の値に書き直した後で開きなおすとその値
+        が反映された図が描ける。
+%  \item これらのファイルを別のフォルダにコピーして表示すると、初期値で表
+%        示される。
+  \item リストの\Line{storage}をコメントアウトして、\Line{storage2}のコ
+        メントを外して、別の値を設定する。
+        \begin{itemize}
+         \item \ElmJ{locaStorage}の方ではな
+        く、\ElmJ{sessionStorage}の方が書き直されている。
+         \item 再表示すると最後に設定した値が反映されない。
+         \item 再表示後は\ElmJ{sessionStorage}の値が全くない。
+        \end{itemize}
+ \end{itemize}
+\end{Problem}
+
+次のリストは配列のメソッドやWebStorageに配列のデータを格納するように変更
+したものです。リスト\ref{pinna-storage.js}と異なるところだけ解説します。
+\JSListN{Storageを利用する}{pinna-storage-rev}{pinna-storage-rev.js}
+\begin{itemize}
+ \item \Line{selectorAll}では\DOMM{querySelectorAll}を用いて、色が設定
+       されている\ElmH{input}のリストを得ています。
+       \DOMM{querySelectorAll}ではCSSのセレクタで該当する要素をすべて得
+       ることができます。ここでは\ElmH{input}で\AttribH{type}が
+       \AttribHVal{text}のものを指定しています。\HTML 内での書き方と同じ
+       にするので\Verb+"+を記述するために\Verb+\"+と記述しています。%"
+ \item \Line{getDAtaFromStorage}では\Verb+Storage.C+に値が設定されていれ
+       ばその値を\ElmJ{JSON}の\JSM{parse}メソッドを用いて\JS のオブジェ
+       クトに変更しています。ない場合は初期値の配列にしています。
+ \item \Line{setValuesInput}では、\Line{selectorAll}で得られた
+       \ElmH{input}の配列に値を設定しています。
+ \item 同様に、\Line{getDataFromInputs}では配列のメソッド\ElmJA{map}を
+       利用するために\JSM{call}を用いて\ElmH{input}のデータを配列に代入
+       しています。
+ \item \Line{saveDataInStorage}では\Verb+Storage.C+に保存するために
+       \ElmJ{JSON}の\JSM{stringify}メソッドを使用しています。
+\end{itemize}

@@ -14,22 +14,22 @@
   \item \Showattrib {appendChild}(DOMのメソッド) \dotfill 
 		\hyperpage{132}, \hyperpage{144}, \hyperpage{156}, 
 		\hyperpage{174}
-  \item \Showattrib {arguments} \dotfill \hyperpage{190}
+  \item \Showattrib {arguments} \dotfill \hyperpage{191}
   \item \Showattrib {Array} \dotfill \hyperpage{187}
   \item Arrayのメソッド
     \subitem \Showattrib {concat} \dotfill \hyperpage{184}
     \subitem \Showattrib {every} \dotfill \hyperpage{185}
     \subitem \Showattrib {fill} \dotfill \hyperpage{184}, 
-		\hyperpage{190}
+		\hyperpage{188}
     \subitem \Showattrib {filter} \dotfill \hyperpage{186}
-    \subitem \Showattrib {forEach} \dotfill \hyperpage{185--187}, 
-		\hyperpage{191}
+    \subitem \Showattrib {forEach} \dotfill \hyperpage{185--188}, 
+		\hyperpage{194}
     \subitem \Showattrib {indexOf} \dotfill \hyperpage{185}
     \subitem \Showattrib {join} \dotfill \hyperpage{184}
     \subitem \Showattrib {lastIndexOf} \dotfill \hyperpage{185}
     \subitem \Showattrib {length} \dotfill \hyperpage{184}
     \subitem \Showattrib {map} \dotfill \hyperpage{185}, 
-		\hyperpage{186}, \hyperpage{190}
+		\hyperpage{186}, \hyperpage{188}, \hyperpage{194}
     \subitem \Showattrib {pop} \dotfill \hyperpage{185}
     \subitem \Showattrib {push} \dotfill \hyperpage{185}
     \subitem \Showattrib {reduce} \dotfill \hyperpage{185}, 
@@ -52,7 +52,8 @@
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
   \item \Showattrib {call} \dotfill \hyperpage{187}
-  \item \Showattrib {callee} \dotfill \hyperpage{190}
+  \item \Showattrib {call}(メソッド) \dotfill \hyperpage{194}
+  \item \Showattrib {callee} \dotfill \hyperpage{191}
   \item \Showattrib {childNodes}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
   \item \Showattrib {children}(DOMのプロパティ) \dotfill \hyperpage{133}
@@ -151,7 +152,8 @@
     \subitem \Showattrib {insertBefore} \dotfill \hyperpage{132}
     \subitem \Showattrib {preventDefault} \dotfill \hyperpage{135}
     \subitem \Showattrib {querySelector} \dotfill \hyperpage{131}
-    \subitem \Showattrib {querySelectorAll} \dotfill \hyperpage{131}
+    \subitem \Showattrib {querySelectorAll} \dotfill \hyperpage{131}, 
+		\hyperpage{194}
     \subitem \Showattrib {removeAttribute} \dotfill \hyperpage{131}
     \subitem \Showattrib {removeChild} \dotfill \hyperpage{132}
     \subitem \Showattrib {replaceChild} \dotfill \hyperpage{132}, 
@@ -175,7 +177,7 @@
   \item \Showattrib {false} \dotfill \hyperpage{145}, \hyperpage{185}, 
 		\hyperpage{186}
   \item \Showattrib {fill}(Arrayのメソッド) \dotfill \hyperpage{184}, 
-		\hyperpage{190}
+		\hyperpage{188}
   \item \Showattrib {filter}(Arrayのメソッド) \dotfill \hyperpage{186}
   \item \Showattrib {firstChild}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}, \hyperpage{143}
@@ -184,9 +186,9 @@
   \item \Showattrib {for} \dotfill \hyperpage{180}
   \item \Showattrib {forEach} \dotfill \hyperpage{187}
   \item \Showattrib {forEach}(Arrayのメソッド) \dotfill 
-		\hyperpage{185--187}, \hyperpage{191}
+		\hyperpage{185--188}, \hyperpage{194}
   \item \Showattrib {function} \dotfill \hyperpage{137}, 
-		\hyperpage{181}, \hyperpage{189}
+		\hyperpage{181}, \hyperpage{190}
 
   \indexspace
 \item {\large\bf G}\nopagebreak[4]
@@ -233,10 +235,10 @@
 
   \indexspace
 \item {\large\bf J}\nopagebreak[4]
-  \item \Showattrib {join} \dotfill \hyperpage{190}
+  \item \Showattrib {join} \dotfill \hyperpage{191}
   \item \Showattrib {join}(Arrayのメソッド) \dotfill \hyperpage{184}
   \item \Showattrib {jQuery.js} \dotfill \hyperpage{161}
-  \item \Showattrib {JSON} \dotfill \hyperpage{160}
+  \item \Showattrib {JSON} \dotfill \hyperpage{160}, \hyperpage{194}
   \item \Showattrib {JSON.parse} \dotfill \hyperpage{160}
   \item \Showattrib {JSON.stringify} \dotfill \hyperpage{160}
 
@@ -250,11 +252,13 @@
 		\hyperpage{185}
   \item \Showattrib {length}(Arrayのメソッド) \dotfill \hyperpage{184}
   \item \Showattrib {length}(メソッド) \dotfill \hyperpage{138}
+  \item \Showattrib {localStorage} \dotfill \hyperpage{191--193}
+  \item \Showattrib {locaStorage} \dotfill \hyperpage{193}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
   \item \Showattrib {map}(Arrayのメソッド) \dotfill \hyperpage{185}, 
-		\hyperpage{186}, \hyperpage{190}
+		\hyperpage{186}, \hyperpage{188}, \hyperpage{194}
   \item \Showattrib {Math} \dotfill \hyperpage{150}, \hyperpage{152}
   \item \Showattrib {Math.abs(x)} \dotfill \hyperpage{152}
   \item \Showattrib {Math.acos(x)} \dotfill \hyperpage{152}
@@ -313,6 +317,7 @@
 		\hyperpage{135}
   \item \Showattrib {parentNode}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
+  \item \Showattrib {parse}(メソッド) \dotfill \hyperpage{194}
   \item \Showattrib {parseInt} \dotfill \hyperpage{140}
   \item \Showattrib {pop}(Arrayのメソッド) \dotfill \hyperpage{185}
   \item \Showattrib {preventDefault}(DOMのメソッド) \dotfill 
@@ -322,7 +327,7 @@
   \item \Showattrib {previousSibling}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
   \item \Showattrib {prototype} \dotfill \hyperpage{187}
-  \item \Showattrib {push} \dotfill \hyperpage{189}
+  \item \Showattrib {push} \dotfill \hyperpage{190}
   \item \Showattrib {push}(Arrayのメソッド) \dotfill \hyperpage{185}
   \item \Showattrib {push()}(メソッド) \dotfill \hyperpage{173}
 
@@ -331,7 +336,7 @@
   \item \Showattrib {querySelector}(DOMのメソッド) \dotfill 
 		\hyperpage{131}
   \item \Showattrib {querySelectorAll}(DOMのメソッド) \dotfill 
-		\hyperpage{131}
+		\hyperpage{131}, \hyperpage{194}
 
   \indexspace
 \item {\large\bf R}\nopagebreak[4]
@@ -351,6 +356,7 @@
 \item {\large\bf S}\nopagebreak[4]
   \item \Showattrib {screenX}(DOMのプロパティ) \dotfill \hyperpage{135}
   \item \Showattrib {screenY}(DOMのプロパティ) \dotfill \hyperpage{135}
+  \item \Showattrib {sessionStorage} \dotfill \hyperpage{191--193}
   \item \Showattrib {setAttribute}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{138}, \hyperpage{140}, 
 		\hyperpage{141}
@@ -368,6 +374,7 @@
   \item \Showattrib {splice}(メソッド) \dotfill \hyperpage{174}
   \item \Showattrib {stopPropagation}(DOMのメソッド) \dotfill 
 		\hyperpage{135}
+  \item \Showattrib {stringify}(メソッド) \dotfill \hyperpage{194}
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
@@ -378,33 +385,37 @@
 
   \indexspace
 \item {\large\bf U}\nopagebreak[4]
-  \item \Showattrib {undefined} \dotfill \hyperpage{190}
-  \item \Showattrib {undefined}(値) \dotfill \hyperpage{190}
+  \item \Showattrib {undefined} \dotfill \hyperpage{188}
+  \item \Showattrib {undefined}(値) \dotfill \hyperpage{188}
   \item \Showattrib {unshift}(Arrayのメソッド) \dotfill \hyperpage{185}
 
   \indexspace
 \item {\large\bf W}\nopagebreak[4]
+  \item \Showattrib {Web Storage} \dotfill \hyperpage{191}
   \item \Showattrib {window}(DOMのオブジェクト) \dotfill 
 		\hyperpage{137}, \hyperpage{169}
 
   \indexspace
 \item {\large\bf あ}\nopagebreak[4]
   \item 値
-    \subitem \Showattrib {undefined} \dotfill \hyperpage{190}
+    \subitem \Showattrib {undefined} \dotfill \hyperpage{188}
 
   \indexspace
 \item {\large\bf く}\nopagebreak[4]
-  \item \Showattrib {グローバル変数} \dotfill \hyperpage{188}
+  \item \Showattrib {グローバル変数} \dotfill \hyperpage{189}
 
   \indexspace
 \item {\large\bf へ}\nopagebreak[4]
-  \item \Showattrib {変数のスコープ} \dotfill \hyperpage{187}
+  \item \Showattrib {変数のスコープ} \dotfill \hyperpage{188}
 
   \indexspace
 \item {\large\bf め}\nopagebreak[4]
   \item メソッド
+    \subitem \Showattrib {call} \dotfill \hyperpage{194}
     \subitem \Showattrib {length} \dotfill \hyperpage{138}
+    \subitem \Showattrib {parse} \dotfill \hyperpage{194}
     \subitem \Showattrib {push()} \dotfill \hyperpage{173}
     \subitem \Showattrib {splice} \dotfill \hyperpage{174}
+    \subitem \Showattrib {stringify} \dotfill \hyperpage{194}
 
 \end{theindex}

@@ -1,5 +1,5 @@
 var Storage = window.localStorage;//// ref="storage"
-//var Storage = window.sessionStorage;
+//var Storage = window.sessionStorage;//// ref="storage2"
 window.onload = function(){//// ref="init1"
   var Canvas = document.getElementById("Canvas");
   var C1 = document.getElementById("color1");
