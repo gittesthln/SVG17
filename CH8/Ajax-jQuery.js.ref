@@ -1,0 +1,12 @@
+function getData() {
+  jQuery.ajax({
+    type: "GET",
+    url: "./svg-polygon-ajax.php",
+    data: "N=" + encodeURI($("#N").val()),
+    datatype: "text",   
+    success: function (DATA) {
+      alert(DATA);
+      $("#npolygon").attr("points", DATA); 
+    }
+  });
+}

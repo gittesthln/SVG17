@@ -1,0 +1,369 @@
+% -*- coding: utf-8 -*-
+\section{Ajax}
+\subsection{Ajaxとは}
+\keyitem{Ajax} とは Asyncronous JavaScript + XML の略称で、2005年2月
+%J.J. Gorrett \\
+\Href{http://adaptivepath.org/ideas/ajax-new-approach-web-applications/}
+{J.J. Gorrett}が
+で新しいWebアプリケーションの手段としてサーバーと非同期
+(Asyncronous)通信を行いながら、JavaScriptを用いてページを書き換える手法
+にこの名称を与えました。このページにおけるAjaxの定義は次のようになってい
+ます。
+\begin{quote}
+ Ajax isn't a technology. It's really several technologies, each
+ flourishing in its own right, coming together in powerful new
+ ways. Ajax incorporates: 
+\begin{itemize}
+ \item standards-based presentation using XHTML and CSS;
+ \item dynamic display and interaction using the Document Object Model;
+ \item data interchange and manipulation using XML and XSLT;
+ \item asynchronous data retrieval using XMLHttpRequest;
+ \item and JavaScript binding everything together.
+\end{itemize}
+\end{quote}
+\begin{quote}
+ Ajax は(ひとつの)テクノロジーではない。それ自身単体でよく利用されていて、
+強力で新しい方法でともに役に立ってきた技術のいくつかの真の集まりである。
+ Ajax は次のものと協調している。
+\begin{itemize}
+ \item XHTMLとCSSを用いた標準規格に基づいたプレゼンテーション
+ \item DOMを用いた動的な表示とインターアクション
+ \item XML と XSLT を用いデータ交換と取り扱い
+ \item XMLHttpRequest を用いた非同期名データ処理
+ \item これらのものをすべて結びつけるJavascript
+\end{itemize}
+\end{quote}
+代表的なアプリケーションとして \keyitem{Google Map} がよく挙げ
+られます。Google Map ではサーバーから地図をダウンロードし、その地図上に
+いろいろな情報を表示します。ユーザからの要求に応じて毎回新しい情報を付け
+加えた地図をダウンロードするのは次の点で不利です。
+\begin{itemize}
+ \item 元となる地図は毎回同じであり、追加される情報だけが異なります。
+ \item 地図のデータがある程度大きいとその間ユーザは作業ができません。
+\end{itemize}
+このような点を改良する手法としてAjaxでは次のような手法をとります。
+\begin{itemize}
+ \item サーバーからそのページのデータを毎回ダウンロードせず、追加の情報
+       だけ送ってもらいます。そのデータに基づき
+       DOMの手法によりページの内容を更新します。
+ \item サーバーと\keyitem{非同期通信}を行うことによりデータがそろうまで
+       ユーザーは待つ必要がありません。Google Map では地図の一部が表示さ
+       れていなくでも地図をドラッグして表示範囲を変えることができます。
+       また、ドラッグして移動中でも地図の一部が表示されるようになります。
+\end{itemize}
+現在のところ非同期通信を実現するための\ElmJ{XMLHttpRequest}オブジェクト
+の作成法は
+ブラウザで多少異なりますのでこの部分はブラウザにより
+書き分ける(\keyitem{クロスブラウザ対策})が必要になります。
+
+\subsection{Ajaxの例}\label{AjaxEx}
+ここでは図\ref{npolygon-serverG}で行った正多角形のSVGファイル作成を多角
+形の座標だけサーバーで計算させ、それをHTML内のSVGファイルのデータを書き
+直すことで実現するものです。図\ref{test-ajax-start}は開始画面です。
+\ShowFig{0.5}{ht}{test-ajax-start}
+{$n$角形を書く(Ajax版)--開始画面}{test-ajax-start}
+
+この画面でテキストボックスに適当な数を入れてクリックするとサーバーから送
+られてきたデータがメッセージボックスに表示されます(図\ref{test-ajax-data})。
+\ShowFig{0.5}{ht}{test-ajax-data}
+{$n$角形を書く(Ajax版)--サーバーからのデータ}{test-ajax-data}
+
+
+「OK」ボタンを押すと図\ref{test-ajax-show}のように多角形が表示されます。
+\ShowFig{0.5}{ht}{test-ajax-show}
+{$n$角形を書く(Ajax版)--結果}{test-ajax-show}
+%
+\newpage
+
+リスト\ref{npolygon-ajax}は図\ref{test-ajax-start}を表示するための\HTML
+のリストです。
+\HTMLListN{Ajaxを利用した正多角形の表示}{test-ajax}{npolygon-ajax}
+フォームに\AttribH{action}
+       で\texttt{getData()}を呼び出しています(\Line{callgetData})。この
+       関数は次のリスト内で定義されています。
+
+\JSListN{Ajaxを取り扱う\JS ファイル}{Ajax}{Ajax-Util}
+
+\begin{itemize}
+ \item \LineR{createXMLHTTPReqS}{createXMLHTTPReqE}の間に定義されている
+       関数\texttt{createXMLHTTPReq}
+       が非同期通信を実現するための\ElmJ{XMLHttpRequest}オブジェクトを作
+       成するものです(\cite{javascriptHacker}から引用しました)。クロス
+       ブラウザ対策がしてあります。
+\ListSub{createXMLHTTPReqS}{createXMLHTTPReqE}
+ \begin{itemize}
+  \item まず\texttt{window.}\ElmJ{XMLHttpRequest}があるかをチェッ
+	クします(\Line{XMLHTTPReq})。\IEn{} 9 以降と \Operan にはこのメソッド
+	が存在します。
+	存在すれば
+	\texttt{XMLHttpRequest}オブジェクトを作成します。
+  \item \IEn{} 9 より前では\texttt{XMLHttpRequest}が存在しません。\IEn のバージョ
+	ンによっ
+	て\ElmJ{ActivXObject}に渡す引数の形が異なります
+	(\LineR{ActiveXS}{ActiveXE})。
+	ここでは\keyitem{構造化例外処理}を用いています。\ElmJ{try}の中でエラーが
+	起きると\ElmJ{catch}の部分が実行されるという仕組みになっています。
+  \item \IEn{} 6では\ElmJ{ActivXObject}に渡す引数が\ElmJ{Msxml2.XMLHTTP}と
+	なります(\Line{IE6})。これが失敗すると例外が発生し、
+	\LineR{excetionS}{excetionE}のブロックへ制御が移ります。
+  \item この例外処理の中でもまた構造化例外処理が行われています。\IEn{} 5で
+	は引数が\ElmJ{Microsoft.XMLHTTP}となります。
+  \item 作成できなかった場合には\ElmJ{null}を返します(\Line{null})。
+  \item 作成できた場合にはこの通信が完了したときによび出される関数
+	(\keyitem{コールバック関数})を\ElmJ{onreadystatechange}に設定し
+	ています(\Line{setCallback})。
+ \end{itemize}
+\footnote{このプログラムではブラウザの名称やバージョンを用いて作成するオブジェ
+       クトを変えていないことに注意してください。オブジェクトが存在する
+       かどうかを調べて、存在しない場合には別の方法をとるというのが最近
+       の手法です。いろいろなライブラリーではこの手続きを隠すようにして
+       います。}
+ \item \LineR{OpenS}{OpenE}は実行ボタンが押されたときによび出される関数
+       です。
+\ListSub{OpenS}{OpenE}
+\begin{itemize}
+ \item まず、通信オブジェクトを作成します(\Line{MakeObj})。
+ \item 作成できたら(\Line{Succeed})通信オブジェクトの\ElmJ{open}メソッド
+       でサーバーに対しリクエストを発行します
+       (\LineR{MakeReqS}{MakeReqE})。ここではメソッド
+       が\ElmJ{GET}で、サーバ上のファイル\texttt{./svg-polygon-ajax.php}
+       を実行します。引数として入力された値が変数\texttt{N}に渡されます。
+       引数として渡されるテキストボックスに入力された文字列は
+       \ElmJ{encodeURI}関数を使用してURIで使用できない文字をエスケープ
+       (別の表記法に変える)します。
+       ここで渡される値はたとえば次のようになります。
+\begin{center}
+ \verb+./svg-polygon-ajax.php?N=5+
+\end{center}
+引数が複数あるときは\texttt{\&}で区切ります。
+\footnote{検索サイトで日本語の検索文
+       字列を入れるとアドレスバーに日本語が現れずに\%が入った文字列が見
+       えます。これは、日本語をUTF-8でエンコーディングしてから16進数で表
+       記したものに変えているからです。}
+なお、呼び出
+       されたphpプログラムではこの値を\verb+$_GET['N']+で利用できます。
+ \item 最後の引数が\ElmJ{true}なのでこの場合は\keyitem{同期通信}になりま
+       す。同期通信とは通信が終了するまではプログラムの実行が先に進まな
+       いという意味です。
+ \item 送るデータの終了として\ElmJ{send}メソッドに引数\texttt{null}を渡
+       します(\Line{sendnull})。
+\end{itemize}
+ \item \LineR{GetS}{GetE}では通信が完了したときに呼ばれる関数を定義してい
+       ます。
+\ListSub{GetS}{GetE}
+ \begin{itemize}
+  \item \Line{requestOK}では通信が完了し
+        (\texttt{httpObj.}\ElmJ{readyState}\texttt{ ==	4})、
+        ファイルが存在した場合\\
+        (\texttt{httpObj.}\ElmJ{status}\texttt{ == 200})に
+	データを処理します。\footnote{ステータスコードについては
+        \cite[8ページ]{WebSecurity}を参照してください。}
+  \item \Line{showSendText}では送られてきたデータをテキストとして
+	(\ElmJ{responseText})メッセージボックスに
+	表示しています(通常はこのようなことはしません。念のため。)。
+  \item ここではSVGファイル内の\texttt{npoly}の\texttt{id}がついた
+        図形の属性\AttribO{points}に、送られてき
+	たデータをそのまま(\ElmJ{responseText})属性\AttribO{d}に設定しています
+        (\LineR{setDS}{setDE})。
+  \item もし、送られてきたデータがXML形式であれば\ElmJ{responseText}の代
+	わりに\ElmJ{responseXML}を用いることによりサーバーから送られたデー
+	タは XML のオブジェクトに変換されます。このオブジェクトは DOM を
+	通じて処理する必要があります。
+ \end{itemize}
+\end{itemize}
+
+次のリストは「実行」ボタンが押されたときに呼び出される PHP のプログラム
+です。%\vspace{\baselineskip}
+
+\PHPListN{頂点の座標を計算するPHPプログラム}
+    {svg-polygon-ajax}{svg-polygon-ajax}
+\begin{itemize}
+ \item このPHPプログラムはPHPリスト\ref{svg-polygon.php}からsvgファイルのヘッ
+ダー部分やタグの部分の出力を取り除いたものに非常に近くなっています。
+ \item 一番の相違は13行目の\ElmP{header}関数の引数の
+       \texttt{Content-type}です。
+ \item PHPリスト\ref{svg-polygon.php}ではSVGファイルが返されるのでその値
+       が\texttt{text/svg+xml}であったのに対しこのPHPリストでは単に
+       \texttt{text}となっています。単純なテキストとして返し、受け取った
+       側で何らかの処理が行われることが暗黙のうちに期待されています。
+\end{itemize}
+
+これで見るようにAjax(XMLHTTPRequest)の技法を用いると送られてくるデータは
+  新たに書き直すためのデータであり、ページ全体が書き直されないということ
+  に注意してください。これを確認するためにはブラウザの「戻る」ボタンを
+  押すとよいでしょう。また、アドレスバー内の表示も変化しません。
+\begin{Problem}\upshape
+ いくつかの正多角形を表示した後、ブラウザでの戻るボタンを押したらどう
+ なるか確認しなさい。
+
+\iffalse
+同様のことを \keyitem{Google Map}でも行いなさい。特に、検索をした後どう
+ なるかを調べなさい。
+\fi
+\end{Problem}
+ブラウザのアドレスバーに直接\verb+svg-polygon-ajax.php?N=5+と入力すると
+メッセージボックスで表示されたデータがブラウザ上に表示されます。つまり、
+ブラウザのページでボタンを押さなくてもデータの取得ができます。したがっ
+て、ネットワーク上で公開する重要なページでは送られてきたデータをしっかり
+吟味する必要があります。詳しくは\cite{PHPSecurity}や\cite{WebSecurity}を
+参考にしてください。
+
+Ajax から 返されたデータを \ElmJ{responseXML}　で受け取ると
+プログラムの中でそのままXMLのデータとして利用できます。しかし、次の点の
+注意が必要です。
+\begin{itemize}
+ \item このデータから一部を取り出して別のところに利用するためには DOM の
+       メソッドの\\\DOMM{getElementsByTagName}などを利用して行います。
+ \item 返されたデータが\SVG や\HTML に有効な要素からなるのもであってもそ
+       れを直接、\SVG や\HTML の子要素としてある要素の下に入れ込むことは
+       できません。
+ \item これらの要素を利用するためには返されたXMLの構造をたどって同じ構
+造の\SVG や\HTML の断片をDOMのメソッドで作成し、DOMツリーに入れる必要が
+       あります。
+\end{itemize}
+構造を持ったデータを返す方法としては次に挙げるJSONを用いる方法があります。
+\iffalse
+\subsection{JSON}
+AjaxからのデータをXMLで受け取るとその時点で受け取ったデータはXMLの
+DOMとして扱われます。したがって個々のデータにアクセスするためにはDOMの技
+法を用いる必要があります。したがって、あまり複雑なXMLデータを返すと後の
+処理が複雑になります。これを避ける方法のひとつとして\keyitem{JSON}を利用
+する方法があります。
+
+\Href{www.json.org/json-ja.html}{JSON}は JavaScript
+Object Notation の略語です。そこの記述は次のようになっています。
+\begin{quotation}
+ JSON (JavaScript Object Notation)は、軽量のデータ交換フォーマットです。
+ 人間にとって読み書きが容易で、マシンにとっても簡単にパースや生成を行な
+ える形式です。 JavaScriptプログラミング言語 （ECMA-262標準第3版 1999年
+ 12月）の一部をベースに作られています。 JSONは完全に言語から独立したテキ
+ スト形式ですが、C、C++、C\#、Java、JavaScript、Perl、Python、その他多く
+ のCファミリーの言語を使用するプログラマにとっては、馴染み深い規約が使わ
+ れています。これらの性質が、 JSONを理想的なデータ交換言語にしています。 
+
+JSONは2つの構造を基にしています。
+
+名前/値のペアの集まり。様々な言語で、これはオブジェクト、レコード、構造
+ 体、ディクショナリ、ハッシュテーブル、キーのあるリスト、連想配列として
+ 実現されています。
+値の順序付きリスト。ほとんどの言語で、これは配列として実現されています。
+ 　
+
+これらは普遍的なデータ構造です。つまり実質的に、現代の全てのプログラミン
+ グ言語が、いずれの形にせよサポートしているということです。プログラミン
+ グ言語の間で交換可能なデータ形式が、これらの構造に基づいているのは当然
+ です。
+
+JSONでは、以下の形式を持っています。
+
+オブジェクトは、順序付けされない名前/値のペアのセットです。オブジェクト
+は、{(左の中括弧)で始まり、} (右の中括弧)で終わります。 各名前の後ろに
+は、:(コロン)が付きます。そして、名前/値のペアは、,(コンマ)で区切られま
+す。
+\end{quotation}
+\Href{http://www.json.org/example.html}{次の例}はJSONのホームページ内にあ
+る2番目の例です。
+\begin{verbatim}
+{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+\end{verbatim}
+このページには同じデータを XML で表現したものも掲載されています。
+\begin{verbatim}
+<menu id="file" value="File">
+  <popup>
+    <menuitem value="New" onclick="CreateNewDoc()" />
+    <menuitem value="Open" onclick="OpenDoc()" />
+    <menuitem value="Close" onclick="CloseDoc()" />
+  </popup>
+</menu>
+\end{verbatim}
+これを見てもわかるようにJSONのデータは\JS の
+\keysub{連想配列}{\JS}\IndexSet{{\JS}}{連想配列}{E}{における}{}
+書き方を真似たものです(リスト\ref{ShowSetClickPos}参
+照--\pageref{ShowSetClickPos}ページ)。この例では同じキーを持つものは
+値を配列で与えています。
+
+%\subsection{\ElmJ{eval}関数とJSON}
+\subsection{JSONの利用法}
+Ajax で返されたJSON形式の文字列をそのまま\JS の式として用いることはでき
+ません。利用するためには\ElmJ{JSON}オブジェクトを使用して\JS のオブジェ
+クトに変換します。
+
+図\ref{JsonApply}はJSONのデータ処理の例です。
+\ShowFig{0.8}{ht}{json-apply-start}
+{JSONを利用したデータ処理(開始直後)}{JsonApply} 
+
+起動時には赤の長方形が一つだけ表示されます。
+
+右側のテキストボックスに色名を入れてその下の「設定」ボタンを押すと、その
+色が長方形の内部の色に設定されます(図\ref{JsonApplyAfter})。
+
+\ShowFig{0.8}{ht}{json-apply-change-after}
+{JSONを利用したデータ処理(色の設定後)}{JsonApplyAfter} 
+
+「保存」ボタンを押すと、現在のデータが文字列に変換されコンソールに表示さ
+れます(図\ref{JsonApplyAfterConsole})。ここでは途中でもいくつかの情報を表示しています。
+\ShowFig{0.95}{ht}{json-apply-change-after-console}
+{JSONを利用したデータ処理(保存後のコンソール)}{JsonApplyAfterConsole} 
+
+リスト\ref{example-json}はこのプログラムのソースです。
+\HTMLListN{JSONデータの処理の例}{example-json3}{example-json}
+\begin{itemize}
+ \item \LineR{StrS}{StrE}でJSONデータを定義しています。通常は一つの文字
+       列でよいのですがここでは長くなるので、行を分けて区切っています
+       \footnote{区切られた行の最後が\texttt{+}で終わっていることに注意
+       してください。演算子\texttt{+}を次の行に置くと、JavaScript の解釈
+       ルーティンが\texttt{;}がないにもかかわらず文が終了したと解釈して
+       しまいます。}。
+ \item \Line{CheckData1}で\ElmJ{typeof}演算子を用いてこのデータの型を表
+       示させています。結果は当然のことながら\texttt{String}(文字列)です。
+ \item \Line{ToJSON}でこの文字列を JavaScript のオブジェクトに変換してい
+       ます。
+
+\ElmJ{JSON} オブジェクトは\ElmJ{Math}オブジェクトと同様の、JavaScript に
+       定義されているネイティブなオブジェクトです。このオブジェクトの
+       \ElmJ{parse}メソッドでJavaScriptのオブジェクトに変換できます。
+ \item \Line{CheckData2}で変換後のデータの型を調べています。データの型は
+       \texttt{object}です。
+ \item このデータはSVGの図形をいくつか配列の形で定義しています。ここでは
+       長方形のデータひとつです。\Line{GetObjName}で変数\texttt{F}に作成
+       する図形を選び、それを用いて
+       \LineR{SetRectS}{SetRectE}で図形を構成し、表示させています。
+  \item \LineR{SetClickS}{SetClickE}で\Line{textbox}のプルダウンメニュ－
+       で指定された色を変えるボタン(\Line{button})が押されたときの処理を定義しています。
+ \item \LineR{SetSaveS}{SetSaveE}では\Line{button2}で定義しているボタン
+       が押されたときの処理を定義しています。
+\begin{itemize}
+ \item \LineR{getAttribAll}{ChangeObjE}では表示している長方形のデータを
+       \Line{ToJSON}で定義したJavaScriptのオブジェクトに反映させています。
+ \item \Line{getAttribAll}では\ElmJ{attributes}を用いて長方形に含まれる
+       属性をすべて求めています。
+ \item \Line{ToString}で与えられたオブジェクトをJSON形式に変換したものを
+       表示させています。オブジェクトをJSON形式の文字列に変換するために
+       はJSONの\ElmJ{stringify}メソッドを用います。図
+       \ref{JsonApplyAfterConsole}で結果が反映されていることを確認してく
+       ださい。
+\end{itemize}
+\end{itemize}
+\HTML とサーバーの間でデータを交換するときは構造は無視して行われます。構
+造を持ったデータを構造を持つように変換したり、その逆を行うためにはJSONは
+有力な方法の一つです。
+\begin{Problem}\upshape
+ HTMLリスト\ref{example-json}に対して次のようなことを行いなさい。
+ \begin{enumerate}
+	\item \LineR{StrS}{StrE}の文字列に追加することで、
+ 円を表示できるようにしなさい。
+	\item 最後にクリックした図形に対して「設定」
+ ボタンを押したときに、その要素の\Attrib{fill}が設定できるようにしなさい。
+ \end{enumerate}
+\end{Problem}
+\fi

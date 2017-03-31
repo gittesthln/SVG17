@@ -12,7 +12,7 @@ window.onload = function(){
   DrawFigs();
   function DrawFigs() {
     var W1=8, W2=4;
-    var Color = Array.prototype.map.call(Cs, function(C){return C.value;});
+    var Color = Array.prototype.map.call(Cs,function(C){return C.value;});
     Storage.C = JSON.stringify(Color);
     [[150, 30, W1, W2, Color[0]], [144, 30, W1, W2, Color[1]],
      [80, 20, W1, W2, Color[0]], [86.5, 20, W1, W2, Color[1]],

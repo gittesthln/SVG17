@@ -1,0 +1,77 @@
+<!DOCTYPE html><!-- ref="XML" -->
+<html xmlns:svg="http://www.w3.org/2000/svg" ref="SVGS"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8"/><!-- ref="CHARSET" -->
+<script type="text/ecmascript" src="jquery-1.11.3.min.js"></script><!-- ref="jQuery" -->
+<script type="text/ecmascript">
+//<![CDATA[
+$(window).ready(function(){//// ref="OnReady"
+  var Colors = {"red":"赤", "yellow":"黄色","green":"緑", //// ref="InitOptS"
+                     "blue":"青","gray":"灰色","black":"黒"};
+  var Color;
+  var SelectColor = $("#SelectColor");//// ref="Setcolor"
+  for( Color in Colors) {//// ref="makeOptS"
+    $("<option/>", {"value":Color, "text":Colors[Color]}).appendTo(SelectColor);//// ref="createOption"
+  }//// ref="InitOptE"
+  var Circle = $("#Circle");
+  $("#XP").val(Circle.attr("cx"));//// ref="GetX"
+  $("#YP").val(Circle.attr("cy"));//// ref="GetY"
+  $("#field").click(click);//// ref="setEventListner"
+  $("#SetColor").click(refresh);//// ref="Set"
+  refresh();
+});//// ref="OnReadyE"
+function click(event) {//// ref="ClickS"
+  var Pos = $("#field").offset();//// ref="offset"
+  $("#XP").val(event.clientX-Math.floor(Pos.left));//// ref="pos1"
+  $("#YP").val(event.clientY-Math.floor(Pos.top)); //// ref="pos2"
+  refresh();
+}//// ref="ClickE"
+function refresh() {//// ref="refresh"
+  SetText("X", "cx", $("#XP").val());
+  SetText("Y", "cy", $("#YP").val());
+  $("#Circle").attr("fill", $("#SelectColor").val());
+}
+
+function SetText(Element, attrib, V) {
+  $("#"+Element).text(V);
+  $("#Circle").attr(attrib, V);
+}//// ref="Text"
+//]]>  
+</script>
+<link rel="stylesheet" type="text/css" href="../CH7/HTML.css">/* ref="CSSS" */
+<title>HTMLとSVGの間でデータを交換させる(jQuery版)</title><!-- ref="HTMLS" -->
+</head>
+<body><!-- ref="bodyS" -->
+  <h1 class="display">クリック位置をHTML内に表示、HTMLから移動させる(jQuery版)</h1>
+  <div class="table">
+    <div class="Row">
+      <div class="Cell">
+        <svg height="410" width="410" id="canvas"><!-- ref="SVGS" -->
+          <g transform="translate(5,5)" ref="Transform">
+            <g id="field">
+              <rect x="0" y="0" width="400" height="400" fill="lightgray"/>
+              <circle id="Circle" cx="200" cy="50" r="20" fill="red"/>
+              <text class="textStyle" x="50" y="50"> X</text>
+              <text class="textStyle" id="X" x="150" y="50"></text>
+              <text class="textStyle" x="50" y="100"> Y</text>
+              <text class="textStyle" id="Y" x="150" y="100"></text>
+            </g>
+            <path fill="blue"
+              d="M-5,-5 405,-5 405,405 -5,405z M0,0 0,400 400,400 400,0z" />
+          </g>
+        </svg><!-- ref="SVGE" -->
+      </div>
+      <div class="Cell" >
+        <div><label for="XP">x=</label>
+          <input type="text" id="XP" size="3" /></div>
+        <div><label for="YP">y=</label>
+          <input type="text" id="YP" size="3" /></div>
+        <div><label for="SelectColor">色</label>
+          <select id="SelectColor"></select></div>
+        <input id="SetColor" type="button" value="設定"</input>
+      </div>
+    </div>
+  </div>
+</body><!-- ref="HTMLE" -->
+</html>

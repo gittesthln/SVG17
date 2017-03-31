@@ -89,11 +89,27 @@
 \BOOKMARK [2][-]{subsection.7.6.1}{7.6.1 配列のメソッドを使う}{section.7.6}% 89
 \BOOKMARK [2][-]{subsection.7.6.2}{7.6.2 クロージャの利用によるグローバル変数の個数の減少}{section.7.6}% 90
 \BOOKMARK [2][-]{subsection.7.6.3}{7.6.3 WebStorage}{section.7.6}% 91
-\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGで利用できる色名}{}% 92
-\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 93
-\BOOKMARK [0][-]{appendix.C}{付 録C \040CSSについて}{}% 94
-\BOOKMARK [0][-]{Item.81}{索引}{}% 95
-\BOOKMARK [1][-]{section*.48}{SVGの用語}{Item.81}% 96
-\BOOKMARK [1][-]{section*.48}{HTMLの用語}{Item.81}% 97
-\BOOKMARK [1][-]{section*.48}{JavaScriptの用語}{Item.81}% 98
-\BOOKMARK [1][-]{section*.48}{一般}{Item.81}% 99
+\BOOKMARK [0][-]{chapter.8}{第8章 WebサーバーでSVG図形のデータを作る}{}% 92
+\BOOKMARK [1][-]{section.8.1}{8.1 Webサーバーを利用するための基礎知識}{chapter.8}% 93
+\BOOKMARK [1][-]{section.8.2}{8.2 PHPプログラムでSVGファイルを作成する}{chapter.8}% 94
+\BOOKMARK [1][-]{section.8.3}{8.3 header関数について}{chapter.8}% 95
+\BOOKMARK [1][-]{section.8.4}{8.4 ブラウザを区別する}{chapter.8}% 96
+\BOOKMARK [1][-]{section.8.5}{8.5 Ajax}{chapter.8}% 97
+\BOOKMARK [2][-]{subsection.8.5.1}{8.5.1 Ajaxとは}{section.8.5}% 98
+\BOOKMARK [2][-]{subsection.8.5.2}{8.5.2 Ajaxの例}{section.8.5}% 99
+\BOOKMARK [1][-]{section.8.6}{8.6 jQuery}{chapter.8}% 100
+\BOOKMARK [2][-]{subsection.8.6.1}{8.6.1 jQueryとは}{section.8.6}% 101
+\BOOKMARK [2][-]{subsection.8.6.2}{8.6.2 jQueryの基本}{section.8.6}% 102
+\BOOKMARK [2][-]{subsection.8.6.3}{8.6.3 ドキュメントの構造の変更}{section.8.6}% 103
+\BOOKMARK [2][-]{subsection.8.6.4}{8.6.4 イベントハンドラーの取り扱い}{section.8.6}% 104
+\BOOKMARK [2][-]{subsection.8.6.5}{8.6.5 Ajaxの処理}{section.8.6}% 105
+\BOOKMARK [2][-]{subsection.8.6.6}{8.6.6 jQuery のサンプル}{section.8.6}% 106
+\BOOKMARK [0][-]{appendix.A}{付 録A \040SVGで利用できる色名}{}% 107
+\BOOKMARK [0][-]{appendix.B}{付 録B \040参考文献について}{}% 108
+\BOOKMARK [0][-]{appendix.C}{付 録C \040CSSについて}{}% 109
+\BOOKMARK [0][-]{Item.85}{索引}{}% 110
+\BOOKMARK [1][-]{section*.61}{SVGの用語}{Item.85}% 111
+\BOOKMARK [1][-]{section*.61}{HTMLの用語}{Item.85}% 112
+\BOOKMARK [1][-]{section*.61}{JavaScriptの用語}{Item.85}% 113
+\BOOKMARK [1][-]{section*.61}{PHPの用語}{Item.85}% 114
+\BOOKMARK [1][-]{section*.61}{一般}{Item.85}% 115

@@ -1,0 +1,309 @@
+%-*- coding: utf-8 -*-
+\section{jQuery}
+\subsection{jQueryとは}
+\keyitem{jQuery} の開発元\footnote{\texttt{jQuery.com}}には次のように書かれていま
+す。
+\begin{quotation}
+jQuery is a fast, small, and feature-rich JavaScript library. It makes
+ things like HTML document traversal and manipulation, event handling,
+ animation, and Ajax much simpler with an easy-to-use API that works
+ across a multitude of browsers. With a combination of versatility and
+ extensibility, jQuery has changed the way that millions of people write
+ JavaScript.
+\end{quotation}
+jQuery はJavaScriptのライブラリーであり、これまでに解説してきた
+JavaScriptの使い方を簡単にすることを目的としています。現在のところ jQuery
+には ver. 1 のものと ver. 2 の系列が提供されています。大きな違いについては
+次のように解説されています。
+\iffalse
+Query 1.x
+
+The jQuery 1.x line had major changes as of jQuery 1.9.0. We strongly
+recommend that you also use the jQuery Migrate plugin if you are
+upgrading from pre-1.9 versions of jQuery or need to use plugins that
+haven't yet been updated. Read the jQuery 1.9 Upgrade Guide and the
+jQuery 1.9 　
+\fi
+\begin{quotation}
+jQuery 2.x
+
+jQuery 2.x has the same API as jQuery 1.x, but does not support Internet
+Explorer 6, 7, or 8. All the notes in the jQuery 1.9 Upgrade Guide apply
+here as well. Since IE 8 is still relatively common, we recommend using
+the 1.x version unless you are certain no IE 6/7/8 users are visiting
+the site. Please read the 2.0 release notes carefully. 
+\end{quotation}
+一番大きな違いは ver. 2 では古い Internet Explorer の対応を打ち切った
+ことです。
+
+また、配布されているライブラリーはコメントなどがそのまま入っているものと、
+コメントを取り除き、変数名などを短いものに置き換えて、ファイルサイズを小
+さくしたものの2種類があります。
+
+jQuery のライブラリーは \keyitem{CDN(Contents Delivery Network)}と呼ばれ
+るサイトのファイルを参照する方法と、ダウンロードして、コピーを利用する方
+法があります。 
+\newcounter{Func}
+\newcommand{\FuncRef}[1]{%
+\refstepcounter{Func}\label{#1}({\bfseries 機能\arabic{Func}})}
+\subsection{jQueryの基本}
+\subsubsection{jQuery()関数とjQueryオブジェクト}
+jQueryライブラリーは\ElmJ{jQuery()}というグローバル関数を一つだけ定義
+します。この関数の短縮形として、\ElmJ{\$}というグローバル関数も定義し
+ます。
+\texttt{jQuery()} 関数はコンストラクタではありません。
+
+jQuery関数は引数の与え方により動作が異なりますが、戻り値としてjQuery
+オブジェクトとと呼ばれるDOMの要素群を返します。このオブジェクトには多数のメ
+ソッドが定義されていて、これらの要素群を操作できます。
+
+jQuery() 関数の呼び出し方は引数の型により返される要素群が異なります。
+\begin{itemize}
+ \item 引数が(拡張された)CSSセレクタ形式の場合\FuncRef{CSSSelector}
+
+ CSSセレクタにマッチした要素群を返す。省略可能な2番目の引数として要素やjQueryオブ
+       ジェクトを指定した場合には、その要素の子要素からマッチしたものを
+       返します。この形はすでに解説したDOMのメソッド
+       \DOMM{querySelectorAll()}と似ています。
+ \item 引数が要素やDocumentオブジェクトなどの場合\FuncRef{ObjSelector}
+
+       与えられた要素をjQueryオブジェクトに変換します。これはjQuery要素
+       群の各要素(通常の要素になります)に対して、jQueryのメソッドを適応
+       したい場合などに利用されます。
+ \item 引数としてHTMLテキストを渡す場合\FuncRef{HTMLText}
+
+       テキストで表される要素を作成し、この要素を表すjQueryオブジェクト
+       を返します。\DOMM{createElement()}メソッドに相当します。
+
+       省略可能な2番目の引数は属性を定義するものであり、オブジェクトリテ
+       ラルの形式で与えます。
+ \item 引数として関数を渡す場合\FuncRef{Function}
+
+       引数の関数はドキュメントがロードされ、DOMが操作で可能になった時に
+       実行されます。
+\end{itemize}
+\subsubsection{jQueryオブジェクトのメソッド}\label{jQueryMethod}
+jQueryオブジェクトに対する多くの処理はHTMLの属性やCSSスタイルの値を設定
+したり、読み出したりすることです。
+\begin{itemize}
+ \item これらのメソッドに対してセッターと
+ゲッターは同じメソッドを使います。メソッドに引数があるとセッターになり、ない
+とゲッターになります。
+ \item セッターとして使った場合は戻り値がjQueryオブジェクトとなるので、
+       メソッドチェインが使えます。
+ \item ゲッターとして使った場合は要素群の最初の要素だけ問い合わせます。
+\end{itemize}
+\paragraph{HTML属性の取得と設定}
+\jQM{attr()}メソッドはHTML属性用のjQueryのゲッター/セッターです。
+\begin{itemize}
+ \item 属性名だけを引数に与えるとゲッターとなります。
+ \item 属性名と値の2つを与えるとセッターになります。
+ \item 引数にオブジェクトリテラルを与えると複数の属性を一時に設定できま
+			 す。
+ \item 属性を取り除く\jQM{removeAttr()}もあります。
+\end{itemize}
+\paragraph{CSS属性の取得と設定}
+\jQM{css()}メソッドはCSSのスタイルを設定します。
+\begin{itemize}
+ \item CSSスタイル名は元来のCSSスタイル名（ハイフン付）でもJavaScriptの
+       キャメル形式\footnote{DOMのメソッド\texttt{getElementById}のよう
+       に先頭の単語は小文字で始め、途中に出てくる単語は大文字で始めると
+       いう命名の方法}でも問い合わせ、設定が可能
+ \item 戻り値は単位を含めて文字列
+\end{itemize}
+\paragraph{HTMLフォーム要素の値の取得と設定}
+\jQM{val()}はHTMLフォーム要素の\texttt{value}属性の値の設定や取得がで
+きます。これにより、\texttt{<select>}要素の選択された値を得ることなどがで
+きます。
+\paragraph{要素のコンテンツの取得と設定}
+\jQM{text()}と\jQM{html()}メソッドはそれぞれ要素のコンテンツを通常
+のテキストまたはHTML形式で返します。引数がある場合には、既存のコンテンツを置
+き換えます。
+\subsection{ドキュメントの構造の変更}
+表\ref{Insertreplace}は挿入や置換を行う基本的なメソッドをまとめたもので
+す。これらのメソッドには対になるメソッドがあります。
+\begin{table}[ht]
+ \caption{ドキュメントの構造の変更するメソッド}\label{Insertreplace}
+ \centering
+ \begin{tabular}{|c|c|l|}
+ \hline
+ \texttt{\$(T).method(C)}&\texttt{\$(C).method(T)}&
+    \multicolumn{1}{c|}{機能}\\\hline
+ \texttt{append}&\texttt{appendTo}&
+	 要素\texttt{T}の最後の子要素として\texttt{C}を付け加える\\ \hline
+ \texttt{prepend}&\texttt{prependTo}&
+	 要素\texttt{T}の初めの子要素として\texttt{C}を付け加える\\ \hline
+ \texttt{before}&\texttt{insertBefore}&
+	 要素\texttt{T}の直前の要素として\texttt{C}を付け加える\\ \hline
+ \texttt{after}&\texttt{insertAfter}&
+	 要素\texttt{T}の直後の要素として\texttt{C}を付け加える\\ \hline
+ \texttt{replaceWith}&\texttt{replaceAll}&
+	 要素\texttt{T}と\texttt{C}を置き換える\\ \hline
+ \end{tabular}\end{table}
+
+このほかに、要素をコピーする\jQM{clone()}、要素の子要素をすべて消す
+\jQM{empty()}と選択された要素(とその子要素すべて)を削除する
+\jQM{remove()}もあります。
+
+\subsection{イベントハンドラーの取り扱い}
+jQueryのイベントハンドラーの登録はイベントの種類ごとにメソッドが定義され
+ていてる。指定されたjQueryオブジェクトが複数の場合にはそれぞれに対してイ
+ベントハンドラーが登録される。次のようなイベントハンドラ－登録メソッドが
+ある。
+\begin{center}
+ \begin{tabular}{llllll}
+  \jQE{blur()}& \jQE{error()}&\jQE{keypress()} &\jQE{mouseup()} &\jQE{mouseover()}&\jQE{select()} \\
+  \jQE{change()}& \jQE{focus()}&\jQE{keyup()} &\jQE{mouseenter()} &\jQE{mouseup()}&\jQE{submit()} \\
+  \jQE{click()}& \jQE{focusin()}&\jQE{load()} &\jQE{mouseleave()} &\jQE{resize()}&\jQE{unload()} \\
+  \jQE{dbleclick()}& \jQE{keydown()}&\jQE{mousedown()} &\jQE{mousemove()} &\jQE{scroll()} \\
+ \end{tabular}
+\end{center}
+このほかに、特殊なメソッドとして\jQE{hover()}があります。これは
+\jQE{mouseenter}イベントと\jQE{mouseleave}イベントに対するハンドラ
+－を同時に登録できます。また、\jQE{toggle()}はクリックイベントに複数の
+イベントハンドラ－を登録し、イベントが発生するごとに順番に呼び出すことも
+できます。
+
+イベントハンドラ－の登録解除には\jQE{unbind()}メソッドがあります。このメ
+ソッドの呼び出しはいろいろな方法がありますが、\DOMM{removeEvenListener()}
+と同様な形式として1番目の引数にイベントタイプ(文字列で与える)、2番目の引
+数に登録した関数を与えるものがあります。この場合に、登録したイベントハンドラ
+－には名前が必要となります。
+
+イベントに関してはこのほかにも便利な事項が多くあります。
+\subsection{Ajaxの処理}
+jQueryではAjaxの処理に関するいろいろな方法を提供しています。ここではもっと
+も簡単な処理を提供する\jQM{jQuery.ajax()}関数を紹介します。
+
+この関数は引数にオブジェクトリテラルをとります。このオブジェクトリテラルの属
+性名として代表的なものを表\ref{jQueryAjax}に挙げます。
+\begin{table}[ht]
+ \caption{jQuery.ajax()関数で利用できる属性(一部))}\label{jQueryAjax}
+\begin{center}
+ \begin{tabular}{|c|m{28zw}|}\hline
+属性名  &\multicolumn{1}{c|}{説明} \\\hline
+  \texttt{type}&通信の種類。通常は\texttt{"POST"}または\texttt{"GET"}を指定\\
+  \hline
+  \texttt{url}&サーバーのアドレス\\ \hline
+  \texttt{data}&\texttt{"GET"}のときはURLの後に続けるデータ。
+      \texttt{"POST"}のときは\texttt{null}\\ \hline
+  \texttt{dataType}&戻り値のデータの型を指定する。\texttt{"text"}、
+      \texttt{"html"}、\texttt{"script"}、      
+\texttt{"json"}、\texttt{"xml"}などがある\\ \hline
+\texttt{success}&通信が正常終了したときに呼び出されるコールバック関数
+      \\ \hline
+\texttt{error}&通信が成功しなかったときに呼び出されるコールバック関数
+      \\ \hline
+  \texttt{timeout}&タイムアウト時間をミリ秒単位で指定\\ \hline
+ \end{tabular}
+\end{center}
+\end{table}
+\subsection{jQuery のサンプル}
+\renewcommand{\FuncRef}[1]{{機能\ref{#1}}}
+\subsubsection{HTMLとSVGでのデータの交換}
+リスト\ref{ShowSetClickPosjQuery}は\ref{ShowSetClickPosL}を jQuery を用
+いて書き直したものです。この実行画面は図\ref{ShowSetClickPos}とほとんど
+変わりませんので省略します。
+
+なお、このリストではグローバル変数を減らすために jQuery で用意されている
+メソッドを多用しています。
+%\newpage
+\HTMLListMN{クリック位置をHTMLで表示し、HTMLのデータからSVGの図形を動かす\protect\newline
+(jQuery版)}%
+{ShowSetClickPos-jQuery}{ShowSetClickPosjQuery}
+
+\Line{jQuery}で\HTML と同じ場所に置かれた jQuery ライブラリーを読
+			 み込むことを指示しています。ここでは $1$ 系列の最新版である
+			 \texttt{1.11.3} を読み込んでいます。
+
+\LineR{}{OnReady}{OnReadyE}はファイルが読み込まれた状態で実行される関数
+を定義しているところです。
+\ListSub{OnReady}{OnReadyE}
+\begin{itemize}\upshape
+ \item \Line{OnReady}の\ElmJ{window} は jQuery オブジェクトではないので、
+			 \verb+$(window)+ で jQuery オブジェクトに変換します。変換後のオブ
+			 ジェクトに文書が使用可能になったときに発生する\jQE{ready()}イベント
+			 で実行する関数を登録しています(\FuncRef{ObjSelector})。
+ \item \Line{Setcolor}で色を設定するプルダウンメニュー要素を得ています。
+			 引数の文字列に \verb+#+ があるので\FuncRef{CSSSelector}を用いているこ
+			 とになります。
+ \item \Line{createOption}ではHTML要素 \verb+<option/>+ を指定して要
+			 素を作成し、それに必要な属性の値を設定しています
+			 (\FuncRef{HTMLText})。 また、作成した要素に
+			 \jQM{appendTo()}メソッドを用いて\Line{Setcolor}で求めた
+			 要素の子要素にしています。
+ \item \Lines{GetX}{GetY}では、SVG内の円の属性値を読み出して
+			 (\jQM{attr()}),その値を対応するテキストボックスに
+			 \jQM{val()} を用いて設定しています。(\pageref{jQueryMethod}
+			 ページ参照)
+ \item \Lines{setEventListner}{Set}は指定した要素に\jQE{click()}イベントを
+			 処理する関数を登録して
+			 います。
+\end{itemize}
+次の部分は、正方形上をクリックしたときの処理関数です。
+\ListSub{ClickS}{ClickE}
+\begin{itemize}\upshape
+ \item \jQM{offset()}は与えられた要素の画面上の配置位置を求めるものです。
+			 そのオブジェクトの\texttt{left}と\texttt{top}はそれぞれ左と上から
+			 の位置を示します(\Line{offset})。
+ \item \Line{pos1}{pos2}でその位置を補正した値をそれぞれの要素に設定して
+			 います。なお、\texttt{offset()}の値がいつも整数になるとは限らない
+			 ようなので \ElmJ{Math.floor()}で切り捨てています。
+\end{itemize}
+\ListSub{refresh}{Text}
+\begin{itemize}\upshape
+ \item 関数\texttt{refresh()}はテキストボックスとSVG内の表示を更新する処
+			 理を行います。
+ \item 円の色を変えている\jQM{attr()}メソッドは引数が2つあるので、属性値
+			 を設定することになります。
+ \item SVG内のテキストを更新し、対応する円の属性値を変更する関数
+			 \texttt{SetText()}は要素の \texttt{id} を与えるように変更されてい
+			 ます。
+\end{itemize}
+
+この例からもわかるように jQuery ライブラリーでは既存のSVG要素に対してそ
+の属性の変更や、イベントハンドラ－の登録が可能となっています
+\footnote{\Operan や\FF で確認したところではSVGの要素を指定して、新規に
+オブジェクトを作成することはできますが、それをSVG要素として表示すること
+はできませんでした。一部の属性はCSSの方で定義されてしまいました。これは
+要素を作成するときの名前空間がHTMLにしか適応していないためと思われま
+す。}。
+\begin{Problem}\upshape
+ これまでに作成したDOMを操作する\HTML 文書を jQuery を用いて書き直しなさ
+ い。
+\end{Problem}
+\subsubsection{jQueryにおけるAjaxの利用}
+次の例は\ref{AjaxEx}で示したAjaxを用いてサーバーと通信するプログラムを
+jQueryの機能を用いて書き直したものです。書き直した部分はリスト
+\ref{Ajax-Util}にある\texttt{GetData()}関数だけです。jQueryがAjaxをサポー
+トしているのでそこで定義したユーティティ関数は不要となっています。
+\JSListN{正$n$角形を描く(Ajax-jQuery版)}{Ajax-jQuery}{Ajax-jQuery}
+
+\begin{itemize}
+ \item jQuery で Ajax を利用するためには \jQM{ajax()} の引数にオブジェク
+			 トリテラルの形式でデータを渡します(\Line{jQuery-Ajax})
+ \item \Line{type}で、データの送信方法を指定しています。
+ \item \Line{url}でサーバーのurlを指定しています。
+ \item \Line{data}でサーバーに送るパラメータを設定します。ここではテキス
+			 トボックスに入力されたデータを利用しています。
+			 \texttt{document.getElementById("N").value}と同じです。
+ \item \Line{datatype}では送られてくるデータの形式を指定します。ここでは、
+			 前と同じに\texttt{text}を指定しています。
+
+ \item \LineR{GetS}{GetE}で通信が成功したときに
+			 呼ばれるコールバック関数を定義しています。引数は、サーバーから送
+			 られたデータになります。
+			 
+			 なお、\texttt{datatype}に\texttt{json}を指
+			 定すると、サーバー側で用意した\texttt{json}データをそのまま
+			 \JSM{JsonParse}にかけて、データをオブジェクトに変換されたものが渡
+			 されます。
+
+			 ここでは、前と同じように、送られたデータをメッセージボックスに表
+			 示し、SVG要素の属性として設定しています。
+\end{itemize}
+\begin{Problem}\upshape
+リスト\ref{Ajax-jQuery}を表示したブラウザのコンソール画面で、
+ \texttt{\$("\#SelectColor")}を」実行し、その戻り値の内容を調べなさい。またほかの要素
+ でもどうなるか調べなさい。
+\end{Problem}

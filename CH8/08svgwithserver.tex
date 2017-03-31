@@ -1,0 +1,57 @@
+% -*- coding: utf-8 -*-
+\chapter{WebサーバーでSVG図形のデータを作る}\label{svgwithserver}
+前章では\JS を用いていろいろなSVGの図形を操作する方法を学びました。この
+章ではブラウザから与えられた情報をもとにWebサーバでSVGファイルを作成
+したり、計算の一部を代行する方法を紹介します。
+\section{Webサーバーを利用するための基礎知識}
+Webページ上でデータを記入できたり、いくつかの選択肢からデータを選択した
+りしてボタンを押すことでWebサーバにデータを送ることができるWebページは
+フォームと呼ばれます。ここではHTML文書のフォームを通じて
+データをサーバーに送り、
+そのデータを下にSVGファイルを作成する方法を考えます。一般にこのような操
+作は\keyitem{CGI}と呼ばれます。CGIプログラムは与えられたデータを下に
+HTML文書をその場で作成してユーザに返します。
+
+近年ではHTML文書の一部のデータだけを返してもらい、そのデータをもとにペー
+ジを書き換えるという\keyitem{Ajax}という技術もあります。Ajax で返
+されたデータをもとにWebページを書き直す技術は前章で学んだ\keyitem{DOM}の
+技術をHTML文書に応用します。。この章ではこの技術の基本についても述べます。
+
+ユーザから送られてきたデータを下に新しいデータを送り返す処理をするプログ
+ラム言語としてこの章では\keyitem{PHP}を用います。
+\Href{http://www.php.net/}{PHP}はhttpサーバーとして有名な
+\Href{http://www.apache.org/}{Apache}\IndexSet{Apache}{}{}{}{}の中に組み込まれ
+て動作するCGI言語です\footnote{PHPはWebサーバに組み込まれて動作するだけ
+ではなく単独で起動してデータを処理することも可能です。本書を作成するにあ
+たり、索引の作成などにPHPプログラムを作成して処理させています。}。
+PHPはWebサーバとの連携を目的として言語設計がなされていますのでユーザから
+送られたデータ受け渡しや、異なるHTML文書間のデータの受け渡しが比較的楽に
+できます。
+
+PHPのプログラムはHTMLファイルの中の\texttt{<?php}と\texttt{?>}の間に
+書きます。ファイルの拡張子は（たとえPHPのプログラムがまったくなくても
+)\texttt{.php}が標準です。
+\texttt{<?php}と\texttt{?>}の間の部分はWebサーバー上で処理され、クライア
+ント側ではPHPのプログラムは見ることができません。
+
+詳しい文法などについては%\cite{php10}や
+\cite{learningphp}などをを参考にしてください。
+
+なお、この章のプログラムを実行するためにはWebサーバを必要とします。
+手元にある PC に Web サーバーを設置して、その上で PHP プログラムを処理できる
+ように設定する方法については
+XAMPP\footnote{\texttt{https://www.apachefriends.org/jp/index.html}}をイ
+ンストールするのが簡単です。パッケージをダウンロードして簡単にインストー
+ルできます。
+%付録\ref{InstallApachePHP}を参考にしてください。
+%PHP のプログラムの簡単な紹介は付録\ref{php}を参考にしてください。
+\iffalse\else
+\input CH8/0810php.tex
+%\input CH8/0825saveData.tex
+\input CH8/0820Ajax.tex
+
+%\newpage
+\input CH8/0850jQuery.tex
+%\input CH8/0830prototype.js.tex
+%\input CH8/0840crossbrowser.tex
+\fi

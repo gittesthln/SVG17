@@ -1626,8 +1626,8 @@
 \indexentry{::polyline (ÇÊÇ§Çª)@\ShowElm {polyline}::::::::|hyperpage}{129}
 \indexentry{::\Showattrib {width}::ê}å`::::::|hyperpage}{129}
 \indexentry{::width ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {width}(ê}å`)::::::::|hyperpage}{129}
-\indexentry{::\Showattrib {fill}::ê}å`::::::|hyperpage}{134}
-\indexentry{::fill ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {fill}(ê}å`)::::::::|hyperpage}{134}
+\indexentry{::\Showattrib {fill}::ê}å`::::::|hyperpage}{136}
+\indexentry{::fill ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {fill}(ê}å`)::::::::|hyperpage}{136}
 \indexentry{::onclickÇºÇ≠ÇπÇ¢@\Showattrib {onclick}::::::::|hyperpage}{136}
 \indexentry{::\ShowElm {script}::óvëf::::::|hyperpage}{137}
 \indexentry{::script (ÇÊÇ§Çª)@\ShowElm {script}::::::::|hyperpage}{137}
@@ -1782,3 +1782,23 @@
 \indexentry{::\ShowElm {path}::óvëf::::::|hyperpage}{188}
 \indexentry{::path (ÇÊÇ§Çª)@\ShowElm {path}::::::::|hyperpage}{188}
 \indexentry{::dÇºÇ≠ÇπÇ¢@\Showattrib {d}::::::::|hyperpage}{190}
+\indexentry{::\ShowElm {svg}::óvëf::::::|hyperpage}{199}
+\indexentry{::svg (ÇÊÇ§Çª)@\ShowElm {svg}::::::::|hyperpage}{199}
+\indexentry{::\ShowElm {svg}::óvëf::::::|hyperpage}{199}
+\indexentry{::svg (ÇÊÇ§Çª)@\ShowElm {svg}::::::::|hyperpage}{199}
+\indexentry{::\Showattrib {width}::ê}å`::::::|hyperpage}{199}
+\indexentry{::width ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {width}(ê}å`)::::::::|hyperpage}{199}
+\indexentry{::\Showattrib {height}::ê}å`::::::|hyperpage}{199}
+\indexentry{::height ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {height}(ê}å`)::::::::|hyperpage}{199}
+\indexentry{::\ShowElm {svg}::óvëf::::::|hyperpage}{199}
+\indexentry{::svg (ÇÊÇ§Çª)@\ShowElm {svg}::::::::|hyperpage}{199}
+\indexentry{::\ShowElm {polygon}::óvëf::::::|hyperpage}{202}
+\indexentry{::polygon (ÇÊÇ§Çª)@\ShowElm {polygon}::::::::|hyperpage}{202}
+\indexentry{::\ShowElm {g}::óvëf::::::|hyperpage}{203}
+\indexentry{::g (ÇÊÇ§Çª)@\ShowElm {g}::::::::|hyperpage}{203}
+\indexentry{::\ShowElm {polygon}::óvëf::::::|hyperpage}{203}
+\indexentry{::polygon (ÇÊÇ§Çª)@\ShowElm {polygon}::::::::|hyperpage}{203}
+\indexentry{::\Showattrib {points}::ê}å`::::::|hyperpage}{213}
+\indexentry{::points ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {points}(ê}å`)::::::::|hyperpage}{213}
+\indexentry{::\Showattrib {d}::ê}å`::::::|hyperpage}{213}
+\indexentry{::d ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {d}(ê}å`)::::::::|hyperpage}{213}

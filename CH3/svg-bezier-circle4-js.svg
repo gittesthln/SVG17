@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     height="100%" width="100%">
+  <title>1/4円をBezier曲線で近似する</title>
+  <script type="text/ecmascript">
+    //<![CDATA[
+    window.onload = function(){
+    var R = 100;
+    document.getElementById("circle").setAttribute("d","M"+
+      new Array(720).fill(1).map(function(dummy, i){
+        var Rad = i* Math.PI/360;
+        return R*Math.cos(Rad)+","+R*Math.sin(Rad);
+        }).join(" ")+"z")
+    }
+    //]]>
+  </script>
+  <g transform="scale(2,2)">
+  <g transform="translate(150,120)">
+    <path id="circle" stroke-width="12" fill="none" stroke="blue"/> <!-- ref="circlee"-->
+    <path ref="M" d="M-100,0
+             C-100,-55.228 -55.228,-100 0,-100
+             S100,-55.228 100,0
+             S55.228,100 0,100
+             S-100,55.228 -100,0z" ref2="z"
+      stroke-width="6" fill="none" stroke="yellow"/>
+  </g>
+  </g>
+</svg>
+

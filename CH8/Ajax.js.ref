@@ -1,0 +1,35 @@
+var httpObj;
+function createXMLHTTPReq( func ) {
+  var xmlHttpObj = null;
+  if(window.XMLHttpRequest) {
+    xmlHttpObj = new XMLHttpRequest();
+  } else if(window.ActiveXObject ) {
+    try {
+      xmlHttpObj = new ActiveXObject("Msxml2.XMLHTTP");//IE6
+    } catch(e) {
+      try {
+        xmlHttpObj = new ActiveXObject("Microsoft.XMLHTTP");//IE5
+      } catch(e) {
+        return null;
+      }
+    }
+  }
+  if(xmlHttpObj) xmlHttpObj.onreadystatechange = func;
+  return xmlHttpObj;
+}
+function getData() {
+  httpObj = createXMLHTTPReq(displayPolygon);
+  if(httpObj) {
+    httpObj.open("GET","./svg-polygon-ajax.php?N=" +
+      encodeURI( document.getElementById("N").value),true);
+    httpObj.send(null);
+  } 
+}
+function displayPolygon() {
+    var polygon;
+  if(httpObj.readyState == 4 && httpObj.status == 200) {
+    alert(httpObj.responseText);
+    polygon = document.getElementById("npolygon");
+    polygon.setAttribute("points", httpObj.responseText);
+  }
+}
