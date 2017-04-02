@@ -1794,11 +1794,12 @@
 \indexentry{::svg (ÇÊÇ§Çª)@\ShowElm {svg}::::::::|hyperpage}{199}
 \indexentry{::\ShowElm {polygon}::óvëf::::::|hyperpage}{202}
 \indexentry{::polygon (ÇÊÇ§Çª)@\ShowElm {polygon}::::::::|hyperpage}{202}
-\indexentry{::\ShowElm {g}::óvëf::::::|hyperpage}{203}
-\indexentry{::g (ÇÊÇ§Çª)@\ShowElm {g}::::::::|hyperpage}{203}
+\indexentry{::\ShowElm {g}::óvëf::::::|hyperpage}{202}
+\indexentry{::g (ÇÊÇ§Çª)@\ShowElm {g}::::::::|hyperpage}{202}
+\indexentry{::pointsÇºÇ≠ÇπÇ¢@\Showattrib {points}::::::::|hyperpage}{203}
 \indexentry{::\ShowElm {polygon}::óvëf::::::|hyperpage}{203}
 \indexentry{::polygon (ÇÊÇ§Çª)@\ShowElm {polygon}::::::::|hyperpage}{203}
-\indexentry{::\Showattrib {points}::ê}å`::::::|hyperpage}{213}
-\indexentry{::points ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {points}(ê}å`)::::::::|hyperpage}{213}
-\indexentry{::\Showattrib {d}::ê}å`::::::|hyperpage}{213}
-\indexentry{::d ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {d}(ê}å`)::::::::|hyperpage}{213}
+\indexentry{::\Showattrib {points}::ê}å`::::::|hyperpage}{212}
+\indexentry{::points ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {points}(ê}å`)::::::::|hyperpage}{212}
+\indexentry{::\Showattrib {d}::ê}å`::::::|hyperpage}{212}
+\indexentry{::d ÇºÇ≠ÇπÇ¢(Ç∏ÇØÇ¢)@\Showattrib {d}(ê}å`)::::::::|hyperpage}{212}

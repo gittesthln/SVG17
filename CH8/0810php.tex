@@ -4,19 +4,20 @@
 次のHTML文書は表題と表示する正$n$角形の$n$を入力するためのテキストボック
 スがあるだけの簡単なものです(図\ref{npolygon-serverG})。
 
-\ShowFig{0.5}{ht}{npolygon-server}{正$n$角形を書く}{npolygon-serverG}
+\ShowFig{0.4}{ht}{npolygon-server}{正$n$角形を書く}{npolygon-serverG}
 
-このテキストボックスに数字を入れて(ここでは$8$を入力します。)
+このテキストボックスに数字を入れて(ここでは$6$を入力します。)
 「実行」ボタンを押すと図\ref{npolygon-server-res}が表
 示されます。
 
-\ShowFig{0.5}{ht}{npolygon-server-res}
+\ShowFig{0.4}{ht}{npolygon-server-res}
 {正$n$角形を書く(結果)}{npolygon-server-res}
 
+リスト\ref{npolygon-server}は図\ref{npolygon-serverG}のものです。
 \HTMLListN{正$n$角形を書く}{npolygon-server}{npolygon-server}
 このリストの解説はサーバとのやり取りをする部分だけにします。
 \begin{itemize}
- \item \Line{FormS}から\Line{FormE}でフォームを定義しています。
+ \item \LineR{FormS}{FormE}でフォームを定義しています。
        \Line{FormS}の\ElmH{form}の属性は次の意味を持ちます。
 \begin{itemize}
  \item フォームにはデータの送り方を指定する\AttribH{method}を
@@ -25,25 +26,26 @@
        ここでは\texttt{./svg-polygon.php}が指定されているので同じサーバ
        にある\texttt{./svg-polygon.php}が呼び出されます。
 \end{itemize}
- \item テキストボックスは\Line{textbox}で定義されています。入力を与える
+ \item テキストボックスは\Line{textbox}で定義されています。
+\iffalse
+       入力を与える
        ものは\ElmH{input}です。ここの属性は次のような意味を持ちます。
 \begin{itemize}
  \item 属性\AttribH{type}は短い文字列を入力するためのものです。属性
        \AttribH{size}でその文字列の表示される長さの最大値を指定します。
- \item 属性\AttribH{name}はここで与えられるデータの名前になります。
+ \item
+      \fi
+      属性\AttribH{name}はここで与えられるデータの名前になります。
 
-       図\ref{npolygon-server-res}%のタイトルにあるように
-ではアドレスバーが見えていませんが、そこは
+       図\ref{npolygon-server-res}のアドレスバーが次のようになっています。
 \begin{center}
- \texttt{http://localhost/svg-polygon.php?N=8}
+ \texttt{http://localhost/svg-polygon.php?N=6}
 \end{center}
-       となっています。\footnote{\Operan の場合
-       にはアドレスバーの内容をクリックする必要があります。}
        \AttribHVal{PUT}{}によるデータの送信では URL のあとの\texttt{?}以降はプ
        ログラムに渡される引数になります。このような形で引数が渡されると
        きはPHPのプログラムではスーパーグローバル変数\texttt{\$\_GET}の中
        に代入されます。
-\end{itemize}
+%\end{itemize}
  \item \Line{button}に定義されているボタンは\AttribH{submit}ボタンです。
        \AttribHVal{SUBMIT}{}のボタンが押されるとフォームの
        \AttribH{action}で指定されたURLへ移動します。ここではPHPプログラ
@@ -51,21 +53,21 @@
 \end{itemize}
 
 次に、呼び出されるPHPプログラムを見ることにします。本質的にsvgファイルを順
-次表示するようになっています。はじめにSVGのタグを出力するための関数群か
+次表示するようになっています。はじめにSVGの要素を出力するための関数群か
 ら見ていきます。
 \PHPListN{SVGを出力するための関数}{svg-func}{svg-func.php}
 PHPで関数を定義するためには\ElmP{function}を用います。
 
 ここでは次の関数を定義しています。
-\subsubsection{\texttt{printHeader(\$width, \$height)}}
-SVGファイルの先頭部分のXML宣言とルートタグの\Elm{svg}を出力します。
+\paragraph{\texttt{printHeader(\$width, \$height)}}
+SVGファイルの先頭部分のXML宣言とルート要素の\Elm{svg}を出力します。
 PHPでは変数名は\texttt{\$}ではじめます。
 \ListSub{printHeaderS}{printHeaderE}
 \begin{itemize}
  \item 引数\texttt{\$width}と\texttt{\$height}は
        それぞれ\Elm{svg}内の属性\AttribO{width}と\AttribO{height}の値にな
        ります。
- \item \Line{hereDocumentS}から\Line{hereDocumentE}の部分は
+ \item 3行目から\Line{hereDocumentE}の部分は
        \keyitem{ヒアドキュメント}
        \ElmP{ヒアドキュメント}と呼ばれる方
        法で文字列を定義して出力しています。
@@ -74,34 +76,27 @@ PHPでは変数名は\texttt{\$}ではじめます。
  \item  この直後の文字列(ここでは
        \texttt{\_EOF\_})が行の先頭に来るまでがここでの文字列の範囲です
        （ここでは11行目に現れます)。最後に文の終了を示すセミコロンを忘れ
-	ないようにしましょう。
- \item この文字列は。\texttt{"}%"
-       ではさんでいますのでその中に含まれる変数
-       の部分は変数の値に置き換えられます
-       \footnote{PHPでは文字列のデータは\texttt{'}ではさむ場合は置き換え
+	ないようにしましょう。また、行の先頭に空白を入れてはいけません。
+ \item この文字列に含まれる変数の部分は変数の値に置き換えられます
+       \footnote{PHPでは文字列を\texttt{'}ではさむ場合は置き換え
        られません。改行を示す\texttt{\textbackslash n}も\texttt{'}ではさ
        まれたときはそのままの文字になります。}。
        この例では\texttt{\$height}と\texttt{\$width}がその値に置き換えられます。
 \end{itemize}
  \item この文字列を\ElmP{print}を用いて標準出力に出力します。
- \item 最後に最上位のタグである\Elm{svg}をグローバル変数\texttt{setTags}の配列
+ \item 最後にルート要素である\Elm{svg}をグローバル変数\texttt{setTags}の配列
        に設定しています。PHPでは関数内の変数はすべてローカルです。トップ
        レベルの変数をグローバル変数として利用するためには
        {スーパーグローバル変数}\ElmP{\$GLOBAL}
 \IndexSet{\protect\ElmP{\$GLOBAL}}{スーパーグローバル変数}{}{}{PHP}の
        連想配列\IndexSet{PHP}{連想配列}{E}{における}{}を利用する必要があります。
 \end{itemize}       
-\subsubsection{\texttt{outputSpaces(\$n)}}
+\paragraph{\texttt{outputSpaces(\$n)}}
        出力する要素にインデントをつけるため、現在の要素の深さの2倍の空白を
-       出力する関数です。
+       出力する関数です。ここでは与えられた文字列を与えられた回数だけ繰
+       り返す文字列を作成する関数\ElmP{str\_repeat()}を用いています。
 \ListSub{outputSpacesS}{outputSpacesE}
-\begin{itemize}
- \item \ElmP{while}は\texttt{()}の条件式が成立する間、そんれに引き続く部
-       分を実行します。
- \item \texttt{\$n--}は\texttt{\$n>0}の条件判定をした後で\texttt{\$n}の値
-       を$1$減らすことを意味します。
-\end{itemize}
-\subsubsection{\texttt{outputTag(\$tagName, \$attributes, \$close=false)}}
+\paragraph{\texttt{outputTag(\$tagName, \$attributes, \$close=false)}}
        引数\texttt{\$tagName}で与えられた要素名と引数\texttt{\$attributes}
        で与えられた属性値をもつ要素の開始部分を出力します。
 \ListSub{outputTagS}{outputTagE}
@@ -119,11 +114,18 @@ PHPでは変数名は\texttt{\$}ではじめます。
 の形で出力します(\Line{printAttribsS}から\Line{printAttribsE})。
  ここでは\ElmP{foreach}を用いた連想配列のすべての要素を取り出す手法を用い
        ています。\JS ではキーしか取り出せませんでしたが、PHP ではキーと
-       その値を簡単に取り出すことができます。ここではもちろん、
+       その値を簡単に取り出すことができます。ここではもちろん、次の関係
+       が成立しています。
 \begin{center}
  \texttt{\$attributes[\$key] = \$value}
 \end{center}
-の関係が成立しています。
+ \item ここで得られた値をもとに属性値と属性名を出力しています
+       (\Line{outputKeyVal})。
+       ここでは\texttt{"}%"
+       を用いた文字列を定義しています。この形の文字列内の変数は変数の値
+       に置き換えられます。文字列を表す方法としては\texttt{'}を用いる方
+       法もありますが、この定義では変数や\texttt{\textbackslash n}などの
+       制御コードも解釈されません(\Line{printCloseTag}参照)。
  \item 引数\texttt{\$close}は要素の終了を定義する(\ElmP{true})か
        しないか(\ElmP{false})与える引数です。要素の終了を定義する場合
        (\Line{CheckCloseS})には\texttt{/}を出力し(\Line{CheckClose1})、
@@ -141,7 +143,7 @@ PHPでは変数名は\texttt{\$}ではじめます。
        えなくても自動的に補完する機能があります。
 
  \end{itemize}       
-\subsubsection{\texttt{closeTag()}}
+\paragraph{\texttt{closeTag()}}
        まだ閉じられていない最新のタグの要素の終了部分をひとつ出力します。
 \ListSub{closeTagS}{closeTagE}
        出力
@@ -149,24 +151,23 @@ PHPでは変数名は\texttt{\$}ではじめます。
        す。\Line{printCloseTag}の\ElmP{array\_pop()}関数は与えられた配列
        の最後のデータを配列から取り除きます。与えられた配列の大きさはひ
        とつ小さくなります。
- \subsubsection{\texttt{closeSVG()}}
+ \paragraph{\texttt{closeSVG()}}
        閉じられていない要素をすべて閉じるための関数です。
 \ListSub{closeSVGS}{closeSVGE}
        グロ−バル変数
        \texttt{setTags}の配列の大きさが$0$になるまで\texttt{closeTag()}
        関数を呼んですべての要素を閉じます。
 
-このファイルを\texttt{svg-func.php}とします。
 
 次のリストは図\ref{npolygon-serverG}で実行ボタンが押されたときに呼ばれる
 PHPファイルです。
 \PHPListN{正$n$角形を書く}{svg-polygon}{svg-polygon.php}
 \begin{itemize}
  \item \Line{requireonece}でリスト\ref{svg-func.php}のファイルを
-       \ElmP{require\_once}関数を用いて読み込みます。この関数は実行する
+       \ElmP{require\_once()}関数を用いて読み込みます。この関数は実行する
        PHPファイルがあるフォルダー
        (ディレクトリ)を基準としたとこから引数で指定したファイルを読み込
-       みます。 \ElmP{require\_once}関数は名前からもわかるように同じファ
+       みます。 \ElmP{require\_once()}関数は名前からもわかるように同じファ
        イルを2回は読み込みません。
  \item \Line{drawPathS}から\Line{drawPathE}が正$n$角形の頂点の座標を計算
        して、文字列に直す関数\texttt{drawPath()}を定義している部分です。
@@ -179,7 +180,7 @@ PHPファイルです。
        この値を変数\verb+$N+に代入しています。
 \IndexSet{\protect\ElmP{\$\_GET}}{スーパーグローバル変数}{}{}{PHP}
  \item \Line{initString}に現れる\texttt{MaxSize}は\Line{define}の
-       \ElmP{define}関数で\texttt{200}に定義しています。正多角形の頂点の
+       \ElmP{define()}関数で\texttt{200}に定義しています。正多角形の頂点の
        開始位置は$(\textrm{MaxSize,0})$に設定しますのでこの値を文字列の
        初期値として設定しています。
  \item 残りの頂点の座標は$(\textrm{MaxSize}\cos 2\pi
@@ -196,29 +197,28 @@ PHPファイルです。
        変数\verb+$Angle+にしまっています。
   \item \Line{toString}で計
        算して\texttt{pathString}に付け加えています。数値を文字列に直すた
-       めに\ElmP{sprintf}を用いています。変換の文字列の\verb+%.4f+は小数
+       めに\ElmP{sprintf()}を用いています。変換の文字列の\Verb+%.4f+は小数
        点以下を4桁に設定することを指示しています。
 
-       \ElmP{sprintf}関数の戻り値は変換後の文字列です。\footnote{C言語で
-	も\texttt{sprintf}関数は存在します。C言語の場合、
-	\texttt{sprintf}関数の第1番目の引数に結果を格納する文字の配列を
-	指定します。}
+       \ElmP{sprintf()}関数の戻り値は変換後の文字列です\footnote{C言語の
+		\texttt{sprintf}関数の第1番目の引数は結果を格納する文字の配列を
+	指定します。}。
 
  \item \Line{calloutputTagS}から\Line{calloutputTagE}で先ほど定義した
        \texttt{outputTag}関数を用いて\Elm{polygon}を出力します。ここでは
        引数を2つしか与えていないのでこの要素はこの時点で閉じられていま
        せん。
  \item この関数の2番目の引数は属性名をキーに値を属性値にとる連想配列の形
-       です。このために\ElmP{array}関数で配列を作成しています。
+       です。このために\ElmP{array()}関数で配列を作成しています。
 \end{itemize}
  \item ブラウザからサーバーにアクセスするということはサーバーにファイ
        ルの転送を依頼することと同じです。ファイルを転送する前にこれから
        送られるファイルがどのような種類のものなのかをサーバーがブラウザ
-       に知らせます。この処理をするのが\Line{header}にある\ElmP{header}
+       に知らせます。この処理をするのが\Line{header}にある\ElmP{header()}
        関数です(\Line{header})。 
  \item ここでは送られるファイルの種類が画像(\texttt{image})で形式が
-       \texttt{svg+xml}であることを知らせています\footnote{このような形
-       式でデータの意味と形式を伝える方法は\keyitem{MIME(Multipurpose
+       \texttt{svg+xml}であることを知らせています\footnote{
+       データの意味と形式を表す方この法は\keyitem{MIME(Multipurpose
        Internet Mail Extensions)}と呼ばれます。}。この関数をプログラム
        からよばないときには通常の設定ではPHPが\texttt{text/html}を送ります。
        \ElmP{header()}関数はこれ以外にも転送するファイルの大きさや別のペー
@@ -228,22 +228,22 @@ PHPファイルです。
        タを、\Line{closeTag}ではすべての閉じられていない要素の終了を
        すべて書くことを指示しています。
 \end{itemize}
-この実行結果のSVGファイルのリストは次の通りです。\texttt{points}の部分は一行が長いので
+この実行結果のSVGファイルのリストは次の通りです。\Attrib{points}の部分は一行が長いので
 改行しています。
-\begin{verbatim}
+\begin{Verbatim}
 <?xml version="1.0" encoding="utf-8" ?>
    <svg xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         height="100%" width="100%">
    <title>正n角形の表示</title>  <g transform="translate(210,210)" >
-    <polygon points="200,0 141.4214,141.4214 0.0000,200.0000
-      -141.4214,141.4214 -200.0000,0.0000 -141.4214,-141.4214
-      -0.0000,-200.0000 141.4214,-141.4214" 
-      fill="blue" stroke-width="4" stroke="red" >
+    <polygon points="200,0 100.0000,173.2051 -100.0000,173.2051
+                    -200.0000,0.0000 -100.0000,-173.2051 
+                     100.0000,-173.2051"
+             fill="blue" stroke-width="4" stroke="red" >
     </polygon>
   </g>
 </svg>
-\end{verbatim}
+\end{Verbatim}
 \Elm{polygon}に終了要素があることに注意してください。
 \begin{Problem}\upshape
 リスト\ref{svg-polygon.php}について次の問いに答えなさい。
@@ -261,8 +261,8 @@ PHPファイルです。
 た、サーバーからも必要なデータが来る前に、アクセスの結果や送られるファイ
 ルの情報などを前もって送ります。
 
-このような情報を積極的に伝えるために\ElmP{header}関数があります。すでに
-見てきたように\ElmP{header}では次のような情報が送られてきました。
+このような情報を積極的に伝えるために\ElmP{header()}関数があります。すでに
+見てきたように\ElmP{header()}では次のような情報が送られてきました。
 \begin{itemize}
  \item \texttt{Content-Type} これから送られるファイルの形式(メディアタイ
        プ)
@@ -272,39 +272,40 @@ PHPファイルです。
        がわからないので送られないこともあります。
 \end{itemize}
 PHPのプログラムでははじめになにかデータをクライアント側に送るとデフォル
-トの情報が送られてしまいます。その後で\texttt{header}関数を用いると「すで
-に\texttt{header}が送られた」といエラーが発生します。たとえば、PHPのプロ
+トの情報が送られてしまいます。その後で\ElmP{header()}関数を用いると「すで
+に\ElmP{header()}が送られた」といエラーが発生します。たとえば、PHPのプロ
 グラムの開始を示す\texttt{<?php}の\texttt{<}の前に空白があるとそれだけで
 データの送付が開始されたということになります。
 
 また、Windowに付属のメモ帳ではファイルの文字コードをUTF-8で保存するとファイル
 の先頭に\keyitem{BOM(Byte Order Mark)}と呼ばれる2バイトの文字列が付け加
 わり、これがデータとして解釈
-されて\texttt{header}関数がうまく作動しない場合があります。
+されて\ElmP{header()}関数がうまく作動しない場合があります。
 
 いくつかのエディタでは保存の形式で \keyitem{UTF-8} と \keyitem{UTF-8N} の
 選択ができるものがあります。後者はBOMをつけない形式のようです。
 
 Web のページをアクセスするとよくファイルのダウンロードのメッセージボック
 スが開く場合があり、保存場所や送られてきたファイル名を変えて保存ができる
-ようになっている場合があります。このようなことも\texttt{header}関数を用
+ようになっている場合があります。このようなことも\ElmP{header()}関数を用
 いることで実現できます。
 
 リスト\ref{svg-polygon.php}の\Line{header}の後に次の行を付け加えてくださ
 い。
-\begin{verbatim}
+\begin{Verbatim}
 header('Content-Disposition: attachment; filename="'.$_GET['N'].'-polygon.svg"');
-\end{verbatim}
+\end{Verbatim}
 前半の部分がファイルのダウンロードを指示していて、\texttt{filename}以降
-の部分でファイル名を指定しています。\texttt{N=8}で実行すると図
-\ref{npolygon-server-res2}のようなメッセージボックスが開きます。
-\ShowFig{0.5}{ht}{npolygon-server-restoFile}
+の部分でファイル名を指定しています。\texttt{N=86}で実行すると図
+\ref{npolygon-server-res2}のようにブラウザの下にファイルがだダウンロード
+されます。
+\ShowFig{0.4}{ht}{npolygon-server-restoFile}
 {正$n$角形を書く(ファイルに保存)}{npolygon-server-res2}
 
-その後、ファイルのデータが\ElmP{print}により、クライアント側に送られます。
+このファイルの内容が\ElmP{print}により、クライアント側に送られます。
 現存するファイルを送りたいときは\Line{header}内のMIMEタイプを送りたいファ
 イルに合うように直し(たとえば、PDFファイルならば\texttt{application/pdf}
-となります)、そのあとに\texttt{readfile()}関数を用いてファイルを送ります。
+となります)、そのあとに\ElmP{readfile()}関数を用いてファイルを送ります。
 \begin{Problem}\upshape
 次の事項に答えなさい。
 \begin{enumerate}
@@ -328,14 +329,15 @@ header('Content-Disposition: attachment; filename="'.$_GET['N'].'-polygon.svg"')
 ここではこのプログラムの出力をセキュリティ上の観点から
 すべて見せるわけにはいきま
 せん。この出力の中には次のような行があるはずです。
-\begin{verbatim}
-HTTP_USER_AGENT	Opera/9.80 (Windows NT 6.2; WOW64) Presto/2.12.388 Version/12.17
-\end{verbatim}
+\begin{Verbatim}
+HTTP_USER_AGENT	Mozilla/5.0 (Windows NT 6.2; Win64; x64)
+  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+\end{Verbatim}
 \ElmP{HTTP\_USER\_AGENT}はアクセスしたユーザのブラウザに関する情報が示され
 ます(正確にはブラウザが伝えたブラウザ情報です)。これによりブラウザは
-\Operan であり、使用OSはWindows NT 6.2であることがわかります。
-また、\texttt{ja}により使用言語が日本語であることもわかります。
+Chrome であり、使用OSはWindows NT 6.2であることがわかります。
 
+\iffalse
 なお、Windows のコマンドプロンプトで \texttt{winver}と打つとWindows の公
 式のバージョンを表示させることができます(図\ref{WindowsVersion})。
 %
@@ -348,12 +350,12 @@ HTTP_USER_AGENT	Opera/9.80 (Windows NT 6.2; WOW64) Presto/2.12.388 Version/12.17
 \texttt{http://ja.wikipedia.org/wiki/Microsoft\textunderscore
 Windows\textunderscore 10}によると Windows
 10 ではメジャー番号が10になるようです。}。
-
+\fi
 したがってこれらの情報によりプログラムで返すファイルの内容を変える
 ことが可能となります。
 \begin{Problem}\upshape
  いろいろブラウザやOSを変えて\verb+$_SERVER['HTTP_USER_AGENT']+がどの
  ような値になるか調べなさい。特に、携帯電話のフルブラウザに対して調べる
- こと。\footnote{\texttt{http://hilano.ic.kanagawa-it.ac.jp/s.php}にアクセ
+ こと。\footnote{\texttt{http://www.hilano.org/s.php}にアクセ
  スするとこの値が返されます。}
 \end{Problem}

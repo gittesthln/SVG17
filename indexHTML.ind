@@ -2,7 +2,7 @@
 \addcontentsline{toc}{section}{\indexnameshort}
 \item {\large\bf A}\nopagebreak[4]
   \item \Showattrib {action}(属性) \dotfill \hyperpage{197}, 
-		\hyperpage{198}, \hyperpage{210}
+		\hyperpage{198}, \hyperpage{209}
 
   \indexspace
 \item {\large\bf B}\nopagebreak[4]
@@ -48,7 +48,7 @@
   \item \Showattrib {id}(属性) \dotfill \hyperpage{178}
   \item \Showattrib {inline-block}(CSSの値) \dotfill \hyperpage{178}
   \item \ShowElm {input} \dotfill \hyperpage{179}, \hyperpage{194}, 
-		\hyperpage{197}, \hyperpage{202}
+		\hyperpage{202}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
@@ -81,7 +81,6 @@
   \item \ShowElm {select} \dotfill \hyperpage{180}
   \item \Showattrib {setTimeout}(オブジェクトのメソッド ) \dotfill 
 		\hyperpage{174}
-  \item \Showattrib {size}(属性) \dotfill \hyperpage{197}
   \item \Showattrib {SUBMIT}(値) \dotfill \hyperpage{198}
   \item \Showattrib {submit}(属性) \dotfill \hyperpage{198}
 
@@ -90,7 +89,7 @@
   \item \Showattrib {text}(値) \dotfill \hyperpage{179}, \hyperpage{194}
   \item \Showattrib {text-align}(CSSプロパティ) \dotfill \hyperpage{179}
   \item \Showattrib {type}(属性) \dotfill \hyperpage{179}, 
-		\hyperpage{194}, \hyperpage{197}
+		\hyperpage{194}
 
   \indexspace
 \item {\large\bf V}\nopagebreak[4]
@@ -115,17 +114,16 @@
 \item {\large\bf そ}\nopagebreak[4]
   \item 属性
     \subitem \Showattrib {action} \dotfill \hyperpage{197}, 
-		\hyperpage{198}, \hyperpage{210}
+		\hyperpage{198}, \hyperpage{209}
     \subitem \Showattrib {class} \dotfill \hyperpage{103}, 
 		\hyperpage{177}, \hyperpage{178}
     \subitem \Showattrib {id} \dotfill \hyperpage{178}
     \subitem \Showattrib {method} \dotfill \hyperpage{197}
     \subitem \Showattrib {name} \dotfill \hyperpage{180}, 
 		\hyperpage{197}, \hyperpage{202}
-    \subitem \Showattrib {size} \dotfill \hyperpage{197}
     \subitem \Showattrib {submit} \dotfill \hyperpage{198}
     \subitem \Showattrib {type} \dotfill \hyperpage{179}, 
-		\hyperpage{194}, \hyperpage{197}
+		\hyperpage{194}
     \subitem \Showattrib {value} \dotfill \hyperpage{180}
 
   \indexspace
@@ -141,7 +139,7 @@
     \subitem \ShowElm {HTML} \dotfill \hyperpage{4}
     \subitem \ShowElm {id} \dotfill \hyperpage{179}
     \subitem \ShowElm {input} \dotfill \hyperpage{179}, 
-		\hyperpage{194}, \hyperpage{197}, \hyperpage{202}
+		\hyperpage{194}, \hyperpage{202}
     \subitem \ShowElm {meta} \dotfill \hyperpage{177}
     \subitem \ShowElm {option} \dotfill \hyperpage{180}
     \subitem \ShowElm {script} \dotfill \hyperpage{134}

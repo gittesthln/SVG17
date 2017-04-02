@@ -272,20 +272,21 @@
 \indexentry{::DOM::::::::|hyperpage}{195}
 \indexentry{::PHP::::::::|hyperpage}{195}
 \indexentry{::Apache::::::::|hyperpage}{195}
+\indexentry{::ドキュメントルート::::::::|hyperpage}{195}
 \indexentry{::ヒアドキュメント::::::::|hyperpage}{199}
 \indexentry{::PHP::連想配列::E::における::|hyperpage}{199}
-\indexentry{::実現する(PHP)::スタック::T::を::|hyperpage}{201}
+\indexentry{::実現する(PHP)::スタック::T::を::|hyperpage}{200}
 \indexentry{::円周率::PHP::T::における::|hyperpage}{202}
-\indexentry{::MIME(Multipurpose Internet Mail Extensions)::::::::|hyperpage}{203}
+\indexentry{::MIME(Multipurpose Internet Mail Extensions)::::::::|hyperpage}{202}
 \indexentry{::BOM(Byte Order Mark)::::::::|hyperpage}{204}
 \indexentry{::UTF-8::::::::|hyperpage}{204}
 \indexentry{::UTF-8N::::::::|hyperpage}{204}
-\indexentry{::Ajax::::::::|hyperpage}{207}
-\indexentry{::Google Map::::::::|hyperpage}{207}
-\indexentry{::非同期通信::::::::|hyperpage}{208}
-\indexentry{::クロスブラウザ対策::::::::|hyperpage}{208}
-\indexentry{::構造化例外処理::::::::|hyperpage}{211}
-\indexentry{::コールバック関数::::::::|hyperpage}{212}
-\indexentry{::同期通信::::::::|hyperpage}{212}
-\indexentry{::jQuery::::::::|hyperpage}{214}
-\indexentry{::CDN(Contents Delivery Network)::::::::|hyperpage}{215}
+\indexentry{::Ajax::::::::|hyperpage}{206}
+\indexentry{::Google Map::::::::|hyperpage}{206}
+\indexentry{::非同期通信::::::::|hyperpage}{207}
+\indexentry{::クロスブラウザ対策::::::::|hyperpage}{207}
+\indexentry{::構造化例外処理::::::::|hyperpage}{210}
+\indexentry{::コールバック関数::::::::|hyperpage}{210}
+\indexentry{::同期通信::::::::|hyperpage}{211}
+\indexentry{::jQuery::::::::|hyperpage}{213}
+\indexentry{::CDN(Contents Delivery Network)::::::::|hyperpage}{214}

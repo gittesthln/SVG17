@@ -10,14 +10,14 @@ _EOF_;
   $GLOBALS['setTags'] = array("svg");
 }
 function outputSpaces($n) {
-  while( $n-- > 0 ) print '  ';
+    print str_repeat('  ', $n);
 }                         
 
 function outputTag($tagName, $attributes, $close=false){
   outputSpaces(count($GLOBALS['setTags']));  
   print "<$tagName ";                        
   foreach($attributes as $key => $value ) {  
-    print $key . '="' . $value . '" ';       
+    print "$key=\"$value\" ";       
   }                                          
   if($close) {                               
     print '/';                               

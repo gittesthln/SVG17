@@ -74,7 +74,7 @@
   \item \Showattrib {d}(図形) \dotfill \hyperpage{43}, \hyperpage{45}, 
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{80}, 
 		\hyperpage{81}, \hyperpage{156}, \hyperpage{168}, 
-		\hyperpage{213}
+		\hyperpage{212}
   \item \Showattrib {darken}(値--フィルタ) \dotfill \hyperpage{106}, 
 		\hyperpage{107}, \hyperpage{109}
   \item \ShowElm {defs} \dotfill \hyperpage{17}, \hyperpage{18}, 
@@ -201,7 +201,7 @@
 		\hyperpage{145}, \hyperpage{146}, \hyperpage{151}, 
 		\hyperpage{154}, \hyperpage{165}, \hyperpage{167}, 
 		\hyperpage{173}, \hyperpage{177}, \hyperpage{182}, 
-		\hyperpage{203}
+		\hyperpage{202}
   \item \Showattrib {gamma}(値--フィルタ) \dotfill \hyperpage{116}
   \item \Showattrib {gradientUnits}(色) \dotfill \hyperpage{26}, 
 		\hyperpage{29}, \hyperpage{31--33}, \hyperpage{81}, 
@@ -350,10 +350,11 @@
   \item \Showattrib {patternTransform}(図形) \dotfill \hyperpage{66}
   \item \Showattrib {patternUnits}(図形) \dotfill \hyperpage{62}
   \item \Showattrib {points}(図形) \dotfill \hyperpage{39}, 
-		\hyperpage{40}, \hyperpage{213}
+		\hyperpage{40}, \hyperpage{212}
   \item \Showattrib {pointsAtX}(フィルタ) \dotfill \hyperpage{121}
   \item \Showattrib {pointsAtY}(フィルタ) \dotfill \hyperpage{121}
   \item \Showattrib {pointsAtZ}(フィルタ) \dotfill \hyperpage{121}
+  \item \Showattrib {points} \dotfill \hyperpage{203}
   \item \ShowElm {polygon} \dotfill \hyperpage{39}, \hyperpage{40}, 
 		\hyperpage{45}, \hyperpage{202}, \hyperpage{203}
   \item \ShowElm {polyline} \dotfill \hyperpage{39}, \hyperpage{45}, 
@@ -788,7 +789,7 @@
     \subitem \Showattrib {d} \dotfill \hyperpage{43}, \hyperpage{45}, 
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{80}, 
 		\hyperpage{81}, \hyperpage{156}, \hyperpage{168}, 
-		\hyperpage{213}
+		\hyperpage{212}
     \subitem \Showattrib {end} \dotfill \hyperpage{87}
     \subitem \Showattrib {fill-opacity} \dotfill \hyperpage{36}, 
 		\hyperpage{37}
@@ -815,7 +816,7 @@
     \subitem \Showattrib {patternTransform} \dotfill \hyperpage{66}
     \subitem \Showattrib {patternUnits} \dotfill \hyperpage{62}
     \subitem \Showattrib {points} \dotfill \hyperpage{39}, 
-		\hyperpage{40}, \hyperpage{213}
+		\hyperpage{40}, \hyperpage{212}
     \subitem \Showattrib {preserveAspectRatio} \dotfill \hyperpage{68}
     \subitem \Showattrib {r} \dotfill \hyperpage{22}, \hyperpage{23}
     \subitem \Showattrib {rotate} \dotfill \hyperpage{57}
@@ -986,7 +987,7 @@
 		\hyperpage{145}, \hyperpage{146}, \hyperpage{151}, 
 		\hyperpage{154}, \hyperpage{165}, \hyperpage{167}, 
 		\hyperpage{173}, \hyperpage{177}, \hyperpage{182}, 
-		\hyperpage{203}
+		\hyperpage{202}
     \subitem \ShowElm {image} \dotfill \hyperpage{67}, \hyperpage{70}
     \subitem \ShowElm {line} \dotfill \hyperpage{14}, \hyperpage{154}
     \subitem \ShowElm {linearGradient} \dotfill \hyperpage{26}, 

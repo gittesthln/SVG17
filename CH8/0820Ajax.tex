@@ -51,26 +51,25 @@
        れていなくでも地図をドラッグして表示範囲を変えることができます。
        また、ドラッグして移動中でも地図の一部が表示されるようになります。
 \end{itemize}
-現在のところ非同期通信を実現するための\ElmJ{XMLHttpRequest}オブジェクト
-の作成法は
-ブラウザで多少異なりますのでこの部分はブラウザにより
-書き分ける(\keyitem{クロスブラウザ対策})が必要になります。
+細心のブラウザでは非同期通信を実現するための\ElmJ{XMLHttpRequest}オブジェクト
+が標準で存在します。古いブラウザにまで対応させるためにはブラウザにより
+書き分ける(\keyitem{クロスブラウザ対策})必要があります。
 
 \subsection{Ajaxの例}\label{AjaxEx}
 ここでは図\ref{npolygon-serverG}で行った正多角形のSVGファイル作成を多角
 形の座標だけサーバーで計算させ、それをHTML内のSVGファイルのデータを書き
 直すことで実現するものです。図\ref{test-ajax-start}は開始画面です。
-\ShowFig{0.5}{ht}{test-ajax-start}
+\ShowFig{0.4}{ht}{test-ajax-start}
 {$n$角形を書く(Ajax版)--開始画面}{test-ajax-start}
 
 この画面でテキストボックスに適当な数を入れてクリックするとサーバーから送
 られてきたデータがメッセージボックスに表示されます(図\ref{test-ajax-data})。
-\ShowFig{0.5}{ht}{test-ajax-data}
+\ShowFig{0.4}{ht}{test-ajax-data}
 {$n$角形を書く(Ajax版)--サーバーからのデータ}{test-ajax-data}
 
 
 「OK」ボタンを押すと図\ref{test-ajax-show}のように多角形が表示されます。
-\ShowFig{0.5}{ht}{test-ajax-show}
+\ShowFig{0.4}{ht}{test-ajax-show}
 {$n$角形を書く(Ajax版)--結果}{test-ajax-show}
 %
 \newpage
@@ -113,7 +112,8 @@
 	(\keyitem{コールバック関数})を\ElmJ{onreadystatechange}に設定し
 	ています(\Line{setCallback})。
  \end{itemize}
-\footnote{このプログラムではブラウザの名称やバージョンを用いて作成するオブジェ
+       %\footnote
+       {このプログラムではブラウザの名称やバージョンを用いて作成するオブジェ
        クトを変えていないことに注意してください。オブジェクトが存在する
        かどうかを調べて、存在しない場合には別の方法をとるというのが最近
        の手法です。いろいろなライブラリーではこの手続きを隠すようにして
@@ -135,11 +135,11 @@
 \begin{center}
  \verb+./svg-polygon-ajax.php?N=5+
 \end{center}
-引数が複数あるときは\texttt{\&}で区切ります。
+引数が複数あるときは\texttt{\&}で区切ります
 \footnote{検索サイトで日本語の検索文
        字列を入れるとアドレスバーに日本語が現れずに\%が入った文字列が見
        えます。これは、日本語をUTF-8でエンコーディングしてから16進数で表
-       記したものに変えているからです。}
+       記したものに変えているからです。}。
 なお、呼び出
        されたphpプログラムではこの値を\verb+$_GET['N']+で利用できます。
  \item 最後の引数が\ElmJ{true}なのでこの場合は\keyitem{同期通信}になりま
@@ -205,10 +205,10 @@
 メッセージボックスで表示されたデータがブラウザ上に表示されます。つまり、
 ブラウザのページでボタンを押さなくてもデータの取得ができます。したがっ
 て、ネットワーク上で公開する重要なページでは送られてきたデータをしっかり
-吟味する必要があります。詳しくは\cite{PHPSecurity}や\cite{WebSecurity}を
-参考にしてください。
+吟味する必要があります。詳しくは\cite{PHPSecurity}%や\cite{WebSecurity}
+を参考にしてください。
 
-Ajax から 返されたデータを \ElmJ{responseXML}　で受け取ると
+Ajax から 返されたデータを \ElmJ{responseXML} で受け取ると
 プログラムの中でそのままXMLのデータとして利用できます。しかし、次の点の
 注意が必要です。
 \begin{itemize}
@@ -221,7 +221,9 @@ Ajax から 返されたデータを \ElmJ{responseXML}　で受け取ると
 造の\SVG や\HTML の断片をDOMのメソッドで作成し、DOMツリーに入れる必要が
        あります。
 \end{itemize}
-構造を持ったデータを返す方法としては次に挙げるJSONを用いる方法があります。
+構造を持ったデータを返す方法としては
+%次に挙げる
+JSONを用いる方法があります。
 \iffalse
 \subsection{JSON}
 AjaxからのデータをXMLで受け取るとその時点で受け取ったデータはXMLの

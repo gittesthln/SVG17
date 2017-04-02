@@ -1,7 +1,7 @@
 \begin{theindex}\small
 \addcontentsline{toc}{section}{\indexnameshort}
 \item {\large\bf A}\nopagebreak[4]
-  \item Ajax \dotfill \hyperpage{195}, \hyperpage{207}
+  \item Ajax \dotfill \hyperpage{195}, \hyperpage{206}
   \item Apache \dotfill \hyperpage{195}
 
   \indexspace
@@ -14,7 +14,7 @@
 
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
-  \item CDN(Contents Delivery Network) \dotfill \hyperpage{215}
+  \item CDN(Contents Delivery Network) \dotfill \hyperpage{214}
   \item CGI \dotfill \hyperpage{195}
   \item \Showattrib {click}(イベント) \dotfill \hyperpage{139}, 
 		\hyperpage{146}, \hyperpage{177}
@@ -33,7 +33,7 @@
 
   \indexspace
 \item {\large\bf G}\nopagebreak[4]
-  \item Google Map \dotfill \hyperpage{207}
+  \item Google Map \dotfill \hyperpage{206}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
@@ -44,12 +44,12 @@
 \item {\large\bf J}\nopagebreak[4]
   \item JavaScript \dotfill \hyperpage{125}
     \subitem オブジェクトリテラル \dotfill \hyperpage{180}
-  \item jQuery \dotfill \hyperpage{214}
+  \item jQuery \dotfill \hyperpage{213}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
   \item MIME(Multipurpose Internet Mail Extensions) \dotfill 
-		\hyperpage{203}
+		\hyperpage{202}
   \item \Showattrib {mousedown}(イベント) \dotfill \hyperpage{146}, 
 		\hyperpage{148}, \hyperpage{150}, \hyperpage{154}
   \item \Showattrib {mousemove}(イベント) \dotfill \hyperpage{146}, 
@@ -179,12 +179,12 @@
   \item クリックの処理(JavaScript) \dotfill \hyperpage{136}
   \item クレイク・オブライエン効果 \dotfill \hyperpage{35}
   \item クロージャ \dotfill \hyperpage{189}
-  \item クロスブラウザ対策 \dotfill \hyperpage{208}
+  \item クロスブラウザ対策 \dotfill \hyperpage{207}
 
   \indexspace
 \item {\large\bf こ}\nopagebreak[4]
-  \item 構造化例外処理 \dotfill \hyperpage{211}
-  \item コールバック関数 \dotfill \hyperpage{212}
+  \item 構造化例外処理 \dotfill \hyperpage{210}
+  \item コールバック関数 \dotfill \hyperpage{210}
   \item 子ノード \dotfill \hyperpage{126}
   \item コフカリング \dotfill \hyperpage{29}
   \item コメント(SVG) \dotfill \hyperpage{11}
@@ -245,7 +245,7 @@
   \indexspace
 \item {\large\bf す}\nopagebreak[4]
   \item スタック
-    \subitem \ItemRuler を実現する(PHP) \dotfill \hyperpage{201}
+    \subitem \ItemRuler を実現する(PHP) \dotfill \hyperpage{200}
 
   \indexspace
 \item {\large\bf せ}\nopagebreak[4]
@@ -289,7 +289,8 @@
 
   \indexspace
 \item {\large\bf と}\nopagebreak[4]
-  \item 同期通信 \dotfill \hyperpage{212}
+  \item 同期通信 \dotfill \hyperpage{211}
+  \item ドキュメントルート \dotfill \hyperpage{195}
   \item ドラッグの処理(JavaScript) \dotfill \hyperpage{146}
 
   \indexspace
@@ -319,7 +320,7 @@
 \item {\large\bf ひ}\nopagebreak[4]
   \item ヒアドキュメント \dotfill \hyperpage{199}
   \item ひし形を用いたクレイク・オブライエン効果 \dotfill \hyperpage{29}
-  \item 非同期通信 \dotfill \hyperpage{208}
+  \item 非同期通信 \dotfill \hyperpage{207}
   \item ピラミッドの稜線 \dotfill \hyperpage{38}
 
   \indexspace
