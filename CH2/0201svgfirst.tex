@@ -32,13 +32,13 @@
 \subsection{\SVG におけるコメントの記入方法}
 \SVG でコメント\IndexSet{コメント(SVG)}{}{}{}{}{}{}を入れる方法は \HTML
 と同様にコメントの部分を
-\texttt{<!--} と \texttt{-->} ではさみます。この本の中ではコメントをほと
+\texttt{<!--} と \texttt{-->} ではさみます。このテキストではコメントをほと
 んど利用していません。
 \subsection{色について}\label{howtoindicatecolor}
 SVGで色を指定する方法は次の3種類です。\IndexSet{色の指定}{}{}{}{}
 \begin{enumerate}
  \item 名称による指定\\英語名で色を指定します。
- どのような名称がどのような色になるかは付録\ref{SVGColor}
+ どのような名称がどのような色になるかは付録\ref{SVGColor}%
 を見てください。
  \item \AttribCVal{rgb}{}関数による色の指定\\
 色の3原色、赤、緑、青のそれぞれに対し$0\sim255$ の値を指定し
@@ -127,9 +127,9 @@ $0\sim255$ までの数は16進数2桁で表せるので
        形が異なるものを4つ定義しています。
 \begin{itemize}
  \item \Elm{line}は\keyitem{直線}を定義します。この要素は\Elm{g}の内側に
-       \Elm{line}は\Elm{g}の\keyitem{子要素}になっているといいます。また、
-       \Elm{g}は\Elm{line}の\keyitem{親要素}であるとも言います。
- \item \keysubT{属性}{直線}{の}としては表\ref{AttribofLine}を参考
+       あるので\Elm{line}は\Elm{g}の\keyitem{子要素}であるといい、
+       \Elm{g}は\Elm{line}の\keyitem{親要素}であるといいます。
+ \item \keysubT{属性}{直線}{の}は表\ref{AttribofLine}を参考
        にしてください。
 \ListAttribsF{AttribofLine}{\Elm{line}の属性%
 \IndexSet{属性値}%
@@ -151,7 +151,7 @@ $0\sim255$ までの数は16進数2桁で表せるので
        ます。
  \item 線の幅(\AttribO{stroke-width})が $20$ でその色(\AttribO{stroke})を
        黒(\AttribCVal{black}{})に指定しています。
- \item はじめの二つが同じ形をしているので\AttribO{linecap}のデフォルト値が
+ \item はじめの二つが同じ形なので\AttribO{linecap}のデフォルト値が
        \AttribOVal{butt}{}であることがわかります。
  \item 最後の文字列\texttt{/>}はこの要素が子要素を含まないことを示すため
        の簡略的な記述方法です。
@@ -178,14 +178,14 @@ $0\sim255$ までの数は16進数2桁で表せるので
 \ShowFig{0.35}{h}{fick1}{フィックの錯視}{example-fick}
 %\label{fick}
 
-水平の線分と垂直な線分の長さが同じなのにその位置が中央にあると長く見える
- というとして知られているものです。簡単な図形ながら錯視量が大きいことで
+水平と垂直の線分の長さが同じなのにその位置が中央にあると長く見える
+ という錯視図形です。簡単な図形ながら錯視量が大きいことで
  有名な図形です。これを描く\SVG のリストがリスト\ref{Oifick}です。
 %\newpage
 \SVGListN{フィックの錯視}{fick1}{Oifick}
 \begin{itemize}
-% \item 線分の長さが直感的にわかるために\Elm{g}で座標系を平行移動していま
-%       す(5行目)。
+ \item 線分の長さが直感的にわかるために\Elm{g}で座標系を平行移動していま
+       す(6行目)。
  \item \LineR{line1-0}{line1-1}で水平の直線を描いています。
  \item  \LineR{line2-0}{line2-1}で垂直の直線を描いています。
 \end{itemize}
@@ -198,7 +198,7 @@ $0\sim255$ までの数は16進数2桁で表せるので
  \item 中央の線分の長さをどれだけ縮小したら同じ長さに見えるか調べなさい。 
 \end{enumerate}
 \end{Problem}
-
+%\newpage
 %\label{Muller-Lyer}
 \paragraph{ミューラー$\cdot$ライヤーの錯視}
 図\ref{example-muller-lyer}は
@@ -243,17 +243,17 @@ $0\sim255$ までの数は16進数2桁で表せるので
        ています。
  \item 右の矢印は全体を横の直線の左端に平行移動させます
        (\Showattrib{transform="translate(200,0)"})。
- \item 矢印の向きを反転させるために\Line{scale}で
-       \Showattrib{transform="scale(-1,1)"}をしています。$x$座標の値を
+ \item \Line{scale}で\Showattrib{transform="scale(-1,1)"}で矢印の向きを
+       反転させています。$x$座標の値を
        $-1$倍し、$y$座標の値をそのまま($1$倍)に指定しています。
 \end{itemize}
  \item \LineR{arrow2b}{arrow2e}で下の部分の図形を定義しています。
 \ListSub{arrow2b}{arrow2e}
- \item 矢印の向きが上と逆になっているので左の矢印は
-       属性\Showattrib{transform="scale(-1,1)"}を持つ\Elm{g}の中に入れて
-       左右の向きの入れ替えを行っています。
+ \item 左の矢印は向きが上のものと逆なので
+       属性\Showattrib{transform="scale(-1,1)"}を持つ\Elm{g}の子要素にし
+       て左右の向きを入れ替えています。
  \item 右の矢印は属性\Showattrib{transform="translate(200,0)"}を持つ
-       \Elm{g}の中に入れて平行移動しています。
+       \Elm{g}の子要素とすることで平行移動しています。
 \end{itemize}
 \begin{Problem}\upshape
 ミューラー$\cdot$ライヤーの錯視図形で次のことを調べなさい。
@@ -315,7 +315,7 @@ $0\sim255$ までの数は16進数2桁で表せるので
 \Showattrib{name="value"}の代わりに \Showattrib{name:value} と表し、属性
 同士の間は \Showattrib{;}(セミコロン)で区切ります。
 \fi
-
+\newpage
 \paragraph{色の対比}
 図\ref{whiteIO0}は正方形の内部が
 \OIIdxB{同じ色なのに周りの色で見え方が異なる}
