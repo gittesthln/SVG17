@@ -5,7 +5,7 @@
 <title>加色混合と減色混合によるカラーチャート図</title>
 <defs>
   <circle id="Circle" cx="100" cy="100" r="70" ref="circle"/>
-  <g id="Red">
+  <g id="Red"><!--  ref="RedS" -->
     <rect x="-70" y="0" width="300" height="270"/>
     <use xlink:href="#Circle" fill="red"/>
   </g><!--  ref="RedE" -->

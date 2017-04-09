@@ -30,7 +30,7 @@
            values="50%;0%;0%" dur="30s" repeatCount="indefinite" ref2="LoE"/>
       </textPath>
       <animate attributeName="opacity" values="1;1;0;0" ref1="animate2S2"
-               keyTimes="0;0.5;0.5;1" repeatCount="indefinite" dur="30s" ref2="animate2S2"/>
+               keyTimes="0;0.5;0.5;1" repeatCount="indefinite" dur="30s" ref2="animate2E2"/>
     </text><!-- ref="text2E" -->
     <use xlink:href="#Upper" fill="none" stroke="red" ref="Path" />
    </g>

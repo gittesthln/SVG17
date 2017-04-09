@@ -86,7 +86,7 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 \SVGListN{バーゲンのきらめき効果}{svg-bergen0}{svg-bergen0}
 \begin{itemize}
  \item \LineR{filter1S}{filter1E}でフィルタを定義しています。
- \item \Line{gauss1}でガウスぼかしのパラメータを $5$ に設定しています。
+ \item \Line{gauss1}でガウスぼかしのパラメータを $2$ に設定しています。
  \item 全体の図は前と同様に縁取りのある正方形からなるパターンで塗りつぶ
        します。そのパターンは\LineR{rectS}{rectE}で定義しています。
  \item \LineR{rectShS}{rectShE}で定義した長方形の内部を上で定義したパター
@@ -186,10 +186,10 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 \ExpList{%
 {円の大きさを統一するために\Line{circle}で使用する円を定義していま
        す。ここで定義している属性は円の中心位置と半径だけです。}
-{この円を用いて\LineR{Red}{Cyan}で\AttribO{fill}の値
+{この円を用いて\LineR{RedS}{Cyan}で\AttribO{fill}の値
    を設定した6つの円を定義しています。名称は色の名前と同じにしています。
-\Opera で加色混合の図を正しく表示するため、赤の円だけは正方形の黒の長方
-形の上に描いています(LineR{Red}{RedE})。\footnote{\Chrome ではこのようなことをしなくても正しく表示されました。}}
+加色混合の図を正しく表示するため、赤の円だけは正方形の黒の長方
+形の上に描いています(\LineR{RedS}{RedE})。}
 {\LineR{filterS}{filterE}で左側の図形を書くためのフィルタを定義していま
 す。
 %\ListSub{filterS}{filterE}
@@ -206,7 +206,7 @@ SVGには与えられた画像にたいしてぼかしたり他の画像と合�
 	  ので重なった点のRGBの値は両者の図形の大きいほうの値(結果として
 	  その点の位置の明るさが増す)になります。したがって、3つの円が重
 	  なった部分は白になります。}}}
-%\ExpList{%
+    
 {\LineR{filter2S}{filter2E}も同様のフィルタです。ただ、\ElmF{feBlend}の
        \AttribF{mode}の値が\AttribFVal{darken}{}になっているので重なった
        点では二つの画像のRGB値の小さいほうになります。したがって、3つの

@@ -12,29 +12,8 @@ jQuery is a fast, small, and feature-rich JavaScript library. It makes
  JavaScript.
 \end{quotation}
 jQuery はJavaScriptのライブラリーであり、これまでに解説してきた
-JavaScriptの使い方を簡単にすることを目的としています。現在のところ jQuery
-には ver. 1 のものと ver. 2 の系列が提供されています。大きな違いについては
-次のように解説されています。
-\iffalse
-Query 1.x
-
-The jQuery 1.x line had major changes as of jQuery 1.9.0. We strongly
-recommend that you also use the jQuery Migrate plugin if you are
-upgrading from pre-1.9 versions of jQuery or need to use plugins that
-haven't yet been updated. Read the jQuery 1.9 Upgrade Guide and the
-jQuery 1.9 　
-\fi
-\begin{quotation}
-jQuery 2.x
-
-jQuery 2.x has the same API as jQuery 1.x, but does not support Internet
-Explorer 6, 7, or 8. All the notes in the jQuery 1.9 Upgrade Guide apply
-here as well. Since IE 8 is still relatively common, we recommend using
-the 1.x version unless you are certain no IE 6/7/8 users are visiting
-the site. Please read the 2.0 release notes carefully. 
-\end{quotation}
-一番大きな違いは ver. 2 では古い Internet Explorer の対応を打ち切った
-ことです。
+JavaScriptの使い方を簡単にすることを目的としています。2017年4月10日現在、jQuery
+は ver. 3.2.0 が提供されています。
 
 また、配布されているライブラリーはコメントなどがそのまま入っているものと、
 コメントを取り除き、変数名などを短いものに置き換えて、ファイルサイズを小
@@ -178,7 +157,7 @@ jQueryではAjaxの処理に関するいろいろな方法を提供していま�
 この関数は引数にオブジェクトリテラルをとります。このオブジェクトリテラルの属
 性名として代表的なものを表\ref{jQueryAjax}に挙げます。
 \begin{table}[ht]
- \caption{jQuery.ajax()関数で利用できる属性(一部))}\label{jQueryAjax}
+ \caption{jQuery.ajax()関数で利用できる属性(一部)}\label{jQueryAjax}
 \begin{center}
  \begin{tabular}{|c|m{28zw}|}\hline
 属性名  &\multicolumn{1}{c|}{説明} \\\hline
@@ -208,15 +187,13 @@ jQueryではAjaxの処理に関するいろいろな方法を提供していま�
 なお、このリストではグローバル変数を減らすために jQuery で用意されている
 メソッドを多用しています。
 %\newpage
-\HTMLListMN{クリック位置をHTMLで表示し、HTMLのデータからSVGの図形を動かす\protect\newline
-(jQuery版)}%
+\HTMLListMN{クリック位置とSVG要素の属性とHTMLのフォームデータの交換(jQuery版)}%
 {ShowSetClickPos-jQuery}{ShowSetClickPosjQuery}
 
 \Line{jQuery}で\HTML と同じ場所に置かれた jQuery ライブラリーを読
-			 み込むことを指示しています。ここでは $1$ 系列の最新版である
-			 \texttt{1.11.3} を読み込んでいます。
+			 み込むことを指示しています。ここでは \texttt{3.2.0} を読み込んでいます。
 
-\LineR{}{OnReady}{OnReadyE}はファイルが読み込まれた状態で実行される関数
+\LineR{OnReady}{OnReadyE}はファイルが読み込まれた状態で実行される関数
 を定義しているところです。
 \ListSub{OnReady}{OnReadyE}
 \begin{itemize}\upshape
@@ -263,11 +240,11 @@ jQueryではAjaxの処理に関するいろいろな方法を提供していま�
 
 この例からもわかるように jQuery ライブラリーでは既存のSVG要素に対してそ
 の属性の変更や、イベントハンドラ－の登録が可能となっています
-\footnote{\Operan や\FF で確認したところではSVGの要素を指定して、新規に
+\iffalse\footnote{\Operan や\FF で確認したところではSVGの要素を指定して、新規に
 オブジェクトを作成することはできますが、それをSVG要素として表示すること
 はできませんでした。一部の属性はCSSの方で定義されてしまいました。これは
 要素を作成するときの名前空間がHTMLにしか適応していないためと思われま
-す。}。
+す。}\fi 。
 \begin{Problem}\upshape
  これまでに作成したDOMを操作する\HTML 文書を jQuery を用いて書き直しなさ
  い。

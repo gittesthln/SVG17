@@ -1,5 +1,4 @@
 \begin{theindex}\small
-\addcontentsline{toc}{section}{\indexnameshort}
 \item {\large\bf A}\nopagebreak[4]
   \item Ajax \dotfill \hyperpage{195}, \hyperpage{206}
   \item Apache \dotfill \hyperpage{195}
@@ -147,12 +146,12 @@
 \item {\large\bf え}\nopagebreak[4]
   \item 円
     \subitem {B\'{e}zier}曲線で近似 \dotfill \hyperpage{55}
-    \subitem 属性の\ItemRuler  \dotfill \hyperpage{22}
+    \subitem 属性の\ItemRuler  \dotfill \hyperpage{23}
   \item エンコーディング \dotfill \hyperpage{13}
 
   \indexspace
 \item {\large\bf お}\nopagebreak[4]
-  \item 同じ色なのに周りの色で見え方が異なる \dotfill \hyperpage{19}
+  \item 同じ色なのに周りの色で見え方が異なる \dotfill \hyperpage{20}
   \item オブジェクトリテラル
     \subitem {JavaScript}における\ItemRuler  \dotfill \hyperpage{180}
   \item 親ノード \dotfill \hyperpage{126}
@@ -172,7 +171,7 @@
 
   \indexspace
 \item {\large\bf く}\nopagebreak[4]
-  \item グラデーション \dotfill \hyperpage{25}
+  \item グラデーション \dotfill \hyperpage{26}
     \subitem 線形\relax \ItemRuler  \dotfill \hyperpage{26}
     \subitem 放射\relax \ItemRuler  \dotfill \hyperpage{33}
   \item クリック \dotfill \hyperpage{133}
@@ -198,7 +197,7 @@
     \subitem 色の対比 \dotfill \hyperpage{21}
     \subitem ヴィントの\ItemRuler  \dotfill \hyperpage{44}
     \subitem 同じ色なのに周りの色で見え方が異なる \dotfill 
-		\hyperpage{19}
+		\hyperpage{20}
     \subitem 輝くヘルマン格子 \dotfill \hyperpage{64}
     \subitem カニッツァ\ItemRuler  \dotfill \hyperpage{48}
     \subitem カフェウォール\ItemRuler  \dotfill \hyperpage{22}, 
@@ -224,7 +223,7 @@
 		\hyperpage{75}, \hyperpage{156}
     \subitem 浮動する円 \dotfill \hyperpage{65}
     \subitem ブルドンの\ItemRuler  \dotfill \hyperpage{43}
-    \subitem ヘルマン格子 \dotfill \hyperpage{20}, \hyperpage{103}
+    \subitem ヘルマン格子 \dotfill \hyperpage{21}, \hyperpage{103}
     \subitem ポッケンドルフの\ItemRuler  \dotfill \hyperpage{19}, 
 		\hyperpage{86}
     \subitem マッハバンド\ItemRuler  \dotfill \hyperpage{27}
@@ -257,15 +256,15 @@
   \indexspace
 \item {\large\bf そ}\nopagebreak[4]
   \item 属性 \dotfill \hyperpage{13}
-    \subitem \ItemRuler の円 \dotfill \hyperpage{22}
-    \subitem \ItemRuler の楕円 \dotfill \hyperpage{22}
+    \subitem \ItemRuler の円 \dotfill \hyperpage{23}
+    \subitem \ItemRuler の楕円 \dotfill \hyperpage{23}
   \item 属性値 \dotfill \hyperpage{13}
 
   \indexspace
 \item {\large\bf た}\nopagebreak[4]
-  \item 楕円 \dotfill \hyperpage{22}
+  \item 楕円 \dotfill \hyperpage{23}
     \subitem \ItemRuler の一部となる曲線 \dotfill \hyperpage{46}
-    \subitem 属性の\ItemRuler  \dotfill \hyperpage{22}
+    \subitem 属性の\ItemRuler  \dotfill \hyperpage{23}
   \item 多角形 \dotfill \hyperpage{39}
   \item タグ \dotfill \hyperpage{4}
 
@@ -329,14 +328,14 @@
 		\hyperpage{156}
   \item フィルタ \dotfill \hyperpage{101}
   \item 浮動する円 \dotfill \hyperpage{65}
-  \item 不透明度 \dotfill \hyperpage{35}, \hyperpage{70}, 
+  \item 不透明度 \dotfill \hyperpage{36}, \hyperpage{70}, 
 		\hyperpage{105}
   \item ブルドンの錯視 \dotfill \hyperpage{43}
   \item プロパティ \dotfill \hyperpage{131}
 
   \indexspace
 \item {\large\bf へ}\nopagebreak[4]
-  \item ヘルマン格子 \dotfill \hyperpage{20}, \hyperpage{103}
+  \item ヘルマン格子 \dotfill \hyperpage{21}, \hyperpage{103}
 
   \indexspace
 \item {\large\bf ほ}\nopagebreak[4]

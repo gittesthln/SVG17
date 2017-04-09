@@ -30,9 +30,7 @@
 \INPUT{CH5}{05showingtext.tex}
 \INPUT{CH6}{06filter.tex}
 \INPUT{CH7}{07svg-withjavascript.tex}
-\iffalse\else
 \INPUT{CH8}{08svgwithserver.tex}
-\fi
 %\backmatter
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
@@ -53,6 +51,7 @@
 \newcommand{\IncludeIndex}[2]{%
    \renewcommand\indexnameshort{#2}
    \renewcommand{\indexname}{索引 --- #2}
+\addcontentsline{toc}{section}{#2}
    \input #1.ind
 }
 %

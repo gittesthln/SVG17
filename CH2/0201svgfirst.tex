@@ -234,26 +234,25 @@ $0\sim255$ までの数は16進数2桁で表せるので
        が \Elm{use} です(\Line{use1}と\Line{use2})。参照先を指定するために
        \Attrib{xlink:href}を用います。参照先は\Attrib{id}で定義された名
        称の前に\AttribVal{\#}{}を付けます。
- \item \LineR{arrow1b}{arrow1e}の間が上の矢印を記述している部分です。
+ \item \LineR{arrow1b}{arrow1e}の間が上の図形を記述している部分です。
 \ListSub{arrow1b}{arrow1e}
 \begin{itemize}
  \item \LineR{bar1}{bar2}で横の直線を定義しています。
  \item \Line{bar1leftarrow}で左の矢印の部分を定義しています。
  \item \LineR{bar1rightarrows}{bar1rightarrowe}で右の矢印を描い
        ています。
- \item 右の矢印は全体を横の直線の左端に平行移動させます
-       (\Showattrib{transform="translate(200,0)"})。
- \item \Line{scale}で\Showattrib{transform="scale(-1,1)"}で矢印の向きを
+ \item 右の矢印は全体を横の直線の左端に平行移動させ
+       (\Line{bar1rightarrows}の\Showattrib{transform="translate(200,0)"})、
+ \Line{scale}で\Showattrib{transform="scale(-1,1)"}で矢印の向きを
        反転させています。$x$座標の値を
        $-1$倍し、$y$座標の値をそのまま($1$倍)に指定しています。
 \end{itemize}
- \item \LineR{arrow2b}{arrow2e}で下の部分の図形を定義しています。
+ \item \LineR{arrow2b}{arrow2e}で下の図形を定義しています。
 \ListSub{arrow2b}{arrow2e}
- \item 左の矢印は向きが上のものと逆なので
-       属性\Showattrib{transform="scale(-1,1)"}を持つ\Elm{g}の子要素にし
-       て左右の向きを入れ替えています。
- \item 右の矢印は属性\Showattrib{transform="translate(200,0)"}を持つ
-       \Elm{g}の子要素とすることで平行移動しています。
+ \item 左の矢印は向きが上のものと逆なので図形を左右反転する属性を持つ
+       \Line{leftarrow}の\Elm{g}の子要素にして実現しています。
+ \item 右の矢印は\Line{rightarrow}の平行移動をする属性を持つ\Elm{g}の子
+       要素とすることで図形を平行移動しています。
 \end{itemize}
 \begin{Problem}\upshape
 ミューラー$\cdot$ライヤーの錯視図形で次のことを調べなさい。

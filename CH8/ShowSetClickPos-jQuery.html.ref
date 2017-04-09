@@ -3,7 +3,7 @@
       xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
 <meta  http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<script type="text/ecmascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/ecmascript" src="jquery-3.2.0.min.js"></script>
 <script type="text/ecmascript">
 //<![CDATA[
 $(window).ready(function(){
@@ -39,7 +39,7 @@ function SetText(Element, attrib, V) {
 }
 //]]>  
 </script>
-<link rel="stylesheet" type="text/css" href="../CH7/HTML.css">
+<link rel="stylesheet" type="text/css" href="HTML.css">
 <title>HTMLとSVGの間でデータを交換させる(jQuery版)</title>
 </head>
 <body>

@@ -9,7 +9,6 @@
 このテキストボックスに数字を入れて(ここでは$6$を入力します。)
 「実行」ボタンを押すと図\ref{npolygon-server-res}が表
 示されます。
-
 \ShowFig{0.4}{ht}{npolygon-server-res}
 {正$n$角形を書く(結果)}{npolygon-server-res}
 
@@ -17,8 +16,8 @@
 \HTMLListN{正$n$角形を書く}{npolygon-server}{npolygon-server}
 このリストの解説はサーバとのやり取りをする部分だけにします。
 \begin{itemize}
- \item \LineR{FormS}{FormE}でフォームを定義しています。
-       \Line{FormS}の\ElmH{form}の属性は次の意味を持ちます。
+ \item \LineR{FormsS}{FormsE}でフォームを定義しています。
+       \Line{FormsS}の\ElmH{form}の属性は次の意味を持ちます。
 \begin{itemize}
  \item フォームにはデータの送り方を指定する\AttribH{method}を
        \AttribHVal{PUT}{}に指定しています。
@@ -32,7 +31,7 @@
        ものは\ElmH{input}です。ここの属性は次のような意味を持ちます。
 \begin{itemize}
  \item 属性\AttribH{type}は短い文字列を入力するためのものです。属性
-       \AttribH{size}でその文字列の表示される長さの最大値を指定します。
+f       \AttribH{size}でその文字列の表示される長さの最大値を指定します。
  \item
       \fi
       属性\AttribH{name}はここで与えられるデータの名前になります。
