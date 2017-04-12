@@ -6,13 +6,13 @@
   <script type="text/ecmascript">
 //    <![CDATA[
   window.onload = function() {                    
-    var Cs = document.getElementsByTagName("circle");
-    for( var i=0; i< Cs.length; i++) { 
+    let Cs = document.getElementsByTagName("circle");
+    for( let i=0; i< Cs.length; i++) { 
       Cs[i].addEventListener("click",click, false); 
     }                                    
   }                                    
   function click(event) {              
-    alert("Circle " +event.target.getAttribute("fill")+" clicked.");
+    alert(`Circle ${event.target.getAttribute("fill")} clicked.`);
   }
 //    ]]></script>
   <circle cx="50" cy="50" r="20" fill="red" />

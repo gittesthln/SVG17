@@ -4,8 +4,8 @@
   <title>画面上に直線を引く</title>
   <script type="text/ecmascript">
 //<![CDATA[
-  var svgNS ="http://www.w3.org/2000/svg";//// ref="SVGNS"
-  var C, NewLine = null;
+  let svgNS ="http://www.w3.org/2000/svg";//// ref="SVGNS"
+  let C, NewLine = null;
   window.onload = function() {//// ref="initS"
     C = document.getElementById("Canvas");//// ref="Canvas"
     C.addEventListener("mousedown",mdown, false);//// ref="mousedownEvent"

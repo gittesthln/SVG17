@@ -1,9 +1,9 @@
-var Circle, X, Y, XP, YP, oT, oL, B;//// ref="InitS"
+let Circle, X, Y, XP, YP, oT, oL, B;//// ref="InitS"
 window.onload = function() {//// ref="OnLoad"
-  var Colors = {"red":"赤", "yellow":"黄色","green":"緑", //// ref="InitOptS"
+  let Colors = {"red":"赤", "yellow":"黄色","green":"緑", //// ref="InitOptS"
                      "blue":"青","gray":"灰色","black":"黒"};
-  var tmp, tmpText, Color;
-  var SelectColor = document.getElementById("SelectColor");//// ref="Setcolor"
+  let tmp, tmpText, Color;
+  let SelectColor = document.getElementById("SelectColor");//// ref="Setcolor"
   for( Color in Colors) {//// ref="makeOptS"
     tmp = document.createElement("option");//// ref="createOption"
     tmp.setAttribute("value", Color);//// ref="setValue"
@@ -38,7 +38,7 @@ function refresh() {
 }
 
 function SetText(Element, attrib, Value) {
-  var txtNode = document.createTextNode(Value);
+  let txtNode = document.createTextNode(Value);
   if( Element.firstChild) {
      Element.replaceChild(txtNode, Element.firstChild);
   } else {

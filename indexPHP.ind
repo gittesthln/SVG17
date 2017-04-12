@@ -1,73 +1,73 @@
 \begin{theindex}\small
 \item {\large\bf Symbols}\nopagebreak[4]
-  \item \Showattrib {<<<} \dotfill \hyperpage{199}
+  \item \Showattrib {<<<} \dotfill \hyperpage{201}
   \item \Showattrib {\$\_GET} \dotfill \hyperpage{付録 26}, 
-		\hyperpage{202}
+		\hyperpage{204}
   \item \Showattrib {\$\_SERVER} \dotfill \hyperpage{付録 26}, 
-		\hyperpage{205}
+		\hyperpage{207}
   \item \Showattrib {\$GLOBAL} \dotfill \hyperpage{付録 26}, 
-		\hyperpage{199}
+		\hyperpage{201}
 
   \indexspace
 \item {\large\bf A}\nopagebreak[4]
-  \item \Showattrib {array()} \dotfill \hyperpage{202}
-  \item \Showattrib {array\_pop()} \dotfill \hyperpage{200}, 
-		\hyperpage{201}
-  \item \Showattrib {array\_push()} \dotfill \hyperpage{200}
+  \item \Showattrib {array()} \dotfill \hyperpage{204}
+  \item \Showattrib {array\_pop()} \dotfill \hyperpage{202}, 
+		\hyperpage{203}
+  \item \Showattrib {array\_push()} \dotfill \hyperpage{202}
 
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
-  \item \Showattrib {count()} \dotfill \hyperpage{200}
+  \item \Showattrib {count()} \dotfill \hyperpage{202}
 
   \indexspace
 \item {\large\bf D}\nopagebreak[4]
-  \item \Showattrib {define()} \dotfill \hyperpage{202}
+  \item \Showattrib {define()} \dotfill \hyperpage{204}
 
   \indexspace
 \item {\large\bf F}\nopagebreak[4]
-  \item \Showattrib {false} \dotfill \hyperpage{200}
-  \item \Showattrib {for} \dotfill \hyperpage{202}
-  \item \Showattrib {foreach} \dotfill \hyperpage{200}
-  \item \Showattrib {function} \dotfill \hyperpage{199}
+  \item \Showattrib {false} \dotfill \hyperpage{202}
+  \item \Showattrib {for} \dotfill \hyperpage{204}
+  \item \Showattrib {foreach} \dotfill \hyperpage{202}
+  \item \Showattrib {function} \dotfill \hyperpage{201}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
-  \item \Showattrib {header} \dotfill \hyperpage{212}
-  \item \Showattrib {header()} \dotfill \hyperpage{202--204}
-  \item \Showattrib {HTTP\_USER\_AGENT} \dotfill \hyperpage{205}
+  \item \Showattrib {header} \dotfill \hyperpage{214}
+  \item \Showattrib {header()} \dotfill \hyperpage{204--206}
+  \item \Showattrib {HTTP\_USER\_AGENT} \dotfill \hyperpage{207}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
-  \item \Showattrib {M\_PI} \dotfill \hyperpage{202}
+  \item \Showattrib {M\_PI} \dotfill \hyperpage{204}
 
   \indexspace
 \item {\large\bf P}\nopagebreak[4]
-  \item \Showattrib {print} \dotfill \hyperpage{199}, \hyperpage{204}
-  \item \Showattrib {PUT} \dotfill \hyperpage{202}
+  \item \Showattrib {print} \dotfill \hyperpage{201}, \hyperpage{206}
+  \item \Showattrib {PUT} \dotfill \hyperpage{204}
 
   \indexspace
 \item {\large\bf R}\nopagebreak[4]
-  \item \Showattrib {readfile()} \dotfill \hyperpage{204}
-  \item \Showattrib {require\_once()} \dotfill \hyperpage{201}
+  \item \Showattrib {readfile()} \dotfill \hyperpage{206}
+  \item \Showattrib {require\_once()} \dotfill \hyperpage{203}
 
   \indexspace
 \item {\large\bf S}\nopagebreak[4]
-  \item \Showattrib {sprintf()} \dotfill \hyperpage{202}
-  \item \Showattrib {str\_repeat()} \dotfill \hyperpage{199}
+  \item \Showattrib {sprintf()} \dotfill \hyperpage{204}
+  \item \Showattrib {str\_repeat()} \dotfill \hyperpage{201}
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
-  \item \Showattrib {true} \dotfill \hyperpage{200}
+  \item \Showattrib {true} \dotfill \hyperpage{202}
 
   \indexspace
 \item {\large\bf す}\nopagebreak[4]
   \item スーパーグローバル変数
-    \subitem \ElmP {\$\_GET} \dotfill \hyperpage{202}
-    \subitem \ElmP {\$\_SERVER} \dotfill \hyperpage{205}
-    \subitem \ElmP {\$GLOBAL} \dotfill \hyperpage{199}
+    \subitem \ElmP {\$\_GET} \dotfill \hyperpage{204}
+    \subitem \ElmP {\$\_SERVER} \dotfill \hyperpage{207}
+    \subitem \ElmP {\$GLOBAL} \dotfill \hyperpage{201}
 
   \indexspace
 \item {\large\bf ひ}\nopagebreak[4]
-  \item \Showattrib {ヒアドキュメント} \dotfill \hyperpage{199}
+  \item \Showattrib {ヒアドキュメント} \dotfill \hyperpage{201}
 
 \end{theindex}

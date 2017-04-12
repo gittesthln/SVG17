@@ -110,11 +110,22 @@
       です。ここで\ElmJ{\texttt{+}}は文字列を
        \keysubT{つなげる}{文字列}{を}演算子です。文字列と数字を
        \texttt{+}でつなげると\JS では数字を文字列に直してからつなげます。
+
+			 
  \item \DOMP{target}{}は\texttt{event}が発生したオブジェクトです。
  \item \DOMM{getAttribute}{()}はオブジェクトの指定された属性(ここでは
  \AttribO{fill})の値を返すメソッドです。したがって、ここではクリックされ
  た色の名称が得られ、これがメッセ−ジボックスに表示されます。
 \end{itemize}
+
+			 なお、新しい EcmaScript では\keyitem{テンプレートリテラル}が追加
+			 されました。これを用いると文字列の中に式の結果を直接入れることが
+			 できます。テンプレートリテラルは\texttt{`}(バッククオート)で囲み、
+			 置き換える式を\texttt{\{\}}内に記述し、その前に\texttt{\$}を付け
+			 ます。上の例では次のようになります。
+
+			 \texttt{`Circle \$\{event.target.getAttribute("fill")\} clicked.`}
+
 \begin{Problem}\upshape
  \AttribO{fill}を\texttt{\upshape red}のかわりに\verb+#FF0000+(赤)と定義した場合
  にはどのような表示になるか確認しなさい。
@@ -136,11 +147,14 @@
        \Elm{circle}のオブジェクトに\Attrib{onclick}が定義されていないことです。
  \item その代わりに\Attrib{onload}のイベントを処理する関数が
  定義されています(\LineR{init-start}{init-end})。\Attrib{onload}のイベントは\SVG がすべて読み込まれた後、呼び出されます。
-  \item まず、\Elm{circle}を持つオブジェクトのリストを得ます
-       (\Line{getElements})。
-   \DOMM{getElementsByTagName}がそのメソッドです。これはオブジェクトのコレ
-   クションを返します。コレクション内のオブジェクトの数は\JSM{length}プ
-       ロパティで得られます。
+  \item (\Line{getElements})では\Elm{circle}を持つオブジェクトのリストを
+				得て(\DOMM{getElementsByTagName}メソッド)、その結果を変数
+				\texttt{Cs}に代入しています。\ElmJ{let} は変数の宣言方法です。従
+				来は\ElmJ{var}で宣言をしていましたが、いくつ
+				かの問題点があったので新しい Ecmascript で導入されました。
+   
+   \DOMM{getElementsByTagName}メソッドはコレクションを返します。コレクショ
+				ン内のオブジェクトの数は\JSM{length}プロパティで得られます。
  \item このコレクションのメンバーに対して\texttt{click}イベントに対する
  関数を割り当てます(\Line{EventListener})。そのメソッドが
        \DOMM{addEventListner}です。
@@ -159,7 +173,7 @@
 
 \ShowFig{0.35}{ht}{svg-js-click2}
 {クリックするとその円が移動します}{svg-js-click2}
-\newpage
+%\newpage
 \SVGListN{マウスのクリックを検出するSVG(その3)}{svg-js-click2}
 {js-click2}
 この例ではマウスをクリックするとクリックした円が下方に移動し、再び同じ円
@@ -452,11 +466,11 @@ DOM Level 2 のモデルではイベントが発生したオブジェクトは�
 \end{enumerate}
 \end{Problem}
 \fi
-\iffalse
 \subsubsection{イベントの伝播のキャンセル}
 DOM Level 2 のイベントモデルではイベントの発生がDOMの構造を伝わってオブ
 ジェクトに伝えられます。構造が複雑になればシステムに負担がかかります。こ
 のイベントの発生の伝播を途中で打ち切るのが\DOMM{stopPropagation}{()}です。
+\iffalse
 リスト\ref{svg-event-check}の\Line{stopProp}のコメントをはずすとイベント
 の伝播がキャンセルされるのでメッセージボックスはひとつしか開きません。
 
@@ -498,8 +512,7 @@ DOM Level 2 のイベントモデルではイベントの発生がDOMの構造�
 \ShowFigs{0.3}{ht}{{svg-drag-1}{svg-drag-2}}{3つの円がそれぞれドラッグで
 移動可能(右：初期状態、左：３つの円を移動したとき)}{svg-drag}
 この図のリストはリスト\ref{svg-js-drag}です。
-%
-\newpage
+%\newpage
 \SVGListN{ドラッグの例}{svg-js-drag}{svg-js-drag}
 \begin{itemize}
  \item この例は例\ref{svg-js-click}と同様に3つの円を\Line{circle1}から

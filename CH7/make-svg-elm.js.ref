@@ -1,13 +1,13 @@
 function MKHTMLElm(P, Elm, Attribs, Events) {
-  var HTMLNS = "http://www.w3.org/1999/xhtml";
+  let HTMLNS = "http://www.w3.org/1999/xhtml";
   return MakeElement(HTMLNS, P, Elm, Attribs, Events)
 }
 function MKSVGElm(P, Elm, Attribs, Events) {
-  var SVGNS = "http://www.w3.org/2000/svg";
+  let SVGNS = "http://www.w3.org/2000/svg";
   return MakeElement(SVGNS, P, Elm, Attribs, Events)
 }
 function MakeElement(NS, P, elem, attribs, events) {
-  var Element = document.createElementNS(NS,elem);
+  let Element = document.createElementNS(NS,elem);
   SetAttributes(Element, attribs);
   AddEvents(Element, events);
   if(P) P.appendChild(Element);

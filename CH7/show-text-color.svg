@@ -9,18 +9,18 @@
 </style>
 <script type="text/ecmascript">
 //<![CDATA[
-var Data = [//// ref="dataS"
+let Data = [//// ref="dataS"
    ["あか","赤","red"],     ["くろ","黒","black"],
    ["みどり","緑","green"], ["あお","青","blue"],
    ["きいろ","黄","yellow"],["むらさき","紫","violet"]
 ];//// ref="dataE"
-var Type = 0;//// ref="paramType"
-var xUnit = 150, xInit = 30, xMax = 6;//// ref="paramX"
-var yUnit =  50, yInit = 20, yMax = 8;//// ref="paramY"
-var Max = 10, k, Doc, textNode;//// ref="Globals"
-var PosList = [];//// ref="globalsPos"
+let Type = 0;//// ref="paramType"
+let xUnit = 150, xInit = 30, xMax = 6;//// ref="paramX"
+let yUnit =  50, yInit = 20, yMax = 8;//// ref="paramY"
+let Max = 10, k, Doc, textNode;//// ref="Globals"
+let PosList = [];//// ref="globalsPos"
 window.onload = function() {//// ref="initS"
-var i, j;
+let i, j;
   for(i=0; i<xMax; i++) {//// ref="initPosS"
     for(j=0; j<yMax; j++) {
       PosList.push([i,j]);//// ref="push"
@@ -31,8 +31,8 @@ var i, j;
   ShowProb();//// ref="Callfunction"
 }//// ref="initE"
 function ShowProb() {//// ref="ShowProbS"
-var x, y, i, j, p;
-var T;
+let x, y, i, j, p;
+let T;
   if(k>0) {//// ref="Checkend"
     i = getRand(0, Data.length);//// ref="setParami"
     j = getRand(0, Data.length);//// ref="setParamj"

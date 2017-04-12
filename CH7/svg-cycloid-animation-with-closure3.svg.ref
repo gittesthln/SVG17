@@ -4,12 +4,12 @@
 <script type="text/ecmascript">
 //<![CDATA[
 window.onload = function () {
-  var C =document.getElementById("cycliod");
-  var T =document.getElementById("translate");
-  var Rot =document.getElementById("rotate");
-  var R = 50, Current = 1, Step=2, d =["M0,0"];
+  let C =document.getElementById("cycliod");
+  let T =document.getElementById("translate");
+  let Rot =document.getElementById("rotate");
+  let R = 50, Current = 1, Step=2, d =["M0,0"];
   (function DrawNext(){
-      var Next = Current + Step, rad;
+      let Next = Current + Step, rad;
       if(Current<=360) {
         for( ; Current< Next; Current++) {
           rad = Current/180*Math.PI;
@@ -18,8 +18,8 @@ window.onload = function () {
           d.push(pX,pY);
         }
         C.setAttribute("d",d.join(" "));
-        T.setAttribute("transform","translate(" + (R*rad) + ",-50)");
-        Rot.setAttribute("transform", "rotate("+Next+")");
+        T.setAttribute("transform",`translate(${R*rad},-50)`);
+        Rot.setAttribute("transform", `rotate(${Next})`);
         setTimeout(DrawNext,100);
       }
     })()

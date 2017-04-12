@@ -9,7 +9,7 @@
     document.getElementById("Canvas").addEventListener("click",click, false);  
   }
   function click(E) {
-  var T = document.getElementById("Circle");
+  let T = document.getElementById("Circle");
     T.setAttribute("cx",E.clientX);  
     T.setAttribute("cy",E.clientY);  
   }

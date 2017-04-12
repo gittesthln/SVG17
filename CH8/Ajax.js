@@ -1,6 +1,6 @@
-var httpObj;
+let httpObj;
 function createXMLHTTPReq( func ) {//// ref="createXMLHTTPReqS"
-  var xmlHttpObj = null;
+  let xmlHttpObj = null;
   if(window.XMLHttpRequest) {//// ref="XMLHTTPReq"
     xmlHttpObj = new XMLHttpRequest();
   } else if(window.ActiveXObject ) {//// ref="ActiveXS"
@@ -26,7 +26,7 @@ function getData() {//// ref="OpenS"
   } 
 }//// ref="OpenE"
 function displayPolygon() {//// ref="GetS"
-    var polygon;
+    let polygon;
   if(httpObj.readyState == 4 && httpObj.status == 200) {//// ref="requestOK"
     alert(httpObj.responseText);//// ref="showSendText"
     polygon = document.getElementById("npolygon");//// ref="setDS"

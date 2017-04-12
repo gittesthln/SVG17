@@ -6,11 +6,11 @@
   <script type="text/ecmascript">
 //    <![CDATA[
   window.onload = function() {
-    var Cs = document.getElementById("Canvas");
+    let Cs = document.getElementById("Canvas");
     Cs.addEventListener("click",click, false);//// ref="addEvent"
   }
   function click(event) {
-    alert("Circle " +event.target.getAttribute("fill")+" clicked.");//// ref="showMessage"
+    alert(`Circle ${event.target.getAttribute("fill")} clicked.`);//// ref="showMessage"
   }
 //  ]]></script>
   <g id="Canvas"> <!-- ref="TopObject" -->

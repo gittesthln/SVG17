@@ -7,14 +7,14 @@
 <script type="text/ecmascript">
 //<![CDATA[
 $(window).ready(function(){
-  var Colors = {"red":"赤", "yellow":"黄色","green":"緑", 
+  let Colors = {"red":"赤", "yellow":"黄色","green":"緑", 
                      "blue":"青","gray":"灰色","black":"黒"};
-  var Color;
-  var SelectColor = $("#SelectColor");
+  let Color;
+  let SelectColor = $("#SelectColor");
   for( Color in Colors) {
     $("<option/>", {"value":Color, "text":Colors[Color]}).appendTo(SelectColor);
   }
-  var Circle = $("#Circle");
+  let Circle = $("#Circle");
   $("#XP").val(Circle.attr("cx"));
   $("#YP").val(Circle.attr("cy"));
   $("#field").click(click);
@@ -22,7 +22,7 @@ $(window).ready(function(){
   refresh();
 });
 function click(event) {
-  var Pos = $("#field").offset();
+  let Pos = $("#field").offset();
   $("#XP").val(event.clientX-Math.floor(Pos.left));
   $("#YP").val(event.clientY-Math.floor(Pos.top)); 
   refresh();

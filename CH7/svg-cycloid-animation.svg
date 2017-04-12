@@ -4,8 +4,8 @@
 <title>サイクロイドを描く --- アニメーション版</title>
 <script type="text/ecmascript">
 //<![CDATA[
-var R = 50, Current = 1, Step=2, d ="M0,0 ";//// ref="Params"
-var T, Rot, C;//// ref="Globals"
+let R = 50, Current = 1, Step=2, d ="M0,0 ";//// ref="Params"
+let T, Rot, C;//// ref="Globals"
 window.onload = function() {
   C =document.getElementById("cycliod");//// ref="GlobalsS"
   T =document.getElementById("translate");
@@ -13,17 +13,15 @@ window.onload = function() {
   drawCurve();
 }
 function drawCurve(){
-  var Next = Current + Step, rad;//// ref="Next"
+  let Next = Current + Step, rad;//// ref="Next"
   if(Current<=360) {
     for( ; Current< Next; Current++) {
       rad = Current/180*Math.PI;
-      pX = R*(rad-Math.sin(rad));
-      pY = R*(-1+Math.cos(rad));
-      d += pX+","+pY+" ";
+      d += `${R*(rad-Math.sin(rad))},${R*(-1+Math.cos(rad))} `;
     }
     C.setAttribute("d",d);
-    T.setAttribute("transform","translate(" + (R*rad) + ",-50)");//// ref="transform"
-    Rot.setAttribute("transform", "rotate("+Next+")");//// ref="rotate"
+    T.setAttribute("transform",`translate(${R*rad},-50)`);//// ref="transform"
+    Rot.setAttribute("transform", `rotate(${Next})`);//// ref="rotate"
     setTimeout(drawCurve,100);//// ref="CallNext"
   }
 }

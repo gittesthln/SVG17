@@ -9,18 +9,18 @@
 </style>
 <script type="text/ecmascript">
 //<![CDATA[
-var Data = [
+let Data = [
    ["あか","赤","red"],     ["くろ","黒","black"],
    ["みどり","緑","green"], ["あお","青","blue"],
    ["きいろ","黄","yellow"],["むらさき","紫","violet"]
 ];
-var Type = 0;
-var xUnit = 150, xInit = 30, xMax = 6;
-var yUnit =  50, yInit = 20, yMax = 8;
-var Max = 10, k, Doc, textNode;
-var PosList = [];
+let Type = 0;
+let xUnit = 150, xInit = 30, xMax = 6;
+let yUnit =  50, yInit = 20, yMax = 8;
+let Max = 10, k, Doc, textNode;
+let PosList = [];
 window.onload = function() {
-var i, j;
+let i, j;
   for(i=0; i<xMax; i++) {
     for(j=0; j<yMax; j++) {
       PosList.push([i,j]);
@@ -31,8 +31,8 @@ var i, j;
   ShowProb();
 }
 function ShowProb() {
-var x, y, i, j, p;
-var T;
+let x, y, i, j, p;
+let T;
   if(k>0) {
     i = getRand(0, Data.length);
     j = getRand(0, Data.length);

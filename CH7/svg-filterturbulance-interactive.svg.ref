@@ -5,7 +5,7 @@
   <title>feTurbulanceフィルタのパラメータをスクロールバーで設定する</title>
   <script type="text/ecmascript">
 //    <![CDATA[
-  var DragObj, OffsetX, FilterObj, BFVal, BF, Base;
+  let DragObj, OffsetX, FilterObj, BFVal, BF, Base;
   window.onload = function(event) {
     Base= document.getElementById("base");
     Base.addEventListener("mouseup",endDrag,true);
@@ -21,7 +21,7 @@
     OffsetX = DragObj.getAttribute("x")-event.clientX;
   }
   function Dragging(event) {
-    var PS = event.clientX+OffsetX;
+    let PS = event.clientX+OffsetX;
     if(PS<=0) PS =0;
     if(PS >300) PS = 300;
     setBF(PS);

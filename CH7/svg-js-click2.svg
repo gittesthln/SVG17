@@ -6,13 +6,13 @@
   <script type="text/ecmascript">
 //    <![CDATA[
   window.onload = function() {//// ref="onload"
-    var Cs = document.getElementsByTagName("circle");
-    for( var i=0; i< Cs.length; i++) {
+    let Cs = document.getElementsByTagName("circle");//// ref="getObjs"
+    for( let i=0; i< Cs.length; i++) {
       Cs[i].addEventListener("click",click, false);
     }
   }//// ref="onload-end"
   function click(T) {  //// ref="startFunc"
-    var Y = 150-parseInt(T.target.getAttribute("cy"));//// ref="getVal"
+    let Y = 150-parseInt(T.target.getAttribute("cy"));//// ref="getVal"
     T.target.setAttribute("cy",Y);//// ref="setVal"
   }
 //    ]]></script>

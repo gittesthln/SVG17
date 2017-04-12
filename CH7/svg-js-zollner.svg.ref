@@ -7,11 +7,11 @@
 <script type="text/ecmascript">
 //    <![CDATA[
 window.onload = function init() {
-  var W  = 1, WCol = "black";
-  var sW = 1, sWCol = "black", sL = 50/2, Ang=30, Step = 20;
-  var X1 = 50, Y1=50, X2 = 300, Y2 = 100; 
-  var G1, G2, Tmp, i;
-  var Canvas = document.getElementById("canvas"); 
+  let W  = 1, WCol = "black";
+  let sW = 1, sWCol = "black", sL = 50/2, Ang=30, Step = 20;
+  let X1 = 50, Y1=50, X2 = 300, Y2 = 100; 
+  let G1, G2, Tmp, i;
+  let Canvas = document.getElementById("canvas"); 
   MKSVGElm(Canvas, "line", 
       {"x1": X1, "y1": Y1, "x2": X2, "y2": Y1, 
        "stroke-width": W, "stroke": WCol}, {});
@@ -23,16 +23,16 @@ window.onload = function init() {
   MKSVGElm(G2, "line",          
       {"x1": -sL, "y1": 0, "x2": sL, "y2": 0, 
        "stroke-width": sW, "stroke": sWCol},{});
-  SetAttributes(G2,{"transform":"rotate("+Ang+")"});
+  SetAttributes(G2,{"transform":`rotate(${Ang})`});
   for(i=X1+10; i<X2-10; i+= Step) {
     Tmp = G1.cloneNode(true);
-    SetAttributes(Tmp,{"transform":"translate("+i+"," + Y1 +")"});
+    SetAttributes(Tmp,{"transform":`translate(${i},${Y1})`});
     Canvas.appendChild(Tmp);
   }
-  SetAttributes(G2,{"transform":"rotate("+(-Ang)+")"});
+  SetAttributes(G2,{"transform":`rotate(${-Ang})`});
   for(i=X1+10; i<X2-10; i+= Step) {
     Tmp = G1.cloneNode(true);
-    SetAttributes(Tmp,{"transform":"translate("+i+"," + Y2 +")"});
+    SetAttributes(Tmp,{"transform":`translate(${i},${Y2})`});
     Canvas.appendChild(Tmp);
   }
 }

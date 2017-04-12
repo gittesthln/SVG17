@@ -1,7 +1,7 @@
 \begin{theindex}\small
 \item {\large\bf A}\nopagebreak[4]
-  \item Ajax \dotfill \hyperpage{195}, \hyperpage{206}
-  \item Apache \dotfill \hyperpage{195}
+  \item Ajax \dotfill \hyperpage{197}, \hyperpage{208}
+  \item Apache \dotfill \hyperpage{197}
 
   \indexspace
 \item {\large\bf B}\nopagebreak[4]
@@ -9,14 +9,14 @@
   \item {B\'{e}zier}曲線
     \subitem 円を近似 \dotfill \hyperpage{55}
     \subitem 制御点の\ItemRuler  \dotfill \hyperpage{51}
-  \item BOM(Byte Order Mark) \dotfill \hyperpage{204}
+  \item BOM(Byte Order Mark) \dotfill \hyperpage{206}
 
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
-  \item CDN(Contents Delivery Network) \dotfill \hyperpage{214}
-  \item CGI \dotfill \hyperpage{195}
+  \item CDN(Contents Delivery Network) \dotfill \hyperpage{215}
+  \item CGI \dotfill \hyperpage{197}
   \item \Showattrib {click}(イベント) \dotfill \hyperpage{139}, 
-		\hyperpage{146}, \hyperpage{177}
+		\hyperpage{147}, \hyperpage{178}
   \item \Showattrib {clientY}(イベント) \dotfill \hyperpage{154}
   \item $\sin {x}$(余弦関数) \dotfill \hyperpage{158}
   \item CSS \dotfill \hyperpage{103}, \hyperpage{117}
@@ -24,7 +24,7 @@
   \indexspace
 \item {\large\bf D}\nopagebreak[4]
   \item Distant\hspace  {0.5em}Light \dotfill \hyperpage{121}
-  \item DOM \dotfill \hyperpage{126}, \hyperpage{195}
+  \item DOM \dotfill \hyperpage{126}, \hyperpage{197}
 
   \indexspace
 \item {\large\bf E}\nopagebreak[4]
@@ -32,30 +32,30 @@
 
   \indexspace
 \item {\large\bf G}\nopagebreak[4]
-  \item Google Map \dotfill \hyperpage{206}
+  \item Google Map \dotfill \hyperpage{208}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
-  \item HTML \dotfill \hyperpage{4}
+  \item html \dotfill \hyperpage{4}
   \item HTML5 \dotfill \hyperpage{5}
 
   \indexspace
 \item {\large\bf J}\nopagebreak[4]
   \item JavaScript \dotfill \hyperpage{125}
     \subitem オブジェクトリテラル \dotfill \hyperpage{180}
-  \item jQuery \dotfill \hyperpage{213}
+  \item jQuery \dotfill \hyperpage{215}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
   \item MIME(Multipurpose Internet Mail Extensions) \dotfill 
-		\hyperpage{202}
-  \item \Showattrib {mousedown}(イベント) \dotfill \hyperpage{146}, 
-		\hyperpage{148}, \hyperpage{150}, \hyperpage{154}
+		\hyperpage{204}
+  \item \Showattrib {mousedown}(イベント) \dotfill \hyperpage{146--148}
+		, \hyperpage{150}, \hyperpage{154}
   \item \Showattrib {mousemove}(イベント) \dotfill \hyperpage{146}, 
 		\hyperpage{148}, \hyperpage{150}, \hyperpage{151}, 
 		\hyperpage{154}
-  \item \Showattrib {mouseup}(イベント) \dotfill \hyperpage{146}, 
-		\hyperpage{148}, \hyperpage{154}
+  \item \Showattrib {mouseup}(イベント) \dotfill \hyperpage{146--148}, 
+		\hyperpage{154}
 
   \indexspace
 \item {\large\bf O}\nopagebreak[4]
@@ -65,7 +65,7 @@
 		\hyperpage{181}
   \item \Showattrib {onend}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onload}(イベント) \dotfill \hyperpage{134}, 
-		\hyperpage{139}, \hyperpage{190}
+		\hyperpage{139}, \hyperpage{191}
   \item \Showattrib {onmousedown}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onmousemove}(イベント) \dotfill \hyperpage{134}
   \item \Showattrib {onmouseout}(イベント) \dotfill \hyperpage{134}
@@ -74,8 +74,8 @@
 
   \indexspace
 \item {\large\bf P}\nopagebreak[4]
-  \item PHP \dotfill \hyperpage{195}
-    \subitem \ItemRuler における円周率 \dotfill \hyperpage{202}
+  \item PHP \dotfill \hyperpage{197}
+    \subitem \ItemRuler における円周率 \dotfill \hyperpage{204}
   \item PostScript \dotfill \hyperpage{51}
 
   \indexspace
@@ -85,8 +85,8 @@
 
   \indexspace
 \item {\large\bf U}\nopagebreak[4]
-  \item UTF-8 \dotfill \hyperpage{204}
-  \item UTF-8N \dotfill \hyperpage{204}
+  \item UTF-8 \dotfill \hyperpage{206}
+  \item UTF-8N \dotfill \hyperpage{206}
 
   \indexspace
 \item {\large\bf W}\nopagebreak[4]
@@ -110,22 +110,22 @@
 \item {\large\bf い}\nopagebreak[4]
   \item イベント \dotfill \hyperpage{133}
     \subitem \Showattrib {click} \dotfill \hyperpage{139}, 
-		\hyperpage{146}, \hyperpage{177}
+		\hyperpage{147}, \hyperpage{178}
     \subitem \Showattrib {clientY} \dotfill \hyperpage{154}
-    \subitem \Showattrib {mousedown} \dotfill \hyperpage{146}, 
-		\hyperpage{148}, \hyperpage{150}, \hyperpage{154}
+    \subitem \Showattrib {mousedown} \dotfill \hyperpage{146--148}, 
+		\hyperpage{150}, \hyperpage{154}
     \subitem \Showattrib {mousemove} \dotfill \hyperpage{146}, 
 		\hyperpage{148}, \hyperpage{150}, \hyperpage{151}, 
 		\hyperpage{154}
-    \subitem \Showattrib {mouseup} \dotfill \hyperpage{146}, 
-		\hyperpage{148}, \hyperpage{154}
+    \subitem \Showattrib {mouseup} \dotfill \hyperpage{146--148}, 
+		\hyperpage{154}
     \subitem \Showattrib {onbegin} \dotfill \hyperpage{134}
     \subitem \Showattrib {onchange} \dotfill \hyperpage{134}
     \subitem \Showattrib {onclick} \dotfill \hyperpage{134}, 
 		\hyperpage{181}
     \subitem \Showattrib {onend} \dotfill \hyperpage{134}
     \subitem \Showattrib {onload} \dotfill \hyperpage{134}, 
-		\hyperpage{139}, \hyperpage{190}
+		\hyperpage{139}, \hyperpage{191}
     \subitem \Showattrib {onmousedown} \dotfill \hyperpage{134}
     \subitem \Showattrib {onmousemove} \dotfill \hyperpage{134}
     \subitem \Showattrib {onmouseout} \dotfill \hyperpage{134}
@@ -146,7 +146,7 @@
 \item {\large\bf え}\nopagebreak[4]
   \item 円
     \subitem {B\'{e}zier}曲線で近似 \dotfill \hyperpage{55}
-    \subitem 属性の\ItemRuler  \dotfill \hyperpage{23}
+    \subitem 属性の\ItemRuler  \dotfill \hyperpage{22}
   \item エンコーディング \dotfill \hyperpage{13}
 
   \indexspace
@@ -171,19 +171,19 @@
 
   \indexspace
 \item {\large\bf く}\nopagebreak[4]
-  \item グラデーション \dotfill \hyperpage{26}
+  \item グラデーション \dotfill \hyperpage{25}
     \subitem 線形\relax \ItemRuler  \dotfill \hyperpage{26}
     \subitem 放射\relax \ItemRuler  \dotfill \hyperpage{33}
   \item クリック \dotfill \hyperpage{133}
   \item クリックの処理(JavaScript) \dotfill \hyperpage{136}
   \item クレイク・オブライエン効果 \dotfill \hyperpage{35}
-  \item クロージャ \dotfill \hyperpage{189}
-  \item クロスブラウザ対策 \dotfill \hyperpage{207}
+  \item クロージャ \dotfill \hyperpage{190}
+  \item クロスブラウザ対策 \dotfill \hyperpage{209}
 
   \indexspace
 \item {\large\bf こ}\nopagebreak[4]
-  \item 構造化例外処理 \dotfill \hyperpage{210}
-  \item コールバック関数 \dotfill \hyperpage{210}
+  \item 構造化例外処理 \dotfill \hyperpage{212}
+  \item コールバック関数 \dotfill \hyperpage{212}
   \item 子ノード \dotfill \hyperpage{126}
   \item コフカリング \dotfill \hyperpage{29}
   \item コメント(SVG) \dotfill \hyperpage{11}
@@ -191,7 +191,7 @@
 
   \indexspace
 \item {\large\bf さ}\nopagebreak[4]
-  \item サイクロイド \dotfill \hyperpage{156}, \hyperpage{169}
+  \item サイクロイド \dotfill \hyperpage{157}, \hyperpage{169}
   \item 彩度 \dotfill \hyperpage{115}
   \item 錯視
     \subitem 色の対比 \dotfill \hyperpage{21}
@@ -210,7 +210,7 @@
     \subitem シェパードの\ItemRuler  \dotfill \hyperpage{42}
     \subitem ジャッドの\ItemRuler  \dotfill \hyperpage{76}
     \subitem 主観的輪郭のネオン輝度現象 \dotfill \hyperpage{50}
-    \subitem ツェルナーの\ItemRuler  \dotfill \hyperpage{163}
+    \subitem ツェルナーの\ItemRuler  \dotfill \hyperpage{164}
     \subitem デルブーフの\ItemRuler  \dotfill \hyperpage{25}
     \subitem ネックレスの糸 \dotfill \hyperpage{166}
     \subitem バーゲンのきらめき効果 \dotfill \hyperpage{103}
@@ -244,7 +244,7 @@
   \indexspace
 \item {\large\bf す}\nopagebreak[4]
   \item スタック
-    \subitem \ItemRuler を実現する(PHP) \dotfill \hyperpage{200}
+    \subitem \ItemRuler を実現する(PHP) \dotfill \hyperpage{202}
 
   \indexspace
 \item {\large\bf せ}\nopagebreak[4]
@@ -256,15 +256,15 @@
   \indexspace
 \item {\large\bf そ}\nopagebreak[4]
   \item 属性 \dotfill \hyperpage{13}
-    \subitem \ItemRuler の円 \dotfill \hyperpage{23}
-    \subitem \ItemRuler の楕円 \dotfill \hyperpage{23}
+    \subitem \ItemRuler の円 \dotfill \hyperpage{22}
+    \subitem \ItemRuler の楕円 \dotfill \hyperpage{22}
   \item 属性値 \dotfill \hyperpage{13}
 
   \indexspace
 \item {\large\bf た}\nopagebreak[4]
-  \item 楕円 \dotfill \hyperpage{23}
+  \item 楕円 \dotfill \hyperpage{22}
     \subitem \ItemRuler の一部となる曲線 \dotfill \hyperpage{46}
-    \subitem 属性の\ItemRuler  \dotfill \hyperpage{23}
+    \subitem 属性の\ItemRuler  \dotfill \hyperpage{22}
   \item 多角形 \dotfill \hyperpage{39}
   \item タグ \dotfill \hyperpage{4}
 
@@ -277,7 +277,7 @@
 
   \indexspace
 \item {\large\bf つ}\nopagebreak[4]
-  \item ツェルナーの錯視 \dotfill \hyperpage{163}
+  \item ツェルナーの錯視 \dotfill \hyperpage{164}
 
   \indexspace
 \item {\large\bf て}\nopagebreak[4]
@@ -285,17 +285,18 @@
   \item テキストノード \dotfill \hyperpage{127}, \hyperpage{144}
   \item デルブーフの錯視 \dotfill \hyperpage{25}
   \item 点光源 \dotfill \hyperpage{121}
+  \item テンプレートリテラル \dotfill \hyperpage{137}
 
   \indexspace
 \item {\large\bf と}\nopagebreak[4]
-  \item 同期通信 \dotfill \hyperpage{211}
-  \item ドキュメントルート \dotfill \hyperpage{195}
+  \item 同期通信 \dotfill \hyperpage{213}
+  \item ドキュメントルート \dotfill \hyperpage{197}
   \item ドラッグの処理(JavaScript) \dotfill \hyperpage{146}
 
   \indexspace
 \item {\large\bf な}\nopagebreak[4]
   \item 名前空間 \dotfill \hyperpage{13}, \hyperpage{131}, 
-		\hyperpage{152}, \hyperpage{154}
+		\hyperpage{151}, \hyperpage{154}
 
   \indexspace
 \item {\large\bf ね}\nopagebreak[4]
@@ -317,9 +318,9 @@
 
   \indexspace
 \item {\large\bf ひ}\nopagebreak[4]
-  \item ヒアドキュメント \dotfill \hyperpage{199}
+  \item ヒアドキュメント \dotfill \hyperpage{201}
   \item ひし形を用いたクレイク・オブライエン効果 \dotfill \hyperpage{29}
-  \item 非同期通信 \dotfill \hyperpage{207}
+  \item 非同期通信 \dotfill \hyperpage{209}
   \item ピラミッドの稜線 \dotfill \hyperpage{38}
 
   \indexspace
@@ -328,7 +329,7 @@
 		\hyperpage{156}
   \item フィルタ \dotfill \hyperpage{101}
   \item 浮動する円 \dotfill \hyperpage{65}
-  \item 不透明度 \dotfill \hyperpage{36}, \hyperpage{70}, 
+  \item 不透明度 \dotfill \hyperpage{35}, \hyperpage{70}, 
 		\hyperpage{105}
   \item ブルドンの錯視 \dotfill \hyperpage{43}
   \item プロパティ \dotfill \hyperpage{131}
@@ -381,6 +382,6 @@
   \indexspace
 \item {\large\bf れ}\nopagebreak[4]
   \item 連想配列
-    \subitem PHPにおける\ItemRuler  \dotfill \hyperpage{199}
+    \subitem PHPにおける\ItemRuler  \dotfill \hyperpage{201}
 
 \end{theindex}

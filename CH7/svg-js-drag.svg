@@ -5,7 +5,7 @@
   <title>円をドラッグで移動する</title>
   <script type="text/ecmascript">
 //    <![CDATA[
-  var G, inDragging;
+  let G, inDragging;
   window.onload = function() {
     G = document.getElementsByTagName("svg")[0];//// ref="GetRootElm"
     G.addEventListener("mousedown",mdown, false);//// ref="mousedown"

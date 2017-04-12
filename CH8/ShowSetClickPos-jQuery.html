@@ -7,14 +7,14 @@
 <script type="text/ecmascript">
 //<![CDATA[
 $(window).ready(function(){//// ref="OnReady"
-  var Colors = {"red":"赤", "yellow":"黄色","green":"緑", //// ref="InitOptS"
+  let Colors = {"red":"赤", "yellow":"黄色","green":"緑", //// ref="InitOptS"
                      "blue":"青","gray":"灰色","black":"黒"};
-  var Color;
-  var SelectColor = $("#SelectColor");//// ref="Setcolor"
+  let Color;
+  let SelectColor = $("#SelectColor");//// ref="Setcolor"
   for( Color in Colors) {//// ref="makeOptS"
     $("<option/>", {"value":Color, "text":Colors[Color]}).appendTo(SelectColor);//// ref="createOption"
   }//// ref="InitOptE"
-  var Circle = $("#Circle");
+  let Circle = $("#Circle");
   $("#XP").val(Circle.attr("cx"));//// ref="GetX"
   $("#YP").val(Circle.attr("cy"));//// ref="GetY"
   $("#field").click(click);//// ref="setEventListner"
@@ -22,7 +22,7 @@ $(window).ready(function(){//// ref="OnReady"
   refresh();
 });//// ref="OnReadyE"
 function click(event) {//// ref="ClickS"
-  var Pos = $("#field").offset();//// ref="offset"
+  let Pos = $("#field").offset();//// ref="offset"
   $("#XP").val(event.clientX-Math.floor(Pos.left));//// ref="pos1"
   $("#YP").val(event.clientY-Math.floor(Pos.top)); //// ref="pos2"
   refresh();

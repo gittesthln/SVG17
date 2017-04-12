@@ -5,7 +5,7 @@
   <title>10秒後に色が変わります</title>
   <script type="text/ecmascript">
 //    <![CDATA[
-  var timeOut, Circle;
+  let timeOut, Circle;
   window.onload = function() {//// ref="onloadS"
     Circle = document.getElementById("CircleRed");//// ref="getC"
     Circle.addEventListener("click",resetColor,false);//// ref="click"

@@ -11,24 +11,24 @@ window.onload = function(){
   DrawFigs("blue", 150, 25, 8, 3.5, "Canvas");
 }
 function DrawFigs(Color1, R, L, W, WW, Place) {
-  var i;
-  var Canvas = document.getElementById(Place);
+  let i;
+  let Canvas = document.getElementById(Place);
   for(i=0;i<360; i+=W) {
     DrawFigure(R, R+L, R-L, i, WW, Color1, Canvas);
   }
 }
 function DrawFigure(R, mR, sR, MidAng, WAng, Color, Canvas) {
-  var d, i, Ang, R0, Ang0, MCos, MSin;
+  let d, i, Ang, R0, Ang0, MCos, MSin;
   d ="M";
     Ang= Math.PI*(MidAng-WAng)/180;
-    d += R*Math.cos(Ang) + ","+R*Math.sin(Ang)+" ";
+    d += `${R*Math.cos(Ang)},${R*Math.sin(Ang)} `;
     Ang0= Math.PI*(MidAng)/180;
     MCos = Math.cos(Ang0);
     MSin = Math.sin(Ang0);
-    d += mR*MCos + ","+mR*MSin+" ";
+    d += `${mR*MCos},${mR*MSin} `;
     Ang= Math.PI*(MidAng+WAng)/180;
-    d += R*Math.cos(Ang) + ","+R*Math.sin(Ang)+" ";
-    d += sR*MCos + ","+sR*MSin+"z";
+    d += `${R*Math.cos(Ang)},${R*Math.sin(Ang)} `;
+    d += `${sR*MCos},${sR*MSin}z`;
   return MKSVGElm(Canvas, "path", 
     {"d": d, "stroke": "none", "fill": Color}, []);
 }

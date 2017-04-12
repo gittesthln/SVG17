@@ -9,7 +9,7 @@
 </style>
 <script type="text/ecmascript">
 //<![CDATA[
-var Data = [//// ref="dataS"
+let Data = [//// ref="dataS"
    ["あか","赤","red"],
    ["くろ","黒","black"],
    ["みどり","緑","green"],
@@ -17,13 +17,13 @@ var Data = [//// ref="dataS"
    ["きいろ","黄","yellow"],
    ["むらさき","紫","violet"]
 ];//// ref="dataE"
-var Type = 0;//// ref="paramType"
-var xUnit = 150, xInit = 30, xMax = 4;//// ref="paramX"
-var yUnit =  50, yInit = 20, yMax = 7;//// ref="paramY"
-var Max = 10, k, Doc, textNode;//// ref="Globals"
-var PosList = [];//// ref="globalsPos"
+let Type = 0;//// ref="paramType"
+let xUnit = 150, xInit = 30, xMax = 4;//// ref="paramX"
+let yUnit =  50, yInit = 20, yMax = 7;//// ref="paramY"
+let Max = 10, k, Doc, textNode;//// ref="Globals"
+let PosList = [];//// ref="globalsPos"
 window.onload = function() {//// ref="initS"
-var i, j;
+let i, j;
   if( Max > xMax * yMax) {//// ref="checkS"
     alert("パラメータの設定が違っています") ;
     return 0;
@@ -38,8 +38,8 @@ var i, j;
   ShowProb();//// ref="Callfunction"
 }//// ref="initE"
 function ShowProb() {//// ref="ShowProbS"
-var x, y, i, j, p;
-var T;
+let x, y, i, j, p;
+let T;
   while(k>0) {//// ref="Checkend"
     i = getRand(0, Data.length);//// ref="setParami"
     j = getRand(0, Data.length);//// ref="setParamj"

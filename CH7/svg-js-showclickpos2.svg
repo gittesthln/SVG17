@@ -13,8 +13,8 @@
     SetText("YP", "cy", e.clientY);//// ref="setText2"
   }
   function SetText(name, attrib, Value) {//// ref="setTexts"
-    var txtNode = document.createTextNode(Value);//// ref="setCreateText"
-    var newElement = document.getElementById(name);//// ref="setCreateText2"
+    let txtNode = document.createTextNode(Value);//// ref="setCreateText"
+    let newElement = document.getElementById(name);//// ref="setCreateText2"
     if(newElement.firstChild) {//// ref="existsChildNode"
        newElement.replaceChild(txtNode, newElement.firstChild);//// ref="existsChildNodeE"
     } else {

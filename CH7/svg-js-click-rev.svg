@@ -6,13 +6,13 @@
   <script type="text/ecmascript">
 //    <![CDATA[
   window.onload = function() {                    //// ref="init-start"
-    var Cs = document.getElementsByTagName("circle");//// ref="getElements"
-    for( var i=0; i< Cs.length; i++) { //// ref="setEventListenerstart"
+    let Cs = document.getElementsByTagName("circle");//// ref="getElements"
+    for( let i=0; i< Cs.length; i++) { //// ref="setEventListenerstart"
       Cs[i].addEventListener("click",click, false); //// ref="EventListener"
     }                                  //// ref="setEventListenerend"  
   }                                    //// ref="init-end"
   function click(event) {              //// ref="click"
-    alert("Circle " +event.target.getAttribute("fill")+" clicked.");
+    alert(`Circle ${event.target.getAttribute("fill")} clicked.`);
   }
 //    ]]></script>
   <circle cx="50" cy="50" r="20" fill="red" ref="circle1" />

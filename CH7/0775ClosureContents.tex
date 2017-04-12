@@ -6,6 +6,10 @@
  \item 関数などの外で宣言されたり、宣言がない変数はどこからでも参照が可
 			 能な変数(\ElmJ{グローバル変数})になります。
  \item 関数内で宣言された変数はそれ以下の関数内で参照可能です。
+ \item \ElmJ{var}で宣言した変数は関数内の先頭で宣言したものとして扱われ
+			 ます。
+ \item 新しいEcmaScriptでは定義されたブロック内で有効な\ElmJ{let}と
+			 \ElmJ{const}による変数の宣言が可能となっています。
 \end{itemize}
 関数の引数に対して、単純な変数は値渡し、配列は参照渡しとなります。
 \begin{Verbatim}[numbers=left, fontsize=\small,
@@ -33,6 +37,38 @@ $\blacktriangleright$[4, 3]
 >C;
 $\blacktriangleright$Object {x: 20, y: 20}
 \end{Verbatim}
+次に\ElmJ{let}と\ElmJ{var}による変数の違いを見てみます。
+
+次のリストは3つの関数を配列に格納して戻す関数をその場で実行しています。
+\begin{Verbatim}[numbers=left]
+let funcs = (function() {
+  f = [];
+  let i;
+  for(i=0;i<3;i++) {
+    f[i] = function(){console.log(i);};
+  }
+  return f;
+  })();
+\end{Verbatim}
+４行目から６行目のループの引数の値を返す簡単な関数です。
+\begin{Verbatim}
+>funcs[0];
+function (){console.log(i);}
+>funcs[0]();
+3
+undefined
+\end{Verbatim}
+0番目の関数を実行すれば０がコンソールに出力されると思うかもしれませんがが、この関数
+が実行されたときはループが終了しているので、\texttt{i}の値は3になって
+いるのでその値が返されます。これを避けるためには3行目の\texttt{i}の宣言
+を取り除き、\ElmJ{for}のなかで変数\texttt{i}を\ElmJ{let}で宣言すれば期待
+した通りに動作します。
+
+なお、変数の宣言を\ElmJ{var}ですると、この不具合は解消されません。
+\ElmJ{for}内で\ElmJ{var}で宣言された変数が関数内部の先頭で宣言されていた
+ものとみなされるからです。解消す
+るためにはテクニックが必要となりますが、\ElmJ{let} で解消できるのでここ
+では解説しません。
 \subsubsection{クロージャ}
 いままでの\JS のプログラムでは、他の関数とデータのやり取りにグローバル変
 数を多用してきました。グローバル変数を多用することは、複数人でプログラム

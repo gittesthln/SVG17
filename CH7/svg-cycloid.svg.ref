@@ -4,14 +4,14 @@
 <title>サイクロイド</title>
 <script type="text/ecmascript">
 //<![CDATA[
-var R = 50;
+let R = 50;
 window.onload = function() {
-  var Angle, rad, pX, pY, d ="M";
+  let Angle, rad, pX, pY, d ="M";
   for( Angle=0; Angle<= 360; Angle++) {
     rad = Angle/180*Math.PI;  
     pX = R*(rad-Math.sin(rad));
     pY = R*(-1+Math.cos(rad)); 
-    d += pX+","+pY+" "; 
+    d += `${pX},${pY} `; 
   }
   document.getElementById("cycliod").setAttribute("d",d);
 }

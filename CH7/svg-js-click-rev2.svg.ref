@@ -6,11 +6,11 @@
   <script type="text/ecmascript">
 //    <![CDATA[
   window.onload = function() {
-    var Cs = document.getElementById("Canvas");
+    let Cs = document.getElementById("Canvas");
     Cs.addEventListener("click",click, false);
   }
   function click(event) {
-    alert("Circle " +event.target.getAttribute("fill")+" clicked.");
+    alert(`Circle ${event.target.getAttribute("fill")} clicked.`);
   }
 //  ]]></script>
   <g id="Canvas"> 

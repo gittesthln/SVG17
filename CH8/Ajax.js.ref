@@ -1,6 +1,6 @@
-var httpObj;
+let httpObj;
 function createXMLHTTPReq( func ) {
-  var xmlHttpObj = null;
+  let xmlHttpObj = null;
   if(window.XMLHttpRequest) {
     xmlHttpObj = new XMLHttpRequest();
   } else if(window.ActiveXObject ) {
@@ -26,7 +26,7 @@ function getData() {
   } 
 }
 function displayPolygon() {
-    var polygon;
+    let polygon;
   if(httpObj.readyState == 4 && httpObj.status == 200) {
     alert(httpObj.responseText);
     polygon = document.getElementById("npolygon");
