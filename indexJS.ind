@@ -1,23 +1,23 @@
 \begin{theindex}\small
 \item {\large\bf Symbols}\nopagebreak[4]
-  \item \Showattrib {\$} \dotfill \hyperpage{215}
+  \item \Showattrib {\$} \dotfill \hyperpage{213}
   \item \Showattrib {\texttt  {+}} \dotfill \hyperpage{137}
 
   \indexspace
 \item {\large\bf A}\nopagebreak[4]
-  \item \Showattrib {ActivXObject} \dotfill \hyperpage{212}
+  \item \Showattrib {ActivXObject} \dotfill \hyperpage{210}
   \item \Showattrib {addEventListener}(DOMのメソッド) \dotfill 
 		\hyperpage{141}
   \item \Showattrib {addEventListner}(DOMのメソッド) \dotfill 
 		\hyperpage{138}, \hyperpage{145}
-  \item \Showattrib {ajax()}(jQueryのメソッド) \dotfill \hyperpage{222}
+  \item \Showattrib {ajax()}(jQueryのメソッド) \dotfill \hyperpage{220}
   \item \Showattrib {alert} \dotfill \hyperpage{137}
   \item \Showattrib {altKey}(DOMのプロパティ) \dotfill \hyperpage{135}
   \item \Showattrib {appendChild}(DOMのメソッド) \dotfill 
 		\hyperpage{132}, \hyperpage{144}, \hyperpage{156}, 
 		\hyperpage{174}
   \item \Showattrib {appendTo()}(jQueryのメソッド) \dotfill 
-		\hyperpage{221}
+		\hyperpage{219}
   \item \Showattrib {arguments} \dotfill \hyperpage{191}
   \item \Showattrib {Array} \dotfill \hyperpage{187}
   \item Arrayのメソッド
@@ -32,7 +32,7 @@
     \subitem \Showattrib {lastIndexOf} \dotfill \hyperpage{185}
     \subitem \Showattrib {length} \dotfill \hyperpage{184}
     \subitem \Showattrib {map} \dotfill \hyperpage{185}, 
-		\hyperpage{187}, \hyperpage{188}, \hyperpage{195}
+		\hyperpage{187}, \hyperpage{188}, \hyperpage{194}
     \subitem \Showattrib {pop} \dotfill \hyperpage{185}
     \subitem \Showattrib {push} \dotfill \hyperpage{185}
     \subitem \Showattrib {reduce} \dotfill \hyperpage{185}, 
@@ -48,43 +48,43 @@
 		\hyperpage{185}, \hyperpage{186}
     \subitem \Showattrib {unshift} \dotfill \hyperpage{185}
   \item \Showattrib {attr()}(jQueryのメソッド) \dotfill 
-		\hyperpage{216}, \hyperpage{221}
+		\hyperpage{214}, \hyperpage{219}
 
   \indexspace
 \item {\large\bf B}\nopagebreak[4]
-  \item \Showattrib {blur()}(jQueryのイベント) \dotfill \hyperpage{217}
+  \item \Showattrib {blur()}(jQueryのイベント) \dotfill \hyperpage{215}
   \item \Showattrib {button}(DOMのプロパティ) \dotfill \hyperpage{135}
 
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
   \item \Showattrib {call} \dotfill \hyperpage{187}
-  \item \Showattrib {call}(メソッド) \dotfill \hyperpage{195}
+  \item \Showattrib {call}(メソッド) \dotfill \hyperpage{194}
   \item \Showattrib {callee} \dotfill \hyperpage{191}
-  \item \Showattrib {catch} \dotfill \hyperpage{212}
+  \item \Showattrib {catch} \dotfill \hyperpage{210}
   \item \Showattrib {change()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {childNodes}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
   \item \Showattrib {children}(DOMのプロパティ) \dotfill \hyperpage{133}
   \item \Showattrib {clearTimeout} \dotfill \hyperpage{169}
   \item \Showattrib {click()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}, \hyperpage{221}
+		\hyperpage{215}, \hyperpage{219}
   \item \Showattrib {clientX}(DOMのプロパティ) \dotfill 
 		\hyperpage{135}, \hyperpage{141}, \hyperpage{154}
   \item \Showattrib {clientY}(DOMのプロパティ) \dotfill \hyperpage{135}
-  \item \Showattrib {clone()}(jQueryのメソッド) \dotfill \hyperpage{217}
+  \item \Showattrib {clone()}(jQueryのメソッド) \dotfill \hyperpage{215}
   \item \Showattrib {cloneNode}(DOMのメソッド) \dotfill \hyperpage{131}
   \item \Showattrib {concat}(Arrayのメソッド) \dotfill \hyperpage{185}
   \item \Showattrib {const} \dotfill \hyperpage{189}
   \item \Showattrib {createElement}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{151}
   \item \Showattrib {createElement()}(DOMのメソッド) \dotfill 
-		\hyperpage{216}
+		\hyperpage{214}
   \item \Showattrib {createElementNS}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{151}, \hyperpage{163}
   \item \Showattrib {createTextNode}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{144}, \hyperpage{174}
-  \item \Showattrib {css()}(jQueryのメソッド) \dotfill \hyperpage{217}
+  \item \Showattrib {css()}(jQueryのメソッド) \dotfill \hyperpage{215}
   \item \Showattrib {ctrlKey}(DOMのプロパティ) \dotfill \hyperpage{135}
   \item \Showattrib {currentTarget}(DOMのプロパティ) \dotfill 
 		\hyperpage{135}, \hyperpage{145}
@@ -92,7 +92,7 @@
   \indexspace
 \item {\large\bf D}\nopagebreak[4]
   \item \Showattrib {dbleclick()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {document} \dotfill \hyperpage{151}
   \item DOMのオブジェクト
     \subitem \Showattrib {window} \dotfill \hyperpage{137}, 
@@ -139,7 +139,7 @@
     \subitem \Showattrib {appendChild} \dotfill \hyperpage{132}, 
 		\hyperpage{144}, \hyperpage{156}, \hyperpage{174}
     \subitem \Showattrib {cloneNode} \dotfill \hyperpage{131}
-    \subitem \Showattrib {createElement()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {createElement()} \dotfill \hyperpage{214}
     \subitem \Showattrib {createElement} \dotfill \hyperpage{131}, 
 		\hyperpage{151}
     \subitem \Showattrib {createElementNS} \dotfill \hyperpage{131}, 
@@ -161,7 +161,7 @@
     \subitem \Showattrib {getElementsByName} \dotfill \hyperpage{131}
     \subitem \Showattrib {getElementsByTagName} \dotfill 
 		\hyperpage{131}, \hyperpage{138}, \hyperpage{148}, 
-		\hyperpage{215}
+		\hyperpage{213}
     \subitem \Showattrib {getMetaKey} \dotfill \hyperpage{135}
     \subitem \Showattrib {getNodeName} \dotfill \hyperpage{131}
     \subitem \Showattrib {getScreenX} \dotfill \hyperpage{135}
@@ -172,12 +172,12 @@
     \subitem \Showattrib {insertBefore} \dotfill \hyperpage{132}
     \subitem \Showattrib {preventDefault} \dotfill \hyperpage{135}
     \subitem \Showattrib {querySelector} \dotfill \hyperpage{131}
-    \subitem \Showattrib {querySelectorAll()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {querySelectorAll()} \dotfill \hyperpage{214}
     \subitem \Showattrib {querySelectorAll} \dotfill \hyperpage{131}, 
 		\hyperpage{194}
     \subitem \Showattrib {removeAttribute} \dotfill \hyperpage{131}
     \subitem \Showattrib {removeChild} \dotfill \hyperpage{132}
-    \subitem \Showattrib {removeEvenListener()} \dotfill \hyperpage{218}
+    \subitem \Showattrib {removeEvenListener()} \dotfill \hyperpage{216}
     \subitem \Showattrib {replaceChild} \dotfill \hyperpage{132}, 
 		\hyperpage{144}, \hyperpage{174}
     \subitem \Showattrib {setAttribute} \dotfill \hyperpage{131}, 
@@ -188,9 +188,9 @@
 
   \indexspace
 \item {\large\bf E}\nopagebreak[4]
-  \item \Showattrib {empty()}(jQueryのメソッド) \dotfill \hyperpage{217}
-  \item \Showattrib {encodeURI} \dotfill \hyperpage{213}
-  \item \Showattrib {error()}(jQueryのイベント) \dotfill \hyperpage{217}
+  \item \Showattrib {empty()}(jQueryのメソッド) \dotfill \hyperpage{215}
+  \item \Showattrib {encodeURI} \dotfill \hyperpage{211}
+  \item \Showattrib {error()}(jQueryのイベント) \dotfill \hyperpage{215}
   \item \Showattrib {Event.AT\_TARGET} \dotfill \hyperpage{135}
   \item \Showattrib {Event.BUBBLING\_PHASE} \dotfill \hyperpage{135}
   \item \Showattrib {Event.CAPUTURING\_PHASE} \dotfill \hyperpage{135}
@@ -208,9 +208,9 @@
 		\hyperpage{133}, \hyperpage{143}
   \item \Showattrib {firstElementChild}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
-  \item \Showattrib {focus()}(jQueryのイベント) \dotfill \hyperpage{217}
+  \item \Showattrib {focus()}(jQueryのイベント) \dotfill \hyperpage{215}
   \item \Showattrib {focusin()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {for} \dotfill \hyperpage{180}, \hyperpage{190}
   \item \Showattrib {forEach} \dotfill \hyperpage{187}
   \item \Showattrib {forEach}(Arrayのメソッド) \dotfill 
@@ -220,7 +220,7 @@
 
   \indexspace
 \item {\large\bf G}\nopagebreak[4]
-  \item \Showattrib {GET} \dotfill \hyperpage{213}
+  \item \Showattrib {GET} \dotfill \hyperpage{211}
   \item \Showattrib {getAltKey}(DOMのメソッド) \dotfill \hyperpage{135}
   \item \Showattrib {getAttribute}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{137}, \hyperpage{139}, 
@@ -241,7 +241,7 @@
 		\hyperpage{131}
   \item \Showattrib {getElementsByTagName}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{138}, \hyperpage{148}, 
-		\hyperpage{215}
+		\hyperpage{213}
   \item \Showattrib {getMetaKey}(DOMのメソッド) \dotfill \hyperpage{135}
   \item \Showattrib {getNodeName}(DOMのメソッド) \dotfill 
 		\hyperpage{131}
@@ -257,8 +257,8 @@
 		\hyperpage{131}
   \item \Showattrib {hasChildNodes}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
-  \item \Showattrib {hover()}(jQueryのイベント) \dotfill \hyperpage{218}
-  \item \Showattrib {html()}(jQueryのメソッド) \dotfill \hyperpage{217}
+  \item \Showattrib {hover()}(jQueryのイベント) \dotfill \hyperpage{216}
+  \item \Showattrib {html()}(jQueryのメソッド) \dotfill \hyperpage{215}
 
   \indexspace
 \item {\large\bf I}\nopagebreak[4]
@@ -270,69 +270,68 @@
 \item {\large\bf J}\nopagebreak[4]
   \item \Showattrib {join} \dotfill \hyperpage{191}
   \item \Showattrib {join}(Arrayのメソッド) \dotfill \hyperpage{184}
-  \item \Showattrib {jQuery()} \dotfill \hyperpage{215}
+  \item \Showattrib {jQuery()} \dotfill \hyperpage{213}
   \item \Showattrib {jQuery.ajax()}(jQueryのメソッド) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {jQuery.js} \dotfill \hyperpage{161}
   \item jQueryのイベント
-    \subitem \Showattrib {blur()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {change()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {click()} \dotfill \hyperpage{217}, 
-		\hyperpage{221}
-    \subitem \Showattrib {dbleclick()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {error()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {focus()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {focusin()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {hover()} \dotfill \hyperpage{218}
-    \subitem \Showattrib {keydown()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {keypress()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {keyup()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {load()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mousedown()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mouseenter()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mouseenter} \dotfill \hyperpage{218}
-    \subitem \Showattrib {mouseleave()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mouseleave} \dotfill \hyperpage{218}
-    \subitem \Showattrib {mousemove()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mouseover()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {mouseup()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {ready()} \dotfill \hyperpage{220}
-    \subitem \Showattrib {resize()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {scroll()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {select()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {submit()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {toggle()} \dotfill \hyperpage{218}
-    \subitem \Showattrib {unbind()} \dotfill \hyperpage{218}
-    \subitem \Showattrib {unload()} \dotfill \hyperpage{217}
+    \subitem \Showattrib {blur()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {change()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {click()} \dotfill \hyperpage{215}, 
+		\hyperpage{219}
+    \subitem \Showattrib {dbleclick()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {error()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {focus()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {focusin()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {hover()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {keydown()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {keypress()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {keyup()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {load()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mousedown()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mouseenter()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mouseenter} \dotfill \hyperpage{216}
+    \subitem \Showattrib {mouseleave()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mouseleave} \dotfill \hyperpage{216}
+    \subitem \Showattrib {mousemove()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mouseover()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {mouseup()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {ready()} \dotfill \hyperpage{218}
+    \subitem \Showattrib {resize()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {scroll()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {select()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {submit()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {toggle()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {unbind()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {unload()} \dotfill \hyperpage{215}
   \item jQueryのメソッド
-    \subitem \Showattrib {ajax()} \dotfill \hyperpage{222}
-    \subitem \Showattrib {appendTo()} \dotfill \hyperpage{221}
-    \subitem \Showattrib {attr()} \dotfill \hyperpage{216}, 
-		\hyperpage{221}
-    \subitem \Showattrib {clone()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {css()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {empty()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {html()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {jQuery.ajax()} \dotfill \hyperpage{218}
-    \subitem \Showattrib {offset()} \dotfill \hyperpage{221}
-    \subitem \Showattrib {remove()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {removeAttr()} \dotfill \hyperpage{216}
-    \subitem \Showattrib {text()} \dotfill \hyperpage{217}
-    \subitem \Showattrib {val()} \dotfill \hyperpage{217}, 
-		\hyperpage{221}
-  \item \Showattrib {JSON} \dotfill \hyperpage{160}, \hyperpage{194}, 
-		\hyperpage{195}
+    \subitem \Showattrib {ajax()} \dotfill \hyperpage{220}
+    \subitem \Showattrib {appendTo()} \dotfill \hyperpage{219}
+    \subitem \Showattrib {attr()} \dotfill \hyperpage{214}, 
+		\hyperpage{219}
+    \subitem \Showattrib {clone()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {css()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {empty()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {html()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {jQuery.ajax()} \dotfill \hyperpage{216}
+    \subitem \Showattrib {offset()} \dotfill \hyperpage{219}
+    \subitem \Showattrib {remove()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {removeAttr()} \dotfill \hyperpage{214}
+    \subitem \Showattrib {text()} \dotfill \hyperpage{215}
+    \subitem \Showattrib {val()} \dotfill \hyperpage{215}, 
+		\hyperpage{219}
+  \item \Showattrib {JSON} \dotfill \hyperpage{160}, \hyperpage{194}
   \item \Showattrib {JSON.parse} \dotfill \hyperpage{160}
   \item \Showattrib {JSON.stringify} \dotfill \hyperpage{160}
-  \item \Showattrib {JsonParse}(メソッド) \dotfill \hyperpage{222}
+  \item \Showattrib {JsonParse}(メソッド) \dotfill \hyperpage{220}
 
   \indexspace
 \item {\large\bf K}\nopagebreak[4]
   \item \Showattrib {keydown()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {keypress()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
-  \item \Showattrib {keyup()}(jQueryのイベント) \dotfill \hyperpage{217}
+		\hyperpage{215}
+  \item \Showattrib {keyup()}(jQueryのイベント) \dotfill \hyperpage{215}
 
   \indexspace
 \item {\large\bf L}\nopagebreak[4]
@@ -346,7 +345,7 @@
   \item \Showattrib {length}(メソッド) \dotfill \hyperpage{138}
   \item \Showattrib {let} \dotfill \hyperpage{138}, \hyperpage{189}, 
 		\hyperpage{190}
-  \item \Showattrib {load()}(jQueryのイベント) \dotfill \hyperpage{217}
+  \item \Showattrib {load()}(jQueryのイベント) \dotfill \hyperpage{215}
   \item \Showattrib {localStorage} \dotfill \hyperpage{192}, 
 		\hyperpage{193}
   \item \Showattrib {locaStorage} \dotfill \hyperpage{193}
@@ -354,7 +353,7 @@
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
   \item \Showattrib {map}(Arrayのメソッド) \dotfill \hyperpage{185}, 
-		\hyperpage{187}, \hyperpage{188}, \hyperpage{195}
+		\hyperpage{187}, \hyperpage{188}, \hyperpage{194}
   \item \Showattrib {Math} \dotfill \hyperpage{151}, \hyperpage{152}
   \item \Showattrib {Math.abs(x)} \dotfill \hyperpage{152}
   \item \Showattrib {Math.acos(x)} \dotfill \hyperpage{152}
@@ -367,7 +366,7 @@
   \item \Showattrib {Math.E} \dotfill \hyperpage{152}
   \item \Showattrib {Math.exp(x)} \dotfill \hyperpage{152}
   \item \Showattrib {Math.floor()} \dotfill \hyperpage{175}, 
-		\hyperpage{221}
+		\hyperpage{219}
   \item \Showattrib {Math.floor(x)} \dotfill \hyperpage{152}
   \item \Showattrib {Math.LN10} \dotfill \hyperpage{152}
   \item \Showattrib {Math.LN2} \dotfill \hyperpage{152}
@@ -392,24 +391,24 @@
   \item \Showattrib {Math.SQRT2} \dotfill \hyperpage{152}
   \item \Showattrib {Math.tan(x)} \dotfill \hyperpage{152}
   \item \Showattrib {metaKey}(DOMのプロパティ) \dotfill \hyperpage{135}
-  \item \Showattrib {Microsoft.XMLHTTP} \dotfill \hyperpage{212}
+  \item \Showattrib {Microsoft.XMLHTTP} \dotfill \hyperpage{210}
   \item \Showattrib {mousedown()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {mouseenter}(jQueryのイベント) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {mouseenter()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {mouseleave}(jQueryのイベント) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {mouseleave()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {mousemove()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {mouseover()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {mouseup()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
-  \item \Showattrib {Msxml2.XMLHTTP} \dotfill \hyperpage{212}
+		\hyperpage{215}
+  \item \Showattrib {Msxml2.XMLHTTP} \dotfill \hyperpage{210}
 
   \indexspace
 \item {\large\bf N}\nopagebreak[4]
@@ -422,14 +421,14 @@
   \item \Showattrib {nodeValue}(DOMのプロパティ) \dotfill 
 		\hyperpage{133}
   \item \Showattrib {null} \dotfill \hyperpage{143}, \hyperpage{162}, 
-		\hyperpage{163}, \hyperpage{212}
+		\hyperpage{163}, \hyperpage{210}
 
   \indexspace
 \item {\large\bf O}\nopagebreak[4]
   \item \Showattrib {offset()}(jQueryのメソッド) \dotfill 
-		\hyperpage{221}
-  \item \Showattrib {onreadystatechange} \dotfill \hyperpage{212}
-  \item \Showattrib {open} \dotfill \hyperpage{213}
+		\hyperpage{219}
+  \item \Showattrib {onreadystatechange} \dotfill \hyperpage{210}
+  \item \Showattrib {open} \dotfill \hyperpage{211}
 
   \indexspace
 \item {\large\bf P}\nopagebreak[4]
@@ -460,33 +459,33 @@
   \item \Showattrib {querySelectorAll}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{194}
   \item \Showattrib {querySelectorAll()}(DOMのメソッド) \dotfill 
-		\hyperpage{216}
+		\hyperpage{214}
 
   \indexspace
 \item {\large\bf R}\nopagebreak[4]
-  \item \Showattrib {ready()}(jQueryのイベント) \dotfill \hyperpage{220}
-  \item \Showattrib {readyState} \dotfill \hyperpage{213}
+  \item \Showattrib {ready()}(jQueryのイベント) \dotfill \hyperpage{218}
+  \item \Showattrib {readyState} \dotfill \hyperpage{211}
   \item \Showattrib {reduce}(Arrayのメソッド) \dotfill \hyperpage{185}, 
 		\hyperpage{187}
   \item \Showattrib {reduceRight}(Arrayのメソッド) \dotfill 
 		\hyperpage{186}
   \item \Showattrib {remove()}(jQueryのメソッド) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {removeAttr()}(jQueryのメソッド) \dotfill 
-		\hyperpage{216}
+		\hyperpage{214}
   \item \Showattrib {removeAttribute}(DOMのメソッド) \dotfill 
 		\hyperpage{131}
   \item \Showattrib {removeChild}(DOMのメソッド) \dotfill 
 		\hyperpage{132}
   \item \Showattrib {removeEvenListener()}(DOMのメソッド) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {replaceChild}(DOMのメソッド) \dotfill 
 		\hyperpage{132}, \hyperpage{144}, \hyperpage{174}
   \item \Showattrib {resize()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
-  \item \Showattrib {responseText} \dotfill \hyperpage{214}
-  \item \Showattrib {responseXML} \dotfill \hyperpage{214}, 
 		\hyperpage{215}
+  \item \Showattrib {responseText} \dotfill \hyperpage{212}
+  \item \Showattrib {responseXML} \dotfill \hyperpage{212}, 
+		\hyperpage{213}
   \item \Showattrib {reverse}(Arrayのメソッド) \dotfill \hyperpage{185}
 
   \indexspace
@@ -494,11 +493,12 @@
   \item \Showattrib {screenX}(DOMのプロパティ) \dotfill \hyperpage{135}
   \item \Showattrib {screenY}(DOMのプロパティ) \dotfill \hyperpage{135}
   \item \Showattrib {scroll()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {select()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
-  \item \Showattrib {send} \dotfill \hyperpage{213}
-  \item \Showattrib {sessionStorage} \dotfill \hyperpage{192--194}
+		\hyperpage{215}
+  \item \Showattrib {send} \dotfill \hyperpage{211}
+  \item \Showattrib {sessionStorage} \dotfill \hyperpage{192}, 
+		\hyperpage{193}
   \item \Showattrib {setAttribute}(DOMのメソッド) \dotfill 
 		\hyperpage{131}, \hyperpage{139--141}
   \item \Showattrib {setTimeout()} \dotfill \hyperpage{169}, 
@@ -513,52 +513,52 @@
   \item \Showattrib {splice}(Arrayのメソッド) \dotfill \hyperpage{174}, 
 		\hyperpage{185}, \hyperpage{186}
   \item \Showattrib {splice}(メソッド) \dotfill \hyperpage{174}
-  \item \Showattrib {status} \dotfill \hyperpage{213}
+  \item \Showattrib {status} \dotfill \hyperpage{211}
   \item \Showattrib {stopPropagation}(DOMのメソッド) \dotfill 
 		\hyperpage{135}, \hyperpage{146}
-  \item \Showattrib {stringify}(メソッド) \dotfill \hyperpage{195}
+  \item \Showattrib {stringify}(メソッド) \dotfill \hyperpage{194}
   \item \Showattrib {submit()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
   \item \Showattrib {target}(DOMのプロパティ) \dotfill \hyperpage{135}, 
 		\hyperpage{137}, \hyperpage{145}
-  \item \Showattrib {text()}(jQueryのメソッド) \dotfill \hyperpage{217}
+  \item \Showattrib {text()}(jQueryのメソッド) \dotfill \hyperpage{215}
   \item \Showattrib {toggle()}(jQueryのイベント) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {true} \dotfill \hyperpage{145}, \hyperpage{186}, 
-		\hyperpage{213}
-  \item \Showattrib {try} \dotfill \hyperpage{212}
+		\hyperpage{211}
+  \item \Showattrib {try} \dotfill \hyperpage{210}
 
   \indexspace
 \item {\large\bf U}\nopagebreak[4]
   \item \Showattrib {unbind()}(jQueryのイベント) \dotfill 
-		\hyperpage{218}
+		\hyperpage{216}
   \item \Showattrib {undefined} \dotfill \hyperpage{188}
   \item \Showattrib {undefined}(値) \dotfill \hyperpage{188}
   \item \Showattrib {unload()}(jQueryのイベント) \dotfill 
-		\hyperpage{217}
+		\hyperpage{215}
   \item \Showattrib {unshift}(Arrayのメソッド) \dotfill \hyperpage{185}
 
   \indexspace
 \item {\large\bf V}\nopagebreak[4]
-  \item \Showattrib {val()}(jQueryのメソッド) \dotfill \hyperpage{217}, 
-		\hyperpage{221}
+  \item \Showattrib {val()}(jQueryのメソッド) \dotfill \hyperpage{215}, 
+		\hyperpage{219}
   \item \Showattrib {var} \dotfill \hyperpage{138}, \hyperpage{189}, 
 		\hyperpage{190}
 
   \indexspace
 \item {\large\bf W}\nopagebreak[4]
-  \item \Showattrib {Web Storage} \dotfill \hyperpage{192}
-  \item \Showattrib {window} \dotfill \hyperpage{220}
+  \item \Showattrib {Web Storage} \dotfill \hyperpage{191}
+  \item \Showattrib {window} \dotfill \hyperpage{218}
   \item \Showattrib {window}(DOMのオブジェクト) \dotfill 
 		\hyperpage{137}, \hyperpage{169}
 
   \indexspace
 \item {\large\bf X}\nopagebreak[4]
-  \item \Showattrib {XMLHttpRequest} \dotfill \hyperpage{209}, 
-		\hyperpage{212}
+  \item \Showattrib {XMLHttpRequest} \dotfill \hyperpage{207}, 
+		\hyperpage{210}
 
   \indexspace
 \item {\large\bf あ}\nopagebreak[4]
@@ -571,17 +571,17 @@
 
   \indexspace
 \item {\large\bf へ}\nopagebreak[4]
-  \item \Showattrib {変数のスコープ} \dotfill \hyperpage{189}
+  \item \Showattrib {変数のスコープ} \dotfill \hyperpage{188}
 
   \indexspace
 \item {\large\bf め}\nopagebreak[4]
   \item メソッド
-    \subitem \Showattrib {call} \dotfill \hyperpage{195}
-    \subitem \Showattrib {JsonParse} \dotfill \hyperpage{222}
+    \subitem \Showattrib {call} \dotfill \hyperpage{194}
+    \subitem \Showattrib {JsonParse} \dotfill \hyperpage{220}
     \subitem \Showattrib {length} \dotfill \hyperpage{138}
     \subitem \Showattrib {parse} \dotfill \hyperpage{194}
     \subitem \Showattrib {push()} \dotfill \hyperpage{174}
     \subitem \Showattrib {splice} \dotfill \hyperpage{174}
-    \subitem \Showattrib {stringify} \dotfill \hyperpage{195}
+    \subitem \Showattrib {stringify} \dotfill \hyperpage{194}
 
 \end{theindex}
