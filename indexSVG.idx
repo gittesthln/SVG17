@@ -1152,8 +1152,8 @@
 \indexentry{::\ShowElm {defs}::要素::::::|hyperpage}{99}
 \indexentry{::defs (ようそ)@\ShowElm {defs}::::::::|hyperpage}{99}
 \indexentry{::xlink:hrefぞくせい@\Showattrib {xlink:href}::::::::|hyperpage}{99}
-\indexentry{::\Showattrib {startOffset}::フォント::::::|hyperpage}{100}
-\indexentry{::startOffset ぞくせい(ふぉんと)@\Showattrib {startOffset}(フォント)::::::::|hyperpage}{100}
+\indexentry{::\Showattrib {startOffset}::フォント::::::|hyperpage}{99}
+\indexentry{::startOffset ぞくせい(ふぉんと)@\Showattrib {startOffset}(フォント)::::::::|hyperpage}{99}
 \indexentry{::\ShowElm {path}::要素::::::|hyperpage}{100}
 \indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{100}
 \indexentry{::\Showattrib {filterUnits}::フィルタ::::::|hyperpage}{101}
@@ -1761,27 +1761,27 @@
 \indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{174}
 \indexentry{::\Showattrib {fill}::図形::::::|hyperpage}{174}
 \indexentry{::fill ぞくせい(ずけい)@\Showattrib {fill}(図形)::::::::|hyperpage}{174}
-\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{175}
-\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{175}
-\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{175}
-\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{175}
-\indexentry{::\ShowElm {g}::要素::::::|hyperpage}{178}
-\indexentry{::g (ようそ)@\ShowElm {g}::::::::|hyperpage}{178}
-\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{179}
-\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {text-anchor}::フォント::::::|hyperpage}{179}
-\indexentry{::text-anchor ぞくせい(ふぉんと)@\Showattrib {text-anchor}(フォント)::::::::|hyperpage}{179}
+\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{174}
+\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{174}
+\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{174}
+\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{174}
+\indexentry{::\ShowElm {g}::要素::::::|hyperpage}{177}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::|hyperpage}{177}
+\indexentry{::\ShowElm {text}::要素::::::|hyperpage}{178}
+\indexentry{::text (ようそ)@\ShowElm {text}::::::::|hyperpage}{178}
+\indexentry{::\Showattrib {text-anchor}::フォント::::::|hyperpage}{178}
+\indexentry{::text-anchor ぞくせい(ふぉんと)@\Showattrib {text-anchor}(フォント)::::::::|hyperpage}{178}
 \indexentry{::\ShowElm {svg}::要素::::::|hyperpage}{181}
 \indexentry{::svg (ようそ)@\ShowElm {svg}::::::::|hyperpage}{181}
-\indexentry{::\ShowElm {g}::要素::::::|hyperpage}{183}
-\indexentry{::g (ようそ)@\ShowElm {g}::::::::|hyperpage}{183}
-\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{189}
-\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{189}
-\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{189}
-\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{189}
-\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{189}
-\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{189}
-\indexentry{::dぞくせい@\Showattrib {d}::::::::|hyperpage}{192}
+\indexentry{::\ShowElm {g}::要素::::::|hyperpage}{182}
+\indexentry{::g (ようそ)@\ShowElm {g}::::::::|hyperpage}{182}
+\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{188}
+\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{188}
+\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{188}
+\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{188}
+\indexentry{::\ShowElm {path}::要素::::::|hyperpage}{188}
+\indexentry{::path (ようそ)@\ShowElm {path}::::::::|hyperpage}{188}
+\indexentry{::dぞくせい@\Showattrib {d}::::::::|hyperpage}{191}
 \indexentry{::\ShowElm {svg}::要素::::::|hyperpage}{201}
 \indexentry{::svg (ようそ)@\ShowElm {svg}::::::::|hyperpage}{201}
 \indexentry{::\ShowElm {svg}::要素::::::|hyperpage}{201}

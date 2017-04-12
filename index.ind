@@ -16,7 +16,7 @@
   \item CDN(Contents Delivery Network) \dotfill \hyperpage{215}
   \item CGI \dotfill \hyperpage{197}
   \item \Showattrib {click}(イベント) \dotfill \hyperpage{139}, 
-		\hyperpage{147}, \hyperpage{178}
+		\hyperpage{147}, \hyperpage{177}, \hyperpage{178}
   \item \Showattrib {clientY}(イベント) \dotfill \hyperpage{154}
   \item $\sin {x}$(余弦関数) \dotfill \hyperpage{158}
   \item CSS \dotfill \hyperpage{103}, \hyperpage{117}
@@ -110,7 +110,7 @@
 \item {\large\bf い}\nopagebreak[4]
   \item イベント \dotfill \hyperpage{133}
     \subitem \Showattrib {click} \dotfill \hyperpage{139}, 
-		\hyperpage{147}, \hyperpage{178}
+		\hyperpage{147}, \hyperpage{177}, \hyperpage{178}
     \subitem \Showattrib {clientY} \dotfill \hyperpage{154}
     \subitem \Showattrib {mousedown} \dotfill \hyperpage{146--148}, 
 		\hyperpage{150}, \hyperpage{154}

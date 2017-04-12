@@ -88,7 +88,7 @@
 		\hyperpage{75}, \hyperpage{87}
   \item \Showattrib {dx}(フィルタ) \dotfill \hyperpage{106}
   \item \Showattrib {dy}(フィルタ) \dotfill \hyperpage{106}
-  \item \Showattrib {d} \dotfill \hyperpage{192}
+  \item \Showattrib {d} \dotfill \hyperpage{191}
 
   \indexspace
 \item {\large\bf E}\nopagebreak[4]
@@ -197,8 +197,8 @@
 		\hyperpage{18}, \hyperpage{32}, \hyperpage{74}, 
 		\hyperpage{77}, \hyperpage{78}, \hyperpage{146}, 
 		\hyperpage{151}, \hyperpage{154}, \hyperpage{165}, 
-		\hyperpage{168}, \hyperpage{174}, \hyperpage{178}, 
-		\hyperpage{183}, \hyperpage{204}
+		\hyperpage{168}, \hyperpage{174}, \hyperpage{177}, 
+		\hyperpage{182}, \hyperpage{204}
   \item \Showattrib {gamma}(値--フィルタ) \dotfill \hyperpage{116}
   \item \Showattrib {gradientUnits}(色) \dotfill \hyperpage{26}, 
 		\hyperpage{29}, \hyperpage{31--33}, \hyperpage{81}, 
@@ -340,7 +340,7 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{157}, \hyperpage{168}, \hyperpage{189}
+		\hyperpage{157}, \hyperpage{168}, \hyperpage{188}
   \item \Showattrib {path}(図形) \dotfill \hyperpage{77}
   \item \ShowElm {pattern} \dotfill \hyperpage{61}, \hyperpage{62}, 
 		\hyperpage{66}, \hyperpage{68--70}
@@ -428,7 +428,7 @@
   \item \Showattrib {square}(値--図形) \dotfill \hyperpage{14}
   \item \Showattrib {start}(値--フォント) \dotfill \hyperpage{93}
   \item \Showattrib {startOffset}(フォント) \dotfill \hyperpage{97}, 
-		\hyperpage{100}
+		\hyperpage{99}
   \item \Showattrib {stdDEviation}(フィルタ) \dotfill \hyperpage{103}
   \item \Showattrib {stdDeviation}(フィルタ) \dotfill \hyperpage{103}
   \item \ShowElm {stop} \dotfill \hyperpage{27}, \hyperpage{36}
@@ -465,9 +465,9 @@
   \item \ShowElm {text} \dotfill \hyperpage{42}, \hyperpage{91}, 
 		\hyperpage{92}, \hyperpage{95}, \hyperpage{97}, 
 		\hyperpage{143}, \hyperpage{151}, \hyperpage{174}, 
-		\hyperpage{175}, \hyperpage{179}
+		\hyperpage{178}
   \item \Showattrib {text-anchor}(フォント) \dotfill \hyperpage{93}, 
-		\hyperpage{95}, \hyperpage{179}
+		\hyperpage{95}, \hyperpage{178}
   \item \Showattrib {text-decoration}(フォント) \dotfill \hyperpage{93}
   \item \ShowElm {textPath} \dotfill \hyperpage{97}
   \item \Showattrib {to}(アニメーション) \dotfill \hyperpage{73}, 
@@ -949,9 +949,9 @@
     \subitem \Showattrib {font-stretch} \dotfill \hyperpage{93}
     \subitem \Showattrib {font-style} \dotfill \hyperpage{93}
     \subitem \Showattrib {startOffset} \dotfill \hyperpage{97}, 
-		\hyperpage{100}
+		\hyperpage{99}
     \subitem \Showattrib {text-anchor} \dotfill \hyperpage{93}, 
-		\hyperpage{95}, \hyperpage{179}
+		\hyperpage{95}, \hyperpage{178}
     \subitem \Showattrib {text-decoration} \dotfill \hyperpage{93}
 
   \indexspace
@@ -980,8 +980,8 @@
 		\hyperpage{18}, \hyperpage{32}, \hyperpage{74}, 
 		\hyperpage{77}, \hyperpage{78}, \hyperpage{146}, 
 		\hyperpage{151}, \hyperpage{154}, \hyperpage{165}, 
-		\hyperpage{168}, \hyperpage{174}, \hyperpage{178}, 
-		\hyperpage{183}, \hyperpage{204}
+		\hyperpage{168}, \hyperpage{174}, \hyperpage{177}, 
+		\hyperpage{182}, \hyperpage{204}
     \subitem \ShowElm {image} \dotfill \hyperpage{67}, \hyperpage{70}
     \subitem \ShowElm {line} \dotfill \hyperpage{14}, \hyperpage{154}
     \subitem \ShowElm {linearGradient} \dotfill \hyperpage{26}, 
@@ -992,7 +992,7 @@
 		\hyperpage{46}, \hyperpage{53}, \hyperpage{58}, 
 		\hyperpage{62}, \hyperpage{80}, \hyperpage{81}, 
 		\hyperpage{86}, \hyperpage{97}, \hyperpage{100}, 
-		\hyperpage{157}, \hyperpage{168}, \hyperpage{189}
+		\hyperpage{157}, \hyperpage{168}, \hyperpage{188}
     \subitem \ShowElm {pattern} \dotfill \hyperpage{61}, 
 		\hyperpage{62}, \hyperpage{66}, \hyperpage{68--70}
     \subitem \ShowElm {polygon} \dotfill \hyperpage{39}, 
@@ -1013,7 +1013,7 @@
     \subitem \ShowElm {text} \dotfill \hyperpage{42}, \hyperpage{91}, 
 		\hyperpage{92}, \hyperpage{95}, \hyperpage{97}, 
 		\hyperpage{143}, \hyperpage{151}, \hyperpage{174}, 
-		\hyperpage{175}, \hyperpage{179}
+		\hyperpage{178}
     \subitem \ShowElm {textPath} \dotfill \hyperpage{97}
     \subitem \ShowElm {tspan} \dotfill \hyperpage{92}, \hyperpage{94}
     \subitem \ShowElm {use} \dotfill \hyperpage{17}, \hyperpage{22}, 
