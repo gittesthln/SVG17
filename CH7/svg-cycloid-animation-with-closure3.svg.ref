@@ -13,9 +13,7 @@ window.onload = function () {
       if(Current<=360) {
         for( ; Current< Next; Current++) {
           rad = Current/180*Math.PI;
-          pX = R*(rad-Math.sin(rad));
-          pY = R*(-1+Math.cos(rad));
-          d.push(pX,pY);
+          d.push(R*(rad-Math.sin(rad)),R*(-1+Math.cos(rad)));
         }
         C.setAttribute("d",d.join(" "));
         T.setAttribute("transform",`translate(${R*rad},-50)`);

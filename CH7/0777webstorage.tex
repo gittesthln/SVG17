@@ -4,14 +4,14 @@ Web ページ上で作成したデータをそのままブラウザが動作し�
 て簡単な解説をします。
 
 \ElmJ{Web Storage}とは HTML5 で導入された、Webページ間のデータの共有する仕組みで
-す。HTML5以前の方法ではクッキーと呼ばれるデータをクライアントとサーバー
-の間で共有してサーバー側からデータの共有をサポートする仕組みがありました。
+す。HTML5以前ではクッキーと呼ばれるデータをクライアントとサーバー
+の間で共有してサーバー側からデータの共有をサポートする仕組みがあります。
 クッキーでは小さなデータしか扱えず、サーバーとクライアントとのやりがある
-たびに送られるのでセキュリティや速度の面で問題がありました。
+たびにやり取りを行うのでセキュリティや速度の面で問題がありました。
 
-HTML5ではこれに代わる方法としてブラウザーのあるページ以降のページにだけ
+HTML5ではブラウザのあるページ以降のページにだけ
 存在する\ElmJ{sessionStorage}とページが閉じられてもデータが存続できる
-\ElmJ{localStorage}が提案されています。なお、これらの値はすべて文字列で
+\ElmJ{localStorage}があります。これらの値はすべて文字列で
 しか保存できません。
 
 リスト\ref{pinna-storage.js}はリスト
@@ -38,11 +38,11 @@ HTML5ではこれに代わる方法としてブラウザーのあるページ以
 {\protect\texttt{sessionStorage}の値の確認}{pinna-storage.html}
 \begin{Problem}\upshape
  リスト\ref{pinna-storage.js}について次のことを確認しなさい。
- \begin{itemize}
+ \begin{enumerate}
   \item \ElmJ{localStorage}の値上でダブルクリックする(または右クリック)
-        と値が直接書き直せます。また、キーの削除もできます。
-        別の値に書き直した後で開きなおすとその値
-        が反映された図が描ける。
+        と値が直接書き直せたり、キーの削除ができます。
+        値を書き直した後で開きなおすとその値
+        が反映された図が描けます。
 %  \item これらのファイルを別のフォルダにコピーして表示すると、初期値で表
 %        示される。
   \item リストの\Line{storage}をコメントアウトして、\Line{storage2}のコ
@@ -53,7 +53,7 @@ HTML5ではこれに代わる方法としてブラウザーのあるページ以
          \item 再表示すると最後に設定した値が反映されない。
          \item 再表示後は\ElmJ{sessionStorage}の値が全くない。
         \end{itemize}
- \end{itemize}
+\end{enumerate}
 \end{Problem}
 
 次のリストは配列のメソッドやWebStorageに配列のデータを格納するように変更
@@ -77,3 +77,13 @@ HTML5ではこれに代わる方法としてブラウザーのあるページ以
  \item \Line{saveDataInStorage}では\Verb+Storage.C+に保存するために
        \ElmJ{JSON}の\JSM{stringify}メソッドを使用しています。
 \end{itemize}
+\begin{Problem}
+ \upshape
+ リスト\ref{pinna-storage-rev.js}について次の事項に答えなさい。
+ \begin{enumerate}
+  \item \Line{selectorAll}のCSSセレクタの記述で\Verb+\"+のエスケープを使わない
+        記述があるか。
+  \item \Line{saveDataInStorage}で\ElmJ{JSON}の\JSM{stringify}メソッドを
+        使用しないでそのまま代入するとどうなるか。
+ \end{enumerate}
+\end{Problem}
