@@ -32,20 +32,6 @@
 \indexentry{header()@\Showattrib {header()}|hyperpage}{203}
 \indexentry{header()@\Showattrib {header()}|hyperpage}{204}
 \indexentry{header()@\Showattrib {header()}|hyperpage}{204}
-<<<<<<< HEAD
-\indexentry{header()@\Showattrib {header()}|hyperpage}{205}
-\indexentry{header()@\Showattrib {header()}|hyperpage}{205}
-\indexentry{header()@\Showattrib {header()}|hyperpage}{205}
-\indexentry{header()@\Showattrib {header()}|hyperpage}{205}
-\indexentry{header()@\Showattrib {header()}|hyperpage}{206}
-\indexentry{header()@\Showattrib {header()}|hyperpage}{206}
-\indexentry{print@\Showattrib {print}|hyperpage}{206}
-\indexentry{readfile()@\Showattrib {readfile()}|hyperpage}{206}
-\indexentry{\$\_SERVER@\Showattrib {\$\_SERVER}|hyperpage}{207}
-\indexentry{すーぱーぐろーばるへんすう@スーパーグローバル変数!\ElmP {\$\_SERVER}|hyperpage}{207}
-\indexentry{HTTP\_USER\_AGENT@\Showattrib {HTTP\_USER\_AGENT}|hyperpage}{207}
-\indexentry{header@\Showattrib {header}|hyperpage}{214}
-=======
 \indexentry{print@\Showattrib {print}|hyperpage}{204}
 \indexentry{readfile()@\Showattrib {readfile()}|hyperpage}{204}
 \indexentry{\$\_SERVER@\Showattrib {\$\_SERVER}|hyperpage}{205}
@@ -55,4 +41,3 @@
 \indexentry{\$\_GET@\Showattrib {\$\_GET}|hyperpage}{付録 26}
 \indexentry{\$\_SERVER@\Showattrib {\$\_SERVER}|hyperpage}{付録 26}
 \indexentry{\$GLOBAL@\Showattrib {\$GLOBAL}|hyperpage}{付録 26}
->>>>>>> 7f0d2aa5621726db9e9b1e641a3da2520b278954

@@ -128,45 +128,45 @@
 \contentsline {subsection}{\numberline {7.4.3}SVGのオブジェクトを操作するための関数}{161}{subsection.7.4.3}
 \contentsline {subsection}{\numberline {7.4.4}ツェルナーの錯視図形}{164}{subsection.7.4.4}
 \contentsline {subsection}{\numberline {7.4.5}一定時間経過後に関数をよびだす(自前でアニメーションを作成する)}{168}{subsection.7.4.5}
-\contentsline {section}{\numberline {7.5}HTML文書とその中にある SVG 要素の間でデータ交換する}{176}{section.7.5}
+\contentsline {section}{\numberline {7.5}HTML文書とその中にある SVG 要素の間でデータ交換する}{175}{section.7.5}
 \contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{184}{section.7.6}
 \contentsline {subsection}{\numberline {7.6.1}配列のメソッドを使う}{184}{subsection.7.6.1}
-\contentsline {subsection}{\numberline {7.6.2}クロージャの利用によるグローバル変数の個数の減少}{189}{subsection.7.6.2}
-\contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{189}{section*.46}
+\contentsline {subsection}{\numberline {7.6.2}クロージャの利用によるグローバル変数の個数の減少}{188}{subsection.7.6.2}
+\contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{188}{section*.46}
 \contentsline {subsubsection}{クロージャ}{190}{section*.47}
-\contentsline {subsection}{\numberline {7.6.3}WebStorage}{192}{subsection.7.6.3}
-\contentsline {chapter}{\numberline {第8章}WebサーバーでSVG図形のデータを作る}{197}{chapter.8}
-\contentsline {section}{\numberline {8.1}Webサーバーを利用するための基礎知識}{197}{section.8.1}
-\contentsline {section}{\numberline {8.2}PHPプログラムでSVGファイルを作成する}{198}{section.8.2}
-\contentsline {paragraph}{\texttt {printHeader(\$width, \$height)}}{201}{section*.48}
-\contentsline {paragraph}{\texttt {outputSpaces(\$n)}}{201}{section*.49}
-\contentsline {paragraph}{\texttt {outputTag(\$tagName, \$attributes, \$close=false)}}{202}{section*.50}
-\contentsline {paragraph}{\texttt {closeTag()}}{203}{section*.51}
-\contentsline {paragraph}{\texttt {closeSVG()}}{203}{section*.52}
-\contentsline {section}{\numberline {8.3}\texttt {header}関数について}{205}{section.8.3}
-\contentsline {section}{\numberline {8.4}ブラウザを区別する}{207}{section.8.4}
-\contentsline {section}{\numberline {8.5}Ajax}{208}{section.8.5}
-\contentsline {subsection}{\numberline {8.5.1}Ajaxとは}{208}{subsection.8.5.1}
-\contentsline {subsection}{\numberline {8.5.2}Ajaxの例}{209}{subsection.8.5.2}
-\contentsline {section}{\numberline {8.6}jQuery}{215}{section.8.6}
-\contentsline {subsection}{\numberline {8.6.1}jQueryとは}{215}{subsection.8.6.1}
-\contentsline {subsection}{\numberline {8.6.2}jQueryの基本}{215}{subsection.8.6.2}
-\contentsline {subsubsection}{jQuery()関数とjQueryオブジェクト}{215}{section*.53}
-\contentsline {subsubsection}{jQueryオブジェクトのメソッド}{216}{section*.54}
-\contentsline {paragraph}{HTML属性の取得と設定}{216}{section*.55}
-\contentsline {paragraph}{CSS属性の取得と設定}{217}{section*.56}
-\contentsline {paragraph}{HTMLフォーム要素の値の取得と設定}{217}{section*.57}
-\contentsline {paragraph}{要素のコンテンツの取得と設定}{217}{section*.58}
-\contentsline {subsection}{\numberline {8.6.3}ドキュメントの構造の変更}{217}{subsection.8.6.3}
-\contentsline {subsection}{\numberline {8.6.4}イベントハンドラーの取り扱い}{217}{subsection.8.6.4}
-\contentsline {subsection}{\numberline {8.6.5}Ajaxの処理}{218}{subsection.8.6.5}
-\contentsline {subsection}{\numberline {8.6.6}jQuery のサンプル}{218}{subsection.8.6.6}
-\contentsline {subsubsection}{HTMLとSVGでのデータの交換}{218}{section*.59}
-\contentsline {subsubsection}{jQueryにおけるAjaxの利用}{222}{section*.60}
+\contentsline {subsection}{\numberline {7.6.3}WebStorage}{191}{subsection.7.6.3}
+\contentsline {chapter}{\numberline {第8章}WebサーバーでSVG図形のデータを作る}{195}{chapter.8}
+\contentsline {section}{\numberline {8.1}Webサーバーを利用するための基礎知識}{195}{section.8.1}
+\contentsline {section}{\numberline {8.2}PHPプログラムでSVGファイルを作成する}{196}{section.8.2}
+\contentsline {paragraph}{\texttt {printHeader(\$width, \$height)}}{199}{section*.48}
+\contentsline {paragraph}{\texttt {outputSpaces(\$n)}}{199}{section*.49}
+\contentsline {paragraph}{\texttt {outputTag(\$tagName, \$attributes, \$close=false)}}{200}{section*.50}
+\contentsline {paragraph}{\texttt {closeTag()}}{201}{section*.51}
+\contentsline {paragraph}{\texttt {closeSVG()}}{201}{section*.52}
+\contentsline {section}{\numberline {8.3}\texttt {header}関数について}{203}{section.8.3}
+\contentsline {section}{\numberline {8.4}ブラウザを区別する}{205}{section.8.4}
+\contentsline {section}{\numberline {8.5}Ajax}{206}{section.8.5}
+\contentsline {subsection}{\numberline {8.5.1}Ajaxとは}{206}{subsection.8.5.1}
+\contentsline {subsection}{\numberline {8.5.2}Ajaxの例}{207}{subsection.8.5.2}
+\contentsline {section}{\numberline {8.6}jQuery}{213}{section.8.6}
+\contentsline {subsection}{\numberline {8.6.1}jQueryとは}{213}{subsection.8.6.1}
+\contentsline {subsection}{\numberline {8.6.2}jQueryの基本}{213}{subsection.8.6.2}
+\contentsline {subsubsection}{jQuery()関数とjQueryオブジェクト}{213}{section*.53}
+\contentsline {subsubsection}{jQueryオブジェクトのメソッド}{214}{section*.54}
+\contentsline {paragraph}{HTML属性の取得と設定}{214}{section*.55}
+\contentsline {paragraph}{CSS属性の取得と設定}{215}{section*.56}
+\contentsline {paragraph}{HTMLフォーム要素の値の取得と設定}{215}{section*.57}
+\contentsline {paragraph}{要素のコンテンツの取得と設定}{215}{section*.58}
+\contentsline {subsection}{\numberline {8.6.3}ドキュメントの構造の変更}{215}{subsection.8.6.3}
+\contentsline {subsection}{\numberline {8.6.4}イベントハンドラーの取り扱い}{215}{subsection.8.6.4}
+\contentsline {subsection}{\numberline {8.6.5}Ajaxの処理}{216}{subsection.8.6.5}
+\contentsline {subsection}{\numberline {8.6.6}jQuery のサンプル}{216}{subsection.8.6.6}
+\contentsline {subsubsection}{HTMLとSVGでのデータの交換}{216}{section*.59}
+\contentsline {subsubsection}{jQueryにおけるAjaxの利用}{220}{section*.60}
 \contentsline {chapter}{\numberline {付 録A }SVGで利用できる色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}
 \contentsline {chapter}{\numberline {付 録C }CSSについて}{付録 9}{appendix.C}
-\contentsline {chapter}{索引}{付録 12}{Item.85}
+\contentsline {chapter}{索引}{付録 12}{Item.89}
 \contentsline {section}{SVGの用語}{付録 12}{section*.62}
 \contentsline {section}{HTMLの用語}{付録 19}{section*.62}
 \contentsline {section}{JavaScriptの用語}{付録 21}{section*.62}
