@@ -129,8 +129,8 @@
 \contentsline {subsection}{\numberline {7.4.4}ツェルナーの錯視図形}{164}{subsection.7.4.4}
 \contentsline {subsection}{\numberline {7.4.5}一定時間経過後に関数をよびだす(自前でアニメーションを作成する)}{168}{subsection.7.4.5}
 \contentsline {section}{\numberline {7.5}HTML文書とその中にある SVG 要素の間でデータ交換する}{176}{section.7.5}
-\contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{185}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}配列のメソッドを使う}{185}{subsection.7.6.1}
+\contentsline {section}{\numberline {7.6}より進んだ JavaScriptプログラミング}{184}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}配列のメソッドを使う}{184}{subsection.7.6.1}
 \contentsline {subsection}{\numberline {7.6.2}クロージャの利用によるグローバル変数の個数の減少}{189}{subsection.7.6.2}
 \contentsline {subsubsection}{変数のスコープと仮引数への値の渡し方}{189}{section*.46}
 \contentsline {subsubsection}{クロージャ}{190}{section*.47}
@@ -150,18 +150,18 @@
 \contentsline {subsection}{\numberline {8.5.2}Ajaxの例}{209}{subsection.8.5.2}
 \contentsline {section}{\numberline {8.6}jQuery}{215}{section.8.6}
 \contentsline {subsection}{\numberline {8.6.1}jQueryとは}{215}{subsection.8.6.1}
-\contentsline {subsection}{\numberline {8.6.2}jQueryの基本}{216}{subsection.8.6.2}
-\contentsline {subsubsection}{jQuery()関数とjQueryオブジェクト}{216}{section*.53}
+\contentsline {subsection}{\numberline {8.6.2}jQueryの基本}{215}{subsection.8.6.2}
+\contentsline {subsubsection}{jQuery()関数とjQueryオブジェクト}{215}{section*.53}
 \contentsline {subsubsection}{jQueryオブジェクトのメソッド}{216}{section*.54}
-\contentsline {paragraph}{HTML属性の取得と設定}{217}{section*.55}
+\contentsline {paragraph}{HTML属性の取得と設定}{216}{section*.55}
 \contentsline {paragraph}{CSS属性の取得と設定}{217}{section*.56}
 \contentsline {paragraph}{HTMLフォーム要素の値の取得と設定}{217}{section*.57}
 \contentsline {paragraph}{要素のコンテンツの取得と設定}{217}{section*.58}
 \contentsline {subsection}{\numberline {8.6.3}ドキュメントの構造の変更}{217}{subsection.8.6.3}
-\contentsline {subsection}{\numberline {8.6.4}イベントハンドラーの取り扱い}{218}{subsection.8.6.4}
+\contentsline {subsection}{\numberline {8.6.4}イベントハンドラーの取り扱い}{217}{subsection.8.6.4}
 \contentsline {subsection}{\numberline {8.6.5}Ajaxの処理}{218}{subsection.8.6.5}
-\contentsline {subsection}{\numberline {8.6.6}jQuery のサンプル}{219}{subsection.8.6.6}
-\contentsline {subsubsection}{HTMLとSVGでのデータの交換}{219}{section*.59}
+\contentsline {subsection}{\numberline {8.6.6}jQuery のサンプル}{218}{subsection.8.6.6}
+\contentsline {subsubsection}{HTMLとSVGでのデータの交換}{218}{section*.59}
 \contentsline {subsubsection}{jQueryにおけるAjaxの利用}{222}{section*.60}
 \contentsline {chapter}{\numberline {付 録A }SVGで利用できる色名}{付録 1}{appendix.A}
 \contentsline {chapter}{\numberline {付 録B }参考文献について}{付録 5}{appendix.B}

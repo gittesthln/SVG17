@@ -1,9 +1,9 @@
 \indexentry{::function@\Showattrib {function}::::::::|hyperpage}{201}
-\indexentry{::ƒqƒAƒhƒLƒ…ƒƒ“ƒg@\Showattrib {ƒqƒAƒhƒLƒ…ƒƒ“ƒg}::::::::|hyperpage}{201}
+\indexentry{::ãƒ’ã‚¢ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ@\Showattrib {ãƒ’ã‚¢ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ}::::::::|hyperpage}{201}
 \indexentry{::<<<@\Showattrib {<<<}::::::::|hyperpage}{201}
 \indexentry{::print@\Showattrib {print}::::::::|hyperpage}{201}
 \indexentry{::\$GLOBAL@\Showattrib {\$GLOBAL}::::::::|hyperpage}{201}
-\indexentry{::\ElmP {\$GLOBAL}::ƒX[ƒp[ƒOƒ[ƒoƒ‹•Ï”::::::|hyperpage}{201}
+\indexentry{::\ElmP {\$GLOBAL}::ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°::::::|hyperpage}{201}
 \indexentry{::str\_repeat()@\Showattrib {str\_repeat()}::::::::|hyperpage}{201}
 \indexentry{::count()@\Showattrib {count()}::::::::|hyperpage}{202}
 \indexentry{::foreach@\Showattrib {foreach}::::::::|hyperpage}{202}
@@ -17,7 +17,7 @@
 \indexentry{::require\_once()@\Showattrib {require\_once()}::::::::|hyperpage}{203}
 \indexentry{::PUT@\Showattrib {PUT}::::::::|hyperpage}{204}
 \indexentry{::\$\_GET@\Showattrib {\$\_GET}::::::::|hyperpage}{204}
-\indexentry{::\ElmP {\$\_GET}::ƒX[ƒp[ƒOƒ[ƒoƒ‹•Ï”::::::|hyperpage}{204}
+\indexentry{::\ElmP {\$\_GET}::ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°::::::|hyperpage}{204}
 \indexentry{::define()@\Showattrib {define()}::::::::|hyperpage}{204}
 \indexentry{::for@\Showattrib {for}::::::::|hyperpage}{204}
 \indexentry{::M\_PI@\Showattrib {M\_PI}::::::::|hyperpage}{204}
@@ -35,9 +35,6 @@
 \indexentry{::print@\Showattrib {print}::::::::|hyperpage}{206}
 \indexentry{::readfile()@\Showattrib {readfile()}::::::::|hyperpage}{206}
 \indexentry{::\$\_SERVER@\Showattrib {\$\_SERVER}::::::::|hyperpage}{207}
-\indexentry{::\ElmP {\$\_SERVER}::ƒX[ƒp[ƒOƒ[ƒoƒ‹•Ï”::::::|hyperpage}{207}
+\indexentry{::\ElmP {\$\_SERVER}::ã‚¹ãƒ¼ãƒ‘ãƒ¼ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°::::::|hyperpage}{207}
 \indexentry{::HTTP\_USER\_AGENT@\Showattrib {HTTP\_USER\_AGENT}::::::::|hyperpage}{207}
 \indexentry{::header@\Showattrib {header}::::::::|hyperpage}{214}
-\indexentry{::\$\_GET@\Showattrib {\$\_GET}::::::::|hyperpage}{•t˜^ 26}
-\indexentry{::\$\_SERVER@\Showattrib {\$\_SERVER}::::::::|hyperpage}{•t˜^ 26}
-\indexentry{::\$GLOBAL@\Showattrib {\$GLOBAL}::::::::|hyperpage}{•t˜^ 26}
