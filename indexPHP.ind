@@ -1,12 +1,9 @@
 \begin{theindex}\small
 \item {\large\bf Symbols}\nopagebreak[4]
   \item \Showattrib {<<<} \dotfill \hyperpage{199}
-  \item \Showattrib {\$\_GET} \dotfill \hyperpage{•t˜^ 26}, 
-		\hyperpage{202}
-  \item \Showattrib {\$\_SERVER} \dotfill \hyperpage{•t˜^ 26}, 
-		\hyperpage{205}
-  \item \Showattrib {\$GLOBAL} \dotfill \hyperpage{•t˜^ 26}, 
-		\hyperpage{199}
+  \item \Showattrib {\$\_GET} \dotfill 	\hyperpage{202}
+  \item \Showattrib {\$\_SERVER} \dotfill 	\hyperpage{205}
+  \item \Showattrib {\$GLOBAL} \dotfill	\hyperpage{199}
 
   \indexspace
 \item {\large\bf A}\nopagebreak[4]
