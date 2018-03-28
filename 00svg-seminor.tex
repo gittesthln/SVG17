@@ -1,0 +1,73 @@
+\input Macro/svg-macro.tex
+\Seminortrue
+\newcommand{\YEAR}{2017}
+\title{%
+{\huge 錯視図形を描こう}\\\today 改訂
+\\[1cm]
+ \begin{center}
+\scalebox{0.7}{\includegraphics{./ps/fraserspiral.eps}}
+\\フレイザーの渦巻き錯視 \end{center}
+}
+\author{}
+\date{}
+\newcommand{\IMM}{\relax}
+\makeindex
+\begin{document}
+\frontmatter
+\maketitle
+\clearpage
+\input TOP/copyright.tex
+%
+\tableofcontents
+%
+\mainmatter
+\newwrite\answer
+\openout\answer \jobname-answer.tex
+\INPUT{CH1}{01whatissvg.tex}
+\INPUT{CH2}{02fundamentalfigs.tex}
+\INPUT{CH3}{03object.tex}
+\INPUT{CH4}{04animation.tex}
+\INPUT{CH5}{05showingtext.tex}
+%\INPUT{CH6}{06filter.tex}
+\INPUT{CH7}{07svg-withjavascript.tex}
+%\INPUT{CH8}{08svgwithserver.tex}
+%\backmatter
+\appendix
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\thepage}{付録 \arabic{page}}
+%\setcounter{page}{0}
+%\INPUT{Install}{A01xamppinstall.tex}
+%\INPUT{Appendix}{99answer.tex}
+\INPUT{Appendix}{color-f.tex}
+\INPUT{Appendix}{99refference.tex}
+%\INPUT{JavaScript}{IntroJS.tex}
+\ifSeminor
+\INPUT{Appendix}{CSS.tex}
+\else
+\INPUT{Appendix}{CSS.tex}
+\fi
+%\INPUT{Appendix}{99browser.tex}
+%\cleardoublepage
+%\backmatter
+\iffalse\else
+\newcommand\indexnameshort{}
+\renewcommand{\thesection}{}
+\newcommand{\IncludeIndex}[2]{%
+   \renewcommand\indexnameshort{#2}
+   \renewcommand{\indexname}{索引 --- #2}
+\addcontentsline{toc}{section}{#2}
+   \input #1.ind
+}
+%
+\addcontentsline{toc}{chapter}{索引}
+\IncludeIndex{indexSVG}{SVGの用語}
+\IncludeIndex{indexHTML}{HTMLの用語}
+\IncludeIndex{indexJS}{\JS の用語}
+\ifSeminor
+\else
+\IncludeIndex{indexPHP}{PHPの用語}
+\fi
+\IncludeIndex{index}{一般}
+%
+\fi
+\end{document}
