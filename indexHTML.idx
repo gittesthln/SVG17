@@ -8,122 +8,82 @@
 \indexentry{::BR@\ShowElm {BR}::::::::|hyperpage}{7}
 \indexentry{::\ShowElm {BR}::要素::::::|hyperpage}{7}
 \indexentry{::BR@\ShowElm {BR}::::::::|hyperpage}{7}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{103}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{103}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{103}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{103}
-\indexentry{::\ShowElm {script}::要素::::::|hyperpage}{134}
-\indexentry{::script@\ShowElm {script}::::::::|hyperpage}{134}
-\indexentry{::\Showattrib {setTimeout}::オブジェクトのメソッド ::::::|hyperpage}{174}
-\indexentry{::setTimeout おぶじぇくとのめそっど@\Showattrib {setTimeout}(オブジェクトのメソッド )::::::::|hyperpage}{174}
-\indexentry{::DOCTYPEせんげん@\texttt {DOCTYPE} 宣言::::::::|hyperpage}{177}
-\indexentry{::\ShowElm {htaml}::要素::::::|hyperpage}{177}
-\indexentry{::htaml@\ShowElm {htaml}::::::::|hyperpage}{177}
-\indexentry{::\ShowElm {head}::要素::::::|hyperpage}{177}
-\indexentry{::head@\ShowElm {head}::::::::|hyperpage}{177}
-\indexentry{::\ShowElm {meta}::要素::::::|hyperpage}{177}
-\indexentry{::meta@\ShowElm {meta}::::::::|hyperpage}{177}
-\indexentry{::\ShowElm {h1}::要素::::::|hyperpage}{177}
-\indexentry{::h1@\ShowElm {h1}::::::::|hyperpage}{177}
-\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{177}
-\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{177}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{177}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{177}
-\indexentry{::\Showattrib {id}::属性::::::|hyperpage}{178}
-\indexentry{::id ぞくせい@\Showattrib {id}(属性)::::::::|hyperpage}{178}
-\indexentry{::\ShowElm {h1}::要素::::::|hyperpage}{178}
-\indexentry{::h1@\ShowElm {h1}::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{178}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{178}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {font-size}::CSSプロパティ::::::|hyperpage}{178}
-\indexentry{::font-size CSSプロパティ@\Showattrib {font-size}(CSSプロパティ)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{178}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {font-size}::CSSプロパティ::::::|hyperpage}{178}
-\indexentry{::font-size CSSプロパティ@\Showattrib {font-size}(CSSプロパティ)::::::::|hyperpage}{178}
-\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{178}
-\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{178}
-\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {display}::CSSプロパティ::::::|hyperpage}{178}
-\indexentry{::display CSSプロパティ@\Showattrib {display}(CSSプロパティ)::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {inline-block}::CSSの値::::::|hyperpage}{178}
-\indexentry{::inline-block CSSのあたい@\Showattrib {inline-block}(CSSの値)::::::::|hyperpage}{178}
-\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{178}
-\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{178}
-\indexentry{::\Showattrib {vertical-align}::CSSプロパティ::::::|hyperpage}{179}
-\indexentry{::vertical-align CSSプロパティ@\Showattrib {vertical-align}(CSSプロパティ)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {middle}::CSSの値::::::|hyperpage}{179}
-\indexentry{::middle CSSのあたい@\Showattrib {middle}(CSSの値)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {padding-left}::CSSプロパティ::::::|hyperpage}{179}
-\indexentry{::padding-left CSSプロパティ@\Showattrib {padding-left}(CSSプロパティ)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {id}::属性::::::|hyperpage}{179}
-\indexentry{::id ぞくせい@\Showattrib {id}(属性)::::::::|hyperpage}{179}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{179}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {type}::属性::::::|hyperpage}{179}
-\indexentry{::type ぞくせい@\Showattrib {type}(属性)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {text}::値::::::|hyperpage}{179}
-\indexentry{::text あたい@\Showattrib {text}(値)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {text-align}::CSSプロパティ::::::|hyperpage}{179}
-\indexentry{::text-align CSSプロパティ@\Showattrib {text-align}(CSSプロパティ)::::::::|hyperpage}{179}
-\indexentry{::\Showattrib {right}::CSSの値::::::|hyperpage}{179}
-\indexentry{::right CSSのあたい@\Showattrib {right}(CSSの値)::::::::|hyperpage}{179}
-\indexentry{::\ShowElm {id}::要素::::::|hyperpage}{179}
-\indexentry{::id@\ShowElm {id}::::::::|hyperpage}{179}
-\indexentry{::\ShowElm {id}::要素::::::|hyperpage}{179}
-\indexentry{::id@\ShowElm {id}::::::::|hyperpage}{179}
-\indexentry{::\ShowElm {select}::要素::::::|hyperpage}{180}
-\indexentry{::select@\ShowElm {select}::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{180}
-\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{180}
-\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{180}
-\indexentry{::\Showattrib {name}::属性::::::|hyperpage}{180}
-\indexentry{::name ぞくせい@\Showattrib {name}(属性)::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{180}
-\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{180}
-\indexentry{::\Showattrib {value}::属性::::::|hyperpage}{180}
-\indexentry{::value ぞくせい@\Showattrib {value}(属性)::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{180}
-\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{180}
-\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{180}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{194}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{194}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{194}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{194}
-\indexentry{::\Showattrib {type}::属性::::::|hyperpage}{194}
-\indexentry{::type ぞくせい@\Showattrib {type}(属性)::::::::|hyperpage}{194}
-\indexentry{::\Showattrib {text}::値::::::|hyperpage}{194}
-\indexentry{::text あたい@\Showattrib {text}(値)::::::::|hyperpage}{194}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{194}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{194}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{194}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{194}
-\indexentry{::\ShowElm {form}::要素::::::|hyperpage}{197}
-\indexentry{::form@\ShowElm {form}::::::::|hyperpage}{197}
-\indexentry{::\Showattrib {method}::属性::::::|hyperpage}{197}
-\indexentry{::method ぞくせい@\Showattrib {method}(属性)::::::::|hyperpage}{197}
-\indexentry{::\Showattrib {PUT}::値::::::|hyperpage}{197}
-\indexentry{::PUT あたい@\Showattrib {PUT}(値)::::::::|hyperpage}{197}
-\indexentry{::\Showattrib {action}::属性::::::|hyperpage}{197}
-\indexentry{::action ぞくせい@\Showattrib {action}(属性)::::::::|hyperpage}{197}
-\indexentry{::\Showattrib {name}::属性::::::|hyperpage}{197}
-\indexentry{::name ぞくせい@\Showattrib {name}(属性)::::::::|hyperpage}{197}
-\indexentry{::\Showattrib {PUT}::値::::::|hyperpage}{198}
-\indexentry{::PUT あたい@\Showattrib {PUT}(値)::::::::|hyperpage}{198}
-\indexentry{::\Showattrib {submit}::属性::::::|hyperpage}{198}
-\indexentry{::submit ぞくせい@\Showattrib {submit}(属性)::::::::|hyperpage}{198}
-\indexentry{::\Showattrib {SUBMIT}::値::::::|hyperpage}{198}
-\indexentry{::SUBMIT あたい@\Showattrib {SUBMIT}(値)::::::::|hyperpage}{198}
-\indexentry{::\Showattrib {action}::属性::::::|hyperpage}{198}
-\indexentry{::action ぞくせい@\Showattrib {action}(属性)::::::::|hyperpage}{198}
-\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{202}
-\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{202}
-\indexentry{::\Showattrib {name}::属性::::::|hyperpage}{202}
-\indexentry{::name ぞくせい@\Showattrib {name}(属性)::::::::|hyperpage}{202}
-\indexentry{::\Showattrib {action}::属性::::::|hyperpage}{209}
-\indexentry{::action ぞくせい@\Showattrib {action}(属性)::::::::|hyperpage}{209}
+\indexentry{::\ShowElm {script}::要素::::::|hyperpage}{80}
+\indexentry{::script@\ShowElm {script}::::::::|hyperpage}{80}
+\indexentry{::\Showattrib {setTimeout}::オブジェクトのメソッド ::::::|hyperpage}{113}
+\indexentry{::setTimeout おぶじぇくとのめそっど@\Showattrib {setTimeout}(オブジェクトのメソッド )::::::::|hyperpage}{113}
+\indexentry{::DOCTYPEせんげん@\texttt {DOCTYPE} 宣言::::::::|hyperpage}{116}
+\indexentry{::\ShowElm {htaml}::要素::::::|hyperpage}{116}
+\indexentry{::htaml@\ShowElm {htaml}::::::::|hyperpage}{116}
+\indexentry{::\ShowElm {head}::要素::::::|hyperpage}{116}
+\indexentry{::head@\ShowElm {head}::::::::|hyperpage}{116}
+\indexentry{::\ShowElm {meta}::要素::::::|hyperpage}{116}
+\indexentry{::meta@\ShowElm {meta}::::::::|hyperpage}{116}
+\indexentry{::\ShowElm {h1}::要素::::::|hyperpage}{116}
+\indexentry{::h1@\ShowElm {h1}::::::::|hyperpage}{116}
+\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{116}
+\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{116}
+\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{116}
+\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{116}
+\indexentry{::\Showattrib {id}::属性::::::|hyperpage}{117}
+\indexentry{::id ぞくせい@\Showattrib {id}(属性)::::::::|hyperpage}{117}
+\indexentry{::\ShowElm {h1}::要素::::::|hyperpage}{117}
+\indexentry{::h1@\ShowElm {h1}::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{117}
+\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{117}
+\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {font-size}::CSSプロパティ::::::|hyperpage}{117}
+\indexentry{::font-size CSSプロパティ@\Showattrib {font-size}(CSSプロパティ)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{117}
+\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {font-size}::CSSプロパティ::::::|hyperpage}{117}
+\indexentry{::font-size CSSプロパティ@\Showattrib {font-size}(CSSプロパティ)::::::::|hyperpage}{117}
+\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{117}
+\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {class}::属性::::::|hyperpage}{117}
+\indexentry{::class ぞくせい@\Showattrib {class}(属性)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {display}::CSSプロパティ::::::|hyperpage}{117}
+\indexentry{::display CSSプロパティ@\Showattrib {display}(CSSプロパティ)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {inline-block}::CSSの値::::::|hyperpage}{117}
+\indexentry{::inline-block CSSのあたい@\Showattrib {inline-block}(CSSの値)::::::::|hyperpage}{117}
+\indexentry{::\ShowElm {div}::要素::::::|hyperpage}{117}
+\indexentry{::div@\ShowElm {div}::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {vertical-align}::CSSプロパティ::::::|hyperpage}{117}
+\indexentry{::vertical-align CSSプロパティ@\Showattrib {vertical-align}(CSSプロパティ)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {middle}::CSSの値::::::|hyperpage}{117}
+\indexentry{::middle CSSのあたい@\Showattrib {middle}(CSSの値)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {padding-left}::CSSプロパティ::::::|hyperpage}{117}
+\indexentry{::padding-left CSSプロパティ@\Showattrib {padding-left}(CSSプロパティ)::::::::|hyperpage}{117}
+\indexentry{::\Showattrib {id}::属性::::::|hyperpage}{117}
+\indexentry{::id ぞくせい@\Showattrib {id}(属性)::::::::|hyperpage}{117}
+\indexentry{::\ShowElm {input}::要素::::::|hyperpage}{118}
+\indexentry{::input@\ShowElm {input}::::::::|hyperpage}{118}
+\indexentry{::\Showattrib {type}::属性::::::|hyperpage}{118}
+\indexentry{::type ぞくせい@\Showattrib {type}(属性)::::::::|hyperpage}{118}
+\indexentry{::\Showattrib {text}::値::::::|hyperpage}{118}
+\indexentry{::text あたい@\Showattrib {text}(値)::::::::|hyperpage}{118}
+\indexentry{::\Showattrib {text-align}::CSSプロパティ::::::|hyperpage}{118}
+\indexentry{::text-align CSSプロパティ@\Showattrib {text-align}(CSSプロパティ)::::::::|hyperpage}{118}
+\indexentry{::\Showattrib {right}::CSSの値::::::|hyperpage}{118}
+\indexentry{::right CSSのあたい@\Showattrib {right}(CSSの値)::::::::|hyperpage}{118}
+\indexentry{::\ShowElm {id}::要素::::::|hyperpage}{118}
+\indexentry{::id@\ShowElm {id}::::::::|hyperpage}{118}
+\indexentry{::\ShowElm {id}::要素::::::|hyperpage}{118}
+\indexentry{::id@\ShowElm {id}::::::::|hyperpage}{118}
+\indexentry{::\ShowElm {select}::要素::::::|hyperpage}{119}
+\indexentry{::select@\ShowElm {select}::::::::|hyperpage}{119}
+\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{119}
+\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{119}
+\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{119}
+\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{119}
+\indexentry{::\Showattrib {name}::属性::::::|hyperpage}{119}
+\indexentry{::name ぞくせい@\Showattrib {name}(属性)::::::::|hyperpage}{119}
+\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{119}
+\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{119}
+\indexentry{::\Showattrib {value}::属性::::::|hyperpage}{119}
+\indexentry{::value ぞくせい@\Showattrib {value}(属性)::::::::|hyperpage}{119}
+\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{119}
+\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{119}
+\indexentry{::\ShowElm {option}::要素::::::|hyperpage}{119}
+\indexentry{::option@\ShowElm {option}::::::::|hyperpage}{119}

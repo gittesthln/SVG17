@@ -1,147 +1,123 @@
 \begin{theindex}\small
-\item {\large\bf A}\nopagebreak[4]
-  \item \Showattrib {action}(属性) \dotfill \hyperpage{197}, 
-		\hyperpage{198}, \hyperpage{209}
-
-  \indexspace
 \item {\large\bf B}\nopagebreak[4]
   \item \ShowElm {BR} \dotfill \hyperpage{7}
 
   \indexspace
 \item {\large\bf C}\nopagebreak[4]
   \item \ShowElm {canvas} \dotfill \hyperpage{6}
-  \item \Showattrib {class}(属性) \dotfill \hyperpage{103}, 
-		\hyperpage{177}, \hyperpage{178}
+  \item \Showattrib {class}(属性) \dotfill \hyperpage{116}, 
+		\hyperpage{117}
   \item CSSの値
-    \subitem \Showattrib {inline-block} \dotfill \hyperpage{178}
-    \subitem \Showattrib {middle} \dotfill \hyperpage{179}
-    \subitem \Showattrib {right} \dotfill \hyperpage{179}
+    \subitem \Showattrib {inline-block} \dotfill \hyperpage{117}
+    \subitem \Showattrib {middle} \dotfill \hyperpage{117}
+    \subitem \Showattrib {right} \dotfill \hyperpage{118}
   \item CSSプロパティ
-    \subitem \Showattrib {display} \dotfill \hyperpage{178}
-    \subitem \Showattrib {font-size} \dotfill \hyperpage{178}
-    \subitem \Showattrib {padding-left} \dotfill \hyperpage{179}
-    \subitem \Showattrib {text-align} \dotfill \hyperpage{179}
-    \subitem \Showattrib {vertical-align} \dotfill \hyperpage{179}
+    \subitem \Showattrib {display} \dotfill \hyperpage{117}
+    \subitem \Showattrib {font-size} \dotfill \hyperpage{117}
+    \subitem \Showattrib {padding-left} \dotfill \hyperpage{117}
+    \subitem \Showattrib {text-align} \dotfill \hyperpage{118}
+    \subitem \Showattrib {vertical-align} \dotfill \hyperpage{117}
 
   \indexspace
 \item {\large\bf D}\nopagebreak[4]
-  \item \Showattrib {display}(CSSプロパティ) \dotfill \hyperpage{178}
-  \item \ShowElm {div} \dotfill \hyperpage{177}, \hyperpage{178}
-  \item \texttt {DOCTYPE} 宣言 \dotfill \hyperpage{177}
+  \item \Showattrib {display}(CSSプロパティ) \dotfill \hyperpage{117}
+  \item \ShowElm {div} \dotfill \hyperpage{116}, \hyperpage{117}
+  \item \texttt {DOCTYPE} 宣言 \dotfill \hyperpage{116}
 
   \indexspace
 \item {\large\bf F}\nopagebreak[4]
-  \item \Showattrib {font-size}(CSSプロパティ) \dotfill \hyperpage{178}
-  \item \ShowElm {form} \dotfill \hyperpage{197}
+  \item \Showattrib {font-size}(CSSプロパティ) \dotfill \hyperpage{117}
 
   \indexspace
 \item {\large\bf H}\nopagebreak[4]
-  \item \ShowElm {h1} \dotfill \hyperpage{177}, \hyperpage{178}
-  \item \ShowElm {head} \dotfill \hyperpage{177}
-  \item \ShowElm {htaml} \dotfill \hyperpage{177}
+  \item \ShowElm {h1} \dotfill \hyperpage{116}, \hyperpage{117}
+  \item \ShowElm {head} \dotfill \hyperpage{116}
+  \item \ShowElm {htaml} \dotfill \hyperpage{116}
   \item \ShowElm {html} \dotfill \hyperpage{4}
 
   \indexspace
 \item {\large\bf I}\nopagebreak[4]
-  \item \ShowElm {id} \dotfill \hyperpage{179}
-  \item \Showattrib {id}(属性) \dotfill \hyperpage{178}, \hyperpage{179}
-  \item \Showattrib {inline-block}(CSSの値) \dotfill \hyperpage{178}
-  \item \ShowElm {input} \dotfill \hyperpage{179}, \hyperpage{194}, 
-		\hyperpage{202}
+  \item \ShowElm {id} \dotfill \hyperpage{118}
+  \item \Showattrib {id}(属性) \dotfill \hyperpage{117}
+  \item \Showattrib {inline-block}(CSSの値) \dotfill \hyperpage{117}
+  \item \ShowElm {input} \dotfill \hyperpage{118}
 
   \indexspace
 \item {\large\bf M}\nopagebreak[4]
-  \item \ShowElm {meta} \dotfill \hyperpage{177}
-  \item \Showattrib {method}(属性) \dotfill \hyperpage{197}
-  \item \Showattrib {middle}(CSSの値) \dotfill \hyperpage{179}
+  \item \ShowElm {meta} \dotfill \hyperpage{116}
+  \item \Showattrib {middle}(CSSの値) \dotfill \hyperpage{117}
 
   \indexspace
 \item {\large\bf N}\nopagebreak[4]
-  \item \Showattrib {name}(属性) \dotfill \hyperpage{180}, 
-		\hyperpage{197}, \hyperpage{202}
+  \item \Showattrib {name}(属性) \dotfill \hyperpage{119}
 
   \indexspace
 \item {\large\bf O}\nopagebreak[4]
-  \item \ShowElm {option} \dotfill \hyperpage{180}
+  \item \ShowElm {option} \dotfill \hyperpage{119}
 
   \indexspace
 \item {\large\bf P}\nopagebreak[4]
   \item \Showattrib {padding-left}(CSSプロパティ) \dotfill 
-		\hyperpage{179}
-  \item \Showattrib {PUT}(値) \dotfill \hyperpage{197}, \hyperpage{198}
+		\hyperpage{117}
 
   \indexspace
 \item {\large\bf R}\nopagebreak[4]
-  \item \Showattrib {right}(CSSの値) \dotfill \hyperpage{179}
+  \item \Showattrib {right}(CSSの値) \dotfill \hyperpage{118}
 
   \indexspace
 \item {\large\bf S}\nopagebreak[4]
-  \item \ShowElm {script} \dotfill \hyperpage{134}
-  \item \ShowElm {select} \dotfill \hyperpage{180}
+  \item \ShowElm {script} \dotfill \hyperpage{80}
+  \item \ShowElm {select} \dotfill \hyperpage{119}
   \item \Showattrib {setTimeout}(オブジェクトのメソッド ) \dotfill 
-		\hyperpage{174}
-  \item \Showattrib {SUBMIT}(値) \dotfill \hyperpage{198}
-  \item \Showattrib {submit}(属性) \dotfill \hyperpage{198}
+		\hyperpage{113}
 
   \indexspace
 \item {\large\bf T}\nopagebreak[4]
-  \item \Showattrib {text}(値) \dotfill \hyperpage{179}, \hyperpage{194}
-  \item \Showattrib {text-align}(CSSプロパティ) \dotfill \hyperpage{179}
-  \item \Showattrib {type}(属性) \dotfill \hyperpage{179}, 
-		\hyperpage{194}
+  \item \Showattrib {text}(値) \dotfill \hyperpage{118}
+  \item \Showattrib {text-align}(CSSプロパティ) \dotfill \hyperpage{118}
+  \item \Showattrib {type}(属性) \dotfill \hyperpage{118}
 
   \indexspace
 \item {\large\bf V}\nopagebreak[4]
-  \item \Showattrib {value}(属性) \dotfill \hyperpage{180}
+  \item \Showattrib {value}(属性) \dotfill \hyperpage{119}
   \item \Showattrib {vertical-align}(CSSプロパティ) \dotfill 
-		\hyperpage{179}
+		\hyperpage{117}
 
   \indexspace
 \item {\large\bf あ}\nopagebreak[4]
   \item 値
-    \subitem \Showattrib {PUT} \dotfill \hyperpage{197}, \hyperpage{198}
-    \subitem \Showattrib {SUBMIT} \dotfill \hyperpage{198}
-    \subitem \Showattrib {text} \dotfill \hyperpage{179}, 
-		\hyperpage{194}
+    \subitem \Showattrib {text} \dotfill \hyperpage{118}
 
   \indexspace
 \item {\large\bf お}\nopagebreak[4]
   \item オブジェクトのメソッド 
-    \subitem \Showattrib {setTimeout} \dotfill \hyperpage{174}
+    \subitem \Showattrib {setTimeout} \dotfill \hyperpage{113}
 
   \indexspace
 \item {\large\bf そ}\nopagebreak[4]
   \item 属性
-    \subitem \Showattrib {action} \dotfill \hyperpage{197}, 
-		\hyperpage{198}, \hyperpage{209}
-    \subitem \Showattrib {class} \dotfill \hyperpage{103}, 
-		\hyperpage{177}, \hyperpage{178}
-    \subitem \Showattrib {id} \dotfill \hyperpage{178}, \hyperpage{179}
-    \subitem \Showattrib {method} \dotfill \hyperpage{197}
-    \subitem \Showattrib {name} \dotfill \hyperpage{180}, 
-		\hyperpage{197}, \hyperpage{202}
-    \subitem \Showattrib {submit} \dotfill \hyperpage{198}
-    \subitem \Showattrib {type} \dotfill \hyperpage{179}, 
-		\hyperpage{194}
-    \subitem \Showattrib {value} \dotfill \hyperpage{180}
+    \subitem \Showattrib {class} \dotfill \hyperpage{116}, 
+		\hyperpage{117}
+    \subitem \Showattrib {id} \dotfill \hyperpage{117}
+    \subitem \Showattrib {name} \dotfill \hyperpage{119}
+    \subitem \Showattrib {type} \dotfill \hyperpage{118}
+    \subitem \Showattrib {value} \dotfill \hyperpage{119}
 
   \indexspace
 \item {\large\bf よ}\nopagebreak[4]
   \item 要素
     \subitem \ShowElm {BR} \dotfill \hyperpage{7}
     \subitem \ShowElm {canvas} \dotfill \hyperpage{6}
-    \subitem \ShowElm {div} \dotfill \hyperpage{177}, \hyperpage{178}
-    \subitem \ShowElm {form} \dotfill \hyperpage{197}
-    \subitem \ShowElm {h1} \dotfill \hyperpage{177}, \hyperpage{178}
-    \subitem \ShowElm {head} \dotfill \hyperpage{177}
-    \subitem \ShowElm {htaml} \dotfill \hyperpage{177}
+    \subitem \ShowElm {div} \dotfill \hyperpage{116}, \hyperpage{117}
+    \subitem \ShowElm {h1} \dotfill \hyperpage{116}, \hyperpage{117}
+    \subitem \ShowElm {head} \dotfill \hyperpage{116}
+    \subitem \ShowElm {htaml} \dotfill \hyperpage{116}
     \subitem \ShowElm {html} \dotfill \hyperpage{4}
-    \subitem \ShowElm {id} \dotfill \hyperpage{179}
-    \subitem \ShowElm {input} \dotfill \hyperpage{179}, 
-		\hyperpage{194}, \hyperpage{202}
-    \subitem \ShowElm {meta} \dotfill \hyperpage{177}
-    \subitem \ShowElm {option} \dotfill \hyperpage{180}
-    \subitem \ShowElm {script} \dotfill \hyperpage{134}
-    \subitem \ShowElm {select} \dotfill \hyperpage{180}
+    \subitem \ShowElm {id} \dotfill \hyperpage{118}
+    \subitem \ShowElm {input} \dotfill \hyperpage{118}
+    \subitem \ShowElm {meta} \dotfill \hyperpage{116}
+    \subitem \ShowElm {option} \dotfill \hyperpage{119}
+    \subitem \ShowElm {script} \dotfill \hyperpage{80}
+    \subitem \ShowElm {select} \dotfill \hyperpage{119}
 
 \end{theindex}

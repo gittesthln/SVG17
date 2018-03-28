@@ -1,10 +1,11 @@
 <?php
+
 $indexfiles=array("","SVG","JS","HTML","PHP","XML");
 $Files = array();
 foreach($indexfiles as $v){
   $Files[$v] = fopen("index$v.idx","w");
 }
-$lines = file("00svg-all.idx"); 
+$lines = file("{$argv[1]}.idx"); 
 for($i=0;$i<count($lines);$i++) {
   $data=mb_split("::",$lines[$i]);
   if(count($data) == 1) {

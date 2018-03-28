@@ -1,11 +1,12 @@
-FULL = 00svg-all
+#FULL = 00svg-all
+FULL = 00svg-seminor
 PLATEX = platex -kanji=UTF8 
 PDFS =  $(FULL).pdf
 GS = gswin$(O)c -dNOPAUSE -dBATCH -sDEVICE=pdfwrite 
 DVIPS = dvips -Ppdf
 
 HP = HP/
-YEAR = 2016
+YEAR = 2018
 FULLFILES = $(FULL).tex $(MACRO) $(CH1) $(CH2) $(CH3) \
     $(Appendix) $(INSTALL) 
 # $(CH2) $(CH3) $(CH4) \
@@ -114,7 +115,7 @@ pdf:
 ref:
 	php ref.php $(FULL)000.tex
 index:
-	php  divideindex.php
+	php  divideindex.php $(FULL)
 	make F="index" indexnn
 	make F="indexSVG" indexnn
 	make F="indexJS" indexnn
